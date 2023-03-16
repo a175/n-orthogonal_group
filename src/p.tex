@@ -5,13 +5,11 @@
 $\RR$は実数全体のなす集合とする.
 
 特に断らない限り,
-$V$は$n$次元ユークリッド空間を表すとし,
-$\zzero$は$V$の零ベクトルを表すとする.
+$V$は$n$次元ユークリッド空間を表すとする.
 つまり,
 \begin{align*}
   V&=\RR^n\\
-  &=\Set{\begin{pmatrix}\alpha_1\\\vdots\\\alpha_n\end{pmatrix} | \alpha_i \in \RR}\\
- \zzero&=\begin{pmatrix}0\\\vdots\\0\end{pmatrix}
+  &=\Set{\begin{pmatrix}\alpha_1\\\vdots\\\alpha_n\end{pmatrix} | \alpha_i \in \RR}.
 \end{align*}
 とする. また, 内積は $\Braket{\bullet,\bullet}$で表すとする.
 つまり,
@@ -23,6 +21,16 @@ $\zzero$は$V$の零ベクトルを表すとする.
 \Braket{\alpha,\beta}=\sum_{i=1}^n \alpha_i \beta_i
 \end{align*}
 とする.
+$\zzero$は$V$の零ベクトルを表し,
+$\Set{\ee_1,\ldots,\ee_n}$は$V$の標準基底であるとする.
+つまり,
+\begin{align*}
+ \zzero&=\begin{pmatrix}0\\\vdots\\0\end{pmatrix}\\
+ \ee_1&=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}\\
+ &\vdots\\
+ \ee_n&=\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}
+\end{align*}
+
 
 $\alpha \in V\setminus\Set{\zzero}$に対し,
 \begin{align*}
@@ -52,6 +60,20 @@ $\alpha \in V\setminus\Set{\zzero}$に対し,
   \begin{enumerate}
   \item $f(\alpha)=-\alpha$.
   \item $\beta \in H_\alpha \implies f(\alpha)=\alpha$.    
+  \end{enumerate}
+\end{definition}
+$n$次正方行列は,
+$\alpha\in V$に対し,
+$A\alpha\in V$を対応させる$V$から$V$への線型写像であると思うことができる.
+
+\begin{definition}
+  $\alpha \in V\setminus\Set{\zzero}$とし,
+  $A$は$n$次正方行列であるとする.
+  次の2つの条件を満たすとき,
+  $A$が$\alpha$に関する鏡映であるという:
+  \begin{enumerate}
+  \item $A\alpha=-\alpha$.
+  \item $\beta \in H_\alpha \implies A\alpha=\alpha$.    
   \end{enumerate}
 \end{definition}
 
