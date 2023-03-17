@@ -1,7 +1,7 @@
 % !TeX root =./x2.tex
 % !TeX program = pdfLaTeX
-\chapter{鏡映群の定義}
-\section{鏡映の定義}
+\chapter{鏡映}
+\section{鏡映の定義と例}
 $\RR$は実数全体のなす集合とする.
 
 特に断らない限り,
@@ -335,3 +335,90 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
   である.  $\beta\in H_\alpha$に対し, 
   $F_k \beta = -\beta$となることは, 直接計算すればわかる.
 \end{example}
+
+\begin{example}
+  $\alpha\in V\setminus\Set{\zzero}$とする.
+  $\beta\in V$に対して,
+  \begin{align*}
+    s_\alpha (\beta) = \beta - 2\frac{\Braket{\alpha,\beta}}{\Braket{\alpha,\alpha}}\alpha
+  \end{align*}
+  と定義する. $s_\alpha$は$V$から$V$への線型写像である.
+  また, $s_\alpha$は$\alpha$に関する鏡映である.
+  実際
+  \begin{align*}
+    s_\alpha (\alpha) = \alpha - 2\frac{\Braket{\alpha,\alpha}}{\Braket{\alpha,\alpha}}\alpha
+      = \alpha - 2\alpha=-\alpha
+  \end{align*}
+であり, $\beta\in H_\alpha$に対しては,  
+  \begin{align*}
+    s_\alpha (\beta) = \beta - 2\frac{\Braket{\alpha,\beta}}{\Braket{\alpha,\alpha}}\alpha
+    = \beta - 0\alpha =\beta
+  \end{align*}
+  となる,
+\end{example}
+
+\section{鏡映の性質}
+\begin{lemma}
+  \label{lemma:reflisunique}
+  $s$も$s'$も$\alpha$に関する鏡映であるとする.
+  このとき, $s=s'$.
+\end{lemma}
+\begin{proof}
+  $V =   H_\alpha +  \RR\alpha$
+  であるので,
+  $s(\alpha)=s'(\alpha)$と,
+  $\beta\in H_\alpha$に対して
+  $s(\beta)=s'(\beta)$を示せば十分である.
+  これらは,
+  $\alpha$に関する鏡映の定義から直接わかる.
+\end{proof}
+\Cref{lemma:reflisunique}を使うと次がすぐわかる.
+\begin{prop}
+  $s$を$V$上の線形変換であるとする.
+  $s$が$\alpha$に関する鏡映であるとき, $s=s_\alpha$.
+\end{prop}
+
+\begin{prop}
+  $\alpha, \alpha' \in V\setminus\Set{\zzero}$とする.
+  このとき, 次は同値:
+  \begin{enumerate}
+  \item $s_\alpha=s_{\alpha'}$.
+  \item $\alpha=c\alpha'$となる$c\in \RR$が存在する.
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  $s_\alpha=s_{\alpha'}$とする.
+  このとき,
+  \begin{align*}
+    s_\alpha(\alpha) &=-\alpha,
+    s_{\alpha'} (\alpha) &= \alpha - 2\frac{\Braket{\alpha',\alpha}}{\Braket{\alpha',\alpha'}}\alpha'
+  \end{align*}
+  であるので,
+  \begin{align*}
+    -\alpha &= \alpha - 2\frac{\Braket{\alpha',\alpha}}{\Braket{\alpha',\alpha'}}\alpha'\\
+    \alpha &= \frac{\Braket{\alpha',\alpha}}{\Braket{\alpha',\alpha'}}\alpha'
+  \end{align*}
+  となる.
+
+  $\alpha=c\alpha'$とする.
+  このとき,
+  \begin{align*}
+    s_{\alpha}(\alpha')=s_{\alpha}(c\alpha)=cs_{\alpha}(\alpha)=-c\alpha=-\alpha'
+  \end{align*}
+  である.
+  また,
+  $\alpha\neq \zzero$
+  であるので, $c\neq 0$である.
+  $\beta \in H_{\alpha'}$とすると,
+  \begin{align*}
+    \Braket{\alpha,\beta}=\Braket{\frac{1}{c}\alpha',\beta}=\frac{1}{c}\Braket{\alpha',\beta}=0
+  \end{align*}
+  であるので, $\beta \in H_\alpha$である.
+  したがって,
+  $s_\alpha(\beta)=\beta$である.
+  よって, $s_\alpha$は$\alpha'$に関する鏡映である.
+  \Cref{lemma:reflisunique}
+  より, $s_\alpha=s_{\alpha'}$である.
+\end{proof}
+
+
