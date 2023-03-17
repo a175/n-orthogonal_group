@@ -213,7 +213,11 @@ $R_\theta$は鏡映ではない.
   である.
   $\alpha=\ee_k$とすると, $F_k$は$\alpha$ に関する鏡映である.
   $F_k \alpha = -\alpha$となることは, 直接計算すればわかる.
-  また,
+  また, $\beta\in V$に対し,
+  \begin{align*}
+    \Braket{\alpha,\beta}= \beta_k 
+  \end{align*}
+  であるので,
   \begin{align*}
     H_\alpha = \Set{
       \beta=
@@ -225,6 +229,41 @@ $R_\theta$は鏡映ではない.
       | \beta_k=0}
   \end{align*}
   である.  $\beta\in H_\alpha$に対し, 
+  $F_k \beta = -\beta$となることは, 直接計算すればわかる.
+\end{example}
+
+\begin{example}
+  $T_{k,l}$を$(k,k)$成分と$(l,l)$成分は$0$, 他の対角成分は$1$,
+$(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
+  であるような$n$次正方行列とする.
+  つまり,
+  \begin{align*}
+    T_k =E_n-E_{k,k}-E_{l,l}+E_{l,k}+E_{k,l}
+  \end{align*}
+  である.
+  $\alpha=\ee_k-\ee_l$とすると, $T_{k,l}$は$\alpha$ に関する鏡映である.
+  実際,
+  \begin{align*}
+    T_{k,l} \alpha = T_{k,l}(e_k-e_l) = T_{k,l}e_k-T_{k,l}e_l = e_l - e_k = -(e_k - e_l) = -\alpha 
+  \end{align*}
+  である.  
+  また, $\beta\in V$に対し,
+  \begin{align*}
+    \Braket{\alpha,\beta}= \beta_k - \beta_l
+  \end{align*}
+  であるので,
+  \begin{align*}
+    H_\alpha = \Set{
+      \beta=
+      \begin{pmatrix}
+        \beta_1\\
+        \vdots\\
+        \beta_n
+      \end{pmatrix}
+      | \beta_k=\beta_l}
+  \end{align*}
+  である.
+  $\beta\in H_\alpha$に対し, 
   $F_k \beta = -\beta$となることは, 直接計算すればわかる.
 \end{example}
 
