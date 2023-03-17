@@ -61,11 +61,14 @@ $\alpha \in V\setminus\Set{\zzero}$に対し,
   \item $f(\alpha)=-\alpha$.
   \item $\beta \in H_\alpha \implies f(\alpha)=\alpha$.    
   \end{enumerate}
+  $f$が$\alpha$に関する鏡映であるような$\alpha\in V\setminus\Set{\zzero}$が存在するとき,
+  $f$は鏡映であるという.
 \end{definition}
 $n$次正方行列は,
 $\alpha\in V$に対し,
 $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思うことができる.
-
+対応する線型写像が鏡映であるとき, その行列も鏡映と呼ぶことにする.
+行列の言葉に定義を書き直すと以下のようになる.
 \begin{definition}
   $\alpha \in V\setminus\Set{\zzero}$とし,
   $A$は$n$次正方行列であるとする.
@@ -140,7 +143,32 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
     \end{pmatrix}
 \end{align*}
 である.
-もっと一般に, 実数$\theta$に対し,
+\end{example}
+
+\begin{example}
+  $E_n$で$n$次単位行列を表すことにする.
+  つまり,
+  \begin{align*}
+    E_n=\diag(1,\ldots,1)
+  \end{align*}
+  である. $E_n$は鏡映ではない.
+  $\alpha\in V$に対し,
+  \begin{align*}
+    E_n\alpha=-\alpha
+  \end{align*}
+  とすると,
+  \begin{align*}
+    \alpha=\zzero
+  \end{align*}
+  となり, $V\setminus\Set{\zzero}$の元では,
+  $E_n\alpha=-\alpha$を満たすことがないので,
+  $E_n$は鏡映ではない.
+\end{example}
+
+\begin{example}
+  $P_0$は鏡映であったが,
+  もっと一般に,
+  実数$\theta$に対し,
 \begin{align*}
   P_{2\theta}=
   \begin{pmatrix}
@@ -196,15 +224,14 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
  \end{align*}
  である.
  したがって, $\cos(\theta)\neq 0$のときには,
- $R_\theta + E_2$は正則であるから, $\alpha=\zzero$のみが解となる.
- また,  $\cos(\theta)= 0$のときには, $R_\theta=E_2$である.
- このときには, $R_\theta \alpha = E_2\alpha = \alpha$となり, 方程式は$\alpha=-\alpha$となるため,
- $\alpha=\zzero$のみが解となる.
- いずれの場合も $\alpha=\zzero$のみが解であり,
-$R_\theta$は鏡映ではない.
+ $R_\theta + E_2$は正則であるから, $\alpha=\zzero$のみが解となり,
+ この場合は鏡映ではないことがわかる.
+ また,  $\cos(\theta)= 0$のときには, $R_\theta=E_2$であり,
+ この場合も鏡映ではない.
 \end{example}
 
 \begin{example}
+  $P_0$は鏡映であった.
   $F_k$を$(k,k)$成分は$-1$, 他の対角成分は$1$であるような$n$次対角行列とする.
 つまり,
   \begin{align*}
