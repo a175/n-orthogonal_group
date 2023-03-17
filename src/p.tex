@@ -79,10 +79,128 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
 
 \begin{example}
   \begin{align*}
+    P_0=
     \begin{pmatrix}
       1 & 0 \\
       0 & -1 
     \end{pmatrix}.
   \end{align*}
-は鏡映である.
+  とし,
+  $\alpha=\ee_2$とおくと,
+  $P_0$は$\alpha$に関する鏡映である.
+実際, 
+\begin{align*}
+  P_0\alpha = 
+      \begin{pmatrix}
+      1 & 0 \\
+      0 & -1 
+      \end{pmatrix}
+      \alpha
+    =
+      \begin{pmatrix}
+      1 & 0 \\
+      0 & -1 
+    \end{pmatrix}
+    \begin{pmatrix}
+      0  \\
+      1  
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0  \\
+      -1  
+    \end{pmatrix}
+    =
+    -
+    \begin{pmatrix}
+      0  \\
+      1  
+    \end{pmatrix}
+    =
+    -\alpha
+\end{align*}
+である.  また,
+\begin{align*}
+  H_\alpha = \Set{c \ee_1 | c\in \RR}
+\end{align*}
+であるが,
+\begin{align*}
+    \begin{pmatrix}
+      1 & 0 \\
+      0 & -1 
+    \end{pmatrix}
+    \begin{pmatrix}
+      c  \\
+      0  
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      c  \\
+      0  
+    \end{pmatrix}
+\end{align*}
+である.
+もっと一般に, 実数$\theta$に対し,
+\begin{align*}
+  P_{2\theta}=
+  \begin{pmatrix}
+    \cos(2\theta) & \sin(2\theta) \\
+    \sin(2\theta) & -\cos(2\theta) 
+  \end{pmatrix},\\
+  \alpha_\theta
+  =
+  \begin{pmatrix}
+    \sin(\theta) \\
+    \cos(\theta) 
+  \end{pmatrix}
+\end{align*}
+とおけば, $P_{2\theta}$は$\alpha_\theta$に関する鏡映である.
+実際,
+\begin{align*}
+  H_{\alpha_{\theta}} = \Set{c \alpha_{\theta+\frac{\pi}{2}}|c\in \RR} 
+\end{align*}
+であるので,
+\begin{align*}
+  P_{2\theta}\alpha_{\theta} &= - \alpha_{\theta},\\
+  P_{2\theta}(c\alpha_{\theta+\frac{\pi}{2}}) &= c\alpha_{\theta+\frac{\pi}{2}}
+\end{align*}
+を示せばよいが, これらは直接, 計算することで確かめることができる.
 \end{example}
+
+\begin{example}
+ 実数$\theta$に対し,
+  \begin{align*}
+    R_\theta=
+    \begin{pmatrix}
+      \cos(\theta) & -\sin(\theta) \\
+      \sin(\theta) & \cos(\theta)
+    \end{pmatrix}.
+  \end{align*}
+ とおくと, これは鏡映ではない.
+ \begin{align*}
+    R_\theta \alpha = -\alpha
+ \end{align*}
+ とする. このとき,
+ \begin{align*}
+    (R_\theta + E_2)\alpha = \zzero
+ \end{align*}
+ である.
+ \begin{align*}
+   \det(R_\theta + E_2) &= 
+    \begin{pmatrix}
+      \cos(\theta) +1 & -\sin(\theta) \\
+      \sin(\theta) & \cos(\theta) +1 
+    \end{pmatrix}\\
+    &=(\cos(\theta) +1)^2 + (\sin(\theta))^2\\
+    &=2(1+\cos(\theta))
+ \end{align*}
+ である.
+ したがって, $\cos(\theta)\neq 0$のときには,
+ $R_\theta + E_2$は正則であるから, $\alpha=\zzero$のみが解となる.
+ また,  $\cos(\theta)= 0$のときには, $R_\theta=E_2$である.
+ このときには, $R_\theta \alpha = E_2\alpha = \alpha$となり, 方程式は$\alpha=-\alpha$となるため,
+ $\alpha=\zzero$のみが解となる.
+ いずれの場合も $\alpha=\zzero$のみが解であり,
+$R_\theta$は鏡映ではない.
+\end{example}
+
