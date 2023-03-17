@@ -269,3 +269,42 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
 
 
 
+\begin{example}
+  $k\neq l$に対し,
+  $F_{k,l}=F_kF_lT_{k,l}$とおく.
+  つまり$F_{k,l}$は$(k,k)$成分と$(l,l)$成分は$0$, 他の対角成分は$1$,
+  $(k,l)$成分と$(l,k)$成分は$-1$, 他の成分は$0$であるような$n$次正方行列であり,
+  \begin{align*}
+    F_{k,l} = E_n-E_{k,k}-E_{l,l}-E_{k,l}-E_{l,k}
+  \end{align*}
+  である.
+  $\alpha=\ee_k+\ee_l$とすると, $F_{k,l}$は$\alpha$ に関する鏡映である.
+  実際,
+  \begin{align*}
+    F_{k,l} \alpha &= F_kF_lT_{k,l}(\ee_k+\ee_l)\\
+    &= F_kF_l(\ee_k+\ee_l)\\
+    &= F_kF_l\ee_k+F_kF_l\ee_l\\
+    &= F_k\ee_k-F_k\ee_l\\
+    &= -\ee_k-\ee_l\\
+    &= -(\ee_k+\ee_l)\\
+    &= -\alpha
+  \end{align*}
+  となる.
+  また, $\beta\in V$に対し,
+  \begin{align*}
+    \Braket{\alpha,\beta}= -\beta_k-\beta_l 
+  \end{align*}
+  であるので,
+  \begin{align*}
+    H_\alpha = \Set{
+      \beta=
+      \begin{pmatrix}
+        \beta_1\\
+        \vdots\\
+        \beta_n
+      \end{pmatrix}
+      | \beta_k=-\beta_l}
+  \end{align*}
+  である.  $\beta\in H_\alpha$に対し, 
+  $F_k \beta = -\beta$となることは, 直接計算すればわかる.
+\end{example}
