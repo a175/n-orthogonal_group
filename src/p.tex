@@ -1,6 +1,18 @@
 % !TeX root =./x2.tex
 % !TeX program = pdfLaTeX
+\chapter{準備}
+\section{線型写像に関する用語など}
+$f\circ g$を$fg$とかく.
+
+$f\colon V\to V$を$V$上の変換とよぶ.
+
+直交行列.
+
+直交行列の固有値は1,-1
+固有空間は直交する.
+
 \chapter{鏡映}
+
 \section{鏡映の定義と例}
 $\RR$は実数全体のなす集合とする.
 
@@ -358,6 +370,7 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
 \end{example}
 
 \section{鏡映の性質}
+ここでは, $V$から$V$への線型写像で鏡映であるものの性質について考える.
 \begin{lemma}
   \label{lemma:reflisunique}
   $s$も$s'$も$\alpha$に関する鏡映であるとする.
@@ -420,5 +433,138 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
   \Cref{lemma:reflisunique}
   より, $s_\alpha=s_{\alpha'}$である.
 \end{proof}
+
+
+\begin{prop}
+  $s$を鏡映とする.
+  このとき, $s^2=\id_V$.
+\end{prop}
+\begin{proof}
+  $s$を$\alpha$に関する鏡映とする.
+  $s^2(\alpha)=s(-\alpha)=-s(\alpha)=-(-\alpha)=\alpha$
+  である.
+  また, $\beta\in V$に対して,
+  $s^2(\beta)=s(\beta)=\beta$である.
+  よって,
+  $s$は$V$上の恒等写像である.
+\end{proof}
+
+\begin{cor}
+  $s$を鏡映とする.
+  このとき, $s=s^{-1}$.
+\end{cor}
+
+
+\begin{prop}
+  $s$を鏡映とする.
+  このとき, $s$は内積を保存する.
+  つまり, $\lambda,\mu\in V$に対して, $\Braket{s(\lambda),s(\mu)}=\Braket{\lambda,\mu}$である.
+\end{prop}
+\begin{proof}
+  $s$を$\alpha$に関する鏡映とする.
+  $\lambda,\mu\in V$とすると,
+  $V=H_\alpha+\RR\alpha$であるので,
+  \begin{align*}
+    \lambda &= \beta_\lambda + a_\lambda \alpha, 
+    &\mu &= \beta_\mu + a_\mu \alpha 
+  \end{align*}
+  をみたす$\beta_\lambda, \beta_\mu \in H_\alpha$と$a_\lambda,a_\mu \in \RR$が存在する.
+  \begin{align*}
+    \Braket{s(\lambda),s(\mu)}&=
+    \Braket{s(\beta_\lambda + a_\lambda \alpha), s(\beta_\mu + a_\mu \alpha) }\\
+    &=
+    \Braket{\beta_\lambda - a_\lambda \alpha, \beta_\mu - a_\mu \alpha }\\
+    &=
+    \Braket{\beta_\lambda , \beta_\mu  }
+    +\Braket{\beta_\lambda ,  - a_\mu \alpha }
+    +\Braket{ - a_\lambda \alpha, \beta_\mu }
+    +\Braket{ - a_\lambda \alpha, - a_\mu \alpha }\\
+    &=
+    \Braket{\beta_\lambda , \beta_\mu  }
+    +0
+    +0
+    +\Braket{ a_\lambda \alpha, a_\mu \alpha }\\
+    &=
+    \Braket{\beta_\lambda , \beta_\mu  }
+    +\Braket{ a_\lambda \alpha, a_\mu \alpha }\\
+    \Braket{\lambda,\mu}&=
+    \Braket{\beta_\lambda + a_\lambda \alpha, \beta_\mu + a_\mu \alpha }\\
+    &=
+    \Braket{\beta_\lambda , \beta_\mu  }
+    +\Braket{\beta_\lambda ,  a_\mu \alpha }
+    +\Braket{a_\lambda \alpha, \beta_\mu }
+    +\Braket{a_\lambda \alpha, a_\mu \alpha }\\
+    &=
+    \Braket{\beta_\lambda , \beta_\mu  }
+    +0
+    +0
+    +\Braket{ a_\lambda \alpha, a_\mu \alpha }\\
+    &=
+    \Braket{\beta_\lambda , \beta_\mu  }
+    +\Braket{ a_\lambda \alpha, a_\mu \alpha }
+  \end{align*}
+  がなりたつ. 
+\end{proof}
+
+\begin{prop}
+  $t$は内積を保つ線型写像であるとする.
+  $\alpha\in V\setminus\Set{\zzero}$に対し,
+  $ts_\alpha t^{-1}=s_{t(\alpha)}$.
+\end{prop}
+\begin{proof}
+\Cref{lemma:reflisunique}より,
+  $ts_\alpha t^{-1}$が$t(\alpha)$に関する鏡映であることを示せば十分である.
+\begin{align*}
+  ts_\alpha t^{-1}(t(\alpha))=ts_\alpha(\alpha)=t(-\alpha)=-t(\alpha)
+\end{align*}
+である. また$\beta\in H_{t(\alpha)}$に対して,
+\begin{align*}
+\Braket{\alpha,t^{-1}(\beta)}
+=\Braket{t(\alpha),\beta}
+=0
+\end{align*}
+であるので, $t^{-1}(\beta)\in H_\alpha$である.
+したがって,
+\begin{align*}
+  ts_\alpha t^{-1}(\beta)=ts_\alpha(t^{-1}(\beta))=t(t^{-1}(\beta))=\beta.
+\end{align*}
+\end{proof}
+
+\begin{prop}
+  直交変換$s$に対し以下は同値:
+  \begin{enumerate}
+  \item $s$は鏡映である.
+  \item 固有値$-1$に属する固有空間の次元は$1$次元である.
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  $s$が$\alpha$に関する鏡映であるとする.
+  このとき, 定義から,
+  固有値$-1$に属する固有空間は$\RR\alpha$であり,
+  固有値$1$に属する固有空間は$H_\alpha$である.
+  よって固有値$-1$に属する固有空間の次元は$1$次元である.
+
+  固有値$-1$に属する固有空間の次元は$1$次元であるとする.
+  このとき, 固有値$-1$に属する固有空間は$\RR\alpha$とかける.
+  直交変換の固有値は, $1$か$-1$であり, 固有空間は互いに直交するので,
+  固有値$1$に属する固有空間は$H_\alpha$である.
+  固有値の定義から,
+  $s(\alpha)=\alpha$と
+  $\beta\in H_\alpha$に対して$s(\beta)=\beta$である.
+  したがって,
+  $s$は$\alpha$に関する鏡映である.
+\end{proof}
+
+鏡映変換に関する性質を, 行列の言葉に書き直しておく.
+\begin{cor}
+  $A$は$n$次正方行列とし, 鏡映であるとする.
+  このとき,
+  \begin{align*}
+    A^2&=E_n,\\
+    \transposed{A}A&=E_n,\\
+    A&=A^{-1}=\transposed{A},\\
+    \det(A)&=-1.
+  \end{align*}
+\end{cor}
 
 
