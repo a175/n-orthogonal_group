@@ -610,3 +610,260 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
 \section{有限鏡映群の例}
 
 \subsection{$I_2(m)$}
+$m$を正の整数とする.
+ここでは, 記号の簡略化のために
+\begin{align*}
+  P_i&=P_{\frac{2\pi}{m}}\\
+  R_i&=P_{\frac{2\pi}{m}}
+\end{align*}
+とおく.
+　まず, $P_i$, $R_i$の計算規則について調べておく.
+\begin{lemma}
+  \begin{align*}
+    P_i &= P_{i+m}\\
+    R_i &= R_{i+m}
+  \end{align*}
+\end{lemma}
+\begin{lemma}
+  \label{lem:i2m:rel:ppr}
+  \begin{align*}
+    P_i P_j&= R_{j-i}.
+  \end{align*}
+\end{lemma}
+
+\begin{lemma}
+  \begin{align*}
+    R_i R_j&= R_{i+j}
+  \end{align*}
+\end{lemma}
+
+\begin{cor}
+  \label{lem:i2m:fomula:prp}
+  \begin{align*}
+    P_i R_j&= P_{i+j}
+  \end{align*}
+\end{cor}
+
+\begin{cor}
+  \label{lem:i2m:formula:conjP}
+  \begin{align*}
+    P_i P_j P_i&= P_iR_{i-j}=P_{2i-j}.
+  \end{align*}
+\end{cor}
+
+\begin{cor}
+  \label{lem:i2m:formula:conjR}
+  \begin{align*}
+    R_{j}P_iR_{-j}=P_{i-2j}.
+  \end{align*}
+\end{cor}
+\begin{proof}
+  \Cref{lem:i2m:rel:ppr}より,
+  \begin{align*}
+    P_{i}P_{j+i}&=R_{j}\\
+  \end{align*}
+であるので,
+  \begin{align*}
+    R_{j}P_iR_{-j}&=P_{i}P_{j+i}P_{i}R_{-j}\\
+  \end{align*}
+  \Cref{lem:i2m:fomula:prp,lem:i2m:formula:ppr}より,
+\begin{align*}
+  P_{i}P_{j+i}P_{i}R_{-j}&=P_{i}P_{j+i}P_{i-j}\\
+    &=P_{i}R_{i-j-j-i}\\
+    &=P_{i}R_{-2j}\\
+    &=P_{i-2j}.
+  \end{align*}
+\end{proof}
+
+    
+
+\begin{lemma}
+  \label{lem:i2m:conj}
+  \begin{align*}
+    P_i=(P_{i+1} P_{i+2}\cdots P_{i+2n-1}) P_{i+2n}(P_{i+1} P_{i+2}\cdots P_{i+2n-1})^{-1}
+  \end{align*}
+\end{lemma}
+\begin{proof}
+  \Cref{lem:i2m:rel:ppr}
+  より,
+  \begin{align*}
+    R_{1}=P_{1}P_{2}=P_{2}P_{3}=\cdots =P_{m-1}P_{m}
+  \end{align*}
+  である.  したがって,
+  \begin{align*}
+    P_{i}P_{i+1}=P_{i+1}P_{i+2}
+  \end{align*}
+  であるので,
+  \begin{align*}
+    P_{i}=P_{i+1}P_{i+2}P_{i+1}^{-1}
+  \end{align*}  
+となる. 同様に
+  \begin{align*}
+    P_{i}&=P_{i+1}P_{i+2}P_{i+1}^{-1}\\
+    &=P_{i+1}(P_{i+2}P_{i+3}P_{i+2}^{-1})P_{i+1}^{-1}.
+  \end{align*}
+  を得ることができる. これを繰り返すことで, 欲しい等式が得られる.
+\end{proof}
+$D_{2\cdot m}$を次で定義する:
+\begin{align*}
+  D_{2\cdot m} = \Set{P_i,R_i|i\in \ZZ} = \Set{P_i,R_i|i=0,\ldots,m-1}.
+\end{align*}
+計算規則から,
+\begin{align*}
+   D_{2\cdot m} = \Braket{P_0,\ldots,P_{m-1}}
+\end{align*}
+であることがわかる.
+$P_i$は鏡映であったので,
+$D_{2\cdot m}$は有限鏡映群である.
+$D_{2\cdot m}$は位数$2m$の二面体群とよばれる.
+
+\begin{prop}
+$m>1$のとき, $D_{2\cdot m}$は本質的である.
+\end{prop}
+\begin{proof}
+  \begin{align*}
+    \alpha=\begin{pmatrix}
+      \alpha_1 \\
+      \alpha_2
+    \end{pmatrix}\in V\setminus\Set{\zzero}
+  \end{align*}
+  とする.
+  $\alpha_2\neq 0$のとき,
+  \begin{align*}
+    P_0 \alpha =
+    \begin{pmatrix}
+      1&0\\
+      0&-1
+    \end{pmatrix}  
+    \begin{pmatrix}
+      \alpha_1\\
+      \alpha_2
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      \alpha_1\\
+      -\alpha_2
+    \end{pmatrix}
+    \neq \alpha.
+  \end{align*}
+  また$\alpha_2-0$のとき,
+  $\alpha\neq \zzero$であることから,
+  $\alpha_1\neq 0$ となる.
+  このとき,
+  \begin{align*}
+    P_1 \alpha =
+    \begin{pmatrix}
+      \cos(\frac{2\pi}{m}&\sin(\frac{2\pi}{m}\\
+      \sin(\frac{2\pi}{m}&-\cos(\frac{2\pi}{m}
+    \end{pmatrix}  
+    \begin{pmatrix}
+      \alpha_1\\
+      0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      \alpha_1\cos(\frac{2\pi}{m}\\
+      \alpha_1\sin(\frac{2\pi}{m}
+    \end{pmatrix}  
+    \neq
+    \begin{pmatrix}
+      \alpha_1\\
+      0
+    \end{pmatrix}
+    .
+  \end{align*}
+\end{proof}
+\begin{prop}
+  $m=1$のとき, つまり $D_{2\cdot 1}$は本質的ではない.
+\end{prop}
+
+\begin{proof}
+  $D_{2\cdot 1}=\Set{P_0,R_0}$である.
+  \begin{align*}
+    \alpha=
+    \begin{pmatrix}
+      1\\0
+      \end{pmatrix}
+  \end{align*}
+  とすると,
+  $P_0\alpha = R_0\alpha= \alpha $である.
+\end{proof}
+
+\begin{lemma}
+  \label{lem:i2m:modd:eq}
+  $m$を奇数とする.
+  $A\in D_{2\cdot m} \setminus \Set{E_2}$に対し,
+  次は同値:
+  \begin{enumerate}
+  \item $A$は鏡映である.
+  \item $A^2=E_2$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  $A$が鏡映である $A^2=E_2$を満たすことは既に見た.
+  逆を示す.
+  $A\in D_{2\cdot m}\setminus \Set{E_2}$は鏡映ではないとする.
+  つまり, $A=R_{k}$とかけるとする.
+  ただし, $A\neq E_2$であるので,
+  $0<k <m$である.
+  $A^2=R_{2k}$であるが, $m$は奇数であるから,
+  $2k$を$m$でわった余りが$0$となることはない.
+  つまり, $A^{2}\neq E_2$である.
+\end{proof}
+
+\begin{prop}
+  $m$が奇数であるとする.
+  このとき,
+  \begin{align*}
+    \Set{P_i | i \in \ZZ} =
+    \Set{AP_0A^{-1} | A\in D_{2\cdot m}}.
+  \end{align*}
+  つまり, $\Set{P_i | i \in \ZZ}$は$P_0$を含む共軛類である.
+\end{prop}
+\begin{proof}
+\Cref{lem:i2m:conj}  
+ から 
+ $P_i\in \Set{AP_0A^{-1} | A\in D_{2\cdot m}}$はすぐわかる.
+
+ $A\in D_{2\cdot m}$とする.
+ このとき,
+ \begin{align*}
+   (AP_0A^{-1})^2 =  AP_0A^{-1} AP_0A^{-1}
+   =  AP_0P_0A^{-1}
+       =  AA^{-1}
+       =  E_2
+ \end{align*}
+であるので, \cref{lem:i2m:modd:eq}より,
+$AP_0A^{-1}$は鏡映である.
+したがって,
+$AP_0A^{-1}\in \Set{P_i | i \in \ZZ}$.
+\end{proof}
+
+\begin{prop}
+  $m$を偶数とする.
+  このとき,
+  \begin{align*}
+    \Set{P_{2i}|i\in\ZZ}&=\Set{AP_0A^{-1} | A \in D_{2\cdot m}}\\
+    \Set{P_{2i+1}|i\in\ZZ}&=\Set{AP_1A^{-1} | A \in D_{2\cdot m}}.
+  \end{align*}
+つまり, 
+$\Set{P_{2i}|i\in\ZZ}$ は $P_0$を含む共軛類,
+$\Set{P_{2i+1}|i\in\ZZ}$は$P_1$を含む共軛類である.
+\end{prop}
+\begin{proof}
+  \Cref{lem:i2m:formula:conjP,lem:i2m:formula:conjR}
+  より, $AP_iA^{-1}=P_j$であるなら, $i$と$j$が等しいことがわかる.
+  したがって,
+  \begin{align*}
+    \Set{AP_0A^{-1} | A \in D_{2\cdot m}} \cap
+    \Set{AP_1A^{-1} | A \in D_{2\cdot m}} = \emptyset
+  \end{align*}
+  となることがわかる.
+
+  また,
+  \cref{lem:i2m:conj}  
+  から,
+  $P_{2i}\in \Set{AP_0A^{-1} | A \in D_{2\cdot m}}$,
+  $P_{2i+1}\in \Set{AP_1A^{-1} | A \in D_{2\cdot m}}$がわかる.
+\end{proof}
+
