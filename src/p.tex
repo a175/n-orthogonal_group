@@ -11,6 +11,14 @@ $f\colon V\to V$を$V$上の変換とよぶ.
 直交行列の固有値は1,-1
 固有空間は直交する.
 
+\section{群について}
+対称群, 互換, 隣接互換
+群の定義
+同型
+$\ZZ^{\times}$ $(\ZZ^{\times})^n$ 生成系
+生成系
+
+
 \chapter{鏡映}
 
 \section{鏡映の定義と例}
@@ -277,7 +285,7 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
   であるような$n$次正方行列とする.
   つまり,
   \begin{align*}
-    T_k =E_n-E_{k,k}-E_{l,l}+E_{l,k}+E_{k,l}
+    T_{k,l} =E_n-E_{k,k}-E_{l,l}+E_{l,k}+E_{k,l}
   \end{align*}
   である.
   $\alpha=\ee_k-\ee_l$とすると, $T_{k,l}$は$\alpha$ に関する鏡映である.
@@ -867,3 +875,103 @@ $\Set{P_{2i+1}|i\in\ZZ}$は$P_1$を含む共軛類である.
   $P_{2i+1}\in \Set{AP_1A^{-1} | A \in D_{2\cdot m}}$がわかる.
 \end{proof}
 
+\subsection{$A_{n-1}$}
+$\sigma \in S_n$に対し,
+$(\sigma(1),1)$成分,\ldots
+$(\sigma(n),n)$成分
+は$1$で. 他の成分は$0$であるような$n$次正方行列を$A_\sigma$とおく.
+つまり,
+\begin{align*}
+  A_\sigma = \sum_{j=1}^{n} E_{\sigma(j),j} = \sum_{i=1}^{n} E_{i,\sigma^{-1}(i)}
+\end{align*}
+である.
+直接計算することで,
+$A_\sigma \ee_k=\ee_{\sigma(k)}$であることわかる.
+
+$W=\Set{A_\sigma|\sigma\in S_n}$とおく.
+$\sigma,\tau \in S_n$に対し,
+$A_\sigma A_\tau=A_{\sigma\tau}$
+が成り立つことは直接計算することで確かめられる.
+また,
+$A_{\\varepsilon}=E_n$であり,
+$A_\sigma^{-1}=A_{\sigma^{-1}}$である.
+したがって, $W$は群である.
+さらに,
+$f(\sigma)=A_\sigma$とおくと,
+$f$は$S_n$から$W$への全単射である.
+さらに, これは群準同型写像であるので,
+$S_n$と$W$は同型である.
+
+$\tau_{i,j}\in S_n$を$i$と$j$を入れ替える互換とする.
+つまり,
+\begin{align*}
+  \tau_{i,j}(k)=
+  \begin{cases}
+    j&(k=i)\\
+    i&(k=j)\\
+    k&(k\not\in\Set{i,j})
+  \end{cases}
+\end{align*}
+とする.
+このとき, $A_{\tau_{i,j}}=T_{k,l}$であり, 鏡映である.
+$S_n$は互換で生成されていたので, $W$は$T_{k,l}$で生成される.
+したがって, $W$は有限鏡映群である.
+
+
+$S_n$は隣接互換$\tau_{1,2},\tau_{2,3},\ldots,\tau_{n-1,n},$
+で生成されていたので,
+$W$は$T_{1,2},T_{2,3},\ldots,T_{n-1,n}$という$n-1$個の行列で生成できることがわかる.
+
+
+\begin{prop}
+$\alpha=\ee_1+\cdots+\ee_n$とおく.
+このとき, 任意の$A\in W$に対し,
+$A\alpha=\alpha$となる.
+したがって, $W$は本質的ではない.
+\end{prop}
+\begin{proof}
+  $\sigma\in S_n$とする.
+  このとき,
+  \begin{align*}
+    A_\sigma \alpha=\sum_{i=1}^{n}A_\sigma \ee_i=\sum_{i=1}^{n} \ee_{\sigma(i)}
+  \end{align*}
+  となるが, $\sigma$は$\Set{1,\ldots,n}$上の全単射であるので,
+  \begin{align*}
+    \sum_{i=1}^{n} \ee_{\sigma(i)}=\sum_{i=1}^{n} \ee_i=\alpha
+  \end{align*}
+  となる.
+\end{proof}
+
+
+\subsection{$A_1\times \cdots \times A_1$}
+$W$を
+\begin{align*}
+ W= \Set{\diag(a_1,\ldots,a_n)|a_i\in \ZZ^\times}
+\end{align*}
+で定義する.
+このとき, $W$は群である.
+また,
+$(a_1,\ldots,a_n)\in (\ZZ^\times)^n$に対し,
+$f((a_1,\ldots,a_n))=\diag(a_1,\ldots,a_n)$
+とすると,
+$f$は$(\ZZ^\times)^n$から$W$への全単射である.
+また, 準同型写像でもあるので,
+$(\ZZ^\times)^n$と$W$は同型である.
+
+また, $(-1,1,\ldots,1)$,\ldots,$(1,\ldots,1,-1)$で$ (\ZZ^\times)^n$は生成されていたので,
+$F_1$,\ldots,$F_n$で$W$は生成される.
+$F_k$は鏡映であったので,
+$W$は有限鏡映群である.
+
+\begin{prop}
+  $W$は本質的である.
+\end{prop}
+\begin{proof}
+  $\alpha\in V$とする.
+  $A=\diag(-1,\ldots,-1)\in W$とすると,
+  $A\alpha=-\alpha$である.
+  $\alpha\neq \zzero$とすると,
+  $0$ではない第$i$成分$\alpha_i$が存在する.
+  このとき, $-\alpha_i\neq \alpha$であるので,
+  $A\alpha\neq \alpha$である.
+\end{proof}
