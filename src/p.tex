@@ -1,38 +1,20 @@
 % !TeX root =./x2.tex
 % !TeX program = pdfLaTeX
 \chapter{準備}
+ここでは, 線形代数の基本的な事項について復習する.
+この原稿を通して使う基本的な用語や記号を定義することが主な目的であり,
+必要最低限の準備をするため, 証明などは他の文献に任せる.
 \section{線型写像に関する用語など}
-$f\circ g$を$fg$とかく.
-
-$f\colon V\to V$を$V$上の変換とよぶ.
-
-直交行列.
-
-直交行列の固有値は1,-1
-固有空間は直交する.
-
-\section{群について}
-対称群, 互換, 隣接互換
-群の定義
-同型
-$\ZZ^{\times}$ $(\ZZ^{\times})^n$ 生成系
-生成系
-
-
-\chapter{鏡映}
-
-\section{鏡映の定義と例}
-$\RR$は実数全体のなす集合とする.
-
+本稿では,
 特に断らない限り,
-$V$は$n$次元ユークリッド空間を表すとする.
+$V$は$n$次元ユークリッド空間を表すとし,
+内積は $\Braket{\bullet,\bullet}$で表すとする.
 つまり,
 \begin{align*}
   V&=\RR^n\\
   &=\Set{\begin{pmatrix}\alpha_1\\\vdots\\\alpha_n\end{pmatrix} | \alpha_i \in \RR}.
 \end{align*}
-とする. また, 内積は $\Braket{\bullet,\bullet}$で表すとする.
-つまり,
+とする. また, 
 \begin{align*}
 \alpha=\begin{pmatrix}\alpha_1\\\vdots\\\alpha_n\end{pmatrix},\beta\begin{pmatrix}\beta_1\\\vdots\\\beta_n\end{pmatrix}\in V
 \end{align*}
@@ -50,6 +32,38 @@ $\Set{\ee_1,\ldots,\ee_n}$は$V$の標準基底であるとする.
  &\vdots\\
  \ee_n&=\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}
 \end{align*}
+
+
+
+
+
+
+$f\circ g$を$fg$とかく.
+
+$f\colon V\to V$を$V$上の変換とよぶ.
+
+直交行列.
+
+固有値固有ベクトル.
+直交行列の固有値は1,-1
+固有空間は直交する.
+
+単位行列
+対角行列
+行列単位
+
+\section{群について}
+対称群, 互換, 隣接互換
+群の定義
+同型
+$\ZZ^{\times}$ $(\ZZ^{\times})^n$ 生成系
+生成系
+位数.
+
+\chapter{鏡映}
+
+\section{鏡映の定義と例}
+$\RR$は実数全体のなす集合とする.
 
 
 $\alpha \in V\setminus\Set{\zzero}$に対し,
@@ -893,7 +907,7 @@ $\sigma,\tau \in S_n$に対し,
 $A_\sigma A_\tau=A_{\sigma\tau}$
 が成り立つことは直接計算することで確かめられる.
 また,
-$A_{\\varepsilon}=E_n$であり,
+$A_{\varepsilon}=E_n$であり,
 $A_\sigma^{-1}=A_{\sigma^{-1}}$である.
 したがって, $W$は群である.
 さらに,
@@ -901,6 +915,32 @@ $f(\sigma)=A_\sigma$とおくと,
 $f$は$S_n$から$W$への全単射である.
 さらに, これは群準同型写像であるので,
 $S_n$と$W$は同型である.
+
+\begin{prop}
+  $\sigma\in S_n$に対し次は同値:
+  \begin{enumerate}
+  \item $\sigma$が互換である.
+  \item $A_\sigma$が鏡映である.
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  $T_{i,j}$が互換であることは示した.
+
+  $A_{\sigma}$が鏡映であるとする.
+  このとき, $A_{\sigma}^2=E_n$であるので,
+  $\sigma^2=\varepsilon$である.
+  したがって, $\sigma=(i_1j_1)\cdots(i_l,j_j)$
+  と文字を共有しない互換の積としてかける.
+  $l=1$というのは$\sigma$が互換であることを意味する.
+  $l\geq 2$を仮定する.
+  $\alpha=\ee_{i_1}-\ee_{j_1}$,
+  $\beta=\ee_{i_2}-\ee_{j_2}$
+  とおく.
+  $A_{\sigma}\alpha=-\alpha$である.
+  一方, $\beta\in H_\alpha$であるが,
+  $A_{\sigma}\beta=-\beta$であるので, これは鏡映ではない.
+  
+\end{proof}
 
 $\tau_{i,j}\in S_n$を$i$と$j$を入れ替える互換とする.
 つまり,
@@ -974,4 +1014,104 @@ $W$は有限鏡映群である.
   $0$ではない第$i$成分$\alpha_i$が存在する.
   このとき, $-\alpha_i\neq \alpha$であるので,
   $A\alpha\neq \alpha$である.
+\end{proof}
+
+
+\subsection{$B_n$}
+
+$W$を
+\begin{align*}
+  W=\Set{\diag(\aaa)A_\sigma|\aaa
+    \in (\ZZ^\times)^n, \sigma\in S_n}
+\end{align*}
+で定義する.
+\begin{align*}
+  A_\sigma \diag(a_1,\ldots,a_n)A_{\sigma}^{-1}\ee_{k}
+&=  A_\sigma \diag(a_1,\ldots,a_n)A_{\sigma^{-1}}\ee_{k}\\
+&=  A_\sigma \diag(a_1,\ldots,a_n)\ee_{\sigma^{-1}(k)}\\
+&=  A_\sigma (a_{\sigma^{-1}(k)}\ee_{\sigma^{-1}(k)})\\  
+&=  a_{\sigma^{-1}(k)}A_\sigma \ee_{\sigma^{-1}(k)}\\  
+&=  a_{\sigma^{-1}(k)} \ee_{\sigma\sigma^{-1}(k)}\\  
+&=  a_{\sigma^{-1}(k)} \ee_{k}\\  
+\end{align*}
+であるので,
+\begin{align*}
+  A_\sigma \diag(a_1,\ldots,a_n)A_{\sigma}^{-1}
+  =\diag(a_{\sigma^{-1}(1)},\ldots,a_{\sigma^{-1}(n)})
+\end{align*}
+である.  つまり,
+\begin{align*}
+  A_\sigma \diag(a_1,\ldots,a_n)
+  =\diag(a_{\sigma^{-1}(1)},\ldots,a_{\sigma^{-1}(n)})A_{\sigma}
+\end{align*}
+であることから,
+\begin{align*}
+  (\diag(b_1,\ldots,b_n)A_\tau)( \diag(a_1,\ldots,a_n)A_{\sigma})
+  =\diag(b_1a_{\tau^{-1}(1)},\ldots,b_na_{\tau^{-1}(n)})A_{\tau\sigma} \in W
+\end{align*}
+となる.
+よって, $W$は群である.
+$\diag(\aaa)$も$A_\sigma$も鏡映の積としてかけるので,
+$\diag(\aaa)A_\sigma$も鏡映の積としてかける.
+つまり, $W$は有限鏡映群である.
+
+\begin{prop}
+  $W$は本質的である.
+\end{prop}
+\begin{proof}
+$\diag(-1,\ldots,-1)\in W$であることからすぐわかる.
+\end{proof}
+
+
+\subsection{$D_n$}
+$W$を
+\begin{align*}
+  W=\Set{ \diag(a_1,\ldots,a_n) A_{\sigma} | \sigma\in S_n , (a_1,\ldots,a_n)\in (\ZZ^{\times})^n, a_1\cdots a_n =1}
+\end{align*}
+とおく,
+\begin{align*}
+  (\diag(b_1,\ldots,b_n)A_\tau)( \diag(a_1,\ldots,a_n)A_{\sigma})
+  =\diag(b_1a_{\tau^{-1}(1)},\ldots,b_na_{\tau^{-1}(n)})A_{\tau\sigma} \in W
+\end{align*}
+であるが, $b_1\cdots b_n=a_1\cdots a_n=1$ならば$b_1a_{\tau^{-1}(1)}\cdots b_na_{\tau^{-1}(n)}=1$
+である. したがって,
+$W$は群である.
+
+$a_1\cdots a_n = 1$とすると,
+$a_i=-1$となる$i$は偶数個である.
+$2k$個の$i$で$a_i=-1$であるとし,
+$\Set{i|a_i=-1}=\Set{i_1,\ldots,i_{2k}}$とする.
+このとき, $\nu=\tau_{i_1i_2}\cdots \tau_{i_{2k-1}i_{2k}}$
+とおくと,
+\begin{align*}
+F_{i_1,i_2}\cdots F_{i_{2k-1},i_{2k}}=\diag(a_1,\ldots,a_n)A_{\tau}
+\end{align*}
+である.  したがって$\sigma\in S_n$に対し,
+\begin{align*}
+  \diag(a_1,\ldots,a_n)A_{\sigma}
+  &=\diag(a_1,\ldots,a_n)A_{\tau}A_{\tau}^{-1} A_{\sigma}\\
+  &=F_{i_1,i_2}\cdots F_{i_{2k-1},i_{2k}}A_{\tau^{-1}} A_{\sigma}\\
+  &=F_{i_1,i_2}\cdots F_{i_{2k-1},i_{2k}}A_{\tau^{-1}\sigma}
+\end{align*}
+とかける.
+したがって, $W$は$\Set{F_{k,l}, T_{k,l}|k\neq l}$
+で生成される.
+$F_{k,l}$も$T_{k,l}$も鏡映であったから
+$W$は有限鏡映群である.
+
+
+\begin{prop}
+$W$は本質的である.
+\end{prop}
+\begin{proof}
+  $\alpha\in V\setminus\Set{\zzero}$とする.
+  $\alpha\neq \zzero$なので,
+  $0$ではない第$k$成分$\alpha_k$が存在する.
+  \begin{align*}
+    F_{k,l}T_{k,l}=F_kF_lT_{k,l}T_{k,l}=F_{k}F_{l}
+  \end{align*}
+  となるので,
+  $F_{k}F_{l}\in W$である.
+  $-\alpha_k\neq \alpha$であるので
+  $F_{k}F_{l}\alpha \neq \alpha$である.
 \end{proof}
