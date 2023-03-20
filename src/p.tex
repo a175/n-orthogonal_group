@@ -14,25 +14,32 @@ $V$は$n$次元ユークリッド空間を表すとし,
   V&=\RR^n\\
   &=\Set{\begin{pmatrix}\alpha_1\\\vdots\\\alpha_n\end{pmatrix} | \alpha_i \in \RR}.
 \end{align*}
-とする. また, 
+とする, ただし, $\RR$は実数全体のなす集合とする.
+また, 
 \begin{align*}
-\alpha=\begin{pmatrix}\alpha_1\\\vdots\\\alpha_n\end{pmatrix},\beta\begin{pmatrix}\beta_1\\\vdots\\\beta_n\end{pmatrix}\in V
+  \alpha=\begin{pmatrix}\alpha_1\\\vdots\\\alpha_n\end{pmatrix},\quad
+  \beta=\begin{pmatrix}\beta_1\\\vdots\\\beta_n\end{pmatrix}\in V
 \end{align*}
 に対し,
 \begin{align*}
 \Braket{\alpha,\beta}=\sum_{i=1}^n \alpha_i \beta_i
 \end{align*}
 とする.
+
 $\zzero$は$V$の零ベクトルを表し,
 $\Set{\ee_1,\ldots,\ee_n}$は$V$の標準基底であるとする.
 つまり,
 \begin{align*}
- \zzero&=\begin{pmatrix}0\\\vdots\\0\end{pmatrix}\\
- \ee_1&=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}\\
- &\vdots\\
- \ee_n&=\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}
+ \zzero&=\begin{pmatrix}0\\\vdots\\0\end{pmatrix},\\
+ \ee_1&=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix},
+ \ldots,
+ \ee_n=\begin{pmatrix}0\\\vdots\\0\\1\end{pmatrix}
 \end{align*}
+とする.
 
+$E_n$で単位行列.
+$E_{k,l}$で行列単位.
+$\diag$で対角行列.
 
 
 
@@ -63,7 +70,6 @@ $\ZZ^{\times}$ $(\ZZ^{\times})^n$ 生成系
 \chapter{鏡映}
 
 \section{鏡映の定義と例}
-$\RR$は実数全体のなす集合とする.
 
 
 $\alpha \in V\setminus\Set{\zzero}$に対し,
@@ -180,27 +186,7 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
 \end{example}
 
 \begin{example}
-  $E_n$で$n$次単位行列を表すことにする.
-  つまり,
-  \begin{align*}
-    E_n=\diag(1,\ldots,1)
-  \end{align*}
-  である. $E_n$は鏡映ではない.
-  $\alpha\in V$に対し,
-  \begin{align*}
-    E_n\alpha=-\alpha
-  \end{align*}
-  とすると,
-  \begin{align*}
-    \alpha=\zzero
-  \end{align*}
-  となり, $V\setminus\Set{\zzero}$の元では,
-  $E_n\alpha=-\alpha$を満たすことがないので,
-  $E_n$は鏡映ではない.
-\end{example}
-
-\begin{example}
-  $P_0$は鏡映であったが,
+  $P_0$は鏡映であった.
   もっと一般に,
   実数$\theta$に対し,
 \begin{align*}
@@ -229,43 +215,10 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
 を示せばよいが, これらは直接, 計算することで確かめることができる.
 \end{example}
 
-\begin{example}
- 実数$\theta$に対し,
-  \begin{align*}
-    R_\theta=
-    \begin{pmatrix}
-      \cos(\theta) & -\sin(\theta) \\
-      \sin(\theta) & \cos(\theta)
-    \end{pmatrix}.
-  \end{align*}
- とおくと, これは鏡映ではない.
- \begin{align*}
-    R_\theta \alpha = -\alpha
- \end{align*}
- とする. このとき,
- \begin{align*}
-    (R_\theta + E_2)\alpha = \zzero
- \end{align*}
- である.
- \begin{align*}
-   \det(R_\theta + E_2) &= 
-    \det \begin{pmatrix}
-      \cos(\theta) +1 & -\sin(\theta) \\
-      \sin(\theta) & \cos(\theta) +1 
-    \end{pmatrix}\\
-    &=(\cos(\theta) +1)^2 + (\sin(\theta))^2\\
-    &=2(1+\cos(\theta))
- \end{align*}
- である.
- したがって, $\cos(\theta)\neq 0$のときには,
- $R_\theta + E_2$は正則であるから, $\alpha=\zzero$のみが解となり,
- この場合は鏡映ではないことがわかる.
- また,  $\cos(\theta)= 0$のときには, $R_\theta=E_2$であり,
- この場合も鏡映ではない.
-\end{example}
 
 \begin{example}
   $P_0$は鏡映であった.
+  もっと一般に,
   $F_k$を$(k,k)$成分は$-1$, 他の対角成分は$1$であるような$n$次対角行列とする.
  $E_{k,l}$で$(k,l)$行列単位, つまり, $(k,l)$成分のみ1で他は0であるような行列とすると,
   \begin{align*}
@@ -425,7 +378,7 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
   $s_\alpha=s_{\alpha'}$とする.
   このとき,
   \begin{align*}
-    s_\alpha(\alpha) &=-\alpha,
+    s_\alpha(\alpha) &=-\alpha,\\
     s_{\alpha'} (\alpha) &= \alpha - 2\frac{\Braket{\alpha',\alpha}}{\Braket{\alpha',\alpha'}}\alpha'
   \end{align*}
   であるので,
@@ -588,6 +541,112 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
     \det(A)&=-1.
   \end{align*}
 \end{cor}
+
+
+
+\begin{example}
+  $E_n$は鏡映ではない.
+  $\alpha\in V$に対し,
+  \begin{align*}
+    E_n\alpha=-\alpha
+  \end{align*}
+  とすると,
+  \begin{align*}
+    \alpha=\zzero
+  \end{align*}
+  となり, $V\setminus\Set{\zzero}$の元では,
+  $E_n\alpha=-\alpha$を満たすことがないので,
+  $E_n$は鏡映ではない.
+\end{example}
+
+\begin{example}
+ 実数$\theta$に対し,
+  \begin{align*}
+    R_\theta=
+    \begin{pmatrix}
+      \cos(\theta) & -\sin(\theta) \\
+      \sin(\theta) & \cos(\theta)
+    \end{pmatrix}.
+  \end{align*}
+ とおくと, これは鏡映ではない.
+ \begin{align*}
+    R_\theta \alpha = -\alpha
+ \end{align*}
+ とする. このとき,
+ \begin{align*}
+    (R_\theta + E_2)\alpha = \zzero
+ \end{align*}
+ である.
+ \begin{align*}
+   \det(R_\theta + E_2) &= 
+    \det \begin{pmatrix}
+      \cos(\theta) +1 & -\sin(\theta) \\
+      \sin(\theta) & \cos(\theta) +1 
+    \end{pmatrix}\\
+    &=(\cos(\theta) +1)^2 + (\sin(\theta))^2\\
+    &=2(1+\cos(\theta))
+ \end{align*}
+ である.
+ したがって, $\cos(\theta)\neq 0$のときには,
+ $R_\theta + E_2$は正則であるから, $\alpha=\zzero$のみが解となり,
+ この場合は鏡映ではないことがわかる.
+ また,  $\cos(\theta)= 0$のときには, $R_\theta=E_2$であり,
+ この場合も鏡映ではない.
+\end{example}
+
+\begin{example}
+  $\sigma \in S_n$に対し,
+  $(\sigma(1),1)$成分,\ldots
+  $(\sigma(n),n)$成分
+  は$1$で. 他の成分は$0$であるような$n$次正方行列を$A_\sigma$とおく.
+  つまり,
+  \begin{align*}
+    A_\sigma = \sum_{j=1}^{n} E_{\sigma(j),j} = \sum_{i=1}^{n} E_{i,\sigma^{-1}(i)}
+  \end{align*}
+  である.
+  $\sigma,\tau\in S_n$に対し, $A_\sigma=A_\tau$であることと,
+  $\sigma=\tau$であることは同値である.
+  直接計算することで,
+  $A_\sigma \ee_k=\ee_{\sigma(k)}$であることがわかる.
+  $\sigma\in S_n$に対し次は同値である:
+  \begin{enumerate}
+  \item $\sigma$が互換である.
+  \item $A_\sigma$が鏡映である.
+  \end{enumerate}
+  $T_{i,j}$が互換であることは示した.
+  逆を示す.
+  $\sigma$が互換ではないとする.
+  $\sigma=\varepsilon$のとき, $A_\sigma=E_n$であるので, これは鏡映ではない.
+  $\sigma\neq\varepsilon$とする.
+  このとき$\sigma(i_1)\neq i_1$を満たす$i_1$が存在する.
+  $\sigma(i_1)=i_2$とおき,
+  $\alpha=\ee_{i_1}-\ee_{i_2}$とする.
+  このとき,
+  \begin{align*}
+    A_\sigma A_\sigma\alpha
+    &= A_\sigma A_\sigma (\ee_{i_1}-\ee_{i_2})\\
+    &= A_\sigma(\ee{\sigma(i_1)}-\ee{\sigma(i_2)})\\
+    &= \ee{\sigma\sigma(i_1)}-\ee{\sigma\sigma(i_2)}
+  \end{align*}
+  である. 鏡映は二乗すると単位行列となるので,
+  $\ee{\sigma\sigma(i_1)}-\ee{\sigma\sigma(i_1)}\neq \alpha$ならば,
+  $A_\sigma$は鏡映ではない.
+  $\ee{\sigma\sigma(i_1)}-\ee{\sigma\sigma(i_2)}=\ee{i_1}-\ee{i_2}$と仮定する.
+  このとき, $i_2=i_1$である.
+  したがって,  $A_\sigma \alpha = -\alpha$である.
+  ここで,
+  $i\in \Set{i_1, i_2}$の他に$\sigma(i)=i$となる$i$がなければ, $\sigma$は互換である.
+  $j_1\not\in \Set{i_1,i_2}$が
+  $\sigma(j_1)\neq j_1$を満たすとする.
+  $\sigma(j_1)=j_2$とし, $\beta=\ee_{j_1}-\ee_{j_2}$とおく.
+  $\alpha$のときと同じ議論で,
+  $\sigma(j_2)\neq j_1$であるときには, $A_\sigma$は鏡映ではないことがわかる.
+  $\sigma(j_2)= j_1$を仮定すると, $A_\sigma \beta=-\beta$がなりたつ.
+  $\Set{i_1,i_2}\neq \Set{j_1,j_2}$であるので,
+  $\alpha$と$\beta$は一次独立である.
+  したがって, $A_\sigma$の固有値$1$に属する固有空間の次元は$1$ではないので,
+  鏡映ではない.
+\end{example}
 
 
 \chapter{有限鏡映群}
@@ -890,17 +949,6 @@ $\Set{P_{2i+1}|i\in\ZZ}$は$P_1$を含む共軛類である.
 \end{proof}
 
 \subsection{$A_{n-1}$}
-$\sigma \in S_n$に対し,
-$(\sigma(1),1)$成分,\ldots
-$(\sigma(n),n)$成分
-は$1$で. 他の成分は$0$であるような$n$次正方行列を$A_\sigma$とおく.
-つまり,
-\begin{align*}
-  A_\sigma = \sum_{j=1}^{n} E_{\sigma(j),j} = \sum_{i=1}^{n} E_{i,\sigma^{-1}(i)}
-\end{align*}
-である.
-直接計算することで,
-$A_\sigma \ee_k=\ee_{\sigma(k)}$であることわかる.
 
 $W=\Set{A_\sigma|\sigma\in S_n}$とおく.
 $\sigma,\tau \in S_n$に対し,
@@ -916,31 +964,6 @@ $f$は$S_n$から$W$への全単射である.
 さらに, これは群準同型写像であるので,
 $S_n$と$W$は同型である.
 
-\begin{prop}
-  $\sigma\in S_n$に対し次は同値:
-  \begin{enumerate}
-  \item $\sigma$が互換である.
-  \item $A_\sigma$が鏡映である.
-  \end{enumerate}
-\end{prop}
-\begin{proof}
-  $T_{i,j}$が互換であることは示した.
-
-  $A_{\sigma}$が鏡映であるとする.
-  このとき, $A_{\sigma}^2=E_n$であるので,
-  $\sigma^2=\varepsilon$である.
-  したがって, $\sigma=(i_1j_1)\cdots(i_l,j_j)$
-  と文字を共有しない互換の積としてかける.
-  $l=1$というのは$\sigma$が互換であることを意味する.
-  $l\geq 2$を仮定する.
-  $\alpha=\ee_{i_1}-\ee_{j_1}$,
-  $\beta=\ee_{i_2}-\ee_{j_2}$
-  とおく.
-  $A_{\sigma}\alpha=-\alpha$である.
-  一方, $\beta\in H_\alpha$であるが,
-  $A_{\sigma}\beta=-\beta$であるので, これは鏡映ではない.
-  
-\end{proof}
 
 $\tau_{i,j}\in S_n$を$i$と$j$を入れ替える互換とする.
 つまり,
