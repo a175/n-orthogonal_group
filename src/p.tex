@@ -47,7 +47,7 @@ $\Set{\ee_1,\ldots,\ee_n}$は$V$の標準基底であるとする.
 $E_n$で単位行列.
 $E_{k,l}$で行列単位.
 $\diag$で対角行列.
-
+特性多項式と固有値, 対角化
 
 
 直和分解, 写像の直和
@@ -94,7 +94,8 @@ $\alpha \in V\setminus\Set{\zzero}$に対し,
 \begin{align*}
   V =   H_\alpha \oplus   \RR\alpha
 \end{align*}
-と(内部)直和に分解される.  つまり, 次の2つを満たす:
+と(内部)直和に分解される.
+つまり, 次の2つを満たす:
 \begin{align*}
   &V = \Set{ \beta + \gamma | \beta \in H_\alpha, \gamma \in \RR\alpha},\\
   &H_\alpha \cap   \RR\alpha =\Set{\zzero}.
@@ -194,6 +195,7 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
 \end{example}
 
 \begin{example}
+  \label{ex:i2m:ref}
   $P_0$は鏡映であった.
   もっと一般に,
   実数$\theta$に対し,
@@ -546,7 +548,8 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
     A^2&=E_n,\\
     \transposed{A}A&=E_n,\\
     A&=A^{-1}=\transposed{A},\\
-    \exists P &\text{ such that } PAP^{-1}=\diag(1,\ldots,1,-1)\\
+    \exists P &\text{ such that } PAP^{-1}=\diag(1,\ldots,1,-1),\\
+    \det(tE_n-A)=(t+1)(t-1)^{n-1},\\
     \det(A)&=-1.
   \end{align*}
 \end{cor}
@@ -569,6 +572,7 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
 \end{example}
 
 \begin{example}
+ \label{ex:i2m:rot}
  実数$\theta$に対し,
   \begin{align*}
     R_\theta=
@@ -699,31 +703,101 @@ $W$を有限鏡映群と呼ぶ.
 
 \section{有限鏡映群の例}
 \subsection{$I_2(m)$}
+\label{ex:i2m:grp}
 $m$を正の整数とする.
+\Cref{ex:i2m:ref,ex:i2m:rot}で見た行列について考えるが,
 ここでは, 記号の簡略化のために
 \begin{align*}
-  P_i&=P_{\frac{2\pi}{m}}\\
-  R_i&=R_{\frac{2\pi}{m}}
+  P_i&=P_{\frac{2i\pi}{m}}\\
+  R_i&=R_{\frac{2i\pi}{m}}
 \end{align*}
 とおく.
-　まず, $P_i$, $R_i$の計算規則について調べておく.
+まず, $P_i$, $R_i$の計算規則について調べておく.
 \begin{lemma}
   \begin{align*}
     P_i &= P_{i+m}\\
     R_i &= R_{i+m}
   \end{align*}
 \end{lemma}
+
+\begin{lemma}
+  \begin{align*}
+    R_i R_j&= R_{i+j}
+  \end{align*}
+\end{lemma}
+
+\begin{lemma}
+  \begin{align*}
+    R_iP_0&=P_i.
+  \end{align*}
+\end{lemma}
+\begin{proof}
+  \begin{align*}
+  R_iP_0&=R_{\frac{2i\pi}{m}}P_0\\
+  &=
+  \begin{pmatrix}
+    \cos(\frac{2i\pi}{m}) & -\sin(\frac{2i\pi}{m})\\
+    \sin(\frac{2i\pi}{m}) & \cos(\frac{2i\pi}{m})\\
+  \end{pmatrix}
+  \begin{pmatrix}
+    1 & \\
+    0 & -1\\
+  \end{pmatrix}\\
+  &=
+  \begin{pmatrix}
+    \cos(\frac{2i\pi}{m}) & \sin(\frac{2i\pi}{m})\\
+    \sin(\frac{2i\pi}{m}) & -\cos(\frac{2i\pi}{m})\\
+  \end{pmatrix}\\
+  &=R_{\frac{2i\pi}{m}}=R_{i}.
+  \end{align*}
+\end{proof}
+
+\begin{lemma}
+  \begin{align*}
+    P_0R_i &= P_{-i}
+  \end{align*}
+\end{lemma}
+\begin{proof}
+  \begin{align*}
+  P_0R_i &=P_0R_{\frac{2i\pi}{m}}\\
+  &=
+  \begin{pmatrix}
+    1 & \\
+    0 & -1\\
+  \end{pmatrix}
+  \begin{pmatrix}
+    \cos(\frac{2i\pi}{m}) & -\sin(\frac{2i\pi}{m})\\
+    \sin(\frac{2i\pi}{m}) & \cos(\frac{2i\pi}{m})\\
+  \end{pmatrix}\\
+  &=
+  \begin{pmatrix}
+    \cos(\frac{2i\pi}{m}) & -\sin(\frac{2i\pi}{m})\\
+    -\sin(\frac{2i\pi}{m}) & -\cos(\frac{2i\pi}{m})\\
+  \end{pmatrix}\\
+  &=
+  \begin{pmatrix}
+    \cos(-\frac{2i\pi}{m}) & \sin(-\frac{2i\pi}{m})\\
+    \sin(-\frac{2i\pi}{m}) & \cos(-\frac{2i\pi}{m})\\
+  \end{pmatrix}\\
+  &=
+  P_{-\frac{2i\pi}{m}}=P_{-i}
+  \end{align*}
+\end{proof}
+
+
 \begin{lemma}
   \label{lem:i2m:rel:ppr}
   \begin{align*}
     P_i P_j&= R_{j-i}.
   \end{align*}
 \end{lemma}
-\begin{lemma}
+\begin{proof}
   \begin{align*}
-    R_i R_j&= R_{i+j}
+    R_iP_0&=P_i,\\
+    P_0R_{-j} &= P_{j},
+    P_iP_j=R_i P_0P_0R_{-j}=R_{i}R_{-j}=R_{i-j}
   \end{align*}
-\end{lemma}
+\end{proof}
 \begin{cor}
   \label{lem:i2m:fomula:prp}
   \begin{align*}
@@ -1224,6 +1298,7 @@ $W(\Phi)$は有限鏡映群である.
 \end{proof}
 
 \begin{prop}
+  \label{thm:finitereflgrphasrootsystem}
   $W$がを有限鏡映群とする.
   このとき, $W=W(\Phi)$となる
   ルート系$\Phi$が存在する.
@@ -1251,6 +1326,56 @@ $W(\Phi)$は有限鏡映群である.
 
 \section{ルート系の例}
 \subsection{$I_2(m)$}
+$m$を正の整数とし,
+$D_{2\cdot m}$について考える.
+\Cref{ex:i2m:grp}で用いた記号をここでは用いる.
+\Cref{ex:i2m:ref,ex:i2m:rot}の記号を用いると,
+\begin{align*}
+  P_i&=P_{\frac{2i\pi}{m}}\\
+  R_i&=R_{\frac{2i\pi}{m}}
+\end{align*}
+である. さらに,
+\begin{align*}
+  \alpha_i=\alpha_{\frac{i\pi}{m}}
+\end{align*}
+おく. 
+このとき,
+\Cref{ex:i2m:ref}より, $P_i$は$\alpha_i$に関する鏡映である.
+$\alpha_{i+m}=-\alpha_i$であるから,  $P_i$は$\alpha_{i+m}$に関する鏡映でもある.
+一方, \Cref{ex:i2m:rot}より, $R_i$は鏡映ではない.
+$D_{2\cdot m}=\Set{P_i,R_i|i \in \Set{0,1,\ldots,m-1}}$であったので,
+$\Phi=\Set{\alpha_i | i \in \Set{0,1,\ldots,2m-1} }$とおけば,
+$W(\Phi)=D_{2\cdot m}$である.
+この$\Phi$がルート系であることは,
+\Cref{thm:finitereflgrphasrootsystem}の証明で構成したルート系
+そのものであることからわかるが,
+ここでは, 確認のため定義に従い調べる.
+$\numof{\Phi}=2m$
+であるので, 有限集合である.
+また,
+\begin{align*}
+P_i\alpha_k&=P_{\frac{2i\pi}{m}}\alpha_{\frac{k\pi}{m}}\\
+&=
+  \begin{pmatrix}
+    \cos(\frac{2i\pi}{m}) & \sin(\frac{2i\pi}{m}) \\
+    \sin(\frac{2i\pi}{m}) & -\cos(\frac{2i\pi}{m}) 
+  \end{pmatrix}
+  \begin{pmatrix}
+    \sin(\frac{k\pi}{m}) \\
+    \cos(\frac{k\pi}{m}) 
+  \end{pmatrix}\\
+&=
+  \begin{pmatrix}
+    \cos(\frac{2i\pi}{m}) \sin(\frac{k\pi}{m})+ \sin(\frac{2i\pi}{m})\cos(\frac{k\pi}{m}) \\
+    \sin(\frac{2i\pi}{m}) \sin(\frac{k\pi}{m})- \cos(\frac{2i\pi}{m})\cos(\frac{k\pi}{m}) 
+  \end{pmatrix}\\  
+&=
+  \begin{pmatrix}
+    \cos(\frac{2i\pi}{m}) \sin(\frac{k\pi}{m})+ \sin(\frac{2i\pi}{m})\cos(\frac{k\pi}{m}) \\
+    \sin(\frac{2i\pi}{m}) \sin(\frac{k\pi}{m})- \cos(\frac{2i\pi}{m})\cos(\frac{k\pi}{m}) 
+  \end{pmatrix}\\  
+\end{align*}
+R_i P_0 R_-i =
 \subsection{$A_{1}\times\cdots\times A_{1}$}
 \subsection{$A_{n-1}$}
 \subsection{$B_{n}$}
