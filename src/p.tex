@@ -1396,6 +1396,7 @@ $\RR\alpha_i \cap \Phi=\Set{\alpha_i,\alpha_{i+m}}$である.
 さらに$\numof{\Phi}=2m$
 であるので, 有限集合であるから,
 $\Phi$はルート系である.
+このルート系を$\Phi(I_2(m))$とおく.
 
 \subsection{$A_{1}\times\cdots\times A_{1}$}
 \begin{align*}
@@ -1412,6 +1413,7 @@ $F_i(\pm\ee_k)=\pm\ee_k$である.
 また, $\RR(\pm\ee_i)\cap \Phi=\Set{\ee_i,-\ee_i}$
 である.
 $\numof{\Phi}=2^n$であるので, ルート系である.
+このルート系を$\Phi((A_{1})^n)$とおく.
 \Cref{ex:a1n:grp}であつかった鏡映群を$W$とすると,
 \begin{align*}
   W(\Phi)=\Braket{F_1,\ldots,F_n}_{\ZZ}=W
@@ -1436,6 +1438,7 @@ $\RR\alpha_{i,j}\cap \Phi=\Set{\alpha_{i,j},\alpha_{j,i}}$
 であり,
 $\numof{\Phi}=\binom{n}{2}$であるので,
 $\Phi$はルート系である.
+このルート系を$\Phi(A_{n-1})$とおく.
 \Cref{ex:an:grp}で考えた鏡映群を$W$とすると,
 \begin{align*}
   W(\Phi)=\Braket{R(Phi)}=W
@@ -1512,6 +1515,7 @@ $s_{\alpha}(\Phi)=\Phi$である.
 $\RR\alpha\cap\Phi=\Set{\alpha,-\alpha}$である.
 $\numof{\Phi}=\binom{n}{2}+\binom{n}{2}+n=n^2$であるので,
 $\Phi$はルート系である.
+このルート系を$\Phi(B_{n})$とおく.
 
 $F_{k,l}=F_kF_lT_{k,l}$であるので,
 $\Braket{R(\Phi)}_\ZZ=\Braket{R(\Phi_1\cup \check{\Phi})}_\ZZ$
@@ -1519,6 +1523,33 @@ $\Braket{R(\Phi)}_\ZZ=\Braket{R(\Phi_1\cup \check{\Phi})}_\ZZ$
 したがって,
 \cref{ex:bn:grp}の鏡映群を$W$とすると,
 $W(\Phi)=W$である.
+
+\subsection{$C_{n}$}
+$\Phi=\Phi(B_n)$は,
+ルート系であった.
+$\alpha\in \Phi$に対し,
+$s_{\alpha}(\check\Phi)=\check\Phi$,
+$s_{\alpha}(\hat\Phi)=\hat\Phi$であり,
+$s_{\alpha}(\check\Phi)\cap\hat\Phi=\emptyset$,
+$s_{\alpha}(\hat\Phi)\cap\check\Phi=\emptyset$である.
+したがって, $\check\Phi$のみを定数倍しても,
+再びルート系になる.
+例えば,
+\begin{align*}
+  \Phi_1&=\Set{\alpha_{i,j},-\alpha_{i,j}|1\leq i<j\leq n}\\
+  \Phi_2&=\Set{\beta_{i,j},-\beta_{i,j}|1\leq i<j\leq n}\\
+  \Phi'&=\Phi_1\cup \Phi_2\\
+  \Phi''&=\Set{2\varepsilon_k|1\leq k\leq n}
+\end{align*}
+とし,
+\begin{align*}
+  \Phi(C_n)&=\Phi'\cup\Phi''
+\end{align*}
+とおいても, $\Phi(C_n)$はルート系である.
+また,
+$R(\Phi(C_n))=R(\Phi(B_n))$であるので,
+$W(\Phi(C_n))=W(\Phi(B_n))$でる.
+
 
 \subsection{$D_{n}$}
 $1\leq i<j\leq n$に対し,
@@ -1537,6 +1568,7 @@ $s_\alpha(\Phi)=\Phi$となっていた.
 $\RR\alpha\cap\Phi=\Set{\alpha,-\alpha}$である.
 $\numof{\Phi}=n(n-1)$であるので,
 $\Phi$はルート系である.
+このルート系を$\Phi(D_{n})$とおく.
 
 $R(\Phi)=\Set{T_{i,j},F_{i,j}|1\leq i< j\leq n}$
 であるので,
