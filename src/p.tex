@@ -227,6 +227,7 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
 
 
 \begin{example}
+  \label{ex:a1n:refl}
   $P_0$は鏡映であった.
   もっと一般に,
   $F_k$を$(k,k)$成分は$-1$, 他の対角成分は$1$であるような$n$次対角行列とする.
@@ -1085,6 +1086,7 @@ $A\alpha=\alpha$となる.
 
 
 \subsection{$A_1\times \cdots \times A_1$}
+\label{ex:a1n:grp}
 $W$を
 \begin{align*}
  W= \Set{\diag(a_1,\ldots,a_n)|a_i\in \ZZ^\times}
@@ -1395,6 +1397,26 @@ $\RR\alpha_i \cap \Phi=\Set{\alpha_i,\alpha_{i+m}}$である.
 $\Phi$はルート系である.
 
 \subsection{$A_{1}\times\cdots\times A_{1}$}
+\begin{align*}
+\Phi=\Set{\ee_1,\ldots,\ee_n,-\ee_1,\ldots,-\ee_n,}
+\end{align*}
+とおく.  このとき,
+$\Phi$はルート系である.
+$F_i$を$\ee_i$に関する鏡映とする.
+このとき$F_i$は$-\ee_i$に関する鏡映でもある.
+$F_i(\pm\ee_i)=\mp\ee_i$である. 
+$k\neq i$に対して, $\Braket{\ee_i,\ee_k}$であるから,
+$F_i(\pm\ee_k)=\pm\ee_k$である.
+したがって, $F_i(\Phi)=\Phi$である.
+また, $\RR(\pm\ee_i)\cap \Phi=\Set{\ee_i,-\ee_i}$
+である.
+$\numof{\Phi}=2^n$であるので, ルート系である.
+\Cref{ex:a1n:grp}であつかった鏡映群を$W$とすると,
+\begin{align*}
+  W(\Phi)=\Braket{F_1,\ldots,F_n}_{\ZZ}=W
+\end{align*}
+である.
+
 \subsection{$A_{n-1}$}
 \subsection{$B_{n}$}
 \subsection{$D_{n}$}
