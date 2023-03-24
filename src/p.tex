@@ -1521,7 +1521,7 @@ $\Phi$はルート系である.
 このルート系を$\Phi(A_{n-1})$とおく.
 \Cref{ex:an:grp}で考えた鏡映群を$W$とすると,
 \begin{align*}
-  W(\Phi)=\Braket{R(Phi)}=W
+  W(\Phi)=\Braket{R(\Phi)}=W
 \end{align*}
 である.
 
@@ -1957,6 +1957,52 @@ $\Phi_\Delta^+=\Set{-\varepsilon_k|k\in\Set{1,\ldots,n}}$
 $\Phi=\Phi_\Delta^+\cup\Phi_\Delta^-$であるので,
 $\Delta$は$\Phi$の単純系である.
 
+\subsection{$A_{n-1}$}
+$\Phi=\Phi(A_{n-1})$とし,
+\cref{ex:an:root}の記号を用いる.
+$\alpha_{i,j}=\ee_i-\ee_j$であり, $\Phi=\Set{\alpha_{i,j}, -\alpha_{i,j}|1\leq i<j\leq n}$である.
+\begin{align*}
+  \Delta=\Set{\alpha_{1,2},\alpha_{2,3},\ldots,\alpha_{n-1,n}}=\Set{\alpha_{i,i+1}|i\in\Set{1,\ldots,n-1}}
+\end{align*}
+とおく.
+$k>0$に対し,
+\begin{align*}
+\alpha_{i,i+k}&=\alpha_{i,i+1}+\alpha_{i+1,i+2}+\cdots+\alpha_{i+k-1,i+k}
+\end{align*}
+であるので,
+\begin{align*}
+  \Set{\alpha_{i,j}|1\leq i<j\leq n}\subset \Phi_\Delta^+
+\end{align*}
+である.  したがって
+\begin{align*}
+  \Set{-\alpha_{i,j}|1\leq i<j\leq n}\subset \Phi_\Delta^-
+\end{align*}
+である.
+$\Phi=\Phi_\Delta^+\cup \Phi_\Delta^-$であるので,
+$\Phi\subset \Braket{\Delta}_\RR$である.
+また,
+\begin{align*}
+  c_1\alpha_{1,2}+c_2\alpha_{2,3}+\cdots+c_{n-1}\alpha_{n-1,n}=\zzero
+\end{align*}
+とすると,
+\begin{align*}
+  c_1\alpha_{1,2}+c_2\alpha_{2,3}+\cdots+c_{n-1}\alpha_{n-1,n}\\
+  &=c_1(\ee_1-\ee_2)+c_2(\ee_2-\ee_3)+\cdots+c_{n-1}(\ee_{n-1}-\ee_n)\\
+  &=c_1\ee_1+(c_2-c_1)\ee_2+(c_3-c_2)\ee_3+\cdots+(c_{n-1}-c_{n-2})\ee_{n-1}-c_{n-1}\ee_n
+\end{align*}
+であるので,
+\begin{align*}
+  \begin{cases}
+    c_1=0 &\\
+    -c_{n-1}=0 &\\
+    c_i-c_{i-1}=0 &(i=2,3,\ldots,n-1)\\
+  \end{cases}
+\end{align*}
+となる.
+したがって全ての$i$に対し$c_i=0$である.
+よって, $\Delta$は一次独立である.
+したがって, $\Delta$は$\Braket{\Phi}_\RR$の基底である.
+$\Delta$は$\Phi$の単純系である.
 
 %#######################################################################
 \chapter{Simple systemの性質}
