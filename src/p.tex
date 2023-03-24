@@ -203,27 +203,27 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
   もっと一般に,
   実数$\theta$に対し,
 \begin{align*}
-  P_{2\theta}=
+  P_{2\theta}&=
   \begin{pmatrix}
     \cos(2\theta) & \sin(2\theta) \\
     \sin(2\theta) & -\cos(2\theta) 
   \end{pmatrix},\\
-  \alpha_\theta
-  =
+  \alpha(\theta)
+  &=
   \begin{pmatrix}
     \sin(\theta) \\
     \cos(\theta) 
   \end{pmatrix}
 \end{align*}
-とおけば, $P_{2\theta}$は$\alpha_\theta$に関する鏡映である.
+とおけば, $P_{2\theta}$は$\alpha(\theta)$に関する鏡映である.
 実際,
 \begin{align*}
-  H_{\alpha_{\theta}} = \Set{c \alpha_{\theta+\frac{\pi}{2}}|c\in \RR} 
+  H_{\alpha(\theta)} = \Set{c \alpha(\theta+\frac{\pi}{2})|c\in \RR} 
 \end{align*}
 であるので,
 \begin{align*}
-  P_{2\theta}\alpha_{\theta} &= - \alpha_{\theta},\\
-  P_{2\theta}(c\alpha_{\theta+\frac{\pi}{2}}) &= c\alpha_{\theta+\frac{\pi}{2}}
+  P_{2\theta}\alpha(\theta) &= - \alpha(\theta),\\
+  P_{2\theta}(c\alpha(\theta+\frac{\pi}{2})) &= c\alpha_(\theta+\frac{\pi}{2})
 \end{align*}
 を示せばよいが, これらは直接, 計算することで確かめることができる.
 \end{example}
@@ -1359,7 +1359,7 @@ $D_{2\cdot m}$について考える.
 \end{align*}
 である. さらに,
 \begin{align*}
-  \alpha_i&=\alpha_{\frac{i\pi}{m}}\\
+  \alpha_i&=\alpha(\frac{i\pi}{m})\\
   &=
   \begin{pmatrix}
     \sin(\frac{i\pi}{m})\\
@@ -1384,11 +1384,11 @@ $W(\Phi)=D_{2\cdot m}$である.
 そのものであることからわかるが,
 ここでは, 確認のため定義に従い調べる.
 \begin{align*}
-  R_i\alpha_k&=R_{\frac{2i\pi}{m}}\alpha_{\frac{k\pi}{m}}
-  =\alpha_{\frac{k\pi}{m}+\frac{2i\pi}{m}}
-  =\alpha_{\frac{2i+k\pi}{m}}
+  R_i\alpha_k&=R_{\frac{2i\pi}{m}}\alpha(\frac{k\pi}{m})
+  =\alpha(\frac{k\pi}{m}+\frac{2i\pi}{m})
+  =\alpha(\frac{2i+k\pi}{m})
   =\alpha_{2i+k}\\
-  P_0\alpha_k&=P_0\alpha_{\frac{k\pi}{m}}\\
+  P_0\alpha_k&=P_0\alpha(\frac{k\pi}{m})\\
   &=
   \begin{pmatrix}
     1 & 0 \\
@@ -1406,7 +1406,7 @@ $W(\Phi)=D_{2\cdot m}$である.
     \sin(\frac{(m-k)\pi}{m}) \\
     \cos(\frac{(m-k)\pi}{m}) 
 \end{pmatrix}\\
-&=\alpha_{\frac{(m-k)\pi}{m}}=\alpha_{m-k},
+&=\alpha(\frac{(m-k)\pi}{m})=\alpha_{m-k},
 \\
 P_i\alpha_k&=P_0R_{-i}\alpha_k
 =P_0\alpha_{-2i+k}
@@ -1887,6 +1887,61 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
 
 \section{例}
 
+\subsection{$I_2(m)$}
+$\Phi=\Phi(I_2(m))$とし,
+\Cref{ex:i2m:root}と同じ記号を用いる.
+$\Phi=\Set{\alpha_i|i\in\Set{0,\ldots,2m-1}}$であり, $\alpha_{i+m}=-\alpha_i$であった.
+$\Delta=\Set{\alpha_0,\alpha_{m-1}}$とする.
+このとき,
+$\alpha_{0}=\alpha(0)$, $\alpha_{m-1}=\alpha(\frac{(m-1)\pi}{m})$であったので,
+$\Delta$は一次独立であり, $V=\Braket{\Phi}_\RR$の基底である.
+
+\begin{align*}
+  \varsigma_1=\alpha(\frac{\pi}{2}),
+  \varsigma_2=\alpha(\frac{(m-1)\pi}{m}-\frac{\pi}{2})=\alpha(\frac{-\pi}{m}+\frac{\pi}{2}),
+\end{align*}
+とおくことにする.
+$\Braket{\alpha_0, \varsigma_1} = 0$であるので, $\RR\alpha_0=H_{\varsigma_1}$である.
+また, 
+$\Braket{\alpha_{m-1}, \varsigma_2} = 0$であるので, $\RR\alpha_0=H_{\varsigma_2}$である.
+さらに,
+\begin{align*}
+ \Lambda_1&= \Set{\lambda\in V|\Braket{\lambda,\varsigma_1}\geq 0}\\
+ \Lambda_2&= \Set{\lambda\in V|\Braket{\lambda,\varsigma_2}\geq 0}\\
+ \Lambda&=\Lambda_1\cap \Lambda_2
+\end{align*}
+とおくと,
+\begin{align*}
+  \Set{a\alpha_0+b\alpha_{m-1}|a\geq 0,b\geq 0}=\Lambda
+\end{align*}
+である. また, $-\Lambda=\Set{-\lambda|\lambda\in\Lambda}$とすると
+\begin{align*}
+  \Set{a\alpha_0+b\alpha_{m-1}|a\leq 0,b\leq 0}=-\Lambda
+\end{align*}
+である.
+\begin{align*}
+\Braket{\alpha_i,\varsigma_1}=\Braket{\alpha(\frac{i\pi}{m}),\alpha(\frac{\pi}{2})}=\cos(\frac{i\pi}{m}-\frac{\pi}{2})=\sin(\frac{i\pi}{m})
+\Braket{\alpha_i,\varsigma_2}=\Braket{\alpha(\frac{i\pi}{m}),\alpha(\frac{-\pi}{m}+\frac{\pi}{2})}
+=\cos(\frac{i\pi}{m}-(\frac{-\pi}{m}+\frac{\pi}{2}))
+=\cos(\frac{(1+i)\pi}{m}-\frac{\pi}{2})
+=\sin(\frac{(1+i)\pi}{m})
+\end{align*}
+であるので,
+\begin{align*}
+\Set{\alpha_{i}|i\in\Set{0,1,\ldots,m-1}}\subset\Lambda\\
+\Set{\alpha_{m+i}|i\in\Set{0,1,\ldots,m-1}}\subset\Lambda
+\end{align*}
+である.  したがって,
+\begin{align*}
+\Phi_\Delta^+&=\Set{\alpha_{i}|i\in\Set{0,1,\ldots,m-1}}\\
+\Phi_\Delta^-&=\Set{\alpha_{m+i}|i\in\Set{0,1,\ldots,m-1}}
+\end{align*}
+であるので, $\Phi=\Phi_\Delta^+\cup\Phi_\Delta^-$である.
+よって$\Delta$は単純系である.
+
+
+%#######################################################################
+\chapter{Simple systemの性質}
 \section{Simple systemの存在}
 $\Phi$をルート系とする.
 $M(\Phi)=V \setminus (\bigcup_{\alpha\in\Phi}H_\alpha)$
@@ -2126,7 +2181,7 @@ v_-&=
 
 \begin{remark}
   $\Delta$は
-  $\Braket{\Phi}_\RR$の来ていであrったので,
+  $\Braket{\Phi}_\RR$の基底であったので,
   $\Delta$のとり方によらず,
   $\numof{\Delta}=\rank(\Phi)$
 \end{remark}
