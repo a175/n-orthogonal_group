@@ -1417,6 +1417,61 @@ $\RR\alpha_i \cap \Phi=\Set{\alpha_i,\alpha_{i+m}}$である.
 $\Phi$はルート系である.
 このルート系を$\Phi(I_2(m))$とおく.
 
+\Cref{ex:i2m:root}での計算から
+\begin{align*}
+  R_i\alpha_k& =\alpha_{2i+k}\\
+  P_i\alpha_k&=\alpha_{m+2i-k}
+\end{align*}
+であるので,
+\begin{align*}
+\Set{w\alpha_0 | w\in W} = \Set{\alpha_{2i}, \alpha_{2i+m}| i \in \ZZ}
+\end{align*}
+である.
+
+$m$が奇数のときには,
+\begin{align*}
+\Set{w\alpha_0 | w\in W} = \Set{\alpha_{i}| i \in \ZZ}=\Phi
+\end{align*}
+となる.
+\Cref{prop:reflgrpisortho}より, $w\in W$は内積を保つ.
+したがって, \cref{prop:conjbyortho}より,
+  $\alpha\in V\setminus\Set{\zzero}$に対し,
+$ws_\alpha w^{-1}=s_{w(\alpha)}$となる.
+よって
+\begin{align*}
+\Set{s_{w(\alpha_0)}|w\in W}=\Set{ws_{\alpha_0} w^{-1}|w\in W}
+\end{align*}
+である.
+$m$が奇数のときには,
+$\Set{w\alpha_0 | w\in W}=\Phi$
+であるので,
+\begin{align*}
+  R(\Phi)=\Set{ws_{\alpha_0} w^{-1}|w\in W}
+\end{align*}
+であることがわかる, $R(\Phi)=\Set{P_i|i\in \ZZ}$であり,
+$P_0=s_{\alpha_0}$である.
+これは, \cref{lem:i2m:conjclass:odd}の別証になっている.
+
+つぎに$m$が偶数のときについて考える.
+\begin{align*}
+\Phi_0&=\Set{\alpha_{2i}| i \in \Set{1,\ldots,m}}\\
+\Phi_1&=\Set{\alpha_{2i-1}| i \in \Set{1,\ldots,m}}\\
+\end{align*}
+とおく.
+\begin{align*}
+ \Set{w\alpha_0 | w\in W}
+  = \Set{\alpha_{2i}| i \in \ZZ}=\Phi_0
+\end{align*}
+である.
+同様に,
+\begin{align*}
+\Set{w\alpha_1 | w\in W}
+  = \Set{\alpha_{2i-1}| i \in \ZZ}=\Phi_1
+\end{align*}
+である. $\Phi_0\cap \Phi_1=\emptyset$, $\Phi=\Phi_0\cup \Phi_1$であるので,
+$m$が奇数のときと同様に,
+\cref{lem:i2m:conjclass:even}の別証を与えることができる.
+
 \subsection{$A_{1}\times\cdots\times A_{1}$}
 \label{ex:a1n:root}
 \begin{align*}
@@ -1600,22 +1655,55 @@ $R(\Phi)=\Set{T_{i,j},F_{i,j}|1\leq i< j\leq n}$
 $W(\Phi)=W$である.
 
 \subsection{$G_2$}
-$\Phi=\Phi(I_2(m))$,
-$W=D_{2\cdot m}$とし,
-\cref{ex:i2m:root}の記号を用いる.
-\Cref{prop:reflgrpisortho}より, $w\in W$は内積を保つ.
-したがって, \cref{prop:conjbyortho}より,
-  $\alpha\in V\setminus\Set{\zzero}$に対し,
-  $ws_\alpha w^{-1}=s_{w(\alpha)}$となる.
+$n=3$とする.
+\begin{align*}
+  \alpha_{i,j}&=\ee_i-\ee_j,\\
+  \gamma_{i}&=\alpha_{i,1}+\alpha_{i,2}+\alpha_{i,3}
+\end{align*}
+とおき,
+\begin{align*}
+  \check\Phi&=\Set{\alpha_{i,j},-\alpha_{i.j}|1\leq i<j\leq 3},\\
+  \hat\Phi&=\Set{\gamma_{i},-\gamma_{i}|1\leq i\leq 3},\\
+  \Phi&=\check\Phi\cup\hat\Phi
+\end{align*}
+とする.
 
-$m$が奇数のとき,
-\cref{lem:i2m:conjclass:odd}より
+$\tau\in S_3$を$i$と$j$を入れ替える互換とすると,
 \begin{align*}
-\Set{P_i | i \in \ZZ}
-    &= \Set{AP_0A^{-1} | A\in D_{2\cdot m}}\\
+  T_{i,j}\gamma_k=\gamma_{\tau(k)}
 \end{align*}
-であるが, $P_i=s_{\alpha_i}=s_{\alpha_{i+m}}$であったので,
+である. したがって,
+$T_{i,j}(\check\Phi)=\check\Phi$,
+$T_{i,j}(\hat\Phi)=\hat\Phi$である.
+
+$\Set{1,2,3}=\Set{i,j,k}$とする.
+このとき,
 \begin{align*}
-\Set{P_i | i \in \ZZ}
-    &= \Set{AP_0A^{-1} | A\in D_{2\cdot m}}\\
+  \gamma_{i}&=\alpha_{i,j}+\alpha_{i,k}=2\ee_i-\ee_j-\ee_k\\
+  \Braket{\gamma_{i},\alpha_{j,k}}
+  &=\Braket{2\ee_i-\ee_j-\ee_k,\ee_j-\ee_k}=0\\
+  \Braket{\gamma_{i},\alpha_{i,j}}
+  &=\Braket{2\ee_i-\ee_j-\ee_k,\ee_i-\ee_j}=3\\
+  \Braket{\gamma_{i},\gamma_{j}}
+  &=\Braket{\gamma_i,\alpha_{j,i}+\alpha_{j,k}}=-3+0=-3\\
+  \Braket{\gamma_{i},\gamma_{i}}
+  &=\Braket{\gamma_i,\alpha_{i,j}+\alpha_{i,k}}=3+3=6
 \end{align*}
+である. したがって,
+\begin{align*}
+  s_{\gamma_{i}}(\alpha_{j,k})&=\alpha_{j,k}-2\frac{0}{6}\gamma_i
+  =\alpha_{j,k}\\
+  s_{\gamma_{i}}(\alpha_{i,j})&=\alpha_{i,j}-2\frac{3}{6}\gamma_i
+  =\alpha_{i,j}-\alpha_{i,j}-\alpha_{i,k}=-\alpha_{i,k}\\
+  s_{\gamma_{i}}(\gamma_{j})&=\gamma_{j}-2\frac{-3}{6}\gamma_i
+  =\gamma_j+\gamma_i\\
+  &=2\ee_j-\ee_i-\ee_k+2\ee_i-\ee_j-\ee_k
+  =-2\ee_k+\ee_j+\ee_i=-\gamma_k
+\end{align*}
+である.
+したがって,
+$s_{\gamma_i}(\check\Phi)=\check\Phi$,
+$s_{\gamma_i}(\hat\Phi)=\hat\Phi$である.
+$\alpha\in\Phi$に対し, $\RR\alpha\cap\Phi=\Set{\alpha,-\alpha}$であり,
+$\numof{\Phi}=12$であるので, $\Phi$はルート系である.
+このルート系を$\Phi(G_2)$と書く.
