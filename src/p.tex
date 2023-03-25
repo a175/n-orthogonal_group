@@ -1793,7 +1793,17 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
   $\alpha\in \Phi_\Delta^+$なら$\Braket{\alpha,\varpi}>0$であり,
   $\alpha\in \Phi_\Delta^-$なら$\Braket{\alpha,\varpi}<0$である.
 \end{proof}
-
+\begin{remark}
+  ルート系$\Phi$の単純系$\Delta$に対し,
+  \cref{lemma:cone:sparable}の証明中で構成した$\check\delta$を使うと,
+  \begin{align*}
+    \Set{\sum_{\delta\in\Delta}a_\delta \delta|a_\delta\geq 0}
+    &= \bigcup_{\delta\in\Delta} \Set{\lambda\in \Braket{\Phi}_\RR |\Braket{\lambda,\check\delta} }\\
+    \Set{\sum_{\delta\in\Delta}a_\delta \delta|a_\delta\geq 0}
+    &\subset\bigcup_{\delta\in\Delta} \Set{\lambda\in V |\Braket{\lambda,\check\delta} }
+  \end{align*}
+  である.
+\end{remark}
 \begin{lemma}
   \label{lem:simplesumissimplesystem:}
   $\Phi$をルート系とする.
@@ -1947,7 +1957,13 @@ $\Braket{\alpha_{m-1}, \eta_2} = 0$であるので, $\RR\alpha_0=H_{\eta_2}$で�
 \end{align*}
 であるので, $\Phi=\Phi_\Delta^+\cup\Phi_\Delta^-$である.
 よって$\Delta$は$\Phi$の単純系である.
-
+また,
+$\varpi=\eta_1+\eta_2$とおけば,
+\begin{align*}
+\Phi_\Delta^+&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\geq 0}\\
+\Phi_\Delta^-&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\leq 0}
+\end{align*}
+である.
 \subsection{$A_{1}\times\cdots\times A_{1}$}
 \cref{ex:a1n:root}で考えたルート系について考える.
 つまり, $\varepsilon_i=\ee_i$とし,
@@ -1963,8 +1979,15 @@ $\Phi_\Delta^+=\Set{-\varepsilon_k|k\in\Set{1,\ldots,n}}$
 である.  
 $\Phi=\Phi_\Delta^+\cup\Phi_\Delta^-$であるので,
 $\Delta$は$\Phi$の単純系である.
+また, $\varpi=\ee_1+\cdots+\ee_n$とすると,
+\begin{align*}
+\Phi_\Delta^+&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\geq 0}\\
+\Phi_\Delta^-&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\leq 0}
+\end{align*}
+である.
 
 \subsection{$A_{n-1}$}
+\label{ex:an:simple}
 $\Phi=\Phi(A_{n-1})$とし,
 \cref{ex:an:root}の記号を用いる.
 $\alpha_{i,j}=\ee_i-\ee_j$であり, $\Phi=\Set{\alpha_{i,j}, -\alpha_{i,j}|1\leq i<j\leq n}$である.
@@ -1993,7 +2016,7 @@ $\Phi\subset \Braket{\Delta}_\RR$である.
 \end{align*}
 とすると,
 \begin{align*}
-  c_1\alpha_{1,2}+c_2\alpha_{2,3}+\cdots+c_{n-1}\alpha_{n-1,n}\\
+  &c_1\alpha_{1,2}+c_2\alpha_{2,3}+\cdots+c_{n-1}\alpha_{n-1,n}\\
   &=c_1(\ee_1-\ee_2)+c_2(\ee_2-\ee_3)+\cdots+c_{n-1}(\ee_{n-1}-\ee_n)\\
   &=c_1\ee_1+(c_2-c_1)\ee_2+(c_3-c_2)\ee_3+\cdots+(c_{n-1}-c_{n-2})\ee_{n-1}-c_{n-1}\ee_n
 \end{align*}
@@ -2010,8 +2033,32 @@ $\Phi\subset \Braket{\Delta}_\RR$である.
 よって, $\Delta$は一次独立である.
 したがって, $\Delta$は$\Braket{\Phi}_\RR$の基底である.
 $\Delta$は$\Phi$の単純系である.
+\begin{align*}
+  \eta_{1,k}=\ee_1+\cdots+\ee_k
+\end{align*}
+とおと,
+\begin{align*}
+  \Braket{\eta_{1,k},\alpha_{j,j+1}}=
+  \begin{cases}
+    1 &(k=j)\\
+    0 &(k\neq j)
+  \end{cases}
+\end{align*}
+である.
+\begin{align*}
+  \varpi&=\eta_{1,1}+\cdots+\eta_{1,n-1}\\
+  &=(n-1)\ee_1+(n-2)\ee_1+\cdots+\ee_{n-1}
+\end{align*}
+  とすると,
+\begin{align*}
+\Phi_\Delta^+&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\geq 0}\\
+\Phi_\Delta^-&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\leq 0}
+\end{align*}
+である.
+
 
 \subsection{$B_{n}$}
+\label{ex:bn:simple}と同様に,
 $\Phi=\Phi(B_n)$とし,
 \cref{ex:bn:root}の記号を用いる.
 $\alpha_{i,j}=\ee_i-\ee_j$,
@@ -2040,6 +2087,33 @@ $V=\Braket{\Phi}_{\RR}$である.
 \end{align*}
 であるので, $\Phi=\Phi_\Delta^+\cup \Phi_\Delta^-$である.  したがって$\Braket{\Phi}_\RR=\Braket{\Delta}_\RR$である.
 また, $\numof{\Delta}=n=\dim(V)$であるので, $\Delta$は$V=\Braket{\Phi}_\RR$の基底である.
+
+\Cref{ex:an:simple}と同様に,
+\begin{align*}
+  \eta_{1,k}=\ee_1+\cdots+\ee_k
+\end{align*}
+とおと,
+\begin{align*}
+  \Braket{\eta_{1,k},\varepsilon_{n}}=
+  \begin{cases}
+    1 &(k=n)\\
+    0 &(k\neq n)
+  \end{cases}
+\end{align*}
+である.
+したがって,
+\begin{align*}
+  \varpi&=\eta_{1,1}+\cdots+\eta_{1,n}\\
+  &=n\ee_1+(n-1)\ee_1+\cdots+2\ee_{n-1}+\ee_{n}
+\end{align*}
+  とすると,
+\begin{align*}
+\Phi_\Delta^+&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\geq 0}\\
+\Phi_\Delta^-&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\leq 0}
+\end{align*}
+である.
+
+
 \subsection{$C_{n}$}
 $\Phi=\Phi(C_n)$とし
 \cref{ex:cn:root}の記号を用いる.
@@ -2061,6 +2135,31 @@ $\varepsilon'_k=2\varepsilon_k$である.
 \end{align*}
 である. よって, $\Phi=\Phi_\Delta^+\cup \Phi_\Delta^-$であり, $V=\Braket{\Phi}_\RR=\Braket{\Delta}_\RR$かつ$\numof{\Delta}=n$であるので,
 $\Delta$は$\Phi$の単純系である.
+
+
+\Cref{ex:bn:simple}と同様に,
+\begin{align*}
+  \eta_{1,k}=\ee_1+\cdots+\ee_k
+\end{align*}
+とおと,
+\begin{align*}
+  \Braket{\eta_{1,k},\varepsilon'_{n}}=
+  \begin{cases}
+    2 &(k=n)\\
+    0 &(k\neq n)
+  \end{cases}
+\end{align*}
+である.
+したがって,
+\begin{align*}
+  \varpi&=\eta_{1,1}+\cdots+\eta_{1,n}\\
+\end{align*}
+  とすると,
+\begin{align*}
+\Phi_\Delta^+&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\geq 0}\\
+\Phi_\Delta^-&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\leq 0}
+\end{align*}
+である.
 
 
 \subsection{$D_{n}$}
@@ -2089,6 +2188,37 @@ $\Braket{\Delta}_\RR=\Braket{\Phi}_\RR=V$
 である.
 $\numof{\Delta}=n=\dim(V)$であるので, $\Delta$は$V=\Braket{\Phi}_\RR$の基底であり,
 $\Delta$は$\Phi$の単純系である.
+
+
+\begin{align*}
+  \eta_{1,k}&=\ee_1+\cdots+\ee_k\\
+  \eta'&=\eta_{1,n}\\
+  \eta''&=\eta_{1,n-1}-\ee_n=\ee_1+\cdots+\ee_{n-1}-\ee_n
+\end{align*}
+とおと, $k<n-1$に対し,
+\begin{align*}
+  \Braket{\eta_{1,k},\beta_{n-1,n}}&=0\\
+  \Braket{\eta',\beta_{n-1,n}}&=2\\
+  \Braket{\eta'',\beta_{n-1,n}}&=0\\
+  \Braket{\eta'',\alpha_{i,i+1}}&=
+  \begin{cases}
+    2 &(i=n-1)\\
+    0 &(i\neq n-1)
+  \end{cases}
+\end{align*}
+である.
+したがって,
+\begin{align*}
+  \varpi&=\eta_{1,1}+\cdots+\eta_{1,n-2}+\eta'+\eta''\\
+  &=\eta_{1,1}+\cdots+\eta_{n}-\ee_n\\
+  &=n\ee_1+(n-1)\ee_1+\cdots+2\ee_{n-1}
+\end{align*}
+  とすると,
+\begin{align*}
+\Phi_\Delta^+&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\geq 0}\\
+\Phi_\Delta^-&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\leq 0}
+\end{align*}
+である.
 
 %#######################################################################
 \chapter{Simple systemの性質}
