@@ -1659,10 +1659,11 @@ $R(\Phi)=\Set{T_{i,j},F_{i,j}|1\leq i< j\leq n}$
 $W(\Phi)=W$である.
 
 \subsection{$G_2$}
+\label{ex:g2:root}
 $n=3$とする.
 \begin{align*}
   \alpha_{i,j}&=\ee_i-\ee_j,\\
-  \gamma_{i}&=\alpha_{i,1}+\alpha_{i,2}+\alpha_{i,3}
+  \gamma_{i}&=-(\alpha_{i,1}+\alpha_{i,2}+\alpha_{i,3})
 \end{align*}
 とおき,
 \begin{align*}
@@ -1683,26 +1684,26 @@ $T_{i,j}(\hat\Phi)=\hat\Phi$である.
 $\Set{1,2,3}=\Set{i,j,k}$とする.
 このとき,
 \begin{align*}
-  \gamma_{i}&=\alpha_{i,j}+\alpha_{i,k}=2\ee_i-\ee_j-\ee_k\\
+  \gamma_{i}&=-(\alpha_{i,j}+\alpha_{i,k})=-2\ee_i+\ee_j+\ee_k\\
   \Braket{\gamma_{i},\alpha_{j,k}}
-  &=\Braket{2\ee_i-\ee_j-\ee_k,\ee_j-\ee_k}=0\\
+  &=\Braket{-2\ee_i+\ee_j+\ee_k,\ee_j-\ee_k}=0\\
   \Braket{\gamma_{i},\alpha_{i,j}}
-  &=\Braket{2\ee_i-\ee_j-\ee_k,\ee_i-\ee_j}=3\\
+  &=\Braket{-2\ee_i+\ee_j+\ee_k,\ee_i-\ee_j}=-3\\
   \Braket{\gamma_{i},\gamma_{j}}
-  &=\Braket{\gamma_i,\alpha_{j,i}+\alpha_{j,k}}=-3+0=-3\\
+  &=\Braket{\gamma_i,-\alpha_{j,i}-\alpha_{j,k}}=-3+0=-3\\
   \Braket{\gamma_{i},\gamma_{i}}
-  &=\Braket{\gamma_i,\alpha_{i,j}+\alpha_{i,k}}=3+3=6
+  &=\Braket{\gamma_i,-\alpha_{i,j}-\alpha_{i,k}}=3+3=6
 \end{align*}
 である. したがって,
 \begin{align*}
   s_{\gamma_{i}}(\alpha_{j,k})&=\alpha_{j,k}-2\frac{0}{6}\gamma_i
   =\alpha_{j,k}\\
-  s_{\gamma_{i}}(\alpha_{i,j})&=\alpha_{i,j}-2\frac{3}{6}\gamma_i
+  s_{\gamma_{i}}(\alpha_{i,j})&=\alpha_{i,j}-2\frac{-3}{6}\gamma_i
   =\alpha_{i,j}-\alpha_{i,j}-\alpha_{i,k}=-\alpha_{i,k}\\
   s_{\gamma_{i}}(\gamma_{j})&=\gamma_{j}-2\frac{-3}{6}\gamma_i
   =\gamma_j+\gamma_i\\
-  &=2\ee_j-\ee_i-\ee_k+2\ee_i-\ee_j-\ee_k
-  =-2\ee_k+\ee_j+\ee_i=-\gamma_k
+  &=-2\ee_j+\ee_i+\ee_k-2\ee_i+\ee_j+\ee_k
+  =2\ee_k-\ee_j-\ee_i=-\gamma_k
 \end{align*}
 である.
 したがって,
@@ -1726,7 +1727,7 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
   以下の条件を満たすとき$\Delta$を$\Phi$の単純系と呼ぶ:
   \begin{enumerate}
 %  \item $\Delta\subset\Phi$
-  \item $\Delta$は$\Braket{\Phi}_{\RR}$の基底.
+  \item $\Delta$は一次独立. %$\Braket{\Phi}_{\RR}$の基底.
   \item $\Phi = \Phi_\Delta^{+}\cup \Phi_\Delta^{-}$.
   \end{enumerate}
   また, $\Delta$が単純系であるとき,
@@ -1740,8 +1741,7 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
   $\Phi = \Phi_\Delta^{+}\cup \Phi_\Delta^{-}$がなりたつなら, $\Phi$の元は$\Delta$の元の一次結合としてかけることがわかる.
   また, $\Delta\subset\Phi$であるから,
   $\Braket{\Phi}_\RR=\Braket{\Delta}_\RR$である.
-  したがって, $\Delta$は$\Braket{\Phi}_{\RR}$の基底であるという条件で本質的なのは,
-  $\Delta$が一次独立であることである.
+  $\Delta$は一次独立なので, $\Delta$は$\Braket{\Phi}_{\RR}$の基底である.
 \end{remark}
 \begin{prop}
   \label{lemma:cone:sparable}
@@ -2220,7 +2220,62 @@ $\Delta$は$\Phi$の単純系である.
 \end{align*}
 である.
 
-%#######################################################################
+
+\subsection{$G_2$}
+$\Phi=\Phi(G_2)$とし,
+\cref{ex:g2:root}の記号を用いる.
+$n=3$であり,
+\begin{align*}
+  \alpha_{i,j}&=\ee_i-\ee_j,\\
+  \gamma_{i}&=\alpha_{i,1}+\alpha_{i,2}+\alpha_{i,3}
+\end{align*}
+であった.
+\begin{align*}
+  \Delta=\Set{\alpha_{1,2},\gamma_{1}}
+\end{align*}
+とおく.
+\begin{align*}
+  \alpha_{1,2}&=\ee_1-\ee_2\\
+  \gamma_{1}&=-2\ee_1+\ee_2+\ee_3\\
+  \gamma_{1}+\alpha_{1,2}&=\alpha_{3,1}\\
+  \gamma_{1}+2\alpha_{1,2}&=\alpha_{3,2}\\
+  \gamma_{1}+3\alpha_{1,2}&=\alpha_{3,2}+\alpha_{1,2}=\gamma_{2}\\
+  2\gamma_{1}+3\alpha_{1,2}&=\gamma_1+\gamma_{2}=-\gamma_3
+\end{align*}
+である.  したがって,
+\begin{align*}
+\Set{ \alpha_{1,2},\gamma_{1}, \alpha_{3,1},\alpha_{3,2},\gamma_{2},-\gamma_3}
+&\subset
+  \Phi_\Delta^+\\
+\Set{ \alpha_{2,1},-\gamma_{1}, \alpha_{1,3},\alpha_{2,3},-\gamma_{2},\gamma_3}
+&\subset
+  \Phi_\Delta^-
+\end{align*}
+である.
+したがって, $\Phi=\Phi_\Delta^+\cup\Phi_\Delta^-$
+であり, $\Braket{\Phi}_\RR=\Braket{\Delta}_\RR$である.
+また, $\Delta$は一次独立であるから,
+$\Delta$は$\Phi$の単純系である.
+\begin{align*}
+  \eta_1&=\ee_3\\
+  \eta_2&=\ee_1+2\ee_3
+\end{align*}
+とおけば,
+\begin{align*}
+  \Braket{\eta_1,\alpha_{1,2}}&=0\\
+  \Braket{\eta_2,\alpha_{1,2}}&=1\\
+  \Braket{\eta_1,\gamma_{1}}&=1\\
+  \Braket{\eta_2,\gamma_{1}}&=0\\
+\end{align*}
+であるので, $\varpi=\eta_1+\eta_2$
+  とすると,
+\begin{align*}
+\Phi_\Delta^+&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\geq 0}\\
+\Phi_\Delta^-&=\Set{\alpha\in\Phi|\Braket{\alpha,\varpi}\leq 0}
+\end{align*}
+である.
+
+
 \chapter{Simple systemの性質}
 \section{Simple systemの存在}
 $\Phi$をルート系とする.
@@ -2467,3 +2522,189 @@ v_-&=
 \end{remark}
 
 
+\chapter{Symple rootの性質}
+\section{Symple rootの性質}
+ここでは特に断らない限り,
+$\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
+また, $\Phi^+=\Phi_\Delta^+$とする.
+\begin{prop}
+  \label{prop:simple:reflect:positive2positive}
+  $\alpha\in\Delta$に対し,
+  $s_\alpha(\Phi^+\setminus\Set{\alpha})=\Phi^+\setminus\Set{\alpha}$.
+\end{prop}
+\begin{proof}
+$\alpha\in\Delta$とする.
+
+$s_\alpha(\Phi^+\setminus\Set{\alpha})\subset\Phi^+\setminus\Set{\alpha}$
+を示す.
+
+$\beta=\sum_{\delta\in\Delta}c_\delta\delta \in \Phi^+\setminus \Set{\alpha}$
+とする. $c_\delta\geq 0$である.
+$\beta=c_\alpha\alpha$とかけたとすると,
+ $\Phi$はルート系であるので,
+$\Phi\cap\RR\alpha=\Set{\alpha,-\alpha}$であるから,
+$c_\alpha\in\Set{1,-1}$である.
+$\beta$は仮定より$\alpha$ではなく,
+また $-\alpha\in \Phi^-$でもない.
+したがって,
+$c_{\delta}> 0$をみたす
+$\delta\in\Delta\setminus\Set{\alpha}$が存在する.
+$\gamma\in\Delta\setminus\Set{\alpha}$が
+$c_{\gamma}> 0$をみたすとする.
+
+ルート系の定義より,
+$s_\alpha(\Phi)=\Phi$であるので,
+$s_\alpha(\beta)\in \Phi$.
+$c=2\frac{\Braket{\beta,\alpha}}{\Braket{\alpha,\alpha}}$
+とすると,
+\begin{align*}
+  s_\alpha(\beta)&=\beta-c\alpha\\
+  &=c_{\gamma}\gamma +(c_\alpha-c)\alpha + \sum_{\delta\in\Delta\setminus\Set{\delta_0,\alpha}}c_\delta\delta.
+\end{align*}
+$c_\gamma>0$であることから$s_\alpha(\beta)\in\Phi^+$であることがわかる.
+また, $\Delta$は一次独立であるので,
+\begin{align*}
+  s_\alpha(\beta)-\alpha\\
+  &=c_{\gamma}\gamma +(c_\alpha-c-1)\alpha + \sum_{\delta\in\Delta\setminus\Set{\delta_0,\alpha}}c_\delta\delta\neq \zzero
+\end{align*}
+であるので, $s_\alpha(\beta)\neq\alpha$である.
+
+
+$s_\alpha(\Phi^+\setminus\Set{\alpha})\supset\Phi^+\setminus\Set{\alpha}$
+を示す.
+$\beta\in\Phi^+\setminus\Set{\alpha}$
+とする.
+$\gamma=s_\alpha(\beta)$とおくと,
+$\gamma\in \Phi^+\setminus\Set{\alpha}$であることはすでに示した.
+$s_\alpha s_\alpha=\id_V$であるから,
+$\beta=s_\alpha(s_\alpha(\beta))=s_\alpha(\gamma)$
+と
+かけるので, $\beta\in s_\alpha(\Phi^+\setminus\Set{\alpha})$.
+\end{proof}
+$\alpha\in\Delta$に対し,
+$s_\alpha$で負ルートになる正ルートは$\alpha$のみである.
+以下のように言い換えることもできる.
+\begin{cor}
+  $\alpha\in\Delta$とする.
+  $s_\alpha(\beta)\in\Phi^+$かつ$\beta\in\Phi^+$ならば
+  $\alpha=\beta$である.
+\end{cor}
+\begin{cor}
+  $\alpha\in\Delta$に対し,
+  $(s_\alpha)^{-1}(\Phi^-)\cap\Phi^+=\Set{\alpha}$
+\end{cor}
+$(s_\alpha)^{-1}=s_\alpha$であるので,
+次のように言い換えることもできる.
+\begin{cor}
+  $\alpha\in\Delta$に対し,
+  $s_\alpha(\Phi^-)\cap\Phi^+=\Set{\alpha}$
+\end{cor}
+
+\section{高さ関数}
+ここでは特に断らない限り,
+$\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
+また, $\Phi^+=\Phi_\Delta^+$とする.
+\begin{definition}
+  $\alpha=\sum_{\delta\in\Delta}c_\delta \delta$に対し,
+  $\height(\alpha)=\sum_{\delta\in\Delta}c_\delta$と定義し,
+  $\alpha$の高さと呼ぶ.
+\end{definition}
+
+しばらくの間,
+$R_0=\Set{s_\alpha|\alpha\in\Delta}$,
+$W_0=\Braket{R_0}_\ZZ$
+とおく.
+\begin{lemma}
+  \label{lem:minimumhtissimple}
+  $\beta\in\Phi^+$,
+  $h=\min\Set{\height(\gamma)|\gamma\in W_0(\beta)\cap \Phi^+}$とする.
+  $\gamma\in W_0(\beta)\cap \Phi^+$が$\height(\gamma)=h$をみたすなら,
+  $\gamma\in\Delta$.
+\end{lemma}
+\begin{proof}
+  $\gamma=\sum_{\delta\in\Delta}c_\delta\delta$とする.
+  $c_\gamma\geq 0$である.
+  \begin{align*}
+    \Braket{\gamma,\gamma}
+    &=\Braket{\gamma,\sum_{\delta\in\Delta}c_\delta\delta}\\
+    &=\sum_{\delta\in\Delta}c_\delta\Braket{\gamma,\delta}
+  \end{align*}
+  となるが, $\Braket{\gamma,\gamma}>0$であるから,
+  $\Braket{\gamma,\delta}>0$となる$\delta$が存在する.
+  $\alpha\in\Delta$が$\Braket{\gamma,\alpha}>0$をみたすとする.
+
+  $\gamma=\alpha$のときは$\gamma=\alpha\in\Delta$である.
+  $\gamma\neq\alpha$のときについて考える.
+  $s_\alpha(\gamma)$を調べる.
+  $\gamma\in\Phi^+$だから,
+  \cref{prop:simple:reflect:positive2positive}から
+  $s_\alpha(\gamma)\in\Phi^+$がわかる.
+  $\gamma\in W_0(\beta)$であるので, $w\in W_0$をつかって,
+  $\gamma=w(\beta)$とかける.
+  したがって,
+  $s_\alpha(\gamma)=s_\alpha w(\gamma)$とかけるが,
+  $s_\alpha w\in W_0$であるから,
+  $s_\alpha(\gamma)\in W_0(\beta)\cap \Phi^+$である.
+  一方,  
+  $c=2\frac{\Braket{\gamma,\alpha}}{\Braket{\alpha,\alpha}}$とすると,
+  $c>0$であり,
+  $s_\alpha(\gamma)=\gamma-c\alpha$
+  とかけるので,
+  \begin{align*}
+    \height(s_\alpha(\gamma))
+    =\height(\gamma)-c < \height(\gamma)=h
+  \end{align*}
+  となる.
+  これは$h$の最小性に矛盾する.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lem:simpleactstrnsitive}
+  $W_0(\Delta)=\Phi$
+\end{lemma}
+\begin{proof}
+  $W_0(\Delta)\subset \Phi$は, $\Phi$がルート系であるので明白である.
+
+  $W_0(\Delta)\supset \Phi$について考える.
+  $\beta\in \Phi$とする.
+
+  $\beta\in\Phi^+$のときについて考える.
+  $h=\min\Set{\height(\alpha)|\alpha\in W_0(\beta)\cap\Phi^+}$とし,
+  $\gamma\in W_0(\beta)\cap\Phi^+$が$\height(\gamma)=h$をみたすとする.
+  $\gamma=w(\beta)$, $w\in W_0$とする
+  このとき, \cref{lem:minimumhtissimple}より, $\gamma\in\Delta$である.
+  よって, $\gamma=w(\beta)\in\Delta$となる.
+  したがって, $\beta=w^{-1}(\gamma)\in W_0(\Delta)$.
+
+  $\beta\in\Phi^-$のときは, $-\beta\in\Phi^+$であるので,
+  $-\beta=w(\gamma)$をみたす$w\in W_0$と$\gamma\in\Delta$がとれる.
+  $s_\gamma(\gamma)=-\gamma$であるから,
+  $ws_\gamma(\gamma)=-w(\gamma)=\beta$
+  となり$\beta\in W_0(\Delta)$がわかる.
+\end{proof}
+
+
+\begin{theorem}
+  $W(\Phi)=W_0$
+\end{theorem}
+\begin{proof}
+  $W(\Phi)\supset W_0=\Braket{R_0}_\ZZ$は,
+  $R_0\subset W(\Phi)$であることから,
+  明白である.
+
+  $W(\Phi)\subset W_0$について考える.
+  $\beta\in\Phi$とする.
+  このとき$s_\beta\in W$, $\beta\in\Phi$だから,
+  \cref{lem:simpleactstrnsitive}から,
+  $\beta=w(\alpha)$をみたす
+  $w\in W_0$と$\delta\in\Delta$がとれる.
+  したがって,
+  \begin{align*}
+    s_\beta=s_{w\delta}=ws_\delta w^{-1}
+  \end{align*}
+  となるが, $w$も$s_\delta$も$W_0$の元だから,
+  $s_\beta\in W_0$である.
+  したがって, $R(\Phi)\subset W_0$であるので,
+  $W(\Phi)=\Braket{R(\Phi)}_\ZZ\subset W_0$である.
+\end{proof}
