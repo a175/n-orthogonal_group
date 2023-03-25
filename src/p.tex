@@ -1536,7 +1536,7 @@ $\varepsilon_{k}=\ee_k$.
   \Phi_1&=\Set{\alpha_{i,j},-\alpha_{i,j}|1\leq i<j\leq n}\\
   \Phi_2&=\Set{\beta_{i,j},-\beta_{i,j}|1\leq i<j\leq n}\\
   \hat\Phi&=\Phi_1\cup \Phi_2\\
-  \check\Phi&=\Set{\varepsilon_k|1\leq k\leq n}
+  \check\Phi&=\Set{\varepsilon_k,-\varepsilon_k|1\leq k\leq n}
 \end{align*}
 とする.
 \begin{align*}
@@ -1616,12 +1616,12 @@ $s_{\alpha}(\check\Phi)\cap\hat\Phi=\emptyset$,
 $s_{\alpha}(\hat\Phi)\cap\check\Phi=\emptyset$である.
 したがって, $\check\Phi$のみを定数倍しても,
 再びルート系になる.
-例えば,
+例えば, $\varepsilon'_k=2\varepsilon_k$とし
 \begin{align*}
+  \Phi'&=\Set{\varepsilon'_k,-\varepsilon'_k|1\leq k\leq n}
   \Phi_1&=\Set{\alpha_{i,j},-\alpha_{i,j}|1\leq i<j\leq n}\\
   \Phi_2&=\Set{\beta_{i,j},-\beta_{i,j}|1\leq i<j\leq n}\\
-  \Phi'&=\Phi_1\cup \Phi_2\\
-  \Phi''&=\Set{2\varepsilon_k|1\leq k\leq n}
+  \Phi''&=\Phi_1\cup \Phi_2\\
 \end{align*}
 とし,
 \begin{align*}
@@ -2023,10 +2023,10 @@ $V=\Braket{\Phi}_{\RR}$である.
   \Delta&=\Set{\alpha_{i,i+1}|i\in\Set{1,\ldots,n-1}}\cup \Set{\varepsilon_n}
 \end{align*}
 とおく.
-このとき, $1\leq i<j\leq n$に対し,
+このとき, $1\leq i<j\leq n$, $1\leq k<n$に対し,
 \begin{align*}
 \alpha_{i,j}&=\sum_{k=i}^{j-1}\alpha_{k,k+1}\\
-\varepsilon_{i}&=\alpha_{i,n}+\varepsilon_{n}\\
+\varepsilon_{k}&=\alpha_{i,n}+\varepsilon_{n}\\
 \beta_{i,j}&=\alpha_{i,j}+2\varepsilon_{j}
 \end{align*}
 とかけるので,
@@ -2040,6 +2040,27 @@ $V=\Braket{\Phi}_{\RR}$である.
 \end{align*}
 であるので, $\Phi=\Phi_\Delta^+\cup \Phi_\Delta^-$である.  したがって$\Braket{\Phi}_\RR=\Braket{\Delta}_\RR$である.
 また, $\numof{\Delta}=n=\dim(V)$であるので, $\Delta$は$V=\Braket{\Phi}_\RR$の基底である.
+\subsection{$C_{n}$}
+$\Phi=\Phi(C_n)$とし
+\cref{ex:cn:root}の記号を用いる.
+$\varepsilon'_k=2\varepsilon_k$である.
+\begin{align*}
+  \Delta&=\Set{\alpha_{i,i+1}|i\in\Set{1,\ldots,n-1}}\cup \Set{\varepsilon'_n}
+\end{align*}
+とおく.
+このとき, $1\leq i<j\leq n$, $1\leq k <n$に対し,
+\begin{align*}
+\alpha_{i,j}&=\sum_{k=i}^{j-1}\alpha_{k,k+1}\\
+\beta_{k,n}&=\alpha_{k,n}+\varepsilon'_{n}\\
+\beta_{i,j}&=\alpha_{i,n}+\beta{j,n}\\
+\varepsilon'_{k}&=\alpha_{i,n}+\beta_{i,n}
+\end{align*}
+とかけるので,
+\begin{align*}
+  \Set{\alpha_{i,j},\beta_{i,j}|1\leq i<j\leq n}\cup \Set{\varepsilon'_k | k\in\Set{1,\ldots,n}}\subset\Phi_\Delta^+
+\end{align*}
+である. よって, $\Phi=\Phi_\Delta^+\cup \Phi_\Delta^-$であり, $V=\Braket{\Phi}_\RR=\Braket{\Delta}_\RR$かつ$\numof{\Delta}=n$であるので,
+$\Delta$は$\Phi$の単純系である.
 
 %#######################################################################
 \chapter{Simple systemの性質}
