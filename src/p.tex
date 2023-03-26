@@ -2183,6 +2183,7 @@ $\Delta$は$\Phi$の単純系である.
 
 
 \subsection{$D_{n}$}
+\label{ex:dn:simple}
 $\Phi=\Phi(D_n)$とし
 \cref{ex:dn:root}の記号を用いる.
 \begin{align*}
@@ -2242,6 +2243,7 @@ $\Delta$は$\Phi$の単純系である.
 
 
 \subsection{$G_2$}
+\label{ex:g2:simple}
 $\Phi=\Phi(G_2)$とし,
 \cref{ex:g2:root}の記号を用いる.
 $n=3$であり,
@@ -2273,7 +2275,18 @@ $n=3$であり,
 \end{align*}
 である.
 したがって, $\Phi=\Phi_\Delta^+\cup\Phi_\Delta^-$
-であり, $\Braket{\Phi}_\RR=\Braket{\Delta}_\RR$である.
+であり,
+$\Braket{\Phi}_\RR=\Braket{\Delta}_\RR$である.
+よって, 
+\begin{align*}
+\Set{ \alpha_{1,2},\gamma_{1}, \alpha_{3,1},\alpha_{3,2},\gamma_{2},-\gamma_3}
+&=
+  \Phi_\Delta^+\\
+\Set{ \alpha_{2,1},-\gamma_{1}, \alpha_{1,3},\alpha_{2,3},-\gamma_{2},\gamma_3}
+&=
+  \Phi_\Delta^-
+\end{align*}
+である.
 また, $\Delta$は一次独立であるから,
 $\Delta$は$\Phi$の単純系である.
 \begin{align*}
@@ -3125,3 +3138,128 @@ $\alpha$が$\beta$の一つ左にある場合,
 $\alpha$が$\beta$の一つ上にある場合,
 $\height_\Delta(\alpha)=\height_\Delta(\beta)+1$である.
 
+\subsection{$D_{n}$}
+$\Phi=\Phi(D_n)$とし
+\cref{ex:dn:simple}で考えた単純系$\Delta$を考える.
+$S=\Set{s_\delta|\delta\in \Delta}$とする.
+$s_\delta\in S$に対し,
+$\alpha\in\Phi_\Delta^+\setminus\Set{\delta}$が
+$s_{\delta}(\alpha)\in\Phi_\Delta^+$
+みたすことを確認する.
+$\delta=\alpha_{i,i+1}$については,
+\cref{ex:bn:simplereflectposi2posi}
+の議論である.
+$\delta=\beta_{n-1,n}$のときについて考える.
+$s_{\beta_{n-1,n}}=F_{n-1}F_{n}T_{n-1,n}$
+である. したがって$i<j$に対し,
+\begin{align*}
+  s_{\beta_{n-1,n}}(\alpha_{i,j})
+  &=
+  \begin{cases}
+    \alpha_{i,j}&(i<j<n-1)\\
+    \beta_{i,n}&(i<n-1,j=n-1)\\
+    \beta_{i,n-1}&(i<n-1,j=n)\\
+    \alpha_{n,n-1}=\alpha_{n-1,n}&(i=n-1,j=n)\\
+  \end{cases}\\
+  s_{\beta_{n-1,n}}(\beta_{i,j})
+  &=
+  \begin{cases}
+    \beta_{i,j}&(i<j<n-1)\\
+    \alpha_{i,n}&(i<n-1,j=n-1)\\
+    \alpha_{i,n-1}&(i<n-1,j=n)\\
+    -\beta_{n,n-1}&(i=n-1,j=n)\\
+  \end{cases}
+\end{align*}
+である.
+したがって,
+$\alpha\in\Phi_\Delta^+\setminus\Set{\beta_{n-1,n}}$が
+$s_{\beta_{n-1,n}}(\alpha)\in\Phi_\Delta^+$
+をみたしている.
+
+
+次に,
+$W(\Phi)=\Braket{S}_\ZZ$であることを確認する.
+$s_{\alpha_{1,2}},\ldots,s_{\alpha_{n-1,n}}\in S$
+であるので$s_{\alpha_{i,j}}\in\Braket{S}_\ZZ$である.
+また, $s_{\alpha_{i,j}}(\beta_{n-1,n})$
+\cref{ex:bn:simpleges}
+と同様に確かめられる.
+
+\begin{align*}
+\alpha_{i,j}&=\sum_{k=i}^{j-1}\alpha_{k,k+1}\\
+\beta_{j,n}&=\alpha_{k,n-1}+\beta_{n-1,n}\\
+\beta_{i,j}&=\alpha_{i,n}+\beta{j,n}
+\end{align*}
+であるので, 
+\begin{align*}
+  \height_\Delta(\alpha_{i,j})=j-i\\
+  \height_\Delta(\beta_{k,n})&=\height_\Delta(\alpha_{k,n-1})+\height_\Delta(\beta_{n-1,n})=n-1-k+1=n-k\\
+\height_\Delta(\beta_{i,j})&=\height_\Delta(\alpha_{i,n})+\height_\Delta(\beta{j,n})=n-i+n-j=2n-i-j
+\end{align*}
+である.
+したがって$\height_\Delta(\alpha)$は整数である.
+また,
+$\alpha\in\Phi_\Delta^+$に対し, 確かに$\height_{\Delta}(\alpha)>0$である.
+$\height_\Delta(\alpha_{i,j})=1$となるのは$j=i+1$のときのみであり,
+$\height_\Delta(\beta_{i,j})=1$となるのは$i=n-1,j=n$のときのみであることもわかる.
+
+\subsection{$G_2$}
+$\Phi=\Phi(G_2)$とし,
+\cref{ex:g2:simple}
+で考えた単純系$\Delta$を考える.
+\begin{align*}
+  \alpha_{i,j}&=\ee_i-\ee_j\\
+  \gamma_{i}&=-3\ee_i+\sum_{k=1}^{3}\ee_k\\
+  \Delta&=\Set{\alpha_{1,2},\gamma_{1}}\\
+  \Phi_\Delta^+ 
+&=\Set{ \alpha_{1,2},\gamma_{1}, \alpha_{3,1},\alpha_{3,2},\gamma_{2},-\gamma_3}
+\end{align*}
+であった. \Cref{ex:g2:root}での計算をもとに計算すると,
+\begin{align*}
+s_{\alpha_{1,2}}(\alpha_{3,1})&=\alpha_{3,2}
+&s_{\alpha_{1,2}}(\alpha_{3,2})&=\alpha_{3,1}\\
+s_{\alpha_{1,2}}(\gamma_1)&=\gamma_{2}&
+s_{\alpha_{1,2}}(\gamma_2)&=\gamma_{1}\\
+s_{\alpha_{1,2}}(-\gamma_3)&=-\gamma_{3}&
+\end{align*}
+である.  どれも$\Phi_\Delta^+$の元である.
+また
+\begin{align*}
+  s_{\gamma_{1}}(\alpha_{1,2})&=-\alpha_{1,3}=\alpha_{3,1}
+&s_{\gamma_{1}}(\alpha_{3,1})&=-\alpha_{2,1}=\alpha_{1,2}\\
+s_{\gamma_{1}}(\alpha_{3,2})&=\alpha_{3,2}\\
+s_{\gamma_{1}}(\gamma_2)&=-\gamma_{3}&
+s_{\gamma_{1}}(-\gamma_3)&=\gamma_{2}
+\end{align*}
+であり, どれも$\Phi_\Delta^+$の元である.
+
+また,
+\begin{align*}
+  s_{\gamma_{1}}(\alpha_{1,2})&=\alpha_{3,1}\\
+  s_{\alpha_{1,2}}s_{\gamma_{1}}(\alpha_{1,2})=
+  s_{\alpha_{1,2}}(\alpha_{3,1})&=\alpha_{3,2}\\
+  s_{\alpha_{1,2}}(\gamma_1)&=\gamma_{2}\\
+  s_{\gamma_{1}}s_{\alpha_{1,2}}(\gamma_1)=
+  s_{\gamma_{1}}(\gamma_2)&=-\gamma_{3}
+\end{align*}
+となる.  したがって, $\Set{s_\alpha |\alpha\in\Phi_\Delta^+}\subset\Braket{S}_\ZZ$
+である.
+よって, $W(\Phi)=\Braket{S}_\ZZ$である.
+
+
+\cref{ex:g2:simple}での計算から,
+\begin{align*}
+\alpha_{3,1}&=  \gamma_{1}+\alpha_{1,2}\\
+\alpha_{3,2}&=  \gamma_{1}+2\alpha_{1,2}\\
+\gamma_{2}&= \gamma_{1}+3\alpha_{1,2}\\
+-\gamma_3&= 2\gamma_{1}+3\alpha_{1,2}
+\end{align*}
+であったので,
+\begin{align*}
+  \height_\Delta(\alpha_{1,2})&=\height_\Delta(\beta_{1})=1\\
+  \height_\Delta(\alpha_{3,1})&=  2\\
+  \height_\Delta(\alpha_{3,2})&=  3\\
+  \height_\Delta(\gamma_{2})&= 4\\
+  \height_\Delta(-\gamma_3)&= 5
+\end{align*}
+であることがわかる.
