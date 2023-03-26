@@ -78,6 +78,9 @@ $\ZZ^{\times}$ $(\ZZ^{\times})^n$ 生成系
 生成系
 位数.
 
+$S\subset S' \subset \Braket{S}_\ZZ$なら
+$\Braket{S}_\ZZ=\Braket{S'}_\ZZ$
+
 \chapter{鏡映}
 
 \section{鏡映の定義と例}
@@ -1744,6 +1747,20 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
   $\Delta$は一次独立なので, $\Delta$は$\Braket{\Phi}_{\RR}$の基底である.
 \end{remark}
 \begin{prop}
+  \label{prop:posinega}
+  $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
+  $\alpha\in\Phi_\Delta^+$ならば, $-\alpha\in\Phi_\Delta^-$である.
+  $\alpha\in\Phi_\Delta^-$ならば, $-\alpha\in\Phi_\Delta^+$である.
+\end{prop}
+\begin{proof}
+  $\alpha\in\Phi_\Delta$とすると,
+  $-\alpha\in\Phi$である.
+  $\alpha=\sum_{\delta}c_\delta\delta$とかけるとすると,
+  $-\alpha=\sum_{\delta}(-c_\delta)\delta$である.
+  $c_\delta\geq 0$なら$-c_\delta\leq 0$であり,
+  $c_\delta\leq 0$なら$-c_\delta\geq 0$である.  
+\end{proof}
+\begin{prop}
   \label{lemma:cone:sparable}
   $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
   このとき,
@@ -1906,6 +1923,7 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
 \section{例}
 
 \subsection{$I_2(m)$}
+\label{ex:i2m:simple}
 $\Phi=\Phi(I_2(m))$とし,
 \Cref{ex:i2m:root}と同じ記号を用いる.
 $\Phi=\Set{\alpha_i|i\in\Set{0,\ldots,2m-1}}$であり, $\alpha_{i+m}=-\alpha_i$であった.
@@ -1965,6 +1983,7 @@ $\varpi=\eta_1+\eta_2$とおけば,
 \end{align*}
 である.
 \subsection{$A_{1}\times\cdots\times A_{1}$}
+\label{ex:a1n:simple}
 \cref{ex:a1n:root}で考えたルート系について考える.
 つまり, $\varepsilon_i=\ee_i$とし,
 $\Phi=\Set{\varepsilon_k,-\varepsilon_k|k\in\Set{1,\ldots,n}}$
@@ -2058,7 +2077,7 @@ $\Delta$は$\Phi$の単純系である.
 
 
 \subsection{$B_{n}$}
-\label{ex:bn:simple}と同様に,
+\label{ex:bn:simple}
 $\Phi=\Phi(B_n)$とし,
 \cref{ex:bn:root}の記号を用いる.
 $\alpha_{i,j}=\ee_i-\ee_j$,
@@ -2523,21 +2542,18 @@ v_-&=
 
 
 \chapter{Symple rootの性質}
-\section{Symple rootの性質}
+\section{Symple rootの作用}
 ここでは特に断らない限り,
 $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
 また, $\Phi^+=\Phi_\Delta^+$とする.
 \begin{prop}
   \label{prop:simple:reflect:positive2positive}
-  $\alpha\in\Delta$に対し,
-  $s_\alpha(\Phi^+\setminus\Set{\alpha})=\Phi^+\setminus\Set{\alpha}$.
+  $\alpha\in\Delta$, $\beta\in \Phi^+$とする.
+  $\alpha\neq\beta$ならば,
+  $s_\alpha(\beta)\in \Phi^+$かつ
+  $s_\alpha(\beta)\neq \alpha$である.
 \end{prop}
 \begin{proof}
-$\alpha\in\Delta$とする.
-
-$s_\alpha(\Phi^+\setminus\Set{\alpha})\subset\Phi^+\setminus\Set{\alpha}$
-を示す.
-
 $\beta=\sum_{\delta\in\Delta}c_\delta\delta \in \Phi^+\setminus \Set{\alpha}$
 とする. $c_\delta\geq 0$である.
 $\beta=c_\alpha\alpha$とかけたとすると,
@@ -2559,31 +2575,37 @@ $c=2\frac{\Braket{\beta,\alpha}}{\Braket{\alpha,\alpha}}$
 とすると,
 \begin{align*}
   s_\alpha(\beta)&=\beta-c\alpha\\
-  &=c_{\gamma}\gamma +(c_\alpha-c)\alpha + \sum_{\delta\in\Delta\setminus\Set{\delta_0,\alpha}}c_\delta\delta.
+  &=c_{\gamma}\gamma +(c_\alpha-c)\alpha + \sum_{\delta\in\Delta\setminus\Set{\gamma,\alpha}}c_\delta\delta.
 \end{align*}
 $c_\gamma>0$であることから$s_\alpha(\beta)\in\Phi^+$であることがわかる.
-また, $\Delta$は一次独立であるので,
-\begin{align*}
-  s_\alpha(\beta)-\alpha\\
-  &=c_{\gamma}\gamma +(c_\alpha-c-1)\alpha + \sum_{\delta\in\Delta\setminus\Set{\delta_0,\alpha}}c_\delta\delta\neq \zzero
-\end{align*}
-であるので, $s_\alpha(\beta)\neq\alpha$である.
+また$s_\alpha(\beta)=\alpha$とすると,
+$\beta=s_\alpha(\alpha)=-\alpha$であり,
+$\beta\in\Phi^-$となるので$\beta\in\Phi^+$に矛盾する.
+\end{proof}
 
+$\alpha\in\Delta$に対し,
+$s_\alpha$で負ルートになる正ルートは$\alpha$のみである.
+以下のように言い換えることもできる.
+\begin{cor}
+  $\alpha\in\Delta$に対し,
+  $s_\alpha(\Phi^+\setminus\Set{\alpha})=\Phi^+\setminus\Set{\alpha}$.
+\end{cor}
+\begin{proof}
+$s_\alpha(\Phi^+\setminus\Set{\alpha})\subset\Phi^+\setminus\Set{\alpha}$
+は\cref{prop:simple:reflect:positive2positive}からわかる.
 
 $s_\alpha(\Phi^+\setminus\Set{\alpha})\supset\Phi^+\setminus\Set{\alpha}$
 を示す.
 $\beta\in\Phi^+\setminus\Set{\alpha}$
 とする.
 $\gamma=s_\alpha(\beta)$とおくと,
-$\gamma\in \Phi^+\setminus\Set{\alpha}$であることはすでに示した.
+\cref{prop:simple:reflect:positive2positive}から,
+$\gamma\in \Phi^+\setminus\Set{\alpha}$である.
 $s_\alpha s_\alpha=\id_V$であるから,
 $\beta=s_\alpha(s_\alpha(\beta))=s_\alpha(\gamma)$
 と
 かけるので, $\beta\in s_\alpha(\Phi^+\setminus\Set{\alpha})$.
 \end{proof}
-$\alpha\in\Delta$に対し,
-$s_\alpha$で負ルートになる正ルートは$\alpha$のみである.
-以下のように言い換えることもできる.
 \begin{cor}
   $\alpha\in\Delta$とする.
   $s_\alpha(\beta)\in\Phi^+$かつ$\beta\in\Phi^+$ならば
@@ -2606,7 +2628,7 @@ $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
 また, $\Phi^+=\Phi_\Delta^+$とする.
 \begin{definition}
   $\alpha=\sum_{\delta\in\Delta}c_\delta \delta$に対し,
-  $\height(\alpha)=\sum_{\delta\in\Delta}c_\delta$と定義し,
+  $\height_\Delta(\alpha)=\sum_{\delta\in\Delta}c_\delta$と定義し,
   $\alpha$の高さと呼ぶ.
 \end{definition}
 
@@ -2614,45 +2636,49 @@ $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
 $R_0=\Set{s_\alpha|\alpha\in\Delta}$,
 $W_0=\Braket{R_0}_\ZZ$
 とおく.
+%% \begin{lemma}
+%%   \label{lem:minimumhtissimple}
+%%   $\beta\in\Phi^+$,
+%%   $h=\min\Set{\height_\Delta(\gamma)|\gamma\in W_0(\beta)\cap \Phi^+}$とする.
+%%   $\gamma\in W_0(\beta)\cap \Phi^+$が$\height_\Delta(\gamma)=h$をみたすなら,
+%%   $\gamma\in\Delta$.
+%% \end{lemma}
 \begin{lemma}
   \label{lem:minimumhtissimple}
   $\beta\in\Phi^+$,
-  $h=\min\Set{\height(\gamma)|\gamma\in W_0(\beta)\cap \Phi^+}$とする.
-  $\gamma\in W_0(\beta)\cap \Phi^+$が$\height(\gamma)=h$をみたすなら,
-  $\gamma\in\Delta$.
+  $h=\min\Set{\height_\Delta(w(\beta))|w\in W_0, w(\beta)\in \Phi^+}$とおく.
+  $w\in W_0(\beta)$とする.
+  $w(\beta)\in\Phi^+$が$\height_\Delta(w(\beta))=h$をみたすなら,
+  $w(\beta)\in\Delta$.
 \end{lemma}
 \begin{proof}
-  $\gamma=\sum_{\delta\in\Delta}c_\delta\delta$とする.
+  $w(\beta)=\sum_{\delta\in\Delta}c_\delta\delta$とする.
+  $w(\beta)\in\Phi^+$であるので,
   $c_\gamma\geq 0$である.
   \begin{align*}
-    \Braket{\gamma,\gamma}
-    &=\Braket{\gamma,\sum_{\delta\in\Delta}c_\delta\delta}\\
-    &=\sum_{\delta\in\Delta}c_\delta\Braket{\gamma,\delta}
+    \Braket{w(\beta),w(\beta)}
+    &=\Braket{w(\beta),\sum_{\delta\in\Delta}c_\delta\delta}\\
+    &=\sum_{\delta\in\Delta}c_\delta\Braket{w(\beta),\delta}
   \end{align*}
-  となるが, $\Braket{\gamma,\gamma}>0$であるから,
-  $\Braket{\gamma,\delta}>0$となる$\delta$が存在する.
-  $\alpha\in\Delta$が$\Braket{\gamma,\alpha}>0$をみたすとする.
+  となるが, $\Braket{w(\beta),w(\beta)}>0$であるから,
+  $\Braket{w(\beta),\delta}>0$となる$\delta$が存在する.
+  $\alpha\in\Delta$が$\Braket{w(\beta),\alpha}>0$をみたすとする.
 
-  $\gamma=\alpha$のときは$\gamma=\alpha\in\Delta$である.
-  $\gamma\neq\alpha$のときについて考える.
-  $s_\alpha(\gamma)$を調べる.
-  $\gamma\in\Phi^+$だから,
+  $w(\beta)=\alpha$のときは$w(\beta)=\alpha\in\Delta$である.
+  $w(\beta)\neq\alpha$のときについて考える.
+  $s_\alpha(w(\beta))$を調べる.
+  $w(\beta)\in\Phi^+\setminus\Set{\alpha}$だから,
   \cref{prop:simple:reflect:positive2positive}から
-  $s_\alpha(\gamma)\in\Phi^+$がわかる.
-  $\gamma\in W_0(\beta)$であるので, $w\in W_0$をつかって,
-  $\gamma=w(\beta)$とかける.
-  したがって,
-  $s_\alpha(\gamma)=s_\alpha w(\gamma)$とかけるが,
-  $s_\alpha w\in W_0$であるから,
-  $s_\alpha(\gamma)\in W_0(\beta)\cap \Phi^+$である.
+  $s_\alpha(w(\beta))\in\Phi^+$がわかる.
+  また, $s_\alpha w\in W_0$である.
   一方,  
-  $c=2\frac{\Braket{\gamma,\alpha}}{\Braket{\alpha,\alpha}}$とすると,
+  $c=2\frac{\Braket{w(\beta),\alpha}}{\Braket{\alpha,\alpha}}$とすると,
   $c>0$であり,
-  $s_\alpha(\gamma)=\gamma-c\alpha$
+  $s_\alpha(w(\beta))=w(\beta)-c\alpha$
   とかけるので,
   \begin{align*}
-    \height(s_\alpha(\gamma))
-    =\height(\gamma)-c < \height(\gamma)=h
+    \height_\Delta(s_\alpha(w(\beta)))
+    =\height_\Delta(\gamma)-c < \height_\Delta(\gamma)=h
   \end{align*}
   となる.
   これは$h$の最小性に矛盾する.
@@ -2670,12 +2696,12 @@ $W_0=\Braket{R_0}_\ZZ$
   $\beta\in \Phi$とする.
 
   $\beta\in\Phi^+$のときについて考える.
-  $h=\min\Set{\height(\alpha)|\alpha\in W_0(\beta)\cap\Phi^+}$とし,
-  $\gamma\in W_0(\beta)\cap\Phi^+$が$\height(\gamma)=h$をみたすとする.
-  $\gamma=w(\beta)$, $w\in W_0$とする
-  このとき, \cref{lem:minimumhtissimple}より, $\gamma\in\Delta$である.
-  よって, $\gamma=w(\beta)\in\Delta$となる.
-  したがって, $\beta=w^{-1}(\gamma)\in W_0(\Delta)$.
+  $h=\min\Set{\height_\Delta(w(\beta))|w\in W_0,w(\beta)\in\Phi^+}$とし,
+  $w(\beta)$, $w\in W_0$が$\height_\Delta(w(\beta))=h$をみたすとする.
+  $\gamma=w(\beta)$とおくと,
+  \cref{lem:minimumhtissimple}より,
+  $\gamma\in\Delta$である.
+  したがって, $\beta=w^{-1}(\gamma)\in W_0(\Delta)$である.
 
   $\beta\in\Phi^-$のときは, $-\beta\in\Phi^+$であるので,
   $-\beta=w(\gamma)$をみたす$w\in W_0$と$\gamma\in\Delta$がとれる.
@@ -2708,3 +2734,277 @@ $W_0=\Braket{R_0}_\ZZ$
   したがって, $R(\Phi)\subset W_0$であるので,
   $W(\Phi)=\Braket{R(\Phi)}_\ZZ\subset W_0$である.
 \end{proof}
+
+
+\section{例}
+
+\subsection{$I_2(m)$}
+$\Phi=\Phi(I_2(m))$とし,
+\cref{ex:i2m:simple}で考えた単純系$\Delta$を考える.
+$\Delta=\Set{\alpha_0,\alpha_{m-1}}$,
+$\Phi_\Delta^+=\Set{\alpha_i|i\in\Set{0,\ldots,m-1}}$,
+$\Phi_\Delta^+=\Set{\alpha_{m+i}|i\in\Set{0,\ldots,m-1}}$であった.
+また, $P_i=s_{\alpha_{i}}$であるが,
+\begin{align*}
+P_0\alpha_i=\alpha_{m-i},
+P_{m-1}\alpha_i=\alpha_{m-2-i}
+\end{align*}
+である.
+したがって,
+$0<i<m$に対して,
+$P_0(\alpha_i)\in\Phi_\Delta^+$である.
+また, $-1<i<m-1$に対して,
+$P_{m-1}(\alpha_i)\in\Phi_\Delta^+$である.
+
+$S=\Set{P_0,P_{m-1}}$とする.
+$P_0P_{m-1}=R_{1-m}=R_1$である.
+また, $R_i=(R_1)^i$であり, $P_i=R_iP_0$であるから,
+$P_i$, $R_i$はいずれも, $S$の元の積として書ける.
+つまり
+$D_{2\cdots m}=\Braket{S}_\ZZ$
+である.
+
+\begin{align*}
+  \alpha_0&=\alpha(0)=\begin{pmatrix}0\\1\end{pmatrix}\\
+  \alpha_{m-1}&=\alpha(\frac{(m-1)\pi}{m})=
+  \begin{pmatrix}\sin(\frac{(m-1)\pi}{m})\\\cos(\frac{(m-1)\pi}{m})\end{pmatrix}=
+\begin{pmatrix}\sin(\frac{\pi}{m})\\-\cos(\frac{\pi}{m})\end{pmatrix}
+  \\
+  \alpha_{i}&=\alpha(\frac{i\pi}{m})=
+  \begin{pmatrix}\sin(\frac{i\pi}{m})\\\cos(\frac{i\pi}{m})\end{pmatrix}\\
+  &=
+  \frac{\sin(\frac{i\pi}{m})}{\sin(\frac{\pi}{m})}\alpha_{m-1}
+  +
+  (\cos(\frac{i\pi}{m})+\frac{\sin(\frac{i\pi}{m})\cos(\frac{\pi}{m})}{\sin(\frac{\pi}{m})})\alpha_{0}\\
+  &=
+  \frac{\sin(\frac{i\pi}{m})}{\sin(\frac{\pi}{m})}\alpha_{m-1}
+  +
+  (\frac{\sin(\frac{i\pi}{m})\cos(\frac{\pi}{m})+\cos(\frac{i\pi}{m})\sin(\frac{\pi}{m})}{\sin(\frac{\pi}{m})})\alpha_{0}\\
+  &=
+  \frac{\sin(\frac{i\pi}{m})}{\sin(\frac{\pi}{m})}\alpha_{m-1}
+  +
+  \frac{\sin(\frac{(1+i)\pi}{m})}{\sin(\frac{\pi}{m})}\alpha_{0}
+\end{align*}
+であるので,
+\begin{align*}
+  \height_{\Delta}(\alpha_i)
+  &=
+  \frac{\sin(\frac{i\pi}{m})}{\sin(\frac{\pi}{m})}
+  +
+  \frac{\sin(\frac{(1+i)\pi}{m})}{\sin(\frac{\pi}{m})}\\
+  &=
+  \frac{\sin(\frac{i\pi}{m})+\sin(\frac{(1+i)\pi}{m})}{\sin(\frac{\pi}{m})}\\
+  &=
+  \frac{\sin(\frac{1}{2}(\frac{(1+i)\pi}{m}+\frac{i\pi}{m}))\cos(\frac{1}{2}(\frac{(1+i)\pi}{m}-\frac{i\pi}{m}))}{\sin(\frac{\pi}{m})}\\
+  &=
+  \frac{\sin(\frac{(1+2i)\pi}{2m})\cos(\frac{\pi}{2m})}{\sin(\frac{\pi}{m})}\\
+  &=
+  \frac{\sin(\frac{(1+2i)\pi}{2m})\cos(\frac{\pi}{2m})}{2\sin(\frac{\pi}{2m})\cos(\frac{\pi}{2m})}\\
+  &=
+  \frac{\sin(\frac{(1+2i)\pi}{2m})}{2\sin(\frac{\pi}{2m})}.
+\end{align*}
+である.
+$i\in \Set{0,\ldots,m-1}$で, $\height_\Delta(\alpha_i)>0$となる.
+さらに,
+$i\in \Set{1,\ldots,m-2}$で, $\height_\Delta(\alpha_i)>1$となる.
+また,
+$i\in \Set{m,\ldots,2m-1}$で, $\height_\Delta(\alpha_i)<0$となる.
+$\height_\Delta(\alpha_i)$は$m$のとり方によっては, 整数ではない値をとることもある.
+
+\subsection{$A_{1}\times\cdots\times A_{1}$}
+\cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
+
+\begin{align*}
+  F_i\varepsilon_j=
+  \begin{cases}
+    -\varepsilon_j &(i=j)\\
+    \varepsilon_j &(i\neq j)
+  \end{cases}
+\end{align*}
+であるので,
+$i\neq j$に対し,
+$s_{\varepsilon_i}(\varepsilon_j)\in\Phi_\Delta^+$
+となることは明らかである.
+
+$\Phi_\Delta^+=\Delta$である.
+したがって, $\Phi_\Delta^+=\Set{-\delta|\delta\in\Delta}$である.
+$s_\alpha=s_{-\alpha}$であったから,
+\begin{align*}
+  R(\Phi)
+  &=\Set{s_\alpha|\alpha\in\Phi}\\
+  &=\Set{s_\alpha|\alpha\in\Phi_\Delta^+}\\
+  &=\Set{s_\alpha|\alpha\in\Delta}
+\end{align*}
+である. $W(\Phi)=\Braket{R(\Phi)}_\ZZ$であったので,
+$W(\Phi)$は$\Set{s_\alpha|\alpha\in\Delta}$で生成される.
+
+
+
+
+\subsection{$A_{n-1}$}
+\label{ex:an:simplesgens}
+$\Phi=\Phi(A_{n-1})$とし,
+\cref{ex:an:simple}の単純系$\Delta$を用いる.
+\begin{align*}
+  \Delta&=\Set{\alpha_{i,i+1}|1\leq i < n}\\
+  \Phi_\Delta^+&=\Set{\alpha_{i,j}|1\leq i<j \leq n}\\
+\end{align*}
+である.
+$k<l$かつ$\Set{k,l}\neq \Set{i,i+1}$とする.
+このとき,
+$s_{\alpha_{i,i+1}}(\alpha_{k,l})\in\Phi_\Delta^+$であることを確かめる.
+$\tau\in S_n$を$i$と$i+1$を入れ替える互換とする.
+このとき, $s_{\alpha_{i,i+1}}(\alpha_{k,l})=\alpha_{\tau(k),\tau(l)}$である.
+したがって, $\tau(k)<\tau(l)$を示せば良い.
+$j\not\in\Set{i,i+1}$ならば, $\tau(j)=j$であるから,
+$k,l\not\in\Set{i,i+1}$のときは$\tau(k)<\tau(l)$である.
+$k\in\Set{i,i+1}$のときは,
+$i+1< l$であるので, $\tau(k)\leq i+1<l=\tau(l)$である.
+$l\in\Set{i,i+1}$のときは,
+$k<i$であるので, $\tau(k)= k<i\leq \tau(l)$である.
+したがって,
+$s_{\alpha_{i,i+1}}(\alpha_{k,l})\in\Phi_\Delta^+$である.
+
+$S=\Set{T_{i,i+1}|i\in\Set{1,\ldots,n-1}}=\Set{s_\delta|\delta\in\Delta}$
+とする.
+$T_{i,i+k}$は
+\begin{align*}
+  T_{i,i+2}
+  &=T_{i+1,i+2}T_{i,i+1}(T_{i+1,i+2})^{-1}\\
+  &=T_{i+1,i+2}T_{i,i+1}(T_{i+1,i+2})\\
+  T_{i,i+3}
+  &=T_{i+2,i+3}T_{i,i+2}(T_{i+2,i+3})^{-1}\\
+  &=T_{i+2,i+3}T_{i,i+2}(T_{i+2,i+3})\\
+  T_{i,i+4}
+  &=T_{i+3,i+4}T_{i,i+3}(T_{i+3,i+4})^{-1}\\
+  &=T_{i+3,i+4}T_{i,i+3}(T_{i+3,i+4})\\
+  &\vdots\\
+  T_{i,i+k}
+  &=T_{i+k-1,i+k}T_{i,i+k-1}(T_{i+k-1,i+k})^{-1}\\
+  &=T_{i+k-1,i+k}T_{i,i+k-1}(T_{i+k-1,i+k})\\
+\end{align*}
+とかけるので, 
+$T_{i,k}\in\Braket{S}_\ZZ$である.
+$R(\Phi)=\Set{T_{i,j}|1\leq i<j\leq n}$であるので,
+$W(\Phi)=\Braket{R(\Phi)}_\ZZ=\Braket{S}_\ZZ$である.
+これは, 対称群$S_n$が隣接互換で生成されているという事実に対応する.
+
+$k>0$に対し,
+\begin{align*}
+\alpha_{i,i+k}&=\alpha_{i,i+1}+\alpha_{i+1,i+2}+\cdots+\alpha_{i+k-1,i+k}\\
+\alpha_{i,i-k}&=-\alpha_{i,i+1}-\alpha_{i+1,i+2}-\cdots-\alpha_{i+k-1,i+k}
+\end{align*}
+であるから,
+$\height_\Delta(\alpha_{i,j})=j-i$
+とかける.
+実際,
+\begin{align*}
+\Delta&=\Set{\alpha_{i,j}|j=i+1}=\Set{\alpha\in\Phi|\height_\Delta(\alpha)=1}\\
+\Phi_\Delta^+&=\Set{\alpha_{i,j}|j>i}=\Set{\alpha\in\Phi|\height_\Delta(\alpha)>0}\\
+\Phi_\Delta^-&=\Set{\alpha_{i,j}|j<i}=\Set{\alpha\in\Phi|\height_\Delta(\alpha)<0}
+\end{align*}
+となっている.
+この場合, $\alpha\in\Phi$に対し$\height_\Delta(\alpha)$は整数である.
+また,
+\begin{align*}
+  \numof{\Set{\alpha\in\Phi_\Delta^+ | \height_\Delta(\alpha)=h}}
+  =n-h
+\end{align*}
+である.  
+
+
+\subsection{$B_{n}$}
+$\Phi=\Phi(B_n)$とし,
+\cref{ex:bn:simple}の単純系$\Delta$を用いる.
+\begin{align*}
+  \Delta
+  &=\Set{\alpha_{1,2},\ldots,\alpha_{n-1,n}}\cup\Set{\varepsilon_{n}}\\
+  \Phi_\Delta^{+}
+  &=\Set{\alpha_{i,j},\beta_{i,j}|1\leq i<j\leq n}\cup\Set{\varepsilon_{k}|1\leq k \leq n}\\
+\end{align*}
+である.
+$\tau$を$i$, $i+1$を入れ替える互換とすると
+\begin{align*}
+s_{\alpha_{i,i+1}}(\alpha_{k,l})&=\alpha_{\tau(k),\tau(l)}\\
+s_{\alpha_{i,i+1}}(\beta_{k,l})&=\beta_{\tau(k),\tau(l)}\\
+s_{\alpha_{i,i+1}}(\varepsilon_{k})&=\varepsilon_{\tau(k)}
+\end{align*}
+であるが, $\beta_{k,l}=\beta_{l,k}$であることに注意すると,
+$\alpha\in\Phi_\Delta^+\setminus\Set{\alpha_{i,i+1}}$
+に対し, $s_{\alpha_{i,i+1}}(\alpha)\in\Phi_\Delta^+$
+となっていることが確かめられる.
+また, $k<l$に対し,
+\begin{align*}
+  s_{\varepsilon_{n}}(\alpha_{k,l})&=
+  \begin{cases}
+    \beta_{k,n} &(n=l)\\
+    \alpha_{\tau(k),\tau(l)}&(n\neq l)\\
+  \end{cases}\\
+s_{\varepsilon_{n}}(\beta_{k,l})&=
+  \begin{cases}
+    \alpha_{k,n} &(n=l)\\
+    \beta_{\tau(k),\tau(l)}&(n\neq l)\\
+  \end{cases}\\
+  s_{\varepsilon_{n}}(\varepsilon_{k})&=
+  \begin{cases}
+    -\varepsilon_{n} &(n=l)\\
+    \varepsilon_{k}&(n\neq l)\\
+  \end{cases}\\
+\end{align*}
+であるので,
+$\alpha\in\Phi_\Delta^+\setminus\Set{\varepsilon_n}$
+に対し, $s_{\varepsilon_n}(\alpha)\in\Phi_\Delta^+$
+となっていることが確かめられる.
+
+
+$S=\Set{s_\delta|\delta\in\Delta}$とする.
+$W(\Phi)=\Braket{S}_\ZZ$を確かめる.
+$\Phi(A_{n-1})\subset\Phi(B_n)$であり,
+いま考えている$\Delta$は\cref{ex:an:simplesgens}で考えた$\Phi(A_{n-1})$の単純系を含んでいるので,
+$1\leq i<j\leq n$に対し,
+$s_{\alpha_{i,j}}\Braket{S}_\ZZ$
+であることがわかる.
+また,
+\begin{align*}
+  s_{\alpha_{i,n}}(\varepsilon_{n})=\varepsilon_{i}
+\end{align*}
+となるので,
+\cref{prop:conjbyortho,prop:reflgrpisortho}
+から,
+\begin{align*}
+  s_{\varepsilon_{i}}=s_{s_{\alpha_{i,n}(\varepsilon_{n})}}=
+    s_{\alpha_{i,n}}s_{\varepsilon_{n}}s_{\alpha_{i,n}}^{-1}
+\end{align*}
+となる.
+したがって, $s_{\varepsilon_{i}}\in\Braket{S}_\ZZ$
+である.
+さらに, $i<j$に対し,
+\begin{align*}
+  s_{\varepsilon_{j}}(\alpha_{i,j})=\beta_{i,j}
+\end{align*}
+であるから, 同様に, 
+\cref{prop:conjbyortho,prop:reflgrpisortho}
+から,
+$s_{\beta_{i,k}}\in\Braket{S}_\ZZ$
+がわかる.
+$R(\Phi)\subset \Braket{S}_\ZZ$であるから,
+$W(\Phi)=\Braket{S}_\ZZ$である.
+
+
+このとき, $1\leq i<j\leq n$, $1\leq k<n$に対し,
+\begin{align*}
+\alpha_{i,j}&=\sum_{k=i}^{j-1}\alpha_{k,k+1}\\
+\varepsilon_{k}&=\alpha_{i,n}+\varepsilon_{n}\\
+\beta_{i,j}&=\alpha_{i,j}+2\varepsilon_{j}
+\end{align*}
+とかけていたので,
+\begin{align*}
+\height_\Delta(\alpha_{i,j})&=j-i\\
+\height_\Delta(\varepsilon_{k})&=\height_\Delta(\alpha_{i,n})+\height_\Delta(\varepsilon_{n})=n-i+1\\
+\height_\Delta(\beta_{i,j})&=
+\height_\Delta(\alpha_{i,j})+\height_\Delta(2\varepsilon_{j})\\
+&=j-i+2(n-j+1)\\
+&=2n-j-i+2\\
+&=(n-j+1)+(n-i+1)
+\end{align*}
+である.
