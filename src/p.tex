@@ -70,6 +70,62 @@ $f\colon V\to V$を$V$上の変換とよぶ.
 対角行列
 行列単位
 
+
+\subsection{記号表}
+\subsubsection{global}
+$S_n$
+
+$()^{\perp}$
+
+$H_\alpha$
+
+$\RR_\alpha$
+
+$\Braket{}_\RR$
+
+$\Braket{}_\ZZ$
+
+$\Braket{,}$
+
+$\|\|$
+
+$\ee_k$ 
+
+$\alpha(\theta)$
+
+$\alpha_i$ for fixed $m$
+
+$\alpha_{i,j}=\ee_i-\ee_j=-\alpha_{j,i}$
+
+$\beta_{i,j}=\ee_i+\ee_j=\beta_{j,i}$
+
+$\varepsilon_k = \ee_k$
+
+$\varepsilon'_k = 2\ee_k = \beta_{k,k}$
+
+$\gamma_k=\sum_j\alpha_{k,j}$
+
+$W(\Phi)$
+
+$R(\Phi)$
+
+\subsubsection{local}
+$\Delta$
+
+$\Phi$
+
+$M(\Phi)$
+
+\subsubsection{temporal}
+
+$\theta$ for $\cos(\theta)$
+
+$\sum_{\delta\in\Delta}$
+
+$\sigma\in S_n$
+
+$\tau\in S_n$
+
 \section{群について}
 対称群, 互換, 隣接互換
 群の定義
@@ -626,8 +682,8 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
     A_\sigma = \sum_{j=1}^{n} E_{\sigma(j),j} = \sum_{i=1}^{n} E_{i,\sigma^{-1}(i)}
   \end{align*}
   である.
-  $\sigma,\tau\in S_n$に対し, $A_\sigma=A_\tau$であることと,
-  $\sigma=\tau$であることは同値である.
+  $\sigma,\sigma'\in S_n$に対し, $A_\sigma=A_{\sigma'}$であることと,
+  $\sigma=\sigma'$であることは同値である.
   直接計算することで,
   $A_\sigma \ee_k=\ee_{\sigma(k)}$であることがわかる.
   $\sigma\in S_n$に対し次は同値である:
@@ -1054,8 +1110,8 @@ $\Set{P_{2i+1}|i\in\ZZ}$は$P_1$を含む共軛類であり,
 \subsection{$A_{n-1}$}
 \label{ex:an:grp}
 $W=\Set{A_\sigma|\sigma\in S_n}$とおく.
-$\sigma,\tau \in S_n$に対し,
-$A_\sigma A_\tau=A_{\sigma\tau}$
+$\sigma,\sigma' \in S_n$に対し,
+$A_\sigma A_\tau=A_{\sigma\sigma'}$
 が成り立つことは直接計算することで確かめられる.
 また,
 $A_{\varepsilon}=E_n$であり,
@@ -1071,7 +1127,7 @@ $S_n$と$W$は同型である.
 $\tau_{i,j}\in S_n$を$i$と$j$を入れ替える互換とする.
 つまり,
 \begin{align*}
-  \tau_{i,j}(k)=
+  \tau(k)=
   \begin{cases}
     j&(k=i)\\
     i&(k=j)\\
@@ -1079,12 +1135,12 @@ $\tau_{i,j}\in S_n$を$i$と$j$を入れ替える互換とする.
   \end{cases}
 \end{align*}
 とする.
-このとき, $A_{\tau_{i,j}}=T_{k,l}$であり, 鏡映である.
-$S_n$は互換で生成されていたので, $W$は$T_{k,l}$で生成される.
+このとき, $A_{\tau_{i,j}}=T_{i,j}$であり, 鏡映である.
+$S_n$は互換で生成されていたので, $W$は$\Set{T_{i,j}|i\neq j}$で生成される.
 したがって, $W$は有限鏡映群である.
 
 
-$S_n$は隣接互換$\tau_{1,2},\tau_{2,3},\ldots,\tau_{n-1,n},$
+$S_n$は隣接互換$\tau_{1,2},\tau_{2,3},\ldots,\tau_{n-1,n}$
 で生成されていたので,
 $W$は$T_{1,2},T_{2,3},\ldots,T_{n-1,n}$という$n-1$個の行列で生成できることがわかる.
 
