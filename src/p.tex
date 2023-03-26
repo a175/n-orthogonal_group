@@ -3192,16 +3192,45 @@ $s_{\alpha_{1,2}},\ldots,s_{\alpha_{n-1,n}}\in S$
 \end{align*}
 であるので, 
 \begin{align*}
-  \height_\Delta(\alpha_{i,j})=j-i\\
-  \height_\Delta(\beta_{k,n})&=\height_\Delta(\alpha_{k,n-1})+\height_\Delta(\beta_{n-1,n})=n-1-k+1=n-k\\
+  \height_\Delta(\alpha_{i,j})&=j-i\\
+  \height_\Delta(\beta_{k,n})&=\height_\Delta(\alpha_{k,n-1})+\height_\Delta(\beta_{n-1,n})=n-1-k+1=n-k=2n-i-n\\
 \height_\Delta(\beta_{i,j})&=\height_\Delta(\alpha_{i,n})+\height_\Delta(\beta{j,n})=n-i+n-j=2n-i-j
 \end{align*}
-である.
-したがって$\height_\Delta(\alpha)$は整数である.
+である. 
+したがって, $\height_\Delta(\alpha)$は整数である.
 また,
 $\alpha\in\Phi_\Delta^+$に対し, 確かに$\height_{\Delta}(\alpha)>0$である.
 $\height_\Delta(\alpha_{i,j})=1$となるのは$j=i+1$のときのみであり,
 $\height_\Delta(\beta_{i,j})=1$となるのは$i=n-1,j=n$のときのみであることもわかる.
+
+さらに,
+\begin{align*}
+  \height_\Delta(\alpha_{i,i+h})&=h\\
+  \height_\Delta(\beta_{i,2n-i-h})&=h
+\end{align*}
+ともかけるので,
+\begin{align*}
+  &\Set{\alpha\in\Phi|\height_\Delta(\alpha)=h}\\
+  &=\Set{\alpha_{i,i+h}|i\in\Set{1,\ldots,n-h}}
+  \cup
+  \Set{\beta_{i,2n-i-h}|1\leq i < 2n-i-h\leq n}\\
+  &=\Set{\alpha_{i,i+h}|i\in\Set{1,\ldots,n-h}}
+  \cup
+  \Set{\beta_{i,2n-i-h}|\min\Set{1,n-h} \leq i < \frac{2n-h}{2}}
+\end{align*}
+である.  したがって,
+$\Set{\alpha\in\Phi|\height_\Delta(\alpha)=h}$は,
+$1\leq h<n$のときには,
+\begin{align*}
+\Set{\alpha_{i,i+h}|i\in\Set{1,\ldots,n-h}}
+  \cup
+  \Set{\beta_{i,2n-i-h}|n-h \leq i < n-\frac{h}{2}}
+\end{align*}
+であり, $n\leq h $のときには,
+\begin{align*}
+\Set{\beta_{i,2n-i-h}|1 \leq i < n-\frac{h}{2}}
+\end{align*}
+である.
 
 \subsection{$G_2$}
 $\Phi=\Phi(G_2)$とし,
