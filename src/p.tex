@@ -3348,17 +3348,16 @@ $S=\Set{T_{i,i+1}|i\in\Set{1,\ldots,n-1}}=\Set{s_\delta|\delta\in\Delta}$
 とする.
 $i<j$に対し,
 \begin{align*}
-T_{i,i+1}T_{i+1,i+2}\cdots T_{n-2,n-1} \alpha_{n-1,n}=\alpha_{i,n}\\
-T_{j,j+1}T_{j+1,j+2}\cdots T_{n-1,n} \alpha_{i,n}=\alpha_{i,j}
+T_{i,i+1}T_{i+1,i+2}\cdots T_{j-2,j-1} \alpha_{j-1,j}=\alpha_{i,j}
 \end{align*}
 である. つまり, $\alpha_{i,j}$に対し,
-$w(\alpha_{n-1,n})=\alpha_{i,j}$をみたす
+$w(\alpha_{j-1,j})=\alpha_{i,j}$をみたす
 $w\in \Braket{S}_\ZZ$がとれる.
 したがって,
 \cref{prop:conjbyortho,prop:reflgrpisortho}
 から,
 \begin{align*}
-T_{i,j}=s_{\alpha{i,j}}=s_{w(\alpha{n-1,n})}=ws_{\alpha_{n-1,n}}w^{-1}=wT_{n-1,n}w^{-1}
+T_{i,j}=s_{\alpha{i,j}}=s_{w(\alpha{j-1,j})}=ws_{\alpha_{j-1,j}}w^{-1}=wT_{j-1,j}w^{-1}
 \end{align*}
 とかけるので, $T_{i,j}\in \Braket{S}_\ZZ$である.
 $R(\Phi)=\Set{T_{i,j}|1\leq i<j\leq n}$であるので,
