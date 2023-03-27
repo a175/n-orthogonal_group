@@ -2745,20 +2745,22 @@ $W=W(\Phi)$, $S=\Set{s_\delta|\delta\in\Delta}$
 \end{proof}
 
 \begin{lemma}
+  \label{lem:n:bruhat}
   $\delta\in\Delta$, $w\in W$とする.
   このとき次が成り立つ:
   \begin{enumerate}
   \item
     \label{item:buruhat:formula:1}
     $w(\delta)\in\Phi^+ \implies n(ws_\delta)=n(w)+1$.
-  \item $w(\delta\in\Phi^- \implies n(ws_\delta)=n(w)-1$.
+  \item
     \label{item:buruhat:formula:-1}
+     $w(\delta)\in\Phi^- \implies n(ws_\delta)=n(w)-1$.
   \item
     \label{item:buruhat:formula:r:1}
-    $w(\delta)^{-1}\in\Phi^+ \implies n(s_\delta w)=n(w)+1$.
+    $w^{-1}(\delta)\in\Phi^+ \implies n(s_\delta w)=n(w)+1$.
   \item
     \label{item:buruhat:formula:r:-1}
-    $w(\delta)^{-1}\in\Phi^- \implies n(s_\delta w)=n(w)-1$.
+    $w^{-1}(\delta)\in\Phi^- \implies n(s_\delta w)=n(w)-1$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -3566,6 +3568,7 @@ s_{\gamma_{1}}(-\gamma_3)&=\gamma_{2}
 
 
 \section{長さ関数}
+$\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$とする.
 
 \begin{definition}
   $w\in W$に対し,
@@ -3625,25 +3628,11 @@ s_{\gamma_{1}}(-\gamma_3)&=\gamma_{2}
   \end{align*}
 \end{proof}
 
-\begin{cor}
-  $w\in W$とする.
-  $w=s_{\delta_1}\cdots s_{\delta_r}$, $(\delta\in\Delta)$
-  とする.
-  このとき,
-  $n(w)\leq r$である.
-  特に, $n(w)\leq \ell(w)$である.
-\end{cor}
-\begin{proof}
-  \begin{align*}
-    n(w)&=n(s_{\delta_1}\cdots s_{\delta_{r-1}}s_{\delta_r})\\
-    &\leq n(s_{\delta_1}\cdots s_{\delta_{r-1}})+1\\
-    &\vdots\\
-    &\leq r.
-  \end{align*}
-\end{proof}
-
 \begin{remark}
-  実は, $n(w)=\ell(w)$.  あとで示す.
+  \Cref{item:len:det}があるので,
+  $w=s_{\delta_1}\cdots s_{\delta_r}=s_{\delta'_1}\cdots s_{\delta'_l}$
+  となる$\delta_i, \delta'_i\in \Delta$に対し,
+  $l$と$r$の偶奇は等しいことがわかる.
 \end{remark}
 
 
@@ -3655,12 +3644,152 @@ $\Phi$をルート系,
 $\Delta$を単純系とし,
 $\Phi^+=\Phi_\Delta^+$とする.
 
+
 \begin{lemma}
-$\delta_r\in\Delta$に対し,
-  $w=s_{\delta_1}\cdots s_{\delta_r}$
-  とする.
-  $n(w)<r$ならば,
-  $\delta_i=s_{\alpha_{i+1}}\cdots s_{\alpha_{j-1}}(\alpha_j)$
-  となる, $1\leq i\leq j \leq r$
-  が存在する.
+  \label{lem:formula:conjdeletion}
+  $\alpha_i\in\Phi$とし,
+  $w=s_{\alpha_1}\cdots s_{\alpha_r}$とする.
+  $\alpha\in\Phi$とし,
+  $\beta=w(\alpha)$とする.
+  このと, $s_\beta w s_\alpha=w$
 \end{lemma}
+\begin{proof}
+\cref{prop:conjbyortho,prop:reflgrpisortho}
+から,
+\begin{align*}
+  s_\beta=ws_\alpha w^-1
+\end{align*}
+であるので,
+\begin{align*}
+  s_\beta w=ws_\alpha 
+\end{align*}
+である.
+したがって,
+\begin{align*}
+  s_\beta w s_\alpha=ws_\alpha s_\alpha= w. 
+\end{align*}
+\end{proof}
+
+\begin{prop}
+  \label{thm:deletionproperty}
+  $\delta_1,\ldots,\delta_r \in\Delta$とし,
+  $w_{k,l}=s_{\delta_k}s_{\delta_{k+1}}\cdots s_{\delta_l}$
+  とする, ただし, $k>l$のときには$w_{k,l}=\id$と約束する.
+  $w=s_{\delta_1}\cdots s_{\delta_r}$
+  とおく.
+  $n(w)<r$ならば,
+  $\delta_i=w_{i+1,j-1}(\alpha_j)$
+  となる, $1\leq i < j \leq r$
+  が存在する.
+  また,
+  この$i,j$に対し,
+  \begin{align*}
+    w=w_{1,i-1}w_{i+1,j-1}w_{j+1,r}
+  \end{align*}
+  である.
+\end{prop}
+
+\begin{proof}
+  \Cref{lem:n:bruhat}から,
+  \begin{align*}
+    w_{1,l-1}(\delta_{l})\in\Phi^+ \implies n(w_{1,l})=n(w_{1,l-1})+1\\
+    w_{1,l-1}(\delta_{l})\in\Phi^- \implies n(w_{1,l})=n(w_{1,l-1})-1
+  \end{align*}
+  である.  $n(w)<r$であることから,
+  \begin{align*}
+    1=n(w_{1,1})<n(w_{1,2})<n(w_{1,3})<\cdots<n(w_{1,j-2})<n(w_{1,j-1})>n(w_{1,j})
+  \end{align*}
+  となる$j\leq r$が存在する.
+  このとき, $w_{1,j-1}(\delta_{j})\in\Phi^-$である.
+
+  $\delta_{j}\in\Delta$であるので, 
+  $w_{j-1,j-1}\delta_{j}=\delta_{j}\in\Phi^+$である.
+  したがって $\Set{i\in\Set{1,\ldots,j}|w_{i,j-1}(\delta_{j})}\neq \emptyset$であるので,
+  $i=\min\Set{i\in\Set{1,\ldots,j}|w_{i,j-1}(\delta_{j})}-1$とおく.
+  一方, $w_{1,j-1}(\delta_{j})\in\Phi^-$であるので,
+  $1\leq i$である. このとき,
+  \begin{align*}
+    w_{i+1,j-1}(\delta_{j})\in \Phi^+\\
+   s_{\delta_{i}} w_{i+1,j-1}(\delta_{j})\in \Phi^-
+  \end{align*}
+  である.
+  $s_{\delta_{i}}(\alpha)\in \Phi^-$かつ
+  $\alpha \Phi^+$となるのは,
+  $\alpha=\delta_i$のときのみであるので,
+  $w_{i+1,j-1}(\delta_{j})=\delta_i$である.
+
+  この$i$, $j$に対し,
+  \cref{lem:formula:conjdeletion}
+  を用いれば,
+  \begin{align*}
+    w_{i,j}=
+    s_{\delta_i}w_{i+1,j-1}s_{\delta_j}
+    =w_{i+1,j-1}
+  \end{align*}
+  が言えるので,
+  \begin{align*}
+    w=w_{1,i-1}w_{i+1,j-1}w_{j+1,r}
+  \end{align*}
+  である.
+  
+\end{proof}
+
+\begin{cor}
+  $w\in W$に対し, $n(w)=\ell(w)$.
+\end{cor}
+\begin{proof}
+  $\delta_i\in\Delta$とし,
+  $w=s_{\delta_1}\cdot s_{\delta_r}$
+  であるとする.
+
+  $r>n(w)$なら,
+  \cref{thm:deletionproperty}より,  
+  $\delta'_i\in\Delta$をつかって,
+  $w=s_{\delta'_1}\cdot s_{\delta'_{r-2}}$とできる
+  したがって, $\ell(w) \leq n(w)$である.
+
+  一方で,
+  \cref{lem:n:bruhat}
+  より,
+  $w\in W$, $\delta\in \Delta$に対し
+  $n(ws_\delta)\leq n(w)+1$である.
+  したがって,
+  \begin{align*}
+    n(w)&=n(s_{\delta_1}\cdots s_{\delta_{r-1}}s_{\delta_r})\\
+    &\leq n(s_{\delta_1}\cdots s_{\delta_{r-1}})+1\\
+    &\vdots\\
+    &\leq r.
+  \end{align*}
+  
+\end{proof}
+
+
+したがって, \cref{lem:n:bruhat}は$\ell(w)$に読み替えられる.
+\begin{theorem}
+  \label{thm:l:bruhat}
+  $\delta\in\Delta$, $w\in W$とする.
+  このとき次が成り立つ:
+  \begin{enumerate}
+  \item
+    $w(\delta)\in\Phi^+ \implies \ell(ws_\delta)=\ell(w)+1$.
+  \item $w(\delta)\in\Phi^- \implies \ell(ws_\delta)=\ell(w)-1$.
+  \item
+    $w^{-1}(\delta)\in\Phi^+ \implies \ell(s_\delta w)=\ell(w)+1$.
+  \item
+    $w^{-1}(\delta)\in\Phi^- \implies \ell(s_\delta w)=\ell(w)-1$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+  \Cref{thm:deletionproperty}を繰り返し用いるだけで必ず簡約表示にたどり着く.
+\end{remark}
+
+\begin{remark}
+  $\ell(w)=n(w)=\numof{\Phi\Delta^+(w)}$であるので,
+  $\ell(w)$, つまり簡約表示の長さ, は,
+  $\Phi\Delta^+(w)$を使って求められる.
+
+  $\Phi_\Delta^+(w)\subset \Phi_\Delta^+$であるから,
+  $\ell(w)\leq \numof{\Phi_\Delta^+}=\frac{1}{2}\Phi$である.
+\end{remark}
+
