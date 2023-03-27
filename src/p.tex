@@ -137,6 +137,25 @@ $\ZZ^{\times}$ $(\ZZ^{\times})^n$ 生成系
 $S\subset S' \subset \Braket{S}_\ZZ$なら
 $\Braket{S}_\ZZ=\Braket{S'}_\ZZ$
 
+
+$T_{i,i+k}$は
+\begin{align*}
+  T_{i,i+2}
+  &=T_{i+1,i+2}T_{i,i+1}(T_{i+1,i+2})^{-1}\\
+  &=T_{i+1,i+2}T_{i,i+1}(T_{i+1,i+2})\\
+  T_{i,i+3}
+  &=T_{i+2,i+3}T_{i,i+2}(T_{i+2,i+3})^{-1}\\
+  &=T_{i+2,i+3}T_{i,i+2}(T_{i+2,i+3})\\
+  T_{i,i+4}
+  &=T_{i+3,i+4}T_{i,i+3}(T_{i+3,i+4})^{-1}\\
+  &=T_{i+3,i+4}T_{i,i+3}(T_{i+3,i+4})\\
+  &\vdots\\
+  T_{i,i+k}
+  &=T_{i+k-1,i+k}T_{i,i+k-1}(T_{i+k-1,i+k})^{-1}\\
+  &=T_{i+k-1,i+k}T_{i,i+k-1}(T_{i+k-1,i+k})\\
+\end{align*}
+とかけるので, 
+$T_{i,k}\in\Braket{S}_\ZZ$である.
 \chapter{鏡映}
 
 \section{鏡映の定義と例}
@@ -2631,8 +2650,8 @@ $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
   とおく.
 \end{definition}
 \begin{remark}
-  $w\in W$に対し,
-  $w^{-1}(\Phi_\Delta^-)=\Set{w^{-1}(\beta)|\beta\in\Phi_\Delta^-}$とおく.
+  $w\in W$と$X\subset \Phi$に対し,
+  $w(X)=\Set{w(\alpha)|\alpha\in X}$とおく.
   このとき, 
   \begin{align*}
     w^{-1}(\Phi_\Delta^-)&=\Set{w^{-1}(\beta)|\beta\in\Phi_\Delta^-}\\
@@ -2716,57 +2735,46 @@ $\Phi_\Delta^{+}(\delta)=\Phi_\Delta^+\cap (s_\delta)^{-1}(\Phi_\Delta^-)$
 であるので次のようにも言い換えられる.
 \begin{cor}
   $\delta\in\Delta$に対し,
-  $\Phi_\Delta^{+}(\delta)=\Set{\delta}$
+  $\Phi_\Delta^{+}(\delta)=\Set{\delta}$.
 \end{cor}
 
-\section{長さ関数}
-$\Phi$をルート系, $\Delta$を単純系,
-$\Phi^+=\Phi_\Delta^+$,
-$W=W(\Phi)$, $S=\Set{s_\delta|\delta\in\Delta}$
-とする.
-
-
-\begin{definition}
-  $w\in W$に対して,
-  \begin{align*}
-    \Phi^{+}(w)&=\Phi^+\cap w^{-1}(\Phi^{-})\\
-    &=\Set{\alpha\in\Phi^+|w(\alpha)\in \Phi^-}\\
-    n(w)&=\numof{\Phi^{+}(w)}
-  \end{align*}
-  とおく.
-\end{definition}
+$\delta\in\Delta$に対して
+$w=s_\delta$となっている場合について $\Phi_\Delta^+(w)$をしらべた.
+次に, 一般の$w\in W$に対して,
+$\Phi_\Delta^+(w)$を調べる.
 
 \begin{prop}
   \label{prop:n:inverse:same}
-  $n(w)=n(w^{-1})$
+  $w\in W$に対し,
+  $n(w)=n(w^{-1})$である.
 \end{prop}
 \begin{proof}
   \begin{align*}
-    \Phi^+\cap w(\Phi^{-})=w(w^{-1}(\Phi^+)\cap \Phi^{-})
+    \Phi_\Delta^+\cap w(\Phi_\Delta^{-})=w(w^{-1}(\Phi_\Delta^+)\cap \Phi_\Delta^{-})
   \end{align*}
   である. また, $w$は全単射であるので,
   \begin{align*}
-    \numof{w(w^{-1}(\Phi^+)\cap \Phi^{-})}
-    &=\numof{w^{-1}(\Phi^+)\cap \Phi^{-}}.
+    \numof{w(w^{-1}(\Phi_\Delta^+)\cap \Phi_\Delta^{-})}
+    &=\numof{w^{-1}(\Phi_\Delta^+)\cap \Phi_\Delta^{-}}.
   \end{align*}
   また, $-1$倍する操作も全単射であるから,
   \begin{align*}
-    \numof{w^{-1}(\Phi^+)\cap \Phi^{-}}
-    &=\numof{-(w^{-1}(\Phi^+)\cap \Phi^{-})}.
+    \numof{w^{-1}(\Phi_\Delta^+)\cap \Phi_\Delta^{-}}
+    &=\numof{-(w^{-1}(\Phi_\Delta^+)\cap \Phi_\Delta^{-})}.
   \end{align*}
   $w^{-1}$は線形写像なので,
   \begin{align*}
-    -(w^{-1}(\Phi^+)\cap \Phi^{-})
-    &= w^{-1}(\Phi^-)\cap \Phi^{+}.
+    -(w^{-1}(\Phi_\Delta^+)\cap \Phi_\Delta^{-})
+    &= w^{-1}(\Phi_\Delta^-)\cap \Phi_\Delta^{+}.
   \end{align*}
   したがって,
   \begin{align*}
     n(w^{-1})
-    &=\numof{\Phi^+\cap w(\Phi^{-})}\\
-    &=\numof{w(w^{-1}(\Phi^+)\cap \Phi^{-})}\\
-    &=\numof{w^{-1}(\Phi^+)\cap \Phi^{-}}\\
-    &=\numof{-(w^{-1}(\Phi^+)\cap \Phi^{-})}\\
-    &=\numof{w^{-1}(\Phi^-)\cap \Phi^{+}}\\
+    &=\numof{\Phi_\Delta^+\cap w(\Phi_\Delta^{-})}\\
+    &=\numof{w(w^{-1}(\Phi_\Delta^+)\cap \Phi_\Delta^{-})}\\
+    &=\numof{w^{-1}(\Phi_\Delta^+)\cap \Phi_\Delta^{-}}\\
+    &=\numof{-(w^{-1}(\Phi_\Delta^+)\cap \Phi_\Delta^{-})}\\
+    &=\numof{w^{-1}(\Phi_\Delta^-)\cap \Phi_\Delta^{+}}\\
     &=n(w).
   \end{align*}
 \end{proof}
@@ -2778,42 +2786,46 @@ $W=W(\Phi)$, $S=\Set{s_\delta|\delta\in\Delta}$
   \begin{enumerate}
   \item
     \label{item:buruhat:formula:1}
-    $w(\delta)\in\Phi^+ \implies n(ws_\delta)=n(w)+1$.
+    $w(\delta)\in\Phi_\Delta^+ \iff n(ws_\delta)=n(w)+1$.
   \item
     \label{item:buruhat:formula:-1}
-     $w(\delta)\in\Phi^- \implies n(ws_\delta)=n(w)-1$.
+     $w(\delta)\in\Phi_\Delta^- \iff n(ws_\delta)=n(w)-1$.
   \item
     \label{item:buruhat:formula:r:1}
-    $w^{-1}(\delta)\in\Phi^+ \implies n(s_\delta w)=n(w)+1$.
+    $w^{-1}(\delta)\in\Phi_\Delta^+ \iff n(s_\delta w)=n(w)+1$.
   \item
     \label{item:buruhat:formula:r:-1}
-    $w^{-1}(\delta)\in\Phi^- \implies n(s_\delta w)=n(w)-1$.
+    $w^{-1}(\delta)\in\Phi_\Delta^- \iff n(s_\delta w)=n(w)-1$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
   \begin{align*}
-    \Phi^{+}(ws_\delta)
-    &=\Phi^+\cap(ws_\delta)^{-1}(\Phi^-)\\
-    &=\Phi^+\cap(s_\delta)^{-1} w^{-1}(\Phi^-)\\
-    &=\Phi^+\cap s_\delta w^{-1}(\Phi^-).
+    \Phi_\Delta^{+}(ws_\delta)
+    &=\Phi_\Delta^+\cap(ws_\delta)^{-1}(\Phi_\Delta^-)\\
+    &=\Phi_\Delta^+\cap(s_\delta)^{-1} w^{-1}(\Phi_\Delta^-)\\
+    &=\Phi_\Delta^+\cap s_\delta w^{-1}(\Phi_\Delta^-).
   \end{align*}
   ここで$\delta\in\Delta$に対し,
   \begin{align*}
-    \Phi^+&=s_\delta(\Phi^+\setminus \Set{\delta}) \cup\Set{\delta}\\
-    s_\delta(\Phi^+\setminus \Set{\delta})\cap \Set{\delta}&=\emptyset
+    \Phi_\Delta^+&=s_\delta(\Phi_\Delta^+\setminus \Set{\delta}) \cup\Set{\delta}\\
+    s_\delta(\Phi_\Delta^+\setminus \Set{\delta})\cap \Set{\delta}&=\emptyset
   \end{align*}
-  であるので, $\Phi^+\cap s_\delta w^{-1}(\Phi^-)$を調べるには,
+  であるので, $\Phi_\Delta^+\cap s_\delta w^{-1}(\Phi_\Delta^-)$を調べるには,
   \begin{align*}
-    s_\delta(\Phi^+\setminus \Set{\delta}) \cap s_\delta w^{-1}(\Phi^-)\\
-    \Set{\delta} \cap s_\delta w^{-1}(\Phi^-)
+    s_\delta(\Phi_\Delta^+\setminus \Set{\delta}) \cap s_\delta w^{-1}(\Phi_\Delta^-)\\
+    \Set{\delta} \cap s_\delta w^{-1}(\Phi_\Delta^-)
   \end{align*}
   をそれぞれ調べればよい.
 
-  \Cref{item:buruhat:formula:1}について考える.
+  まず,
+  \begin{align*}
+    w(\delta)\in\Phi_\Delta^+ \implies n(ws_\delta)=n(w)+1
+  \end{align*}
+  について考える.
   $w(\delta)=\alpha$とおく.
-  仮定から$w(\delta)\in\Phi^+$であるので,
-  $\alpha\in\Phi^+$であり,
-  $-\alpha\in\Phi^-$である.
+  仮定から$w(\delta)\in\Phi_\Delta^+$であるので,
+  $\alpha\in\Phi_\Delta^+$であり,
+  $-\alpha\in\Phi_\Delta^-$である.
   
   $\delta=w^{-1}(\alpha)$であるので,
   \begin{align*}
@@ -2824,52 +2836,55 @@ $W=W(\Phi)$, $S=\Set{s_\delta|\delta\in\Delta}$
     &=s_\delta(w^{-1}(-\alpha)).
   \end{align*}
   となる. したがって,
-  $\delta\in s_\delta(w^{-1}(\Phi^-))$である.
+  $\delta\in s_\delta(w^{-1}(\Phi_\Delta^-))$である.
   したがって,
   \begin{align*}
-    \Set{\delta} \cap s_\delta w^{-1}(\Phi^-) = \Set{\delta}
+    \Set{\delta} \cap s_\delta w^{-1}(\Phi_\Delta^-) = \Set{\delta}
   \end{align*}
   である.
   
 
   一方
   \begin{align*}
-    s_\delta(\Phi^+\setminus \Set{\delta})=s_\delta(\Phi^+)\setminus\Set{-\delta}
+    s_\delta(\Phi_\Delta^+\setminus \Set{\delta})=s_\delta(\Phi_\Delta^+)\setminus\Set{-\delta}
   \end{align*}
   である.
   $\delta=s_\delta(w^{-1}(-\alpha))$であるので,
   $-\delta=s_\delta(w^{-1}(\alpha))$となり,  
-  $-\delta\in s_\delta(w^{-1}(\Phi^+))$であるから,
-  $-\delta\not\in s_\delta(w^{-1}(\Phi^-))$である.
+  $-\delta\in s_\delta(w^{-1}(\Phi_\Delta^+))$であるから,
+  $-\delta\not\in s_\delta(w^{-1}(\Phi_\Delta^-))$である.
   したがって,
   \begin{align*}
-    s_\delta(\Phi^+\setminus \Set{\delta}) \cap s_\delta w^{-1}(\Phi^-)
+    s_\delta(\Phi_\Delta^+\setminus \Set{\delta}) \cap s_\delta w^{-1}(\Phi_\Delta^-)
     &=
-    s_\delta(\Phi^+) \cap s_\delta w^{-1}(\Phi^-)\\
-    &=s_\delta(\Phi^+ \cap w^{-1}(\Phi^-))\\
-    &=s_\delta(\Phi^+(w))
+    s_\delta(\Phi_\Delta^+) \cap s_\delta w^{-1}(\Phi_\Delta^-)\\
+    &=s_\delta(\Phi_\Delta^+ \cap w^{-1}(\Phi_\Delta^-))\\
+    &=s_\delta(\Phi_\Delta^+(w))
   \end{align*}
   である. 
-  $\delta\not\in s_\delta(\Phi^+\setminus \Set{\delta})$
-  であるので, $\delta\not\in s_\delta(\Phi^+(w))$
+  $\delta\not\in s_\delta(\Phi_\Delta^+\setminus \Set{\delta})$
+  であるので, $\delta\not\in s_\delta(\Phi_\Delta^+(w))$
   である.
 
   したがって,
   \begin{align*}
     n(ws_\delta)
-    &=\numof{\Phi^+(ws_\delta)}\\
-    &=\numof{s_\delta(\Phi^+(w))}+1\\
-    &=\numof{\Phi^+(w)}+1\\
+    &=\numof{\Phi_\Delta^+(ws_\delta)}\\
+    &=\numof{s_\delta(\Phi_\Delta^+(w))}+1\\
+    &=\numof{\Phi_\Delta^+(w)}+1\\
     &=n(w)+1\\
   \end{align*}
   である.
   
-
-  \Cref{item:buruhat:formula:-1}について考える.
+  次に,
+  \begin{align*}
+    w(\delta)\in\Phi_\Delta^- \implies n(ws_\delta)=n(w)-1
+  \end{align*}
+  について考える.
   $w(\delta)=\alpha$とおく.
-  仮定から$w(\delta)\in\Phi^-$であるので,
-  $\alpha\in\Phi^-$であり,
-  $-\alpha\in\Phi^+$である.
+  仮定から$w(\delta)\in\Phi_\Delta^-$であるので,
+  $\alpha\in\Phi_\Delta^-$であり,
+  $-\alpha\in\Phi_\Delta^+$である.
     
   $\delta=w^{-1}(\alpha)$であるので,
   \begin{align*}
@@ -2880,42 +2895,48 @@ $W=W(\Phi)$, $S=\Set{s_\delta|\delta\in\Delta}$
     &=s_\delta(w^{-1}(-\alpha)).
   \end{align*}
   となる. したがって,
-  $\delta\in s_\delta(w^{-1}(\Phi^+))$である.
+  $\delta\in s_\delta(w^{-1}(\Phi_\Delta^+))$である.
   したがって,
-  $\delta\not\in s_\delta(w^{-1}(\Phi^-))$であるので,
+  $\delta\not\in s_\delta(w^{-1}(\Phi_\Delta^-))$であるので,
   \begin{align*}
-    \Set{\delta} \cap s_\delta w^{-1}(\Phi^-) = \emptyset
+    \Set{\delta} \cap s_\delta w^{-1}(\Phi_\Delta^-) = \emptyset
   \end{align*}
   である.
   
 
   一方
   \begin{align*}
-    s_\delta(\Phi^+\setminus \Set{\delta})=s_\delta(\Phi^+)\setminus\Set{-\delta}
+    s_\delta(\Phi_\Delta^+\setminus \Set{\delta})=s_\delta(\Phi_\Delta^+)\setminus\Set{-\delta}
   \end{align*}
   である.
-  $\delta\in s_\delta(w^{-1}(\Phi^+))$であるので,
-  $-\delta\in s_\delta(w^{-1}(\Phi^-))$である.
+  $\delta\in s_\delta(w^{-1}(\Phi_\Delta^+))$であるので,
+  $-\delta\in s_\delta(w^{-1}(\Phi_\Delta^-))$である.
   したがって,
   \begin{align*}
-    s_\delta(\Phi^+\setminus \Set{\delta}) \cap s_\delta w^{-1}(\Phi^-)
+    s_\delta(\Phi_\Delta^+\setminus \Set{\delta}) \cap s_\delta w^{-1}(\Phi_\Delta^-)
     &=
-    (s_\delta(\Phi^+) \cap s_\delta w^{-1}(\Phi^-))\setminus\Set{-\delta}\\
-    &=s_\delta(\Phi^+ \cap w^{-1}(\Phi^-))\setminus\Set{-\delta}\\
-    &=s_\delta(\Phi^+(w))\setminus\Set{-\delta}
+    (s_\delta(\Phi_\Delta^+) \cap s_\delta w^{-1}(\Phi_\Delta^-))\setminus\Set{-\delta}\\
+    &=s_\delta(\Phi_\Delta^+ \cap w^{-1}(\Phi_\Delta^-))\setminus\Set{-\delta}\\
+    &=s_\delta(\Phi_\Delta^+(w))\setminus\Set{-\delta}
   \end{align*}
   である. 
 
   したがって,
   \begin{align*}
     n(ws_\delta)
-    &=\numof{\Phi^+(ws_\delta)}\\
-    &=\numof{s_\delta(\Phi^+(w))}-1\\
-    &=\numof{\Phi^+(w)}-1\\
+    &=\numof{\Phi_\Delta^+(ws_\delta)}\\
+    &=\numof{s_\delta(\Phi_\Delta^+(w))}-1\\
+    &=\numof{\Phi_\Delta^+(w)}-1\\
     &=n(w)-1
   \end{align*}
   である.
 
+  $w(\delta)$に対し,
+  $w(\delta)\in\Phi_\Delta^+$または
+  $w(\delta)\in\Phi_\Delta^-$のいずれか一つのみが成り立つので,  
+  \cref{item:buruhat:formula:1,item:buruhat:formula:-1}
+  が成り立つ.
+  
   \Cref{item:buruhat:formula:r:1,item:buruhat:formula:r:-1}
   について考える.
   \Cref{prop:n:inverse:same}より,
@@ -2932,7 +2953,199 @@ $W=W(\Phi)$, $S=\Set{s_\delta|\delta\in\Delta}$
   が得られる.
 \end{proof}
 
+\section{作用の例}
 
+\subsection{$I_2(m)$}
+$\Phi=\Phi(I_2(m))$とし,
+\cref{ex:i2m:simple}で考えた単純系$\Delta$を考える.
+$\Delta=\Set{\alpha_0,\alpha_{m-1}}$,
+$\Phi_\Delta^+=\Set{\alpha_i|i\in\Set{0,\ldots,m-1}}$,
+$\Phi_\Delta^+=\Set{\alpha_{m+i}|i\in\Set{0,\ldots,m-1}}$であった.
+また, $P_i=s_{\alpha_{i}}$であるが,
+\begin{align*}
+P_0\alpha_i&=\alpha_{m-i},\\
+P_{m-1}\alpha_i&=\alpha_{m-2-i}
+\end{align*}
+である.
+したがって,
+$0<i<m$に対して,
+$P_0(\alpha_i)\in\Phi_\Delta^+$である.
+また, $-1<i<m-1$に対して,
+$P_{m-1}(\alpha_i)\in\Phi_\Delta^+$である.
+
+
+\subsection{$A_{1}\times\cdots\times A_{1}$}
+\cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
+\begin{align*}
+  F_i\varepsilon_j=
+  \begin{cases}
+    -\varepsilon_j &(i=j)\\
+    \varepsilon_j &(i\neq j)
+  \end{cases}
+\end{align*}
+であるので,
+$i\neq j$に対し,
+$s_{\varepsilon_i}(\varepsilon_j)\in\Phi_\Delta^+$
+となることは明らかである.
+
+
+\subsection{$A_{n-1}$}
+$\Phi=\Phi(A_{n-1})$とし,
+\cref{ex:an:simple}の単純系$\Delta$を用いる.
+\begin{align*}
+  \Delta&=\Set{\alpha_{i,i+1}|1\leq i < n}\\
+  \Phi_\Delta^+&=\Set{\alpha_{i,j}|1\leq i<j \leq n}
+\end{align*}
+である.
+$k<l$かつ$\Set{k,l}\neq \Set{i,i+1}$とする.
+このとき,
+$s_{\alpha_{i,i+1}}(\alpha_{k,l})\in\Phi_\Delta^+$であることを確かめる.
+$\tau\in S_n$を$i$と$i+1$を入れ替える互換とする.
+このとき, $s_{\alpha_{i,i+1}}(\alpha_{k,l})=\alpha_{\tau(k),\tau(l)}$である.
+したがって, $\tau(k)<\tau(l)$を示せば良い.
+$j\not\in\Set{i,i+1}$ならば, $\tau(j)=j$であるから,
+$k,l\not\in\Set{i,i+1}$のときは$\tau(k)<\tau(l)$である.
+$k\in\Set{i,i+1}$のときは,
+$i+1< l$であるので, $\tau(k)\leq i+1<l=\tau(l)$である.
+$l\in\Set{i,i+1}$のときは,
+$k<i$であるので, $\tau(k)= k<i\leq \tau(l)$である.
+したがって,
+$s_{\alpha_{i,i+1}}(\alpha_{k,l})\in\Phi_\Delta^+$である.
+
+
+\subsection{$B_{n}$}
+\label{ex:bn:simplereflectposi2posi}
+$\Phi=\Phi(B_n)$とし,
+\cref{ex:bn:simple}の単純系$\Delta$を用いる.
+\begin{align*}
+  \Delta
+  &=\Set{\alpha_{1,2},\ldots,\alpha_{n-1,n}}\cup\Set{\varepsilon_{n}}\\
+  \Phi_\Delta^{+}
+  &=\Set{\alpha_{i,j},\beta_{i,j}|1\leq i<j\leq n}\cup\Set{\varepsilon_{k}|1\leq k \leq n}\\
+\end{align*}
+である.
+$\tau$を$i$, $i+1$を入れ替える互換とすると
+\begin{align*}
+s_{\alpha_{i,i+1}}(\alpha_{k,l})&=\alpha_{\tau(k),\tau(l)}\\
+s_{\alpha_{i,i+1}}(\beta_{k,l})&=\beta_{\tau(k),\tau(l)}\\
+s_{\alpha_{i,i+1}}(\varepsilon_{k})&=\varepsilon_{\tau(k)}
+\end{align*}
+であるが, $\beta_{k,l}=\beta_{l,k}$であることに注意すると,
+$\alpha\in\Phi_\Delta^+\setminus\Set{\alpha_{i,i+1}}$
+に対し, $s_{\alpha_{i,i+1}}(\alpha)\in\Phi_\Delta^+$
+となっていることが確かめられる.
+また, $k<l$に対し,
+\begin{align*}
+  s_{\varepsilon_{n}}(\alpha_{k,l})&=
+  \begin{cases}
+    \beta_{k,n} &(n=l)\\
+    \alpha_{\tau(k),\tau(l)}&(n\neq l)\\
+  \end{cases}\\
+s_{\varepsilon_{n}}(\beta_{k,l})&=
+  \begin{cases}
+    \alpha_{k,n} &(n=l)\\
+    \beta_{\tau(k),\tau(l)}&(n\neq l)\\
+  \end{cases}\\
+  s_{\varepsilon_{n}}(\varepsilon_{k})&=
+  \begin{cases}
+    -\varepsilon_{n} &(n=l)\\
+    \varepsilon_{k}&(n\neq l)\\
+  \end{cases}\\
+\end{align*}
+であるので,
+$\alpha\in\Phi_\Delta^+\setminus\Set{\varepsilon_n}$
+に対し, $s_{\varepsilon_n}(\alpha)\in\Phi_\Delta^+$
+となっていることが確かめられる.
+
+
+
+\subsection{$C_{n}$}
+$\Phi=\Phi(C_n)$とし
+\cref{ex:cn:simple}の単純系$\Delta$を考える.
+$S=\Set{s_\delta|\delta\in \Delta}$とおく.
+\cref{ex:bn:simple}の単純系を$\Delta'$とすると,
+$S=\Set{s_\delta|\delta\in \Delta'}$である.
+したがって, 
+$s_\delta\in S$に対し,
+$\alpha\in\Phi_\Delta^+\setminus\Set{\delta}$が
+$s_{\delta}(\alpha)\in\Phi_\Delta^+$
+みたすことは, 
+\cref{ex:bn:simplereflectposi2posi}
+と同様に確かめられる.
+
+
+\subsection{$D_{n}$}
+$\Phi=\Phi(D_n)$とし
+\cref{ex:dn:simple}で考えた単純系$\Delta$を考える.
+$S=\Set{s_\delta|\delta\in \Delta}$とする.
+$s_\delta\in S$に対し,
+$\alpha\in\Phi_\Delta^+\setminus\Set{\delta}$が
+$s_{\delta}(\alpha)\in\Phi_\Delta^+$
+みたすことを確認する.
+$\delta=\alpha_{i,i+1}$については,
+\cref{ex:bn:simplereflectposi2posi}
+の議論である.
+$\delta=\beta_{n-1,n}$のときについて考える.
+$s_{\beta_{n-1,n}}=F_{n-1}F_{n}T_{n-1,n}$
+である. したがって$i<j$に対し,
+\begin{align*}
+  s_{\beta_{n-1,n}}(\alpha_{i,j})
+  &=
+  \begin{cases}
+    \alpha_{i,j}&(i<j<n-1)\\
+    \beta_{i,n}&(i<n-1,j=n-1)\\
+    \beta_{i,n-1}&(i<n-1,j=n)\\
+    \alpha_{n,n-1}=\alpha_{n-1,n}&(i=n-1,j=n)\\
+  \end{cases}\\
+  s_{\beta_{n-1,n}}(\beta_{i,j})
+  &=
+  \begin{cases}
+    \beta_{i,j}&(i<j<n-1)\\
+    \alpha_{i,n}&(i<n-1,j=n-1)\\
+    \alpha_{i,n-1}&(i<n-1,j=n)\\
+    -\beta_{n,n-1}&(i=n-1,j=n)\\
+  \end{cases}
+\end{align*}
+である.
+したがって,
+$\alpha\in\Phi_\Delta^+\setminus\Set{\beta_{n-1,n}}$が
+$s_{\beta_{n-1,n}}(\alpha)\in\Phi_\Delta^+$
+をみたしている.
+
+
+
+\subsection{$G_2$}
+$\Phi=\Phi(G_2)$とし,
+\cref{ex:g2:simple}
+で考えた単純系$\Delta$を考える.
+\begin{align*}
+  \alpha_{i,j}&=\ee_i-\ee_j\\
+  \gamma_{i}&=-3\ee_i+\sum_{k=1}^{3}\ee_k\\
+  \Delta&=\Set{\alpha_{1,2},\gamma_{1}}\\
+  \Phi_\Delta^+ 
+&=\Set{ \alpha_{1,2},\gamma_{1}, \alpha_{3,1},\alpha_{3,2},\gamma_{2},-\gamma_3}
+\end{align*}
+であった. \Cref{ex:g2:root}での計算をもとに計算すると,
+\begin{align*}
+s_{\alpha_{1,2}}(\alpha_{3,1})&=\alpha_{3,2}
+&s_{\alpha_{1,2}}(\alpha_{3,2})&=\alpha_{3,1}\\
+s_{\alpha_{1,2}}(\gamma_1)&=\gamma_{2}&
+s_{\alpha_{1,2}}(\gamma_2)&=\gamma_{1}\\
+s_{\alpha_{1,2}}(-\gamma_3)&=-\gamma_{3}&
+\end{align*}
+である.  どれも$\Phi_\Delta^+$の元である.
+また
+\begin{align*}
+  s_{\gamma_{1}}(\alpha_{1,2})&=-\alpha_{1,3}=\alpha_{3,1}
+&s_{\gamma_{1}}(\alpha_{3,1})&=-\alpha_{2,1}=\alpha_{1,2}\\
+s_{\gamma_{1}}(\alpha_{3,2})&=\alpha_{3,2}\\
+s_{\gamma_{1}}(\gamma_2)&=-\gamma_{3}&
+s_{\gamma_{1}}(-\gamma_3)&=\gamma_{2}
+\end{align*}
+であり, どれも$\Phi_\Delta^+$の元である.
+
+
+\chapter{高さ関数}
 \section{高さ関数}
 ここでは特に断らない限り,
 $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
@@ -3055,18 +3268,6 @@ $\Phi=\Phi(I_2(m))$とし,
 $\Delta=\Set{\alpha_0,\alpha_{m-1}}$,
 $\Phi_\Delta^+=\Set{\alpha_i|i\in\Set{0,\ldots,m-1}}$,
 $\Phi_\Delta^+=\Set{\alpha_{m+i}|i\in\Set{0,\ldots,m-1}}$であった.
-また, $P_i=s_{\alpha_{i}}$であるが,
-\begin{align*}
-P_0\alpha_i=\alpha_{m-i},
-P_{m-1}\alpha_i=\alpha_{m-2-i}
-\end{align*}
-である.
-したがって,
-$0<i<m$に対して,
-$P_0(\alpha_i)\in\Phi_\Delta^+$である.
-また, $-1<i<m-1$に対して,
-$P_{m-1}(\alpha_i)\in\Phi_\Delta^+$である.
-
 $S=\Set{P_0,P_{m-1}}$とする.
 $P_0P_{m-1}=R_{1-m}=R_1$である.
 また, $R_i=(R_1)^i$であり, $P_i=R_iP_0$であるから,
@@ -3124,21 +3325,8 @@ $\height_\Delta(\alpha_i)$は$m$のとり方によっては, 整数ではない�
 
 \subsection{$A_{1}\times\cdots\times A_{1}$}
 \cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
-
-\begin{align*}
-  F_i\varepsilon_j=
-  \begin{cases}
-    -\varepsilon_j &(i=j)\\
-    \varepsilon_j &(i\neq j)
-  \end{cases}
-\end{align*}
-であるので,
-$i\neq j$に対し,
-$s_{\varepsilon_i}(\varepsilon_j)\in\Phi_\Delta^+$
-となることは明らかである.
-
 $\Phi_\Delta^+=\Delta$である.
-したがって, $\Phi_\Delta^+=\Set{-\delta|\delta\in\Delta}$である.
+したがって, $\Phi_\Delta^-=\Set{-\delta|\delta\in\Delta}$である.
 $s_\alpha=s_{-\alpha}$であったから,
 \begin{align*}
   R(\Phi)
@@ -3156,46 +3344,23 @@ $W(\Phi)$は$\Set{s_\alpha|\alpha\in\Delta}$で生成される.
 \label{ex:an:simplesgens}
 $\Phi=\Phi(A_{n-1})$とし,
 \cref{ex:an:simple}の単純系$\Delta$を用いる.
-\begin{align*}
-  \Delta&=\Set{\alpha_{i,i+1}|1\leq i < n}\\
-  \Phi_\Delta^+&=\Set{\alpha_{i,j}|1\leq i<j \leq n}\\
-\end{align*}
-である.
-$k<l$かつ$\Set{k,l}\neq \Set{i,i+1}$とする.
-このとき,
-$s_{\alpha_{i,i+1}}(\alpha_{k,l})\in\Phi_\Delta^+$であることを確かめる.
-$\tau\in S_n$を$i$と$i+1$を入れ替える互換とする.
-このとき, $s_{\alpha_{i,i+1}}(\alpha_{k,l})=\alpha_{\tau(k),\tau(l)}$である.
-したがって, $\tau(k)<\tau(l)$を示せば良い.
-$j\not\in\Set{i,i+1}$ならば, $\tau(j)=j$であるから,
-$k,l\not\in\Set{i,i+1}$のときは$\tau(k)<\tau(l)$である.
-$k\in\Set{i,i+1}$のときは,
-$i+1< l$であるので, $\tau(k)\leq i+1<l=\tau(l)$である.
-$l\in\Set{i,i+1}$のときは,
-$k<i$であるので, $\tau(k)= k<i\leq \tau(l)$である.
-したがって,
-$s_{\alpha_{i,i+1}}(\alpha_{k,l})\in\Phi_\Delta^+$である.
-
 $S=\Set{T_{i,i+1}|i\in\Set{1,\ldots,n-1}}=\Set{s_\delta|\delta\in\Delta}$
 とする.
-$T_{i,i+k}$は
+$i<j$に対し,
 \begin{align*}
-  T_{i,i+2}
-  &=T_{i+1,i+2}T_{i,i+1}(T_{i+1,i+2})^{-1}\\
-  &=T_{i+1,i+2}T_{i,i+1}(T_{i+1,i+2})\\
-  T_{i,i+3}
-  &=T_{i+2,i+3}T_{i,i+2}(T_{i+2,i+3})^{-1}\\
-  &=T_{i+2,i+3}T_{i,i+2}(T_{i+2,i+3})\\
-  T_{i,i+4}
-  &=T_{i+3,i+4}T_{i,i+3}(T_{i+3,i+4})^{-1}\\
-  &=T_{i+3,i+4}T_{i,i+3}(T_{i+3,i+4})\\
-  &\vdots\\
-  T_{i,i+k}
-  &=T_{i+k-1,i+k}T_{i,i+k-1}(T_{i+k-1,i+k})^{-1}\\
-  &=T_{i+k-1,i+k}T_{i,i+k-1}(T_{i+k-1,i+k})\\
+T_{i,i+1}T_{i+1,i+2}\cdots T_{n-2,n-1} \alpha_{n-1,n}=\alpha_{i,n}\\
+T_{j,j+1}T_{j+1,j+2}\cdots T_{n-1,n} \alpha_{i,n}=\alpha_{i,j}
 \end{align*}
-とかけるので, 
-$T_{i,k}\in\Braket{S}_\ZZ$である.
+である. つまり, $\alpha_{i,j}$に対し,
+$w(\alpha_{n-1,n})=\alpha_{i,j}$をみたす
+$w\in \Braket{S}_\ZZ$がとれる.
+したがって,
+\cref{prop:conjbyortho,prop:reflgrpisortho}
+から,
+\begin{align*}
+T_{i,j}=s_{\alpha{i,j}}=s_{w(\alpha{n-1,n})}=ws_{\alpha_{n-1,n}}w^{-1}=wT_{n-1,n}w^{-1}
+\end{align*}
+とかけるので, $T_{i,j}\in \Braket{S}_\ZZ$である.
 $R(\Phi)=\Set{T_{i,j}|1\leq i<j\leq n}$であるので,
 $W(\Phi)=\Braket{R(\Phi)}_\ZZ=\Braket{S}_\ZZ$である.
 これは, 対称群$S_n$が隣接互換で生成されているという事実に対応する.
@@ -3242,7 +3407,6 @@ $\height_\Delta(\alpha)=\height_\Delta(\beta)+1$である.
 
 
 \subsection{$B_{n}$}
-\label{ex:bn:simplereflectposi2posi}
 \label{ex:bn:simpleges}
 $\Phi=\Phi(B_n)$とし,
 \cref{ex:bn:simple}の単純系$\Delta$を用いる.
@@ -3250,43 +3414,9 @@ $\Phi=\Phi(B_n)$とし,
   \Delta
   &=\Set{\alpha_{1,2},\ldots,\alpha_{n-1,n}}\cup\Set{\varepsilon_{n}}\\
   \Phi_\Delta^{+}
-  &=\Set{\alpha_{i,j},\beta_{i,j}|1\leq i<j\leq n}\cup\Set{\varepsilon_{k}|1\leq k \leq n}\\
+  &=\Set{\alpha_{i,j},\beta_{i,j}|1\leq i<j\leq n}\cup\Set{\varepsilon_{k}|1\leq k \leq n}
 \end{align*}
 である.
-$\tau$を$i$, $i+1$を入れ替える互換とすると
-\begin{align*}
-s_{\alpha_{i,i+1}}(\alpha_{k,l})&=\alpha_{\tau(k),\tau(l)}\\
-s_{\alpha_{i,i+1}}(\beta_{k,l})&=\beta_{\tau(k),\tau(l)}\\
-s_{\alpha_{i,i+1}}(\varepsilon_{k})&=\varepsilon_{\tau(k)}
-\end{align*}
-であるが, $\beta_{k,l}=\beta_{l,k}$であることに注意すると,
-$\alpha\in\Phi_\Delta^+\setminus\Set{\alpha_{i,i+1}}$
-に対し, $s_{\alpha_{i,i+1}}(\alpha)\in\Phi_\Delta^+$
-となっていることが確かめられる.
-また, $k<l$に対し,
-\begin{align*}
-  s_{\varepsilon_{n}}(\alpha_{k,l})&=
-  \begin{cases}
-    \beta_{k,n} &(n=l)\\
-    \alpha_{\tau(k),\tau(l)}&(n\neq l)\\
-  \end{cases}\\
-s_{\varepsilon_{n}}(\beta_{k,l})&=
-  \begin{cases}
-    \alpha_{k,n} &(n=l)\\
-    \beta_{\tau(k),\tau(l)}&(n\neq l)\\
-  \end{cases}\\
-  s_{\varepsilon_{n}}(\varepsilon_{k})&=
-  \begin{cases}
-    -\varepsilon_{n} &(n=l)\\
-    \varepsilon_{k}&(n\neq l)\\
-  \end{cases}\\
-\end{align*}
-であるので,
-$\alpha\in\Phi_\Delta^+\setminus\Set{\varepsilon_n}$
-に対し, $s_{\varepsilon_n}(\alpha)\in\Phi_\Delta^+$
-となっていることが確かめられる.
-
-
 $S=\Set{s_\delta|\delta\in\Delta}$とする.
 $W(\Phi)=\Braket{S}_\ZZ$を確かめる.
 $\Phi(A_{n-1})\subset\Phi(B_n)$であり,
@@ -3378,13 +3508,6 @@ $S=\Set{s_\delta|\delta\in \Delta}$とおく.
 \cref{ex:bn:simple}の単純系を$\Delta'$とすると,
 $S=\Set{s_\delta|\delta\in \Delta'}$である.
 したがって, 
-$s_\delta\in S$に対し,
-$\alpha\in\Phi_\Delta^+\setminus\Set{\delta}$が
-$s_{\delta}(\alpha)\in\Phi_\Delta^+$
-みたすことは, 
-\cref{ex:bn:simplereflectposi2posi}
-と同様に確かめられる.
-また,
 $W(\Phi)=\Braket{S}_\ZZ$であることも,
 \cref{ex:bn:simpleges}
 と同様に確かめられる.
@@ -3439,46 +3562,11 @@ $\height_\Delta(\alpha)=\height_\Delta(\beta)+1$である.
 $\Phi=\Phi(D_n)$とし
 \cref{ex:dn:simple}で考えた単純系$\Delta$を考える.
 $S=\Set{s_\delta|\delta\in \Delta}$とする.
-$s_\delta\in S$に対し,
-$\alpha\in\Phi_\Delta^+\setminus\Set{\delta}$が
-$s_{\delta}(\alpha)\in\Phi_\Delta^+$
-みたすことを確認する.
-$\delta=\alpha_{i,i+1}$については,
-\cref{ex:bn:simplereflectposi2posi}
-の議論である.
-$\delta=\beta_{n-1,n}$のときについて考える.
-$s_{\beta_{n-1,n}}=F_{n-1}F_{n}T_{n-1,n}$
-である. したがって$i<j$に対し,
-\begin{align*}
-  s_{\beta_{n-1,n}}(\alpha_{i,j})
-  &=
-  \begin{cases}
-    \alpha_{i,j}&(i<j<n-1)\\
-    \beta_{i,n}&(i<n-1,j=n-1)\\
-    \beta_{i,n-1}&(i<n-1,j=n)\\
-    \alpha_{n,n-1}=\alpha_{n-1,n}&(i=n-1,j=n)\\
-  \end{cases}\\
-  s_{\beta_{n-1,n}}(\beta_{i,j})
-  &=
-  \begin{cases}
-    \beta_{i,j}&(i<j<n-1)\\
-    \alpha_{i,n}&(i<n-1,j=n-1)\\
-    \alpha_{i,n-1}&(i<n-1,j=n)\\
-    -\beta_{n,n-1}&(i=n-1,j=n)\\
-  \end{cases}
-\end{align*}
-である.
-したがって,
-$\alpha\in\Phi_\Delta^+\setminus\Set{\beta_{n-1,n}}$が
-$s_{\beta_{n-1,n}}(\alpha)\in\Phi_\Delta^+$
-をみたしている.
 
-
-次に,
 $W(\Phi)=\Braket{S}_\ZZ$であることを確認する.
 $s_{\alpha_{1,2}},\ldots,s_{\alpha_{n-1,n}}\in S$
 であるので$s_{\alpha_{i,j}}\in\Braket{S}_\ZZ$である.
-また, $s_{\alpha_{i,j}}(\beta_{n-1,n})$
+また, $s_{\alpha_{i,j}}(\beta_{n-1,n})\in\Braket{S}_\ZZ$は
 \cref{ex:bn:simpleges}
 と同様に確かめられる.
 
@@ -3541,25 +3629,6 @@ $\Phi=\Phi(G_2)$とし,
 &=\Set{ \alpha_{1,2},\gamma_{1}, \alpha_{3,1},\alpha_{3,2},\gamma_{2},-\gamma_3}
 \end{align*}
 であった. \Cref{ex:g2:root}での計算をもとに計算すると,
-\begin{align*}
-s_{\alpha_{1,2}}(\alpha_{3,1})&=\alpha_{3,2}
-&s_{\alpha_{1,2}}(\alpha_{3,2})&=\alpha_{3,1}\\
-s_{\alpha_{1,2}}(\gamma_1)&=\gamma_{2}&
-s_{\alpha_{1,2}}(\gamma_2)&=\gamma_{1}\\
-s_{\alpha_{1,2}}(-\gamma_3)&=-\gamma_{3}&
-\end{align*}
-である.  どれも$\Phi_\Delta^+$の元である.
-また
-\begin{align*}
-  s_{\gamma_{1}}(\alpha_{1,2})&=-\alpha_{1,3}=\alpha_{3,1}
-&s_{\gamma_{1}}(\alpha_{3,1})&=-\alpha_{2,1}=\alpha_{1,2}\\
-s_{\gamma_{1}}(\alpha_{3,2})&=\alpha_{3,2}\\
-s_{\gamma_{1}}(\gamma_2)&=-\gamma_{3}&
-s_{\gamma_{1}}(-\gamma_3)&=\gamma_{2}
-\end{align*}
-であり, どれも$\Phi_\Delta^+$の元である.
-
-また,
 \begin{align*}
   s_{\gamma_{1}}(\alpha_{1,2})&=\alpha_{3,1}\\
   s_{\alpha_{1,2}}s_{\gamma_{1}}(\alpha_{1,2})=
@@ -3662,8 +3731,6 @@ $\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$
   $l$と$r$の偶奇は等しいことがわかる.
 \end{remark}
 
-
-\section{Deltetion and Exchange property}
 
 $w$の表示を簡約にするにはどうしたらよいかについて考える.
 
@@ -3835,12 +3902,12 @@ $\Phi^+=\Phi_\Delta^+$とする.
   このとき次が成り立つ:
   \begin{enumerate}
   \item
-    $w(\delta)\in\Phi^+ \implies \ell(ws_\delta)=\ell(w)+1$.
-  \item $w(\delta)\in\Phi^- \implies \ell(ws_\delta)=\ell(w)-1$.
+    $w(\delta)\in\Phi^+ \iff \ell(ws_\delta)=\ell(w)+1$.
+  \item $w(\delta)\in\Phi^- \iff \ell(ws_\delta)=\ell(w)-1$.
   \item
-    $w^{-1}(\delta)\in\Phi^+ \implies \ell(s_\delta w)=\ell(w)+1$.
+    $w^{-1}(\delta)\in\Phi^+ \iff \ell(s_\delta w)=\ell(w)+1$.
   \item
-    $w^{-1}(\delta)\in\Phi^- \implies \ell(s_\delta w)=\ell(w)-1$.
+    $w^{-1}(\delta)\in\Phi^- \iff \ell(s_\delta w)=\ell(w)-1$.
   \end{enumerate}
 \end{theorem}
 
@@ -3956,3 +4023,6 @@ $w\in W$, $\delta\in\Delta$とする.
     $\delta_i\in \Delta$がとれる.
   \end{enumerate}
 \end{cor}
+
+
+\section{例}
