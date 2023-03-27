@@ -2630,8 +2630,8 @@ v_-&=
 \end{remark}
 
 
-\chapter{Symple rootの性質}
-\section{Symple rootの作用}
+\chapter{転倒数}
+\section{転倒数}
 ここでは特に断らない限り,
 $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
 また, $W=W(\Phi)$とする.
@@ -2974,72 +2974,76 @@ $P_0(\alpha_i)\in\Phi_\Delta^+$である.
 $P_{m-1}(\alpha_i)\in\Phi_\Delta^+$である.
 
 $n(w)$について考える.
-%$0<k<\frac{m-1}{2}$
-\begin{align*}
-  P_k\alpha_i=\alpha_{m+2k-i}
-\end{align*}
-である.
-$\alpha_i\Phi_\Delta^+$となるのは,
-$0\leq i < m$のときであるが,
-このとき$2k<m+2k-i\leq m+2k$である.
-したがって,
-$0\leq k <\frac{m}{2}$のとき,
-\begin{align*}
-  \Phi_\Delta^+(P_k)=\Set{\alpha_{0},\alpha_{1},\ldots,\alpha_{2k}}
-\end{align*}
-であり,
-$\frac{m}{2}<k\leq m-1$のとき,
-\begin{align*}
-  \Phi_\Delta^+(P_k)=\Set{\alpha_{2k-m+1},\alpha_{2k-m+2},\ldots,\alpha_{m-1}}
-\end{align*}
-である.
-したがって,
-\begin{align*}
-  n(P_k)=
-  \begin{cases}
-    2k+1 & (0\leq k <\frac{m}{2})\\
-    2m-2k-1&(\frac{m}{2}<k<m-1)
-  \end{cases}
-\end{align*}
-である.
-$m$が偶数で, $m=2k$であるとき,
-\begin{align*}
-  P_k\alpha_i=\alpha_{m+2k-i}=\alpha_{2m-i}=\alpha_{-i}
-\end{align*}
-であるので,
-\begin{align*}
-  \Phi_\Delta^+(P_k)&=\Phi_\Delta^+\\
-  n(P_k)&=m
-\end{align*}
-である.
-
 \begin{align*}
   R_k\alpha_i=\alpha_{i+2k}
 \end{align*}
-である.
-$\alpha_i\Phi_\Delta^+$となるのは,
-$0\leq i < m$のときであるが,
-このとき$2k\leq 2k+i < m+2k$である.
-したがって,
-$0\leq k \leq \frac{m}{2}$のとき,
+であるので
 \begin{align*}
-  \Phi_\Delta^+(R_k)=\Set{\alpha_{m-2k},\alpha_{1},\ldots,\alpha_{m-1}}
+\Set{R_k\alpha_i|0\leq i < m}=\Set{\alpha_{i+2k}|0\leq i < m}=\Set{\alpha_{j}|2k \leq j < m+2k}
 \end{align*}
-であり,
-$\frac{m}{2}<k\leq m-1$のとき,
+となる.
+$0\leq k <\frac{m}{2}$のとき, $0\leq 2k$, $m+2k<2m$であるので,
+\begin{align*}
+  \Set{R_k\alpha_i|0\leq i < m}\cap \Phi_\Delta^-=\Set{\alpha_m,\alpha_{m+1},\ldots,\alpha_{m-1+2k}}
+\end{align*}
+であるから,
+\begin{align*}
+  \Phi_\Delta^+(R_k)=\Set{\alpha_{m-2k},\alpha_{m-2k+1},\ldots,\alpha_{m-1}}
+\end{align*}
+である.
+一方,
+$\frac{m}{2}\leq k <m$のとき, $m\leq 2k$, $m+2k<3m$であるので,
+\begin{align*}
+  \Set{R_k\alpha_i|0\leq i < m}\cap \Phi_\Delta^-=\Set{\alpha_{2k},\alpha_{2k+1},\ldots,\alpha_{2m-1}}
+\end{align*}
+であるから,
 \begin{align*}
   \Phi_\Delta^+(R_k)=\Set{\alpha_{0},\alpha_{1},\ldots,\alpha_{2m-1-2k}}
 \end{align*}
 である.
-したがって,
+したがって, $0\leq k <\frac{m}{2}$に対し,
 \begin{align*}
-  n(R_k)=
-  \begin{cases}
-    2k & (0\leq k \leq\frac{m}{2})\\
-    2m-2k&(\frac{m}{2}<k<2m)
-  \end{cases}
+  n(R_{k})=n(R_{m-k})=2k 
 \end{align*}
 である.
+
+
+また,
+\begin{align*}
+  P_k\alpha_i=\alpha_{m+2k-i}
+\end{align*}
+であるので
+\begin{align*}
+\Set{P_k\alpha_i|0\leq i < m}=\Set{\alpha_{m+2k-i}|0\leq i < m}=\Set{\alpha_{j}|2k <j\leq m+2k}
+\end{align*}
+となる.
+$0\leq k <\frac{m}{2}$のとき, $0\leq 2k$, $m+2k<2m$であるので,
+\begin{align*}
+  \Set{P_k\alpha_i|0\leq i < m}\cap \Phi_\Delta^-=\Set{\alpha_{m},\alpha_{m+1},\ldots,\alpha_{m+2k}}
+\end{align*}
+であるから,
+\begin{align*}
+  \Phi_\Delta^+(P_k)=\Set{\alpha_{0},\alpha_{1},\ldots,\alpha_{2k}}
+\end{align*}
+である.
+一方,
+$\frac{m}{2}\leq k <m$のとき, $m\leq 2k$, $m+2k<3m$であるので,
+\begin{align*}
+  \Set{P_k\alpha_i|0\leq i < m}\cap \Phi_\Delta^-=\Set{\alpha_{2k+1},\alpha_{2k+2},\ldots,\alpha_{2m-1}}
+\end{align*}
+であるから,
+\begin{align*}
+  \Phi_\Delta^+(P_k)=\Set{\alpha_{2k-m+1},\alpha_{2k-m+2},\ldots,\alpha_{m-1}}
+\end{align*}
+である. 
+したがって, $0\leq k <\frac{m}{2}$に対し,
+\begin{align*}
+ n(P_{k})=n(P_{m-1-k})=2k+1
+\end{align*}
+である.
+
+
+
 
 \subsection{$A_{1}\times\cdots\times A_{1}$}
 \cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
@@ -3079,6 +3083,21 @@ $k<i$であるので, $\tau(k)= k<i\leq \tau(l)$である.
 したがって,
 $s_{\alpha_{i,i+1}}(\alpha_{k,l})\in\Phi_\Delta^+$である.
 
+$\sigma\in S_n$とし, $A_\sigma\in W$について考える.
+$A_\sigma (\ee_k)=\ee_{\sigma(k)}$であったので,
+$A_\sigma(\alpha_{i,j})=\alpha_{\sigma(i),\sigma(j)}$である.
+したがって,
+\begin{align*}
+  \Phi_\Delta^+(A_\sigma)
+  &=\Phi_\Delta^+\cap A_{\sigma^{-1}}(\Phi_\Delta^-)\\
+  &=\Set{\alpha_{i,j}| i<j}\cap\Set{\alpha_{\sigma^{-1}(k),\sigma^{-1}(l)}| k>l}\\
+  &=\Set{\alpha_{i,j}| i<j}\cap\Set{\alpha_{i,j}| \sigma(i)>\sigma(j)}
+\end{align*}
+であるので,
+\begin{align*}
+  n(A_\sigma)=\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j)}}
+\end{align*}
+である.
 
 \subsection{$B_{n}$}
 \label{ex:bn:simplereflectposi2posi}
