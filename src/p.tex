@@ -3348,3 +3348,295 @@ s_{\gamma_{1}}(-\gamma_3)&=\gamma_{2}
   \height_\Delta(-\gamma_3)&= 5
 \end{align*}
 であることがわかる.
+
+
+\chapter{長さ関数}
+
+\section{長さ関数}
+$\Phi$をルート系, $\Delta$を単純系,
+$\Phi^+=\Phi_\Delta^+$,
+$W=W(\Phi)$, $S=\Set{s_\delta|\delta\in\Delta}$
+とする.
+\begin{definition}
+  $w\in W$に対し,
+  \begin{align*}
+    \ell(w)=\min\Set{l|\delta_1,\ldots,\delta_l\in \Delta, w=s_{\delta_1}\cdots s_{\delta_l}}.
+  \end{align*}
+  とおき, $w$の長さと呼ぶ.
+  ただし, $\ell(\id)=0$とする.
+\end{definition}
+\begin{definition}
+  $w\in W$に対し,
+  \begin{align*}
+    w=s_{\delta_1}\cdots s_{\delta_{\ell(w)}}, (\delta_i\in \Delta)
+  \end{align*}
+  となる積の形を簡約表示と呼ぶ.  
+\end{definition}
+\begin{prop}
+  $w\in W$に対し, 次が成り立つ:
+  \begin{enumerate}
+  \item
+    \label{item:len:nilisid}
+    $\ell(w)=0 \iff w=\id$.
+  \item
+    \label{item:len:1issimple}
+    $\ell(w)-1 \iff \exists \delta\in\Delta$ such that $w=s_\delta$.
+  \item
+    \label{item:len:inversestable}
+    $\ell(w)=\ell(w^{-1})$.
+  \item
+    \label{item:len:det}
+    $\det(w)=(-1)^{\ell(w)}$.
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  \Cref{item:len:nilisid,item:len:1issimple}
+  は$\ell(w)$の定義から明らか.
+
+  \Cref{item:len:inversestable}について考える.
+  $w=s_1\cdots s_l$, $s_i\in S_\Delta$とすると,
+  $s_i^2=\id$であるので,
+  \begin{align*}
+    w^{-1}
+    &=s_l^{-1}\cdots s_1^{-1}
+    &=s_l\cdots s_1
+  \end{align*}
+  である. したがって, $\ell(w) \geq \ell(w^{-1})$.
+  また,
+  $w^{-1}$からはじめて,
+  同様に$\ell(w) \leq \ell(w^{-1})$.
+
+  \Cref{item:len:det}について考える.
+  $\delta\in\Delta$に対し, $\det(s_\delta)=-1$である.
+  \begin{align*}
+    \det(w)&=\det(s_1\cdots s_{\ell(w)})\\
+    &=\det(s_1)\cdots \det(s_{\ell(w)})\\
+    &=(-1)^{\ell(w)}.
+  \end{align*}
+\end{proof}
+
+
+\begin{definition}
+  $w\in W$に対して,
+  \begin{align*}
+    \Phi^{+}(w)&=\Phi^+\cap w^{-1}(\Phi^{-})\\
+    &=\Set{\alpha\in\Phi^+|w(\alpha)\in \Phi^-}\\
+    n(w)&=\numof(\Phi^{+}(w))
+  \end{align*}
+  とおく.
+\end{definition}
+
+\begin{prop}
+  \label{prop:n:inverse:same}
+  $n(w)=n(w^{-1})$
+\end{prop}
+\begin{proof}
+  \begin{align*}
+    \Phi^+\cap w(\Phi^{-})=w(w^{-1}(\Phi^+)\cap \Phi^{-})
+  \end{align*}
+  である. また, $w$は全単射であるので,
+  \begin{align*}
+    \numof{w(w^{-1}(\Phi^+)\cap \Phi^{-})}
+    &=\numof{w^{-1}(\Phi^+)\cap \Phi^{-}}.
+  \end{align*}
+  また, $-1$倍する操作も全単射であるから,
+  \begin{align*}
+    \numof{w^{-1}(\Phi^+)\cap \Phi^{-}}
+    &=\numof{-(w^{-1}(\Phi^+)\cap \Phi^{-})}.
+  \end{align*}
+  $w^{-1}$は線形写像なので,
+  \begin{align*}
+    -(w^{-1}(\Phi^+)\cap \Phi^{-})
+    &= w^{-1}(\Phi^-)\cap \Phi^{+}.
+  \end{align*}
+  したがって,
+  \begin{align*}
+    n(w^{-1})
+    &=\numof{\Phi^+\cap w(\Phi^{-})}\\
+    &=\numof{w(w^{-1}(\Phi^+)\cap \Phi^{-})}\\
+    &=\numof{w^{-1}(\Phi^+)\cap \Phi^{-}}\\
+    &=\numof{-(w^{-1}(\Phi^+)\cap \Phi^{-})}\\
+    &=\numof{w^{-1}(\Phi^-)\cap \Phi^{+}}\\
+    &=n(w).
+  \end{align*}
+\end{proof}
+
+\begin{lemma}
+  $\delta\in\Delta$, $w\in W$とする.
+  このとき次が成り立つ:
+  \begin{enumerate}
+  \item
+    \label{item:buruhat:formula:1}
+    $w(\delta)\in\Phi^+ \implies n(ws_\delta)=n(w)+1$.
+  \item $w(\delta\in\Phi^- \implies n(ws_\delta)=n(w)-1$.
+    \label{item:buruhat:formula:-1}
+  \item
+    \label{item:buruhat:formula:r:1}
+    $w(\delta)^{-1}\in\Phi^+ \implies n(s_\delta w)=n(w)+1$.
+  \item
+    \label{item:buruhat:formula:r:-1}
+    $w(\delta)^{-1}\in\Phi^- \implies n(s_\delta w)=n(w)-1$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  \begin{align*}
+    \Phi^{+}(ws_\delta)
+    &=\Phi^+\cap(ws_\delta)^{-1}(\Phi^-)\\
+    &=\Phi^+\cap(s_\delta)^{-1} w^{-1}(\Phi^-)\\
+    &=\Phi^+\cap s_\delta w^{-1}(\Phi^-).
+  \end{align*}
+  ここで$\delta\in\Delta$に対し,
+  \begin{align*}
+    \Phi^+&=s_\delta(\Phi^+\setminus \Set{\delta}) \cup\Set{\delta}\\
+    s_\delta(\Phi^+\setminus \Set{\delta})\cap \Set{\delta}&=\emptyset
+  \end{align*}
+  であるので, $\Phi^+\cap s_\delta w^{-1}(\Phi^-)$を調べるには,
+  \begin{align*}
+    s_\delta(\Phi^+\setminus \Set{\delta}) \cap s_\delta w^{-1}(\Phi^-)\\
+    \Set{\delta} \cap s_\delta w^{-1}(\Phi^-)
+  \end{align*}
+  をそれぞれ調べればよい.
+
+  \Cref{item:buruhat:formula:1}について考える.
+  $w(\delta)=\alpha$とおく.
+  仮定から$w(\delta)\in\Phi^+$であるので,
+  $\alpha\in\Phi^+$であり,
+  $-\alpha\in\Phi^-$である.
+  
+  $\delta=w^{-1}(\alpha)$であるので,
+  \begin{align*}
+    \delta
+    &=s_\delta s_\delta(\delta)\\
+    &=s_\delta (-\delta)\\
+    &=s_\delta(- w^{-1}(\alpha))\\
+    &=s_\delta(w^{-1}(-\alpha)).
+  \end{align*}
+  となる. したがって,
+  $\delta\in s_\delta(w^{-1}(\Phi^-))$である.
+  したがって,
+  \begin{align*}
+    \Set{\delta} \cap s_\delta w^{-1}(\Phi^-) = \Set{\delta}
+  \end{align*}
+  である.
+  
+
+  一方
+  \begin{align*}
+    s_\delta(\Phi^+\setminus \Set{\delta})=s_\delta(\Phi^+)\setminus\Set{-\delta}
+  \end{align*}
+  である.
+  $\delta=s_\delta(w^{-1}(-\alpha))$であるので,
+  $-\delta=s_\delta(w^{-1}(\alpha))$となり,  
+  $-\delta\in s_\delta(w^{-1}(\Phi^+))$であるから,
+  $-\delta\not\in s_\delta(w^{-1}(\Phi^-))$である.
+  したがって,
+  \begin{align*}
+    s_\delta(\Phi^+\setminus \Set{\delta}) \cap s_\delta w^{-1}(\Phi^-)
+    &=
+    s_\delta(\Phi^+) \cap s_\delta w^{-1}(\Phi^-)\\
+    &=s_\delta(\Phi^+ \cap w^{-1}(\Phi^-))\\
+    &=s_\delta(\Phi^+(w))
+  \end{align*}
+  である. 
+  $\delta\not\in s_\delta(\Phi^+\setminus \Set{\delta})$
+  であるので, $\delta\not\in s_\delta(\Phi^+(w))$
+  である.
+
+  したがって,
+  \begin{align*}
+    n(ws_\delta)
+    &=\numof{\Phi^+(ws_\delta)}\\
+    &=\numof{s_\delta(\Phi^+(w))}+1\\
+    &=\numof{\Phi^+(w)}+1\\
+    &=n(w)+1\\
+  \end{align*}
+  である.
+  
+
+  \Cref{item:buruhat:formula:-1}について考える.
+  $w(\delta)=\alpha$とおく.
+  仮定から$w(\delta)\in\Phi^-$であるので,
+  $\alpha\in\Phi^-$であり,
+  $-\alpha\in\Phi^+$である.
+    
+  $\delta=w^{-1}(\alpha)$であるので,
+  \begin{align*}
+    \delta
+    &=s_\delta s_\delta(\delta)\\
+    &=s_\delta (-\delta)\\
+    &=s_\delta(- w^{-1}(\alpha))\\
+    &=s_\delta(w^{-1}(-\alpha)).
+  \end{align*}
+  となる. したがって,
+  $\delta\in s_\delta(w^{-1}(\Phi^+))$である.
+  したがって,
+  $\delta\not\in s_\delta(w^{-1}(\Phi^-))$であるので,
+  \begin{align*}
+    \Set{\delta} \cap s_\delta w^{-1}(\Phi^-) = \emptyset
+  \end{align*}
+  である.
+  
+
+  一方
+  \begin{align*}
+    s_\delta(\Phi^+\setminus \Set{\delta})=s_\delta(\Phi^+)\setminus\Set{-\delta}
+  \end{align*}
+  である.
+  $\delta\in s_\delta(w^{-1}(\Phi^+))$であるので,
+  $-\delta\in s_\delta(w^{-1}(\Phi^-))$である.
+  したがって,
+  \begin{align*}
+    s_\delta(\Phi^+\setminus \Set{\delta}) \cap s_\delta w^{-1}(\Phi^-)
+    &=
+    (s_\delta(\Phi^+) \cap s_\delta w^{-1}(\Phi^-))\setminus\Set{-\delta}\\
+    &=s_\delta(\Phi^+ \cap w^{-1}(\Phi^-))\setminus\Set{-\delta}\\
+    &=s_\delta(\Phi^+(w))\setminus\Set{-\delta}
+  \end{align*}
+  である. 
+
+  したがって,
+  \begin{align*}
+    n(ws_\delta)
+    &=\numof{\Phi^+(ws_\delta)}\\
+    &=\numof{s_\delta(\Phi^+(w))}-1\\
+    &=\numof{\Phi^+(w)}-1\\
+    &=n(w)-1
+  \end{align*}
+  である.
+
+  \Cref{item:buruhat:formula:r:1,item:buruhat:formula:r:-1}
+  について考える.
+  \Cref{prop:n:inverse:same}より,
+  \begin{align*}
+    n(w^{-1}s_\delta)&=n((w^{-1}s_\delta)^{-1})\\
+    &=n((s_\delta)^{-1}(w^{-1})^{-1})\\
+    &=n(s_\delta w)
+  \end{align*}
+  である.
+  したがって,
+  \Cref{item:buruhat:formula:1,item:buruhat:formula:-1}
+  から,
+  \Cref{item:buruhat:formula:r:1,item:buruhat:formula:r:-1}
+  が得られる.
+\end{proof}
+
+\begin{cor}
+  $w\in W$とする.
+  $w=s_{\delta_1}\cdots s_{\delta_r}$, $(\delta\in\Delta)$
+  とする.
+  このとき,
+  $n(w)\leq r$である.
+  特に, $n(w)\leq \ell(w)$である.
+\end{cor}
+\begin{proof}
+  \begin{align*}
+    n(w)&=n(s_{\delta_1}\cdots s_{\delta_{r-1}}s_{\delta_r})\\
+    &\leq n(s_{\delta_1}\cdots s_{\delta_{r-1}})+1\\
+    &\vdots\\
+    &\leq r.
+  \end{align*}
+\end{proof}
+
+\begin{remark}
+  実は, $n(w)=\ell(w)$.  あとで示す.
+\end{remark}
