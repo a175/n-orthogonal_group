@@ -2615,23 +2615,54 @@ v_-&=
 \section{Symple rootの作用}
 ここでは特に断らない限り,
 $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
-また, $\Phi^+=\Phi_\Delta^+$とする.
+また, $W=W(\Phi)$とする.
+%また, $\Phi^+=\Phi_\Delta^+$とする.
+
+\begin{definition}
+  $w\in W$に対して,
+  \begin{align*}
+    \Phi_\Delta^{+}(w)
+    &=\Set{\alpha\in\Phi_\Delta^+|w(\alpha)\in \Phi_\Delta^-}
+  \end{align*}
+  と定義し,
+  \begin{align*}
+    n(w)&=\numof{\Phi_\Delta^{+}(w)}
+  \end{align*}
+  とおく.
+\end{definition}
+\begin{remark}
+  $w\in W$に対し,
+  $w^{-1}(\Phi_\Delta^-)=\Set{w^{-1}(\beta)|\beta\in\Phi_\Delta^-}$とおく.
+  このとき, 
+  \begin{align*}
+    w^{-1}(\Phi_\Delta^-)&=\Set{w^{-1}(\beta)|\beta\in\Phi_\Delta^-}\\
+    &=\Set{\alpha|\alpha=w^{-1}(\beta),\beta\in\Phi_\Delta^-}\\
+    &=\Set{\alpha|w(\alpha)\in\Phi_\Delta^-}
+  \end{align*}
+  であるので,
+  \begin{align*}
+    \Phi_\Delta^{+}(w)
+    &=\Set{\alpha\in\Phi_\Delta^+|w(\alpha)\in \Phi_\Delta^-}\\
+    &=\Phi_\Delta^+\cap w^{-1}(\Phi_\Delta^{-})
+  \end{align*}
+  とかける.
+\end{remark}
 \begin{prop}
   \label{prop:simple:reflect:positive2positive}
-  $\alpha\in\Delta$, $\beta\in \Phi^+$とする.
+  $\alpha\in\Delta$, $\beta\in \Phi_\Delta^+$とする.
   $\alpha\neq\beta$ならば,
-  $s_\alpha(\beta)\in \Phi^+$かつ
+  $s_\alpha(\beta)\in \Phi_\Delta^+$かつ
   $s_\alpha(\beta)\neq \alpha$である.
 \end{prop}
 \begin{proof}
-$\beta=\sum_{\delta\in\Delta}c_\delta\delta \in \Phi^+\setminus \Set{\alpha}$
+$\beta=\sum_{\delta\in\Delta}c_\delta\delta \in \Phi_\Delta^+\setminus \Set{\alpha}$
 とする. $c_\delta\geq 0$である.
 $\beta=c_\alpha\alpha$とかけたとすると,
  $\Phi$はルート系であるので,
 $\Phi\cap\RR\alpha=\Set{\alpha,-\alpha}$であるから,
 $c_\alpha\in\Set{1,-1}$である.
 $\beta$は仮定より$\alpha$ではなく,
-また $-\alpha\in \Phi^-$でもない.
+また $-\alpha\in \Phi_\Delta^-$でもない.
 したがって,
 $c_{\delta}> 0$をみたす
 $\delta\in\Delta\setminus\Set{\alpha}$が存在する.
@@ -2647,49 +2678,45 @@ $c=2\frac{\Braket{\beta,\alpha}}{\Braket{\alpha,\alpha}}$
   s_\alpha(\beta)&=\beta-c\alpha\\
   &=c_{\gamma}\gamma +(c_\alpha-c)\alpha + \sum_{\delta\in\Delta\setminus\Set{\gamma,\alpha}}c_\delta\delta.
 \end{align*}
-$c_\gamma>0$であることから$s_\alpha(\beta)\in\Phi^+$であることがわかる.
+$c_\gamma>0$であることから$s_\alpha(\beta)\in\Phi_\Delta^+$であることがわかる.
 また$s_\alpha(\beta)=\alpha$とすると,
 $\beta=s_\alpha(\alpha)=-\alpha$であり,
-$\beta\in\Phi^-$となるので$\beta\in\Phi^+$に矛盾する.
+$\beta\in\Phi_\Delta^-$となるので$\beta\in\Phi_\Delta^+$に矛盾する.
 \end{proof}
-
-$\alpha\in\Delta$に対し,
-$s_\alpha$で負ルートになる正ルートは$\alpha$のみである.
-以下のように言い換えることもできる.
+\Cref{prop:simple:reflect:positive2positive}から,
+$\delta\in\Delta$に対し,
+$s_\delta$で負ルートになる正ルートは$\delta$のみであることがわかる.
 \begin{cor}
-  $\alpha\in\Delta$に対し,
-  $s_\alpha(\Phi^+\setminus\Set{\alpha})=\Phi^+\setminus\Set{\alpha}$.
+  $\delta\in\Delta$に対し,
+  $s_\delta(\Phi_\Delta^+\setminus\Set{\delta})=\Phi_\Delta^+\setminus\Set{\delta}$.
 \end{cor}
 \begin{proof}
-$s_\alpha(\Phi^+\setminus\Set{\alpha})\subset\Phi^+\setminus\Set{\alpha}$
+$s_\delta(\Phi_\Delta^+\setminus\Set{\delta})\subset\Phi_\Delta^+\setminus\Set{\delta}$
 は\cref{prop:simple:reflect:positive2positive}からわかる.
 
-$s_\alpha(\Phi^+\setminus\Set{\alpha})\supset\Phi^+\setminus\Set{\alpha}$
+$s_\delta(\Phi_\Delta^+\setminus\Set{\delta})\supset\Phi_\Delta^+\setminus\Set{\delta}$
 を示す.
-$\beta\in\Phi^+\setminus\Set{\alpha}$
+$\beta\in\Phi_\Delta^+\setminus\Set{\delta}$
 とする.
-$\gamma=s_\alpha(\beta)$とおくと,
+$\gamma=s_\delta(\beta)$とおくと,
 \cref{prop:simple:reflect:positive2positive}から,
-$\gamma\in \Phi^+\setminus\Set{\alpha}$である.
-$s_\alpha s_\alpha=\id_V$であるから,
-$\beta=s_\alpha(s_\alpha(\beta))=s_\alpha(\gamma)$
+$\gamma\in \Phi_\Delta^+\setminus\Set{\delta}$である.
+$s_\delta s_\delta=\id_V$であるから,
+$\beta=s_\delta(s_\delta(\beta))=s_\delta(\gamma)$
 と
-かけるので, $\beta\in s_\alpha(\Phi^+\setminus\Set{\alpha})$.
+かけるので, $\beta\in s_\delta(\Phi_\Delta^+\setminus\Set{\delta})$.
 \end{proof}
 \begin{cor}
-  $\alpha\in\Delta$とする.
-  $s_\alpha(\beta)\in\Phi^+$かつ$\beta\in\Phi^+$ならば
-  $\alpha=\beta$である.
+  \label{thm:simple:action:x}
+  $\delta\in\Delta$とする.
+  $s_\delta(\alpha)\in\Phi_\Delta^+$かつ$\alpha\in\Phi_\Delta^+$ならば
+  $\delta=\alpha$である.
 \end{cor}
+$\Phi_\Delta^{+}(\delta)=\Phi_\Delta^+\cap (s_\delta)^{-1}(\Phi_\Delta^-)$
+であるので次のようにも言い換えられる.
 \begin{cor}
-  $\alpha\in\Delta$に対し,
-  $(s_\alpha)^{-1}(\Phi^-)\cap\Phi^+=\Set{\alpha}$
-\end{cor}
-$(s_\alpha)^{-1}=s_\alpha$であるので,
-次のように言い換えることもできる.
-\begin{cor}
-  $\alpha\in\Delta$に対し,
-  $s_\alpha(\Phi^-)\cap\Phi^+=\Set{\alpha}$
+  $\delta\in\Delta$に対し,
+  $\Phi_\Delta^{+}(\delta)=\Set{\delta}$
 \end{cor}
 
 \section{長さ関数}
@@ -2704,7 +2731,7 @@ $W=W(\Phi)$, $S=\Set{s_\delta|\delta\in\Delta}$
   \begin{align*}
     \Phi^{+}(w)&=\Phi^+\cap w^{-1}(\Phi^{-})\\
     &=\Set{\alpha\in\Phi^+|w(\alpha)\in \Phi^-}\\
-    n(w)&=\numof(\Phi^{+}(w))
+    n(w)&=\numof{\Phi^{+}(w)}
   \end{align*}
   とおく.
 \end{definition}
@@ -3670,38 +3697,49 @@ $\Phi^+=\Phi_\Delta^+$とする.
 \end{align*}
 \end{proof}
 
-\begin{prop}
-  \label{thm:deletionproperty}
+\begin{lemma}
+  \label{lem:deletion:primitive}
   $\delta_1,\ldots,\delta_r \in\Delta$とし,
   $w_{k,l}=s_{\delta_k}s_{\delta_{k+1}}\cdots s_{\delta_l}$
   とする, ただし, $k>l$のときには$w_{k,l}=\id$と約束する.
-  $w=s_{\delta_1}\cdots s_{\delta_r}$
-  とおく.
-  $n(w)<r$ならば,
-  $\delta_i=w_{i+1,j-1}(\alpha_j)$
-  となる, $1\leq i < j \leq r$
-  が存在する.
-  また,
-  この$i,j$に対し,
+  $\delta_i=w_{i+1,j-1}(\delta_j)$
+  を満たす $1\leq i < j \leq r$
+  に対し,
   \begin{align*}
     w=w_{1,i-1}w_{i+1,j-1}w_{j+1,r}
   \end{align*}
   である.
-\end{prop}
+\end{lemma}
 
 \begin{proof}
-  \Cref{lem:n:bruhat}から,
+  \cref{lem:formula:conjdeletion}
+  を用いれば,
   \begin{align*}
-    w_{1,l-1}(\delta_{l})\in\Phi^+ \implies n(w_{1,l})=n(w_{1,l-1})+1\\
-    w_{1,l-1}(\delta_{l})\in\Phi^- \implies n(w_{1,l})=n(w_{1,l-1})-1
+    w_{i,j}=
+    s_{\delta_i}w_{i+1,j-1}s_{\delta_j}
+    =w_{i+1,j-1}
   \end{align*}
-  である.  $n(w)<r$であることから,
+  が言えるので,
   \begin{align*}
-    1=n(w_{1,1})<n(w_{1,2})<n(w_{1,3})<\cdots<n(w_{1,j-2})<n(w_{1,j-1})>n(w_{1,j})
+    w=w_{1,i-1}w_{i+1,j-1}w_{j+1,r}
   \end{align*}
-  となる$j\leq r$が存在する.
-  このとき, $w_{1,j-1}(\delta_{j})\in\Phi^-$である.
+  である.
+\end{proof}
 
+\begin{lemma}
+  \label{lem:deletion:primitive:fixed4i}
+  $\delta_1,\ldots,\delta_r \in\Delta$とし,
+  $w_{k,l}=s_{\delta_k}s_{\delta_{k+1}}\cdots s_{\delta_l}$
+  とする, ただし, $k>l$のときには$w_{k,l}=\id$と約束する.
+  $w_{1,j-1}(\delta_{j})\in\Phi^-$ならば,
+  \begin{align*}
+    w=w_{1,i-1}w_{i+1,j-1}w_{j+1,r}
+  \end{align*}
+  となる, $1\leq i < j$
+  が存在する.
+\end{lemma}
+
+\begin{proof}
   $\delta_{j}\in\Delta$であるので, 
   $w_{j-1,j-1}\delta_{j}=\delta_{j}\in\Phi^+$である.
   したがって $\Set{i\in\Set{1,\ldots,j}|w_{i,j-1}(\delta_{j})}\neq \emptyset$であるので,
@@ -3717,16 +3755,41 @@ $\Phi^+=\Phi_\Delta^+$とする.
   $\alpha \Phi^+$となるのは,
   $\alpha=\delta_i$のときのみであるので,
   $w_{i+1,j-1}(\delta_{j})=\delta_i$である.
-
-  この$i$, $j$に対し,
-  \cref{lem:formula:conjdeletion}
-  を用いれば,
+  したがって, \cref{lem:deletion:primitive}より,
   \begin{align*}
-    w_{i,j}=
-    s_{\delta_i}w_{i+1,j-1}s_{\delta_j}
-    =w_{i+1,j-1}
+    w=w_{1,i-1}w_{i+1,j-1}w_{j+1,r}
   \end{align*}
-  が言えるので,
+  である.
+\end{proof}
+
+\begin{prop}
+  \label{thm:deletionproperty}
+  $\delta_1,\ldots,\delta_r \in\Delta$とし,
+  $w_{k,l}=s_{\delta_k}s_{\delta_{k+1}}\cdots s_{\delta_l}$
+  とする, ただし, $k>l$のときには$w_{k,l}=\id$と約束する.
+  $w=s_{\delta_1}\cdots s_{\delta_r}$
+  とおく.
+  \begin{align*}
+    w=w_{1,i-1}w_{i+1,j-1}w_{j+1,r}
+  \end{align*}  
+  となる, $1\leq i < j \leq r$
+  が存在する.
+\end{prop}
+
+\begin{proof}
+  \Cref{lem:n:bruhat}から,
+  \begin{align*}
+    w_{1,l-1}(\delta_{l})\in\Phi^+ \implies n(w_{1,l})=n(w_{1,l-1})+1\\
+    w_{1,l-1}(\delta_{l})\in\Phi^- \implies n(w_{1,l})=n(w_{1,l-1})-1
+  \end{align*}
+  である.  $n(w)<r$であることから,
+  \begin{align*}
+    1=n(w_{1,1})<n(w_{1,2})<n(w_{1,3})<\cdots<n(w_{1,j-2})<n(w_{1,j-1})>n(w_{1,j})
+  \end{align*}
+  となる$j\leq r$が存在する.
+  このとき, $w_{1,j-1}(\delta_{j})\in\Phi^-$である.
+  したがって,
+  \cref{lem:deletion:primitive:fixed4i}より,
   \begin{align*}
     w=w_{1,i-1}w_{i+1,j-1}w_{j+1,r}
   \end{align*}
@@ -3735,6 +3798,7 @@ $\Phi^+=\Phi_\Delta^+$とする.
 \end{proof}
 
 \begin{cor}
+  \label{prop:n=l}
   $w\in W$に対し, $n(w)=\ell(w)$.
 \end{cor}
 \begin{proof}
@@ -3793,3 +3857,102 @@ $\Phi^+=\Phi_\Delta^+$とする.
   $\ell(w)\leq \numof{\Phi_\Delta^+}=\frac{1}{2}\Phi$である.
 \end{remark}
 
+\begin{prop}
+  $\delta_i\in\Delta$とし,
+  $w_{1,k}=s_{\delta_1}s_{\delta_{2}}\cdots s_{\delta_k}$
+  とする, ただし, $w_{0}=\id$と約束する.
+  $w=w_{r}^{-1}$とする.
+  $\alpha_k$を,
+  \begin{align*}
+    \alpha_k=w_{k-1}(\delta_{k})
+  \end{align*}
+  とする.
+  %$\alpha_1=\delta_1$である.
+  このとき,
+  \begin{align*}
+    \Phi^+(w)=\Set{\alpha_1,\ldots,\alpha_r}
+  \end{align*}
+  である.
+  とくに,
+  $r=\ell(w)$ならば, 次が成り立つ:
+  \begin{enumerate}
+  \item
+    $\Phi^+(w)=\Set{\alpha_1,\ldots,\alpha_r}$.
+  \item
+    $i\neq j$ならば$\alpha_i\neq \alpha_j$.
+  \end{enumerate}
+\end{prop}
+
+\begin{proof}
+  $\beta\in\Phi^+(w)$とする.
+  定義から,
+  $w_{0}^{-1}(\beta)=\beta\in\Phi^+$かつ$w_r^{-1}(\beta)=w(\beta)\in\Phi^-$である.
+  したがって, $w_{i-1}^{-1}(\beta)\in \Phi^+$かつ$w_{i}^{-1}(\beta)\in \Phi^-$
+  をみたす$1\leq i\leq r$が存在する.
+  \begin{align*}
+    w_{i}^{-1}(\beta)=(w_{i-1}s_{\delta_i})^{-1}(\beta)
+    =(s_{\delta_i})^{-1}(w_{i-1})^{-1}(\beta)
+    =s_{\delta_i}(w_{i-1})^{-1}(\beta)
+  \end{align*}
+  である.
+  $(w_{i-1})^{-1}(\beta)\in \Phi^+$かつ$s_{\delta_i}(w_{i-1})^{-1}(\beta)\in\Phi^-$
+  であるので,
+  \cref{thm:simple:action:x}より,
+  $\delta_i=(w_{i-1})^{-1}(\beta)$である.
+  したがって,
+  $\beta=w_{i-1}(\delta_i)=\alpha_i$である.
+
+  
+  $r=\ell(w)$のときについて考える.
+  \Cref{prop:n=l}より,
+  \begin{align*}
+    r=\ell(w)=n(w)=\numof{\Phi^+(w)}
+  \end{align*}
+  である.
+  一方で, $\Phi^+(w)\subset \Set{\alpha_1,\ldots,\alpha_r}$
+  であるので,
+  \begin{align*}
+    \numof{\Phi^+(w)}\leq \numof{\Set{\alpha_1,\ldots,\alpha_r}}\leq r
+  \end{align*}
+  である.
+  よって,
+  $\numof{\Set{\alpha_1,\ldots,\alpha_r}}=r$であるが,
+  このとき, $\alpha_k$は相異なる.
+
+\end{proof}
+
+
+\begin{prop}
+  $\delta_i\in \Delta$とし, $w=s_{\delta_1}\cdots s_{\delta_r}$とする.
+  $r=\ell(w)$とする.
+  $\alpha\in \Delta$が$\ell(ws_\alpha)\leq \ell(w)$をみたすとき,
+  \begin{align*}
+    ws_\alpha=s_{\delta_1}\cdots s_{\delta_{i-1}}s_{\delta_{i+1}}\cdots s_{\delta_{r}}
+  \end{align*}
+  をみたす$i$が存在する.
+\end{prop}
+\begin{proof}
+  $\ell(ws_\alpha)\leq \ell(w)$であるので,
+  \cref{thm:l:bruhat}から, $w(\alpha)\in\Phi^-$であることがわかる.
+
+  また, $\delta_{r+1}=\alpha$とおくと,
+  $s_{\delta_{1}}\cdots s_{\delta_{r}}(\delta_{r+1})\in \Phi^-$であるから,
+  \cref{lem:deletion:primitive:fixed4i}
+  より, $s_{\delta_{1}}\cdots s_{\delta_{r+1}}$には,
+  \begin{align*}
+    s_{\delta_{1}}\cdots s_{\delta_{r+1}}
+    =s_{\delta_{1}}\cdots s_{\delta_{i-1}}
+    s_{\delta_{i+1}}\cdots s_{\delta_{r}}
+  \end{align*}
+  をみたす$i$が存在する.
+\end{proof}
+
+\begin{cor}
+$w\in W$, $\delta\in\Delta$とする.
+  このとき次は同値:
+  \begin{enumerate}
+  \item $\ell(ws_\delta)<\ell(w)$
+  \item $w=s_{\delta_1}\cdots s_{\delta_r}s_\delta$が簡約表示であるような,
+    $\delta_i\in \Delta$がとれる.
+  \end{enumerate}
+\end{cor}
