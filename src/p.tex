@@ -2973,6 +2973,73 @@ $P_0(\alpha_i)\in\Phi_\Delta^+$である.
 また, $-1<i<m-1$に対して,
 $P_{m-1}(\alpha_i)\in\Phi_\Delta^+$である.
 
+$n(w)$について考える.
+%$0<k<\frac{m-1}{2}$
+\begin{align*}
+  P_k\alpha_i=\alpha_{m+2k-i}
+\end{align*}
+である.
+$\alpha_i\Phi_\Delta^+$となるのは,
+$0\leq i < m$のときであるが,
+このとき$2k<m+2k-i\leq m+2k$である.
+したがって,
+$0\leq k <\frac{m}{2}$のとき,
+\begin{align*}
+  \Phi_\Delta^+(P_k)=\Set{\alpha_{0},\alpha_{1},\ldots,\alpha_{2k}}
+\end{align*}
+であり,
+$\frac{m}{2}<k\leq m-1$のとき,
+\begin{align*}
+  \Phi_\Delta^+(P_k)=\Set{\alpha_{2k-m+1},\alpha_{2k-m+2},\ldots,\alpha_{m-1}}
+\end{align*}
+である.
+したがって,
+\begin{align*}
+  n(P_k)=
+  \begin{cases}
+    2k+1 & (0\leq k <\frac{m}{2})\\
+    2m-2k-1&(\frac{m}{2}<k<m-1)
+  \end{cases}
+\end{align*}
+である.
+$m$が偶数で, $m=2k$であるとき,
+\begin{align*}
+  P_k\alpha_i=\alpha_{m+2k-i}=\alpha_{2m-i}=\alpha_{-i}
+\end{align*}
+であるので,
+\begin{align*}
+  \Phi_\Delta^+(P_k)&=\Phi_\Delta^+\\
+  n(P_k)&=m
+\end{align*}
+である.
+
+\begin{align*}
+  R_k\alpha_i=\alpha_{i+2k}
+\end{align*}
+である.
+$\alpha_i\Phi_\Delta^+$となるのは,
+$0\leq i < m$のときであるが,
+このとき$2k\leq 2k+i < m+2k$である.
+したがって,
+$0\leq k \leq \frac{m}{2}$のとき,
+\begin{align*}
+  \Phi_\Delta^+(R_k)=\Set{\alpha_{m-2k},\alpha_{1},\ldots,\alpha_{m-1}}
+\end{align*}
+であり,
+$\frac{m}{2}<k\leq m-1$のとき,
+\begin{align*}
+  \Phi_\Delta^+(R_k)=\Set{\alpha_{0},\alpha_{1},\ldots,\alpha_{2m-1-2k}}
+\end{align*}
+である.
+したがって,
+\begin{align*}
+  n(R_k)=
+  \begin{cases}
+    2k & (0\leq k \leq\frac{m}{2})\\
+    2m-2k&(\frac{m}{2}<k<2m)
+  \end{cases}
+\end{align*}
+である.
 
 \subsection{$A_{1}\times\cdots\times A_{1}$}
 \cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
@@ -4025,3 +4092,4 @@ $w\in W$, $\delta\in\Delta$とする.
 
 
 \section{例}
+\subsection{$I_2(m)$}
