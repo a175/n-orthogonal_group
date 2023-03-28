@@ -2645,10 +2645,11 @@ $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
   \end{align*}
   と定義し,
   \begin{align*}
-    n(w)&=\numof{\Phi_\Delta^{+}(w)}
+    n_{\Phi_\Delta^+}(w)&=\numof{\Phi_\Delta^{+}(w)}
   \end{align*}
   とおく.
 \end{definition}
+以下では, 特にことわりのない限り, $n(w)=n_{\Phi_\Delta^+}(w)$とする.
 \begin{remark}
   $w\in W$と$X\subset \Phi$に対し,
   $w(X)=\Set{w(\alpha)|\alpha\in X}$とおく.
@@ -2973,7 +2974,7 @@ $P_0(\alpha_i)\in\Phi_\Delta^+$である.
 また, $-1<i<m-1$に対して,
 $P_{m-1}(\alpha_i)\in\Phi_\Delta^+$である.
 
-$n(w)$について考える.
+$n(w)=n_{\Phi_\Delta^+}(w)$について考える.
 \begin{align*}
   R_k\alpha_i=\alpha_{i+2k}
 \end{align*}
@@ -3083,7 +3084,8 @@ $k<i$であるので, $\tau(k)= k<i\leq \tau(l)$である.
 したがって,
 $s_{\alpha_{i,i+1}}(\alpha_{k,l})\in\Phi_\Delta^+$である.
 
-$\sigma\in S_n$とし, $A_\sigma\in W$について考える.
+$n(w)=n_{\Phi_\Delta^+}(w)$について考える.
+$\sigma\in S_n$とし, $A_\sigma\in W$に対し,
 $A_\sigma (\ee_k)=\ee_{\sigma(k)}$であったので,
 $A_\sigma(\alpha_{i,j})=\alpha_{\sigma(i),\sigma(j)}$である.
 したがって,
@@ -3143,13 +3145,108 @@ $\alpha\in\Phi_\Delta^+\setminus\Set{\varepsilon_n}$
 に対し, $s_{\varepsilon_n}(\alpha)\in\Phi_\Delta^+$
 となっていることが確かめられる.
 
-
+$n(w)=n_{\Phi_\Delta^+}(w)$について考える.
+$z_1,\ldots,z_n\in \ZZ^\times$, $\sigma\in S_n$とし,
+%$w=\diag(a_1,\ldots,a_n)A_\simga \in W$について考える.
+$w=A_\sigma \diag(z_1,\ldots,z_n) \in W$に対し,
+\begin{align*}
+  w(\alpha_{i,j})&=
+  \begin{cases}
+    \alpha_{\sigma_{i},\sigma_{j}}&z_i=z_j=1\\
+    -\alpha_{\sigma_{i},\sigma_{j}}=\alpha_{\sigma_{j},\sigma_{i}}&z_i=z_j=-1\\
+    \beta_{\sigma_{i},\sigma_{j}}&z_i=1,z_j=-1\\
+    -\beta_{\sigma_{i},\sigma_{j}}&z_i=-1,z_j=1
+  \end{cases}\\
+  w(\beta_{i,j})&=
+  \begin{cases}
+    \beta_{\sigma_{i},\sigma_{j}}&z_i=z_j=1\\
+    -\beta_{\sigma_{i},\sigma_{j}}&z_i=z_j=-1\\
+    \alpha_{\sigma_{i},\sigma_{j}}&z_i=1,z_j=-1\\
+    -\alpha_{\sigma_{i},\sigma_{j}}=\alpha_{\sigma_{j},\sigma_{i}}&z_i=-1,z_j=1
+  \end{cases}\\
+  w(\varepsilon_{i})&=
+  \begin{cases}
+    \varepsilon_{\sigma_{i}}&z_i=1\\
+    -\varepsilon_{\sigma_{i}}&z_i=-1
+  \end{cases}
+\end{align*}
+である.
+したがって,
+\begin{align*}
+  \Phi_\Delta^+(w)
+  &=
+  \Set{\alpha_{i,j}|i<j,\sigma(i)>\sigma(j),z_i=z_j=1}\\
+  &\quad \cup\Set{\alpha_{i,j}|i<j,\sigma(i)<\sigma(j),z_i=z_j=-1}\\
+  &\quad \cup\Set{\alpha_{i,j}|i<j,z_i=-1,z_j=1}\\
+  &\quad \cup\Set{\beta_{i,j}|i<j,\sigma(i)<\sigma(j),z_i=-1,z_j=1}\\
+  &\quad \cup\Set{\beta_{i,j}|i<j,\sigma(i)>\sigma(j),z_i=1,z_j=-1}\\
+  &\quad \cup\Set{\beta_{i,j}|i<j,z_i=z_j=-1}\\
+  &\quad \cup\Set{\varepsilon_{i}|z_i=-1}
+\end{align*}
+である.
+したがって,
+\begin{align*}
+  n(w)
+  &=\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j),z_i=z_j=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j),z_i=1,z_j=-1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)<\sigma(j),z_i=z_j=-1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)<\sigma(j),z_i=-1,z_j=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,z_i=-1,z_j=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,z_i=z_j=-1}}\\
+  &\quad +\numof{\Set{i|z_i=-1}}.
+\end{align*}
+また,
+$A_\sigma \diag(z_1,\ldots,z_n)=\diag(z_{\sigma^{-1}(1)},\ldots,z_{\sigma^{-1}(n)})A_\sigma $であったから, $a_i=z_{\sigma^{-1}(i)}$, つまり,
+ $a_{\sigma(i)}=z_{i}$
+とおき, $\diag(a_1,\ldots,a_n)A_\sigma\in W$に対しても計算してみると,
+\begin{align*}
+  w(\alpha_{i,j})&=
+  \begin{cases}
+    \alpha_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=a_{\sigma(j)}=1\\
+    -\alpha_{\sigma_{i},\sigma_{j}}=\alpha_{\sigma_{j},\sigma_{i}}&a_{\sigma(i)}=a_{\sigma(j)}=-1\\
+    \beta_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=1,a_{\sigma(j)}=-1\\
+    -\beta_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=-1,a_{\sigma(j)}=1
+  \end{cases}\\
+  w(\beta_{i,j})&=
+  \begin{cases}
+    \beta_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=a_{\sigma(j)}=1\\
+    -\beta_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=a_{\sigma(j)}=-1\\
+    \alpha_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=1,a_{\sigma(j)}=-1\\
+    -\alpha_{\sigma_{i},\sigma_{j}}=\alpha_{\sigma_{j},\sigma_{i}}&a_{\sigma(i)}=-1,a_{\sigma(j)}=1
+  \end{cases}\\
+  w(\varepsilon_{i})&=
+  \begin{cases}
+    \varepsilon_{\sigma_{i}}&a_{\sigma(i)}=1\\
+    -\varepsilon_{\sigma_{i}}&a_{\sigma(i)}=-1
+  \end{cases}
+\end{align*}
+となるので,
+\begin{align*}
+  \Phi_\Delta^+(w)
+  &=
+  \Set{\alpha_{i,j}|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=a_{\sigma(j)}=1}\\
+  &\quad \cup\Set{\alpha_{i,j}|i<j,\sigma(i)<\sigma(j),a_{\sigma(i)}=a_{\sigma(j)}=-1}\\
+  &\quad \cup\Set{\alpha_{i,j}|i<j,a_{\sigma(i)}=-1,a_{\sigma(j)}=1}\\
+  &\quad \cup\Set{\beta_{i,j}|i<j,\sigma(i)<\sigma(j),a_{\sigma(i)}=-1,a_{\sigma(j)}=1}\\
+  &\quad \cup\Set{\beta_{i,j}|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=1,a_{\sigma(j)}=-1}\\
+  &\quad \cup\Set{\beta_{i,j}|i<j,a_{\sigma(i)}=a_{\sigma(j)}=-1}\\
+  &\quad \cup\Set{\varepsilon_{i}|a_{\sigma(i)}=-1}\\
+  n(w)
+  &=\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=a_{\sigma(j)}=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=1,a_{\sigma(j)}=-1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)<\sigma(j),a_{\sigma(i)}=a_{\sigma(j)}=-1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)<\sigma(j),a_{\sigma(i)}=-1,a_{\sigma(j)}=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,a_{\sigma(i)}=-1,a_{\sigma(j)}=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,a_{\sigma(i)}=a_{\sigma(j)}=-1}}\\
+  &\quad +\numof{\Set{i|a_{\sigma(i)}=-1}}.
+\end{align*}
 
 \subsection{$C_{n}$}
 $\Phi=\Phi(C_n)$とし
 \cref{ex:cn:simple}の単純系$\Delta$を考える.
 $S=\Set{s_\delta|\delta\in \Delta}$とおく.
 \cref{ex:bn:simple}の単純系を$\Delta'$とすると,
+$\Phi_\Delta^+=\Phi_{\Delta'}^+$であり,
 $S=\Set{s_\delta|\delta\in \Delta'}$である.
 したがって, 
 $s_\delta\in S$に対し,
@@ -3158,7 +3255,9 @@ $s_{\delta}(\alpha)\in\Phi_\Delta^+$
 みたすことは, 
 \cref{ex:bn:simplereflectposi2posi}
 と同様に確かめられる.
-
+また, 
+$\Phi_\Delta^+=\Phi_{\Delta'}^+$であるので,
+$n_{\Phi_\Delta^+}(w)=n_{\Phi_{\Delta}^-}(w)$である.
 
 \subsection{$D_{n}$}
 $\Phi=\Phi(D_n)$とし
@@ -3198,6 +3297,43 @@ $\alpha\in\Phi_\Delta^+\setminus\Set{\beta_{n-1,n}}$が
 $s_{\beta_{n-1,n}}(\alpha)\in\Phi_\Delta^+$
 をみたしている.
 
+\cref{ex:bn:simplereflectposi2posi}での議論から,
+$w=\diag(a_1,\ldots,a_n)A_\sigma\in W$に対して,
+\begin{align*}
+  w(\alpha_{i,j})&=
+  \begin{cases}
+    \alpha_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=a_{\sigma(j)}=1\\
+    -\alpha_{\sigma_{i},\sigma_{j}}=\alpha_{\sigma_{j},\sigma_{i}}&a_{\sigma(i)}=a_{\sigma(j)}=-1\\
+    \beta_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=1,a_{\sigma(j)}=-1\\
+    -\beta_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=-1,a_{\sigma(j)}=1
+  \end{cases}\\
+  w(\beta_{i,j})&=
+  \begin{cases}
+    \beta_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=a_{\sigma(j)}=1\\
+    -\beta_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=a_{\sigma(j)}=-1\\
+    \alpha_{\sigma_{i},\sigma_{j}}&a_{\sigma(i)}=1,a_{\sigma(j)}=-1\\
+    -\alpha_{\sigma_{i},\sigma_{j}}=\alpha_{\sigma_{j},\sigma_{i}}&a_{\sigma(i)}=-1,a_{\sigma(j)}=1
+  \end{cases}
+\end{align*}
+となるので, $n_{\Phi_\Delta^+}(w)$は,
+\begin{align*}
+  \Phi_\Delta^+(w)
+  &=
+  \Set{\alpha_{i,j}|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=a_{\sigma(j)}=1}\\
+  &\quad \cup\Set{\alpha_{i,j}|i<j,\sigma(i)<\sigma(j),a_{\sigma(i)}=a_{\sigma(j)}=-1}\\
+  &\quad \cup\Set{\alpha_{i,j}|i<j,a_{\sigma(i)}=-1,a_{\sigma(j)}=1}\\
+  &\quad \cup\Set{\beta_{i,j}|i<j,\sigma(i)<\sigma(j),a_{\sigma(i)}=-1,a_{\sigma(j)}=1}\\
+  &\quad \cup\Set{\beta_{i,j}|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=1,a_{\sigma(j)}=-1}\\
+  &\quad \cup\Set{\beta_{i,j}|i<j,a_{\sigma(i)}=a_{\sigma(j)}=-1}\\
+  n(w)
+  &=\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=a_{\sigma(j)}=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=1,a_{\sigma(j)}=-1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)<\sigma(j),a_{\sigma(i)}=a_{\sigma(j)}=-1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)<\sigma(j),a_{\sigma(i)}=-1,a_{\sigma(j)}=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,a_{\sigma(i)}=-1,a_{\sigma(j)}=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,a_{\sigma(i)}=a_{\sigma(j)}=-1}}
+\end{align*}
+となる.
 
 
 \subsection{$G_2$}
