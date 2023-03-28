@@ -802,7 +802,7 @@ $W$を有限鏡映群と呼ぶ.
 \section{有限鏡映群の例}
 \subsection{$I_2(m)$}
 \label{ex:i2m:grp}
-$m$を正の整数とする.
+$m>1$とする.
 \Cref{ex:i2m:ref,ex:i2m:rot}で見た行列について考えるが,
 ここでは, 記号の簡略化のために
 \begin{align*}
@@ -2957,6 +2957,7 @@ $\Phi_\Delta^+(w)$を調べる.
 \section{作用の例}
 
 \subsection{$I_2(m)$}
+
 $\Phi=\Phi(I_2(m))$とし,
 \cref{ex:i2m:simple}で考えた単純系$\Delta$を考える.
 $\Delta=\Set{\alpha_0,\alpha_{m-1}}$,
@@ -3890,15 +3891,15 @@ $\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$
 \begin{definition}
   $w\in W$に対し,
   \begin{align*}
-    \ell(w)=\min\Set{l|\delta_1,\ldots,\delta_l\in \Delta, w=s_{\delta_1}\cdots s_{\delta_l}}.
+    \ell_\Delta(w)=\min\Set{l|\delta_1,\ldots,\delta_l\in \Delta, w=s_{\delta_1}\cdots s_{\delta_l}}.
   \end{align*}
   とおき, $w$の長さと呼ぶ.
-  ただし, $\ell(\id)=0$とする.
+  ただし, $\ell_\Delta(\id)=0$とする.
 \end{definition}
 \begin{definition}
   $w\in W$に対し,
   \begin{align*}
-    w=s_{\delta_1}\cdots s_{\delta_{\ell(w)}}, (\delta_i\in \Delta)
+    w=s_{\delta_1}\cdots s_{\delta_{\ell_\Delta(w)}}, (\delta_i\in \Delta)
   \end{align*}
   となる積の形を簡約表示と呼ぶ.  
 \end{definition}
@@ -3907,21 +3908,21 @@ $\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$
   \begin{enumerate}
   \item
     \label{item:len:nilisid}
-    $\ell(w)=0 \iff w=\id$.
+    $\ell_\Delta(w)=0 \iff w=\id$.
   \item
     \label{item:len:1issimple}
-    $\ell(w)-1 \iff \exists \delta\in\Delta$ such that $w=s_\delta$.
+    $\ell_\Delta(w)-1 \iff \exists \delta\in\Delta$ such that $w=s_\delta$.
   \item
     \label{item:len:inversestable}
-    $\ell(w)=\ell(w^{-1})$.
+    $\ell_\Delta(w)=\ell_\Delta(w^{-1})$.
   \item
     \label{item:len:det}
-    $\det(w)=(-1)^{\ell(w)}$.
+    $\det(w)=(-1)^{\ell_\Delta(w)}$.
   \end{enumerate}
 \end{prop}
 \begin{proof}
   \Cref{item:len:nilisid,item:len:1issimple}
-  は$\ell(w)$の定義から明らか.
+  は$\ell_\Delta(w)$の定義から明らか.
 
   \Cref{item:len:inversestable}について考える.
   $w=s_1\cdots s_l$, $s_i\in S_\Delta$とすると,
@@ -3931,17 +3932,17 @@ $\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$
     &=s_l^{-1}\cdots s_1^{-1}
     &=s_l\cdots s_1
   \end{align*}
-  である. したがって, $\ell(w) \geq \ell(w^{-1})$.
+  である. したがって, $\ell_\Delta(w) \geq \ell_\Delta(w^{-1})$.
   また,
   $w^{-1}$からはじめて,
-  同様に$\ell(w) \leq \ell(w^{-1})$.
+  同様に$\ell_\Delta(w) \leq \ell_\Delta(w^{-1})$.
 
   \Cref{item:len:det}について考える.
   $\delta\in\Delta$に対し, $\det(s_\delta)=-1$である.
   \begin{align*}
-    \det(w)&=\det(s_1\cdots s_{\ell(w)})\\
-    &=\det(s_1)\cdots \det(s_{\ell(w)})\\
-    &=(-1)^{\ell(w)}.
+    \det(w)&=\det(s_1\cdots s_{\ell_\Delta(w)})\\
+    &=\det(s_1)\cdots \det(s_{\ell_\Delta(w)})\\
+    &=(-1)^{\ell_\Delta(w)}.
   \end{align*}
 \end{proof}
 
@@ -4087,7 +4088,7 @@ $\Phi^+=\Phi_\Delta^+$とする.
 
 \begin{cor}
   \label{prop:n=l}
-  $w\in W$に対し, $n(w)=\ell(w)$.
+  $w\in W$に対し, $n(w)=\ell_\Delta(w)$.
 \end{cor}
 \begin{proof}
   $\delta_i\in\Delta$とし,
@@ -4098,7 +4099,7 @@ $\Phi^+=\Phi_\Delta^+$とする.
   \cref{thm:deletionproperty}より,  
   $\delta'_i\in\Delta$をつかって,
   $w=s_{\delta'_1}\cdot s_{\delta'_{r-2}}$とできる
-  したがって, $\ell(w) \leq n(w)$である.
+  したがって, $\ell_\Delta(w) \leq n(w)$である.
 
   一方で,
   \cref{lem:n:bruhat}
@@ -4116,19 +4117,19 @@ $\Phi^+=\Phi_\Delta^+$とする.
 \end{proof}
 
 
-したがって, \cref{lem:n:bruhat}は$\ell(w)$に読み替えられる.
+したがって, \cref{lem:n:bruhat}は$\ell_\Delta(w)$に読み替えられる.
 \begin{theorem}
   \label{thm:l:bruhat}
   $\delta\in\Delta$, $w\in W$とする.
   このとき次が成り立つ:
   \begin{enumerate}
   \item
-    $w(\delta)\in\Phi^+ \iff \ell(ws_\delta)=\ell(w)+1$.
-  \item $w(\delta)\in\Phi^- \iff \ell(ws_\delta)=\ell(w)-1$.
+    $w(\delta)\in\Phi^+ \iff \ell_\Delta(ws_\delta)=\ell_\Delta(w)+1$.
+  \item $w(\delta)\in\Phi^- \iff \ell_\Delta(ws_\delta)=\ell_\Delta(w)-1$.
   \item
-    $w^{-1}(\delta)\in\Phi^+ \iff \ell(s_\delta w)=\ell(w)+1$.
+    $w^{-1}(\delta)\in\Phi^+ \iff \ell_\Delta(s_\delta w)=\ell_\Delta(w)+1$.
   \item
-    $w^{-1}(\delta)\in\Phi^- \iff \ell(s_\delta w)=\ell(w)-1$.
+    $w^{-1}(\delta)\in\Phi^- \iff \ell_\Delta(s_\delta w)=\ell_\Delta(w)-1$.
   \end{enumerate}
 \end{theorem}
 
@@ -4137,12 +4138,12 @@ $\Phi^+=\Phi_\Delta^+$とする.
 \end{remark}
 
 \begin{remark}
-  $\ell(w)=n(w)=\numof{\Phi\Delta^+(w)}$であるので,
-  $\ell(w)$, つまり簡約表示の長さ, は,
+  $\ell_\Delta(w)=n(w)=\numof{\Phi\Delta^+(w)}$であるので,
+  $\ell_\Delta(w)$, つまり簡約表示の長さ, は,
   $\Phi\Delta^+(w)$を使って求められる.
 
   $\Phi_\Delta^+(w)\subset \Phi_\Delta^+$であるから,
-  $\ell(w)\leq \numof{\Phi_\Delta^+}=\frac{1}{2}\Phi$である.
+  $\ell_\Delta(w)\leq \numof{\Phi_\Delta^+}=\frac{1}{2}\Phi$である.
 \end{remark}
 
 \begin{prop}
@@ -4162,7 +4163,7 @@ $\Phi^+=\Phi_\Delta^+$とする.
   \end{align*}
   である.
   とくに,
-  $r=\ell(w)$ならば, 次が成り立つ:
+  $r=\ell_\Delta(w)$ならば, 次が成り立つ:
   \begin{enumerate}
   \item
     $\Phi^+(w)=\Set{\alpha_1,\ldots,\alpha_r}$.
@@ -4191,10 +4192,10 @@ $\Phi^+=\Phi_\Delta^+$とする.
   $\beta=w_{i-1}(\delta_i)=\alpha_i$である.
 
   
-  $r=\ell(w)$のときについて考える.
+  $r=\ell_\Delta(w)$のときについて考える.
   \Cref{prop:n=l}より,
   \begin{align*}
-    r=\ell(w)=n(w)=\numof{\Phi^+(w)}
+    r=\ell_\Delta(w)=n(w)=\numof{\Phi^+(w)}
   \end{align*}
   である.
   一方で, $\Phi^+(w)\subset \Set{\alpha_1,\ldots,\alpha_r}$
@@ -4212,15 +4213,15 @@ $\Phi^+=\Phi_\Delta^+$とする.
 
 \begin{prop}
   $\delta_i\in \Delta$とし, $w=s_{\delta_1}\cdots s_{\delta_r}$とする.
-  $r=\ell(w)$とする.
-  $\alpha\in \Delta$が$\ell(ws_\alpha)\leq \ell(w)$をみたすとき,
+  $r=\ell_\Delta(w)$とする.
+  $\alpha\in \Delta$が$\ell_\Delta(ws_\alpha)\leq \ell_\Delta(w)$をみたすとき,
   \begin{align*}
     ws_\alpha=s_{\delta_1}\cdots s_{\delta_{i-1}}s_{\delta_{i+1}}\cdots s_{\delta_{r}}
   \end{align*}
   をみたす$i$が存在する.
 \end{prop}
 \begin{proof}
-  $\ell(ws_\alpha)\leq \ell(w)$であるので,
+  $\ell_\Delta(ws_\alpha)\leq \ell_\Delta(w)$であるので,
   \cref{thm:l:bruhat}から, $w(\alpha)\in\Phi^-$であることがわかる.
 
   また, $\delta_{r+1}=\alpha$とおくと,
@@ -4239,7 +4240,7 @@ $\Phi^+=\Phi_\Delta^+$とする.
 $w\in W$, $\delta\in\Delta$とする.
   このとき次は同値:
   \begin{enumerate}
-  \item $\ell(ws_\delta)<\ell(w)$
+  \item $\ell_\Delta(ws_\delta)<\ell_\Delta(w)$
   \item $w=s_{\delta_1}\cdots s_{\delta_r}s_\delta$が簡約表示であるような,
     $\delta_i\in \Delta$がとれる.
   \end{enumerate}
@@ -4248,3 +4249,65 @@ $w\in W$, $\delta\in\Delta$とする.
 
 \section{例}
 \subsection{$I_2(m)$}
+$\Phi=\Phi(I_2(m))$とし,
+\cref{ex:i2m:simple}で考えた単純系$\Delta$を考える.
+$\Delta=\Set{\alpha_0,\alpha_{m-1}}$であった.
+$S=\Set{P_0,P_{m-1}}$とする.
+$S$の元の積を考えたとき,
+$P_0P_0=\id$,
+$P_{m-1}P_{m-1}=\id$であるので,
+同じ元が並んだ場合は簡約表示ではない.
+したがって,
+簡約表示は,
+以下のいずれかになる:
+\begin{align*}
+P_0P_{m-1}P_0P_{m-1}\cdots P_0P_{m-1}&\\
+P_{m-1}P_0P_{m-1}P_0\cdots P_{m-1}P_0&\\
+P_0P_{m-1}P_0P_{m-1}\cdots P_0P_{m-1}&P_0\\
+P_{m-1}P_0P_{m-1}P_0\cdots P_{m-1}P_0&P_{m-1}.
+\end{align*}
+
+$W_l=\Set{w\in W|\ell_\Delta(w)=l}$とおき,
+$W_l$を求める.
+一般に, $l=\ell_\Delta(w)$の元が, $w=s_{\delta_1}\cdots s_{\delta_l}$, $\delta_i\in\Delta$
+とかけているなら, $ws_{\delta_l}=s_{\delta_1}\cdots s_{\delta_{l-1}}$
+と書けるので$\ell_\Delta(ws_{\delta_l})<\ell_\Delta(ws)$となる.
+よって$\ell_\Delta(ws_{\delta_l})=\ell_\Delta(w)-1$
+である.
+このことから,
+$W_{l+1}\subset \Set{ws_\delta|w\in W_l,\delta\in\Delta}$であることがわかる.
+
+$W_0=\Set{\id}$, $W_{1}=S=\Set{P_0,P_{m-1}}$である.
+
+$\ell_\Delta(P_0P_{m-1})$は,
+$\ell_\Delta(P_0)+1$か$\ell_\Delta(P_0)-1$である.
+つまり$P_0P_{m-1}\in W_0$でなければ, $P_0P_{m-1}\in W_2$である.
+$P_0P_{m-1}=R_{1-m}$である.
+$m=1$のときは$P_0P_{m-1}=R_{0}=\id$である.
+$m\geq 2$ならば, $P_0P_{m-1}=R_{1-m}\neq \id$であるので,
+$\len_\Delta(P_0P_{m-1})=2$である.
+$\ell_\Delta(P_{m-1}P_0)$も同様に,
+$m=1$のときは$P_{m-1}P_0=\id$,
+$m\geq 2$ならば, $\len_\Delta(P_{m-1}P_0)=\len_\Delta(R_{m-1})=2$である.
+$\len_\Delta(P_{m-1}P_0)=2$である.
+したがって, $m\geq 2$のときに, $\Set{P_0R_{m-1},P_{m-1}P_0}\subset W_2$であることがわかった.
+$W_{l+1}\subset \Set{ws_\delta|w\in W_l,\delta\in\Delta}$であるので,
+ $m\geq 2$のときに, $\Set{P_0R_{m-1},P_{m-1}P_0}= W_2$であることがわかる.
+
+$\ell_\Delta(P_0P_{m-1}P_0)$は,
+$\ell_\Delta(P_0P_{m-1})+1$か$\ell_\Delta(P_0P_{m-1})-1$である.
+つまり$P_0P_{m-1}P_0\in W_1$でなければ, $P_0P_{m-1}P_0\in W_3$である.
+$P_0P_{m-1}P_0=R_{1-m}P_0=P_{m-1}$である.
+$m=2$であれば, $P_0P_{m-1}P_0=P_{1}\in W_1$であり,
+$m>2$であれば, $P_0P_{m-1}P_0\in W_3$である.
+$\ell_\Delta(P_{m-1}P_0P_{m-1})$も同様に,
+$P_{m-1}P_0P_{m-1}=R_{m-1}P_{m-1}=P_{m-2}$であるので,
+$m=2$であれば, $P_{m-1}P_0P_{m-1}=P_{0}\in W_1$であり,
+$m>2$であれば, $P_{m-1}P_0P_{m-1}\in W_3$である.
+ $m\geq 3$のときに, $\Set{P_0R_{m-1}P_0,P_{m-1}P_0P_{m-1}}= W_2$であることがわかる.
+また, $m=2$のときには$P_0P_{m-1}=R_{1-m}=R_{1-m+m}=R_{1}$,
+$P_{m-1}P_0=R_{m-1}=R_{2-1}=R_{1}$である.
+
+
+
+以下同様に繰り返すことで, $W_l$を調べることができる.
