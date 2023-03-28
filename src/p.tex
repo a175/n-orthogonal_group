@@ -2957,6 +2957,8 @@ $\Phi_\Delta^+(w)$を調べる.
 \section{作用の例}
 
 \subsection{$I_2(m)$}
+\label{ex:i2m:inversion}
+
 
 $\Phi=\Phi(I_2(m))$とし,
 \cref{ex:i2m:simple}で考えた単純系$\Delta$を考える.
@@ -3048,6 +3050,7 @@ $\frac{m}{2}\leq k <m$のとき, $m\leq 2k$, $m+2k<3m$であるので,
 
 
 \subsection{$A_{1}\times\cdots\times A_{1}$}
+\label{ex:a1n:inversion}
 \cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
 \begin{align*}
   F_i\varepsilon_j=
@@ -4257,21 +4260,71 @@ $w\in W$, $\delta\in\Delta$とする.
 $\Phi=\Phi(I_2(m))$とし,
 \cref{ex:i2m:simple}で考えた単純系$\Delta$を考える.
 $\Delta=\Set{\alpha_0,\alpha_{m-1}}$であった.
-$S=\Set{P_0,P_{m-1}}$とする.
+$S=\Set{P_0,P_{m-1}=P_{-1}}$とする.
 $S$の元の積を考えたとき,
 $P_0P_0=\id$,
-$P_{m-1}P_{m-1}=\id$であるので,
+$P_{-1}P_{-1}=\id$であるので,
 同じ元が並んだ場合は簡約表示ではない.
 したがって,
 簡約表示は,
 以下のいずれかになる:
 \begin{align*}
-P_0P_{m-1}P_0P_{m-1}\cdots P_0P_{m-1}&\\
-P_{m-1}P_0P_{m-1}P_0\cdots P_{m-1}P_0&\\
-P_0P_{m-1}P_0P_{m-1}\cdots P_0P_{m-1}&P_0\\
-P_{m-1}P_0P_{m-1}P_0\cdots P_{m-1}P_0&P_{m-1}.
+P_0P_{-1}P_0P_{-1}\cdots P_0P_{-1}&\\
+P_{-1}P_0P_{-1}P_0\cdots P_{-1}P_0&\\
+P_0P_{-1}P_0P_{-1}\cdots P_0P_{-1}&P_0\\
+P_{-1}P_0P_{-1}P_0\cdots P_{-1}P_0&P_{-1}.
 \end{align*}
 
+
+$n_{\Phi_\Delta^+}(w)$については,
+\cref{ex:i2m:inversion}の議論から,
+\begin{align*}
+  n(R_{k})&=n(R_{-k})=2k
+  n(P_{k})&=n(P_{-1-k})=2k+1
+\end{align*}
+であることがわかっている.
+\begin{align*}
+  P_0P_{-1}&=R_1\\
+  P_{-1}P_0&=R_{-1}
+\end{align*}
+であるので,
+\begin{align*}
+  (P_0P_{-1})^k&=R_k\\
+  (P_{-1}P_0)^k&=R_{-k}\\
+  (P_0P_{-1})^kP_0&=R_kP_0=P_{k}\\
+  (P_{-1}P_0)^kP_{-1}&=R_{-k}P_{-1}=P_{-k-1}
+\end{align*}
+である.
+$0 \leq k\leq \frac{m}{2}$に対し,
+\begin{align*}
+  R_k&=(P_0P_{-1})^k\\
+  R_{-k}&=(P_{-1}P_0)^k\\
+  P_k&=(P_0P_{-1})^kP_0\\
+  P_{-k}&=(P_{-1}P_0)^kP_{-1}
+\end{align*}
+は最短表示である.
+
+
+\subsection{$A_{1}\times\cdots\times A_{1}$}
+\cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
+\Cref{ex:a1n:inversion}での議論から,
+$w=\diag(a_1,\ldots,a_n)\in W(\Phi)$に対し,
+$n_{\Phi_\Delta^+}(w)=\numof{\Set{i|a_i=-1}}$であった.
+$l=n(w)$,
+$\Set{i|a_i=-1}=\Set{i_1,\ldots,i_l}$とする.
+このとき, $\ell_\Delta(w)=n_{\Phi_\Delta^+}(w)=l$であり,
+\begin{align*}
+w=F_{i_1}\cdots F_{i_l}
+\end{align*}
+であるので, これが$w$の簡約表示である.
+
+
+
+
+
+
+\chapter{Bruhat order}
+\section{$I$}
 $W_l=\Set{w\in W|\ell_\Delta(w)=l}$とおき,
 $W_l$を求める.
 一般に, $l=\ell_\Delta(w)$の元が, $w=s_{\delta_1}\cdots s_{\delta_l}$, $\delta_i\in\Delta$
@@ -4314,18 +4367,4 @@ $m=3$のときには,  $P_0R_{m-1}P_0=P_1$, $P_{m-1}P_0P_{m-1}=P_{m-2}=P_1$で�
 
 
 以下同様に繰り返すことで, $W_l$を調べることができる.
-
-
-\subsection{$A_{1}\times\cdots\times A_{1}$}
-\cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
-$w=\diag(a_1,\ldots,a_n)\in W(\Phi)$に対し,
-$n_{\Phi_\Delta^+}(w)=\numof{\Set{i|a_i=-1}}$であった.
-$l=n(w)$,
-$\Set{i|a_i=-1}=\Set{i_1,\ldots,i_l}$とする.
-このとき, $\ell_\Delta(w)=n_{\Phi_\Delta^+}(w)=l$であり,
-\begin{align*}
-w=F_{i_1}\cdots F_{i_l}
-\end{align*}
-であるので, これが$w$の簡約表示である.
-
 
