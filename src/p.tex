@@ -3060,7 +3060,12 @@ $\frac{m}{2}\leq k <m$のとき, $m\leq 2k$, $m+2k<3m$であるので,
 $i\neq j$に対し,
 $s_{\varepsilon_i}(\varepsilon_j)\in\Phi_\Delta^+$
 となることは明らかである.
-
+また, $\diag(a_1,\ldots,a_n)\in W(\Phi)$に対し,
+\begin{align*}
+  \Phi_\Delta^+(\diag(a_1,\ldots,a_n))&=\Set{\varepsilon_i|a_i=-1}\\
+  n_{\Phi_\Delta^+}(\diag(a_1,\ldots,a_n))&=\numof{\Set{i|a_i=-1}}
+\end{align*}
+である.
 
 \subsection{$A_{n-1}$}
 $\Phi=\Phi(A_{n-1})$とし,
@@ -4309,3 +4314,18 @@ $m=3$のときには,  $P_0R_{m-1}P_0=P_1$, $P_{m-1}P_0P_{m-1}=P_{m-2}=P_1$で�
 
 
 以下同様に繰り返すことで, $W_l$を調べることができる.
+
+
+\subsection{$A_{1}\times\cdots\times A_{1}$}
+\cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
+$w=\diag(a_1,\ldots,a_n)\in W(\Phi)$に対し,
+$n_{\Phi_\Delta^+}(w)=\numof{\Set{i|a_i=-1}}$であった.
+$l=n(w)$,
+$\Set{i|a_i=-1}=\Set{i_1,\ldots,i_l}$とする.
+このとき, $\ell_\Delta(w)=n_{\Phi_\Delta^+}(w)=l$であり,
+\begin{align*}
+w=F_{i_1}\cdots F_{i_l}
+\end{align*}
+であるので, これが$w$の簡約表示である.
+
+
