@@ -3113,6 +3113,7 @@ $A_\sigma(\alpha_{i,j})=\alpha_{\sigma(i),\sigma(j)}$である.
 
 \subsection{$B_{n}$}
 \label{ex:bn:simplereflectposi2posi}
+\label{ex:bn:inversion}
 $\Phi=\Phi(B_n)$とし,
 \cref{ex:bn:simple}の単純系$\Delta$を用いる.
 \begin{align*}
@@ -4330,6 +4331,7 @@ $w=F_{i_1}\cdots F_{i_l}$
 であるので, これが$w$の簡約表示である.
 
 \subsection{$A_{n-1}$}
+\label{ex:an:len}
 $\Phi=\Phi(A_{n-1})$とし,
 \cref{ex:an:simple}の単純系$\Delta$を用いる.
 $W=W(\Phi)$とする.
@@ -4339,6 +4341,8 @@ $\sigma\in S_n$, $w=A_\sigma\in W$に対し,
   \ell_\Delta(w)=n_{\Phi_\Delta^+}(w)=\numof{\Set{(i,j)|i<j, \sigma(i)>\sigma(j)}}
 \end{align*}
 である.
+
+また,
 $\omega_0\in S_n$を
 \begin{align*}
 \omega_0(i)=n+1-i
@@ -4358,6 +4362,28 @@ $w_0(\alpha_{i,j})=\alpha_{j,i}=-\alpha_{i,j}$であるので,
 $\Phi_\Delta^+(w)=\Phi_\Delta^+$である.
 したがって, $\ell(w_0)=\frac{1}{2}\numof{\Phi}=\binom{n}{2}=\frac{n(n-1)}{2}$
 であり, $w_0$は最長である.
+
+\subsection{$B_{n}$}
+\label{ex:bn:len}
+$\Phi=\Phi(B_n)$とし,
+\cref{ex:bn:simple}の単純系$\Delta$を用いる.
+$w_0=\diag(-1,\ldots,-1)$とすると,
+$\Phi_\Delta^+(w_0)=\Phi_\Delta^+$である.
+したがって, $\ell_\Delta(w_0)=\frac{1}{2}\numof{\Phi}=n^2$であり,
+最長である.
+
+\subsection{$C_{n}$}
+$\Phi=\Phi(C_n)$とし,
+\cref{ex:cn:simple}の単純系$\Delta$を用いる.
+$W(\Phi)=W(\Phi(B_n))$
+であるが,
+\Cref{ex:bn:len}であつかった単純系を$\Delta'$とすると,
+$\Set{s_\delta|\delta\in \Delta}=\Set{s_\delta|\delta\in \Delta'}$
+であるので,
+$w\in W(\Phi)$に対し,
+$\ell_\Delta(w)=\ell_{\Delta'}(w)$
+である.
+
 
 \chapter{Bruhat order}
 \section{$I$}
