@@ -3348,6 +3348,7 @@ $w=\diag(a_1,\ldots,a_n)A_\sigma\in W$に対して,
 
 
 \subsection{$G_2$}
+\label{ex:g2:action}
 $\Phi=\Phi(G_2)$とし,
 \cref{ex:g2:simple}
 で考えた単純系$\Delta$を考える.
@@ -4383,6 +4384,67 @@ $\Set{s_\delta|\delta\in \Delta}=\Set{s_\delta|\delta\in \Delta'}$
 $w\in W(\Phi)$に対し,
 $\ell_\Delta(w)=\ell_{\Delta'}(w)$
 である.
+
+\subsection{$D_{n}$}
+$\Phi=\Phi(D_n)$とし,
+\cref{ex:dn:simple}の単純系$\Delta$を用いる.
+$W=W(\Phi)$とする.
+$n$が偶数のとき,
+$w_0=\diag(-1,\ldots,-1,1)\in W$である.
+$\Phi_\Delta^+(w_0)=\Phi_\Delta^+$である.
+したがって, $\ell_\Delta(w_0)=\frac{1}{2}\numof{\Phi}=n^2$であり,
+最長である.
+$n$が奇数のとき,
+$w_0=\diag(-1,\ldots,-1)\in W$である.
+$w_0(\alpha_{i,n})=-\beta_{i,n}$,
+$w_0(\beta_{i,n})=-\alpha_{i,n}$
+である.
+したがって, $\Phi_\Delta^+(w_0)=\Phi_\Delta^+$であるので,
+$\ell_\Delta(w_0)=\frac{1}{2}\numof{\Phi}=n^2$であり,
+最長である.
+
+\subsection{$G_2$}
+$\Phi=\Phi(G_2)$とし,
+\cref{ex:g2:simple}
+で考えた単純系$\Delta$を考える.
+$s=s_{\alpha_{1,2}}$, $s'=s_{\gamma_{1}}$とすると,
+\Cref{ex:g2:action}で計算したとおり,
+\begin{align*}
+  s(\alpha_{1,2})&=-\alpha_{1,2}\\
+  s(\alpha_{3,1})&=\alpha_{3,2}
+&s(\alpha_{3,2})&=\alpha_{3,1}\\
+s(\gamma_1)&=\gamma_{2}&
+s(\gamma_2)&=\gamma_{1}\\
+s(-\gamma_3)&=-\gamma_{3}&
+\\
+  s'(\alpha_{1,2})&=-\alpha_{1,3}=\alpha_{3,1}
+&s'(\alpha_{3,1})&=-\alpha_{2,1}=\alpha_{1,2}\\
+s'(\alpha_{3,2})&=\alpha_{3,2}\\
+s'(\gamma_1)&=-\gamma_{1}&
+s'(\gamma_2)&=-\gamma_{3}&
+s'(-\gamma_3)&=\gamma_{2}
+\end{align*}
+である.
+したがって,
+\begin{align*}
+s's(\alpha_{1,2})&=-s'(\alpha_{1,2})=-(\alpha_{3,1})\\
+s's(\alpha_{3,1})&=s'(\alpha_{3,2})=\alpha_{3,2}\\
+s's(\alpha_{3,2})&=s'(\alpha_{3,1})=\alpha_{1,2}\\
+s's(\gamma_1)&=s'(\gamma_{2})=-\gamma_{3}\\
+s's(\gamma_2)&=s'(\gamma_{1})=-\gamma_1\\
+s's(-\gamma_3)&=s'(-\gamma_{3})=\gamma_2
+\end{align*}
+である.
+\begin{align*}
+(s's)^3(\alpha_{1,2})&=(s's)^2(-(\alpha_{3,1}))=(s's)(-(\alpha_{3,2}))=-\alpha_{1,2}\\
+(s's)^3(\alpha_{3,1})&=(s's)^2(\alpha_{3,2})=-\alpha_{3,1}\\
+(s's)^3(\alpha_{3,2})&=(s's)^2(\alpha_{1,2})=-\alpha_{3,2}\\
+(s's)^3(\gamma_1)&=(s's)^2(-\gamma_{3})=(s's)(\gamma_{2})=-\gamma_{1}\\
+(s's)^3(\gamma_2)&=(s's)^2(-\gamma_1)=(s's)(\gamma_{3})=-\gamma_{2}\\
+(s's)^3(-\gamma_3)&=(s's)^2(\gamma_2)=(s's)(-\gamma_{1})=\gamma_{3}
+\end{align*}
+となるので,
+$(s's)^3$が最長元である.
 
 
 \chapter{Bruhat order}
