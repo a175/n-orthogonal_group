@@ -3071,6 +3071,7 @@ $s_{\varepsilon_i}(\varepsilon_j)\in\Phi_\Delta^+$
 である.
 
 \subsection{$A_{n-1}$}
+\label{ex:an:inversion}
 $\Phi=\Phi(A_{n-1})$とし,
 \cref{ex:an:simple}の単純系$\Delta$を用いる.
 \begin{align*}
@@ -4328,8 +4329,35 @@ $\Set{i|a_i=-1}=\Set{i_1,\ldots,i_l}$とする.
 $w=F_{i_1}\cdots F_{i_l}$
 であるので, これが$w$の簡約表示である.
 
-
-
+\subsection{$A_{n-1}$}
+$\Phi=\Phi(A_{n-1})$とし,
+\cref{ex:an:simple}の単純系$\Delta$を用いる.
+$W=W(\Phi)$とする.
+\cref{ex:an:inversion}での計算により,
+$\sigma\in S_n$, $w=A_\sigma\in W$に対し,
+\begin{align*}
+  \ell_\Delta(w)=n_{\Phi_\Delta^+}(w)=\numof{\Set{(i,j)|i<j, \sigma(i)>\sigma(j)}}
+\end{align*}
+である.
+$\omega_0\in S_n$を
+\begin{align*}
+\omega_0(i)=n+1-i
+\end{align*}
+で定義する.  このとき,
+\begin{align*}
+  A_{\omega_0}=
+  \begin{pmatrix}
+    0&\cdots&0&1\\
+    0&\cdots&1&0\\
+    &\vdots&&\\
+    1&\cdots&0&0
+  \end{pmatrix}
+\end{align*}
+である.  $w_0=A_{\omega_0}$とおくと,
+$w_0(\alpha_{i,j})=\alpha_{j,i}=-\alpha_{i,j}$であるので,
+$\Phi_\Delta^+(w)=\Phi_\Delta^+$である.
+したがって, $\ell(w_0)=\frac{1}{2}\numof{\Phi}=\binom{n}{2}=\frac{n(n-1)}{2}$
+であり, $w_0$は最長である.
 
 \chapter{Bruhat order}
 \section{$I$}
