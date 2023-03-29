@@ -3955,9 +3955,10 @@ $\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$
 \end{proof}
 
 \begin{remark}
-  \Cref{item:len:det}があるので,
-  $w=s_{\delta_1}\cdots s_{\delta_r}=s_{\delta'_1}\cdots s_{\delta'_l}$
-  となる$\delta_i, \delta'_i\in \Delta$に対し,
+  $\alpha\in\Phi$に対し, $\det(s_\alpha)=-1$であるから,
+  $w=s_{\alpha_1}\cdots s_{\alpha_r}=s_{\alpha'_1}\cdots s_{\alpha'_l}$
+  となる$\alpha_i, \alpha'_i\in \Phi$に対し,
+  $\det(w)=(-1)^r=(-1)^l$となり,
   $l$と$r$の偶奇は等しいことがわかる.
 \end{remark}
 
@@ -4279,7 +4280,7 @@ P_{-1}P_0P_{-1}P_0\cdots P_{-1}P_0&P_{-1}.
 $n_{\Phi_\Delta^+}(w)$については,
 \cref{ex:i2m:inversion}の議論から,
 \begin{align*}
-  n(R_{k})&=n(R_{-k})=2k
+  n(R_{k})&=n(R_{-k})=2k\\
   n(P_{k})&=n(P_{-1-k})=2k+1
 \end{align*}
 であることがわかっている.
@@ -4295,6 +4296,7 @@ $n_{\Phi_\Delta^+}(w)$については,
   (P_{-1}P_0)^kP_{-1}&=R_{-k}P_{-1}=P_{-k-1}
 \end{align*}
 である.
+したがって,
 $0 \leq k\leq \frac{m}{2}$に対し,
 \begin{align*}
   R_k&=(P_0P_{-1})^k\\
@@ -4302,8 +4304,18 @@ $0 \leq k\leq \frac{m}{2}$に対し,
   P_k&=(P_0P_{-1})^kP_0\\
   P_{-k}&=(P_{-1}P_0)^kP_{-1}
 \end{align*}
-は最短表示である.
+は簡約表示である.
 
+
+$\numof{\Phi_\Delta^+}=\frac{1}{2}\numof{\Phi}=m$である.
+$m=2M$のとき,
+$R_{M}=R_{-M}$であるが,
+$\ee_\Delta(R_{M})=\ee_\Delta(R_{M})=m$がなりたつので,
+この元が最長である.
+$m=2M+1$のとき,
+$P_{M}=P_{-M}$であるが,
+$\ee_\Delta(R_{M})=\ee_\Delta(R_{M})=m$がなりたつので,
+この元が最長である.
 
 \subsection{$A_{1}\times\cdots\times A_{1}$}
 \cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
@@ -4313,12 +4325,8 @@ $n_{\Phi_\Delta^+}(w)=\numof{\Set{i|a_i=-1}}$であった.
 $l=n(w)$,
 $\Set{i|a_i=-1}=\Set{i_1,\ldots,i_l}$とする.
 このとき, $\ell_\Delta(w)=n_{\Phi_\Delta^+}(w)=l$であり,
-\begin{align*}
-w=F_{i_1}\cdots F_{i_l}
-\end{align*}
+$w=F_{i_1}\cdots F_{i_l}$
 であるので, これが$w$の簡約表示である.
-
-
 
 
 
