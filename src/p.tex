@@ -4410,23 +4410,6 @@ $\Phi=\Phi(G_2)$とし,
 $s=s_{\alpha_{1,2}}$, $s'=s_{\gamma_{1}}$とすると,
 \Cref{ex:g2:action}で計算したとおり,
 \begin{align*}
-  s(\alpha_{1,2})&=-\alpha_{1,2}\\
-  s(\alpha_{3,1})&=\alpha_{3,2}
-&s(\alpha_{3,2})&=\alpha_{3,1}\\
-s(\gamma_1)&=\gamma_{2}&
-s(\gamma_2)&=\gamma_{1}\\
-s(-\gamma_3)&=-\gamma_{3}&
-\\
-  s'(\alpha_{1,2})&=-\alpha_{1,3}=\alpha_{3,1}
-&s'(\alpha_{3,1})&=-\alpha_{2,1}=\alpha_{1,2}\\
-s'(\alpha_{3,2})&=\alpha_{3,2}\\
-s'(\gamma_1)&=-\gamma_{1}&
-s'(\gamma_2)&=-\gamma_{3}&
-s'(-\gamma_3)&=\gamma_{2}
-\end{align*}
-である.
-したがって,
-\begin{align*}
 s's(\alpha_{1,2})&=-s'(\alpha_{1,2})=-(\alpha_{3,1})\\
 s's(\alpha_{3,1})&=s'(\alpha_{3,2})=\alpha_{3,2}\\
 s's(\alpha_{3,2})&=s'(\alpha_{3,1})=\alpha_{1,2}\\
@@ -4448,17 +4431,107 @@ $(s's)^3$が最長元である.
 
 
 \chapter{Bruhat order}
-\section{$I$}
-$W_l=\Set{w\in W|\ell_\Delta(w)=l}$とおき,
-$W_l$を求める.
-一般に, $l=\ell_\Delta(w)$の元が, $w=s_{\delta_1}\cdots s_{\delta_l}$, $\delta_i\in\Delta$
-とかけているなら, $ws_{\delta_l}=s_{\delta_1}\cdots s_{\delta_{l-1}}$
-と書けるので$\ell_\Delta(ws_{\delta_l})<\ell_\Delta(ws)$となる.
-よって$\ell_\Delta(ws_{\delta_l})=\ell_\Delta(w)-1$
-である.
-このことから,
-$W_{l+1}\subset \Set{ws_\delta|w\in W_l,\delta\in\Delta}$であることがわかる.
+\section{Bruhat order}
+$\Phi$をルート系とし, $\Delta$を単純系とし,
+$W=W(\Phi)$とする.
 
+$W_l=\Set{w\in W|\ell_\Delta(w)=l}$とおき,
+$W_l$を求めることを考える.
+\begin{lemma}
+  $W_{l+1}\subset \Set{ws_\delta|w\in W_l,\delta\in\Delta}$である.
+\end{lemma}
+\begin{proof}
+  $w\in W_{l+1}$とする.
+  このとき,
+  $w=s_{\delta_1}\cdots s_{\delta_l}s_{\delta_{l+1}}$
+  を満たす$\delta_i\in\Delta$が存在するはずである.
+  $w'=s_{\delta_1}\cdots s_{\delta_l}$
+  とおく.
+  もし$\ell_\Delta(w')<l$なら,
+  $w'=s_{\delta'_1}\cdots s_{\delta'_{k}}$, $k<l$
+  をみたす$\delta'_i\in\Delta$がとれるが,
+  $w=w's_{l+1}=s_{\delta'_1}\cdots s_{\delta'_{k}}s_{\delta_{l+1}}$
+  とかける. したがって, $\ell_\Delta(w)<l+1$となるので,
+  $w\in W_{l+1}$に矛盾する.
+  したがって, $w'\in W_{l}$である.
+\end{proof}
+\begin{cor}
+  $0<l< \frac{1}{2}\numof{\Phi}$に対し,
+  $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$.
+\end{cor}
+$W_{0}=\Set{\id}$, $W_{1}=\Set{s_\delta|\delta\in\Delta}$であるので,
+$W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していくことで,
+すべての$l$に対し, $W_{l}$が求められる.
+
+\newcommand{\rightleq}{\mathrel{\underset{\text{R}}{\leq}}}
+\newcommand{\leftleq}{\mathrel{\underset{\text{L}}{\leq}}}
+\newcommand{\strongleq}{\mathrel{\leq}}
+\begin{definition}
+  $u,w\in W$が次を満たすとき, $u\rightleq w$とする:
+  つぎを満たす$\delta_1,\ldots,\delta_l\in\Delta$, $k$が存在する:
+  \begin{enumerate}
+    \item $0\leq k\leq l=\ell(w)$.
+    \item $w=s_{\delta_1}\cdots s_{\delta_l}$.
+    \item $u=s_{\delta_1}\cdots s_{\delta_k}$.
+  \end{enumerate}
+  $\rightleq$を右弱順序とよぶ.
+\end{definition}
+\begin{prop}
+  $W$は$\rightleq$で$\ell_\Delta$をランク関数とする半順序集合になる.
+\end{prop}
+\begin{prop}
+  $\ell_\Delta(u)+1=\ell_\Delta(w)$であるとき次は同値:
+  \begin{enumerate}
+  \item $u\leftleq w$
+  \item $us_{\delta}= w$となる$\delta\in\Delta$が存在する.
+  \end{enumerate}
+\end{prop}
+
+\begin{definition}
+  $u,w\in W$が次を満たすとき, $u\leftleq w$とする:
+  つぎを満たす$\delta_1,\ldots,\delta_l\in\Delta$, $k$が存在する:
+  \begin{enumerate}
+    \item $0\leq k\leq l=\ell(w)$.
+    \item $w=s_{\delta_1}\cdots s_{\delta_l}$.
+    \item $u=s_{\delta_k}\cdots s_{\delta_l}$.
+  \end{enumerate}
+  $\rightleq$を右弱順序とよぶ.
+\end{definition}
+\begin{prop}
+  $W$は$\rightleq$で$\ell_\Delta$をランク関数とする半順序集合になる.
+\end{prop}
+\begin{prop}
+  $\ell_\Delta(u)+1=\ell_\Delta(w)$であるとき次は同値:
+  \begin{enumerate}
+  \item $u\leftleq w$
+  \item $s_{\delta} u= w$となる$\delta\in\Delta$が存在する.
+  \end{enumerate}
+\end{prop}
+\begin{definition}
+  $u,w\in W$が次を満たすとき, $u\strongleq w$とする:
+  つぎを満たす$\delta_1,\ldots,\delta_l\in\Delta$, $i_1,\ldots,i_k$ が存在する:
+  \begin{enumerate}
+    \item $l=\ell(w)$.
+    \item $i_1 <\cdots <i_k$.
+    \item $w=s_{\delta_1}\cdots s_{\delta_l}$.
+    \item $u=s_{\delta_{i_1}}\cdots s_{\delta_{i_k}}$.
+  \end{enumerate}
+  $\rightleq$を強ブリュあ順序とよぶ.
+\end{definition}
+\begin{prop}
+  $W$は$\strongleq$で$\ell_\Delta$をランク関数とする半順序集合になる.
+\end{prop}
+
+\begin{prop}
+  $\ell_\Delta(u)+1=\ell_\Delta(w)$であるとき次は同値:
+  \begin{enumerate}
+  \item $u\leftleq w$
+  \item $s_{\delta} u= w$または$s_{\delta} u= w$となる$\delta\in\Delta$が存在する.
+  \end{enumerate}
+\end{prop}
+
+
+\section{$I_2(m)$}
 $W_0=\Set{\id}$, $W_{1}=S=\Set{P_0,P_{m-1}}$である.
 
 $\ell_\Delta(P_0P_{m-1})$は,
