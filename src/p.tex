@@ -600,6 +600,35 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
 \end{proof}
 
 \begin{prop}
+  \label{lem:subsp:refl}
+  $U\subset V$を部分空間とし,
+  $\alpha \in U \setminus \Set{\zzero}$とする.
+  このとき,
+  $\beta\in U$に対し, $s_\alpha(\beta)\in U$であり,
+  $\beta\in U^\perp$に対し, $s_\alpha(\beta)=\beta$である.
+  特に,
+  $s\colon U \to U$を$s(\beta)=s_\alpha(\beta)$で定めると,
+  $s$は$\alpha$に関する$U$上の鏡映変換である.
+\end{prop}
+\begin{proof}
+  $\alpha\in U$であるので,
+  $\beta\in U^\perp$に対し,
+  $\Braket{\alpha,\beta}=0$である.
+  したがって, $s_\alpha(\beta)=\beta$である.
+
+  $s_\alpha(\alpha)=-\alpha\in U$である.
+  また
+  $\beta \in H_\alpha\cap U$に対して,
+  $s_{\alpha}(\beta')=\beta'\in U$
+  である.
+  $\beta\in U$に対し,
+  $\beta=c\alpha + \beta'$をみたす,
+  $c$と$\beta'\in H_\alpha$が存在するので,
+  $s_{\alpha}(\beta)=s_{\alpha}(c\alpha+\beta')=cs_{\alpha}(\alpha)+s_{\alpha}(\beta')\in U$である.
+\end{proof}
+
+
+\begin{prop}
   直交変換$s$に対し以下は同値:
   \begin{enumerate}
   \item $s$は鏡映である.
@@ -1421,6 +1450,82 @@ $W(\Phi)$は有限鏡映群である.
   $s_{f(\alpha)}\in R$がわかる.
   したがって
   $f(\alpha)\in \Phi$である.
+\end{proof}
+
+\begin{prop}
+  $V$を$n$次元ユークリッド空間,
+  $U$を$m$次元ユークリッド空間とする.
+  線形写像$t\colon V\to W$は内積を保つとする.
+  $\Phi\subset V$, $\Psi\subset W$はそれぞれルート系であるとし,
+  $f\colon \Phi \to \Psi$は全単射であるとする.
+  各$\alpha\in\Phi$に対し,
+  $f(\alpha)= c_\alpha t(\alpha)$をみたす$c_\alpha>0$が存在するとする.
+  このとき, $W(\Phi)$と$W(\Psi)$は群として同型である.
+\end{prop}
+\begin{proof}
+  $\hat U=\Set{t(\alpha)|\alpha\in V}$とおき, $\check U=\hat U^\perp$とする.
+  このとき, $U=\hat U \oplus \check U$である.
+  $\beta\in \Psi$に対し,
+  $\alpha=f^{-1}(\beta)\in \Phi\subset V$とおくと,
+  $c_{\alpha}t(\alpha)=f(\alpha)=\beta$であるので,
+  $\Psi\subset \hat U$である.
+  \Cref{lem:subsp:refl}より,
+  $\beta\in\Psi$に対し,
+   $\hat s_\beta\colon \hat U \to \hat U$
+  を$\hat s_\beta(\gamma)= s_\beta(\gamma)$で定義すると,
+  $\beta$に関する$U$上の鏡映変換である.
+  したがって$U$上の全単射である.
+  また, $\gamma\in \check U$に対して, $s_\beta (\gamma)=\gamma$である.
+  $w\in W(\Psi)$は,
+  $\beta_i\in \Psi$を用いて,
+  $w=s_{\beta_1}\cdots s_{\beta_l}$とかけるので,
+  $\hat w\colon \check U\to \check U$
+  を$\hat w(\gamma)= w(\gamma)$で定義すると,
+  全単射である.
+  また, $\gamma\in\check U$に対して, $w(\gamma)$である.
+
+  $\hat W=\Set{\hat w|w\in W(\Psi)}$とおく.
+  このとき,
+  $g\colon W(\Phi) \to W'$を,
+  $g(w)=\hat w$で定義すると,
+  明らかに全射である.
+  $\hat w=\hat v$とすると,
+  $\gamma\in \hat U$に対し,
+  $w(\gamma)=v(\gamma)$である.
+  また$\gamma\in \check U$に対し,
+  $w(\gamma)=\gamma=v(\gamma)$である.
+  したがって, $w=v$であるので, $g$は単射でもある.
+  $g(wv)=g(w)g(v)$を満たすことは定義から明らかなので,
+  $\hat W$は$W$と同型である.
+
+  
+  また, $\hat t\colon V \to \hat U$を$\hat t(\alpha)=t(\alpha)$で定義すると,
+  $\hat t$は内積を保存し, 全単射である.
+  $w\in W(\Phi)$に対し,
+  $\hat t w \hat t^{-1}\colon \hat U \to \hat U$を,
+  $h(w)$とおく.
+  $w\in W(\Phi)$に対し,
+  $w=s_{\alpha_1}\cdots s_{\alpha_l}$をみたす$\alpha_i\in\Phi$がとれるが,
+  \cref{prop:conjbyortho}から
+  \begin{align*}
+    h(w)&=h(s_{\alpha_1}\cdots s_{\alpha_l})\\
+    &=\hat t(s_{\alpha_1}\cdots s_{\alpha_l} \hat t^{-1}\\
+    &=(\hat t(s_{\alpha_1} \hat t^{-1})\cdots (\hat t(s_{\alpha_l} \hat t^{-1})\\
+    &=\hat s_{t(\alpha_1)}\cdots \hat s_{t(\alpha_l)} 
+  \end{align*}
+  となるので, $h(w)\in W(\Psi)$である.
+  したがって, $h$は$W(\Phi)$から$W'$への写像であるが,
+  $W(\Psi)=\Braket{R(\Psi)}_\ZZ$であるので,
+  全射である.
+  また $h(w)=h(u)$とすると,
+  \begin{align*}
+    \hat t w \hat t^{-1}&=\hat t u \hat t^{-1}\\
+  \hat t^{-1}  \hat t w \hat t^{-1}\hat t&=\hat t^{-1}\hat t u \hat t^{-1}\hat t\\
+    w=u
+  \end{align*}
+  となるので, 単射である.
+  また$h(wu)=\hat t w u\hat t^{-1}=\hat t w \hat t^{-1}\hat t u \hat t^{-1}=h(w)h(u)$
+  であるので, $W(\Phi)$と$W'$は同型である.
 \end{proof}
 
 
@@ -4260,6 +4365,7 @@ $w\in W$, $\delta\in\Delta$とする.
 
 
 \section{例}
+\label{ex:i2m:len}
 \subsection{$I_2(m)$}
 $\Phi=\Phi(I_2(m))$とし,
 \cref{ex:i2m:simple}で考えた単純系$\Delta$を考える.
@@ -4463,9 +4569,6 @@ $W_{0}=\Set{\id}$, $W_{1}=\Set{s_\delta|\delta\in\Delta}$であるので,
 $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していくことで,
 すべての$l$に対し, $W_{l}$が求められる.
 
-\newcommand{\rightleq}{\mathrel{\underset{\text{R}}{\leq}}}
-\newcommand{\leftleq}{\mathrel{\underset{\text{L}}{\leq}}}
-\newcommand{\strongleq}{\mathrel{\leq}}
 \begin{definition}
   $u,w\in W$が次を満たすとき, $u\rightleq w$とする:
   つぎを満たす$\delta_1,\ldots,\delta_l\in\Delta$, $k$が存在する:
@@ -4532,36 +4635,142 @@ $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していく�
 
 
 \section{$I_2(m)$}
-$W_0=\Set{\id}$, $W_{1}=S=\Set{P_0,P_{m-1}}$である.
+\subsection{$I_2(m)$}
+$\Phi=\Phi(I_2(m))$とし,
+\cref{ex:i2m:simple}で考えた単純系$\Delta$を考える.
+$W=W(\Phi)$とし,
+$W_l=\Set{w\in W|\ell_\Delta(w)=l}$とすると,
+\cref{ex:i2m:len}での議論から,
+\begin{align*}
+  W_{2k}&=\Set{(P_0P_{-1})^k, (P_{-1}P_0)^k}\\
+  W_{2k+1}&=\Set{(P_0P_{-1})^kP_0, (P_{-1}P_0)^kP_{-1}}\\
+\end{align*}
+である.
+\begin{align*}
+  \id \rightleq  P_0  \rightleq  P_0P_{-1} \rightleq  P_0P_{-1}P_0 \rightleq \cdots\\
+  \id \rightleq  P_{-1}  \rightleq  P_{-1}P_0 \rightleq  P_{-1}P_0P_{-1} \rightleq \cdots
+\end{align*}
+であるが, $\ell_\Delta(u)+1=\ell_\Delta(w)$かつ$u \rightleq w$となるところに
+線を引いたものを考える.
+$m$が偶数のときは, 次のようになる:
+\begin{align*}
+  \begin{array}{clccccclc}
+    &P_0P_{-1}P_0P_{-1}\cdots P_{0}P_{-1}&&&\bullet&&&P_{-1}P_0P_{-1}P_{0}\cdots P_{-1}P_0\\
+    &&&&\nearrow\phantom{\bullet}\nwarrow&\\
+    &P_0P_{-1}P_0P_{-1}\cdots P_{0}&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0P_{-1}P_{0}\cdots P_{-1}\\
+    &&&&\vdots\phantom{\nearrow\bullet\nwarrow}\vdots\\
+    &P_0P_{-1}P_0P_{-1}&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0P_{-1}P_{-1}\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_0P_{-1}P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0P_{-1}\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_0P_{-1}&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}&\\
+    &&&&\nwarrow\phantom{\bullet}\nearrow&\\
+    &\id &&&\bullet &&&\id
+  \end{array}
+\end{align*}
+$m$が奇数のときは, 次のようになる:
+\begin{align*}
+    \begin{array}{clccccclc}
+    &P_0P_{-1}P_0P_{-1}\cdots P_{-1}P_{0}&&&\bullet&&&P_{-1}P_0P_{-1}P_{0}\cdots P_{0}P_{-1}\\
+    &&&&\nearrow\phantom{\bullet}\nwarrow&\\
+    &P_0P_{-1}P_0P_{-1}\cdots P_{-1}&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0P_{-1}P_{0}\cdots P_{0}\\
+    &&&&\vdots\phantom{\nearrow\bullet\swarrow}\vdots\\
+    &P_0P_{-1}P_0P_{-1}&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0P_{-1}P_{-1}\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_0P_{-1}P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0P_{-1}\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_0P_{-1}&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}&\\
+    &&&&\nwarrow\phantom{\bullet}\nearrow&\\
+    &\id &&&\bullet &&&\id
+  \end{array}
+\end{align*}
 
-$\ell_\Delta(P_0P_{m-1})$は,
-$\ell_\Delta(P_0)+1$か$\ell_\Delta(P_0)-1$である.
-つまり$P_0P_{m-1}\in W_0$でなければ, $P_0P_{m-1}\in W_2$である.
-$P_0P_{m-1}=R_{1-m}$である.
-$m\geq 2$であるので, $P_0P_{m-1}=R_{1-m}\neq \id$である.
-よって
-$\len_\Delta(P_0P_{m-1})=2$である.
-$\ell_\Delta(P_{m-1}P_0)$も同様に,
-$\len_\Delta(P_{m-1}P_0)=\len_\Delta(R_{m-1})=2$である.
-したがって, $\Set{P_0R_{m-1},P_{m-1}P_0}\subset W_2$であることがわかった.
-$W_{l+1}\subset \Set{ws_\delta|w\in W_l,\delta\in\Delta}$であるので,
- $m\geq 2$のときに, $\Set{P_0R_{m-1},P_{m-1}P_0}= W_2$であることがわかる.
-$m=2$のときには$P_0P_{m-1}=R_{1-m}=R_{1-m+m}=R_{1}$,
-$P_{m-1}P_0=R_{m-1}=R_{2-1}=R_{1}$である.
+また, 
+\begin{align*}
+  \id \leftleq  P_0  \leftleq  P_{-1}P_0 \leftleq  P_0P_{-1}P_0 \leftleq \cdots\\
+  \id \leftleq  P_{-1}  \leftleq  P_0P_{-1} \leftleq  P_{-1}P_0P_{-1} \leftleq \cdots
+\end{align*}
+であるので, $\leftleq$についても同様に書くと,
+$m$が偶数のときは, 次のようになる:
+\begin{align*}
+  \begin{array}{crcccccrc}
+    &P_{-1}P_0P_{-1}\cdots P_{0}P_{-1}P_0&&&\bullet&&&P_0P_{-1}P_{0}\cdots P_{-1}P_0P_{-1}\\
+    &&&&\nearrow\phantom{\bullet}\nwarrow&\\
+    &P_0P_{-1}P_0P_{-1}\cdots P_{0}&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_{0}P_{-1}\cdots P_0P_{-1}\\
+    &&&&\vdots\phantom{\nearrow\bullet\swarrow}\vdots\\
+    &P_{-1}P_0P_{-1}P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{0}P_{-1}P_{0}P_{-1}\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_{-1}P_0P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0P_{-1}\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_{-1}P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_0P_{-1}\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}&\\
+    &&&&\nwarrow\phantom{\bullet}\nearrow&\\
+    &\id &&&\bullet &&&\id
+  \end{array}
+\end{align*}
+$m$が奇数のときは, 次のようになる:
+\begin{align*}
+  \begin{array}{crcccccrc}
+    &P_0P_{-1}P_0P_{-1}\cdots P_{0}P_{-1}P_0&&&\bullet&&&P_{-1}P_0P_{-1}P_{0}\cdots P_{-1}P_0P_{-1}\\
+    &&&&\nearrow\phantom{\bullet}\nwarrow&\\
+    &P_{-1}P_0P_{-1}P_0P_{-1}\cdots P_{0}&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_0P_{-1}P_{0}P_{-1}\cdots P_0P_{-1}\\
+    &&&&\vdots\phantom{\nearrow\bullet\swarrow}\vdots\\
+    &P_{-1}P_0P_{-1}P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{0}P_{-1}P_{0}P_{-1}\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_{-1}P_0P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0P_{-1}\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_{-1}P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_0P_{-1}\\
+    &&&&\uparrow\phantom{\nearrow\,\,\nwarrow}\uparrow&\\
+    &P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}&\\
+    &&&&\nwarrow\phantom{\bullet}\nearrow&\\
+    &\id &&&\bullet &&&\id
+  \end{array}
+\end{align*}
 
-$\ell_\Delta(P_0P_{m-1}P_0)$は,
-$\ell_\Delta(P_0P_{m-1})+1$か$\ell_\Delta(P_0P_{m-1})-1$である.
-つまり$P_0P_{m-1}P_0\in W_1$でなければ, $P_0P_{m-1}P_0\in W_3$である.
-$P_0P_{m-1}P_0=R_{1-m}P_0=P_{1-m}=P_1$である.
-$m=2$であれば, $P_0P_{m-1}P_0=P_{1}=P_{2-1}\in W_1$であり,
-$m>2$であれば, $P_0P_{m-1}P_0=P_1\in W_3$である.
-$\ell_\Delta(P_{m-1}P_0P_{m-1})$も同様に,
-$P_{m-1}P_0P_{m-1}=R_{m-1}P_{m-1}=P_{m-2}$であるので,
-$m=2$であれば, $P_{m-1}P_0P_{m-1}=P_{0}\in W_1$であり,
-$m>2$であれば, $P_{m-1}P_0P_{m-1}=P_{m-2}\in W_3$である.
-$m\geq 3$のときに, $\Set{P_0R_{m-1}P_0,P_{m-1}P_0P_{m-1}}= W_2$であることがわかる.
-$m=3$のときには,  $P_0R_{m-1}P_0=P_1$, $P_{m-1}P_0P_{m-1}=P_{m-2}=P_1$である.
 
+\newcommand{\xarrow}{\makebox[0pt][l]{$\nwarrow$}\nearrow}
+また, $\strongleq$については, $\ell_\Delta(u)<\ell_\Delta(w)$ならば, $u\strongleq w$となるので,
+$m$が偶数なら,
+\begin{align*}
+  \begin{array}{crcccccrc}
+    &P_{-1}P_0P_{-1}\cdots P_{0}P_{-1}P_0&&&\bullet&&&P_0P_{-1}P_{0}\cdots P_{-1}P_0P_{-1}\\
+    &&&&\nearrow\phantom{\bullet}\nwarrow&\\
+    &P_0P_{-1}P_0P_{-1}\cdots P_{0}&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_{0}P_{-1}\cdots P_0P_{-1}\\
+    &&&&\vdots\phantom{\nearrow\bullet\swarrow}\vdots\\
+    &P_{-1}P_0P_{-1}P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{0}P_{-1}P_{0}P_{-1}\\
+    &&&&\uparrow\phantom{\bullet}\xarrow\phantom{\bullet}\uparrow&\\
+    &P_{-1}P_0P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0P_{-1}\\
+    &&&&\uparrow\phantom{\bullet}\xarrow\phantom{\bullet}\uparrow&\\
+    &P_{-1}P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_0P_{-1}\\
+    &&&&\uparrow\phantom{\bullet}\xarrow\phantom{\bullet}\uparrow&\\
+    &P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}&\\
+    &&&&\nwarrow\phantom{\bullet}\nearrow&\\
+    &\id &&&\bullet &&&\id
+  \end{array}
+\end{align*}
+$m$が奇数なら,
+\begin{align*}
+  \begin{array}{crcccccrc}
+    &P_0P_{-1}P_0P_{-1}\cdots P_{0}P_{-1}P_0&&&\bullet&&&P_{-1}P_0P_{-1}P_{0}\cdots P_{-1}P_0P_{-1}\\
+    &&&&\nearrow\phantom{\bullet}\nwarrow&\\
+    &P_{-1}P_0P_{-1}P_0P_{-1}\cdots P_{0}&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_0P_{-1}P_{0}P_{-1}\cdots P_0P_{-1}\\
+    &&&&\vdots\phantom{\nearrow\bullet\swarrow}\vdots\\
+    &P_{-1}P_0P_{-1}P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{0}P_{-1}P_{0}P_{-1}\\
+    &&&&\uparrow\phantom{\bullet}\xarrow\phantom{\bullet}\uparrow&\\
+    &P_{-1}P_0P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}P_0P_{-1}\\
+    &&&&\uparrow\phantom{\bullet}\xarrow\phantom{\bullet}\uparrow&\\
+    &P_{-1}P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_0P_{-1}\\
+    &&&&\uparrow\phantom{\bullet}\xarrow\phantom{\bullet}\uparrow&\\
+    &P_0&&&\bullet\phantom{\nearrow\bullet\nwarrow}\bullet&&&P_{-1}&\\
+    &&&&\nwarrow\phantom{\bullet}\nearrow&\\
+    &\id &&&\bullet &&&\id
+  \end{array}
+\end{align*}
+である.
 
-以下同様に繰り返すことで, $W_l$を調べることができる.
 
