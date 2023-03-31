@@ -1452,81 +1452,6 @@ $W(\Phi)$は有限鏡映群である.
   $f(\alpha)\in \Phi$である.
 \end{proof}
 
-\begin{prop}
-  $V$を$n$次元ユークリッド空間,
-  $U$を$m$次元ユークリッド空間とする.
-  線形写像$t\colon V\to W$は内積を保つとする.
-  $\Phi\subset V$, $\Psi\subset W$はそれぞれルート系であるとし,
-  $f\colon \Phi \to \Psi$は全単射であるとする.
-  各$\alpha\in\Phi$に対し,
-  $f(\alpha)= c_\alpha t(\alpha)$をみたす$c_\alpha>0$が存在するとする.
-  このとき, $W(\Phi)$と$W(\Psi)$は群として同型である.
-\end{prop}
-\begin{proof}
-  $\hat U=\Set{t(\alpha)|\alpha\in V}$とおき, $\check U=\hat U^\perp$とする.
-  このとき, $U=\hat U \oplus \check U$である.
-  $\beta\in \Psi$に対し,
-  $\alpha=f^{-1}(\beta)\in \Phi\subset V$とおくと,
-  $c_{\alpha}t(\alpha)=f(\alpha)=\beta$であるので,
-  $\Psi\subset \hat U$である.
-  \Cref{lem:subsp:refl}より,
-  $\beta\in\Psi$に対し,
-   $\hat s_\beta\colon \hat U \to \hat U$
-  を$\hat s_\beta(\gamma)= s_\beta(\gamma)$で定義すると,
-  $\beta$に関する$U$上の鏡映変換である.
-  したがって$U$上の全単射である.
-  また, $\gamma\in \check U$に対して, $s_\beta (\gamma)=\gamma$である.
-  $w\in W(\Psi)$は,
-  $\beta_i\in \Psi$を用いて,
-  $w=s_{\beta_1}\cdots s_{\beta_l}$とかけるので,
-  $\hat w\colon \check U\to \check U$
-  を$\hat w(\gamma)= w(\gamma)$で定義すると,
-  全単射である.
-  また, $\gamma\in\check U$に対して, $w(\gamma)$である.
-
-  $\hat W=\Set{\hat w|w\in W(\Psi)}$とおく.
-  このとき,
-  $g\colon W(\Phi) \to W'$を,
-  $g(w)=\hat w$で定義すると,
-  明らかに全射である.
-  $\hat w=\hat v$とすると,
-  $\gamma\in \hat U$に対し,
-  $w(\gamma)=v(\gamma)$である.
-  また$\gamma\in \check U$に対し,
-  $w(\gamma)=\gamma=v(\gamma)$である.
-  したがって, $w=v$であるので, $g$は単射でもある.
-  $g(wv)=g(w)g(v)$を満たすことは定義から明らかなので,
-  $\hat W$は$W$と同型である.
-
-  
-  また, $\hat t\colon V \to \hat U$を$\hat t(\alpha)=t(\alpha)$で定義すると,
-  $\hat t$は内積を保存し, 全単射である.
-  $w\in W(\Phi)$に対し,
-  $\hat t w \hat t^{-1}\colon \hat U \to \hat U$を,
-  $h(w)$とおく.
-  $w\in W(\Phi)$に対し,
-  $w=s_{\alpha_1}\cdots s_{\alpha_l}$をみたす$\alpha_i\in\Phi$がとれるが,
-  \cref{prop:conjbyortho}から
-  \begin{align*}
-    h(w)&=h(s_{\alpha_1}\cdots s_{\alpha_l})\\
-    &=\hat t(s_{\alpha_1}\cdots s_{\alpha_l} \hat t^{-1}\\
-    &=(\hat t(s_{\alpha_1} \hat t^{-1})\cdots (\hat t(s_{\alpha_l} \hat t^{-1})\\
-    &=\hat s_{t(\alpha_1)}\cdots \hat s_{t(\alpha_l)} 
-  \end{align*}
-  となるので, $h(w)\in W(\Psi)$である.
-  したがって, $h$は$W(\Phi)$から$W'$への写像であるが,
-  $W(\Psi)=\Braket{R(\Psi)}_\ZZ$であるので,
-  全射である.
-  また $h(w)=h(u)$とすると,
-  \begin{align*}
-    \hat t w \hat t^{-1}&=\hat t u \hat t^{-1}\\
-  \hat t^{-1}  \hat t w \hat t^{-1}\hat t&=\hat t^{-1}\hat t u \hat t^{-1}\hat t\\
-    w=u
-  \end{align*}
-  となるので, 単射である.
-  また$h(wu)=\hat t w u\hat t^{-1}=\hat t w \hat t^{-1}\hat t u \hat t^{-1}=h(w)h(u)$
-  であるので, $W(\Phi)$と$W'$は同型である.
-\end{proof}
 
 
 \section{ルート系の例}
@@ -2733,6 +2658,92 @@ v_-&=
   $\Delta$のとり方によらず,
   $\numof{\Delta}=\rank(\Phi)$
 \end{remark}
+
+\section{単純系の全単射}
+\begin{prop}
+  $\alpha\neq\zzero$に対し, $\bar\alpha=\frac{1}{\|\alpha\|}\alpha$とおく.
+  $V$を$n$次元ユークリッド空間,
+  $\Phi$を$V$上のルート系,
+  $\Delta$を$\Phi$の単純系とする.
+  $\bar\Phi=\Set{\bar\alpha|\alpha\in\Phi}$,
+  $\bar\Delta=\Set{\bar\alpha|\alpha\in\Delta}$とおく.
+  $V'$を$n'$次元ユークリッド空間,
+  $\Phi'$を$V'$上のルート系,
+  $\Delta'$を$\Phi'$の単純系とする.
+  $\bar\Phi'=\Set{\bar\alpha|alpha\in\Phi'}$,
+  $\bar\Delta'=\Set{\bar\alpha|alpha\in\Delta'}$とおく.
+  $f\colon \Delta \to \Delta'$は全単射であるとする.
+  $\bar\alpha\in \bar\Phi$に対し,
+  $\bar f(\bar\alpha)=\overline{f(\alpha)}$とし,
+  $\bar f\colon V\to V'$を$\bar f(\sum_{\delta\in\bar\Delta}c_\delta \delta)=\sum_{\delta\in\bar\Delta}c_\delta \bar f(\delta)$
+  で定義する.
+  任意の$\alpha,\beta\in \bar\Phi$に対し$\Braket{f(\alpha),f(\beta)}=\Braket{\alpha,\beta}$となることを仮定する.
+  また, $\Set{\bar f(\alpha)|\alpha\in\bar\Phi}=\bar\Phi'$も仮定する.
+  このとき, $W(\Phi)$と$W(\Phi')$は群として同型である.
+\end{prop}
+\begin{proof}
+  $\hat U=\Set{t(\alpha)|\alpha\in V}$とおき, $\check U=\hat U^\perp$とする.
+  このとき, $U=\hat U \oplus \check U$である.
+  $\Phi'\subset \hat U$である.
+  
+  \Cref{lem:subsp:refl}より,
+  $\beta\in\bar\Phi'$に対し,
+  $\hat s_\beta\colon \hat U \to \hat U$
+  を$\hat s_\beta(\gamma)= s_\beta(\gamma)$で定義すると,
+  $\beta$に関する$U$上の鏡映変換である.
+  したがって$U$上の全単射である.
+  また, $\gamma\in \check U$に対して, $s_\beta (\gamma)=\gamma$である.
+  $w\in W(\Psi)$は,
+  $\beta_i\in \Psi$を用いて,
+  $w=s_{\beta_1}\cdots s_{\beta_l}$とかけるので,
+  $\hat w\colon \check U\to \check U$
+  を$\hat w(\gamma)= w(\gamma)$で定義すると,
+  全単射である.
+  また, $\gamma\in\check U$に対して, $w(\gamma)$である.
+
+  $\hat W=\Set{\hat w|w\in W(\Psi)}$とおく.
+  このとき,
+  $g\colon W(\Phi) \to W'$を,
+  $g(w)=\hat w$で定義すると,
+  明らかに全射である.
+  $\hat w=\hat v$とすると,
+  $\gamma\in \hat U$に対し,
+  $w(\gamma)=v(\gamma)$である.
+  また$\gamma\in \check U$に対し,
+  $w(\gamma)=\gamma=v(\gamma)$である.
+  したがって, $w=v$であるので, $g$は単射でもある.
+  $g(wv)=g(w)g(v)$を満たすことは定義から明らかなので,
+  $\hat W$は$W$と同型である.
+
+  
+  また, $\hat t\colon V \to \hat U$を$\hat t(\alpha)=t(\alpha)$で定義すると,
+  $\hat t$は内積を保存し, 全単射である.
+  $w\in W(\Phi)$に対し,
+  $\hat t w \hat t^{-1}\colon \hat U \to \hat U$を,
+  $h(w)$とおく.
+  $w\in W(\Phi)$に対し,
+  $w=s_{\alpha_1}\cdots s_{\alpha_l}$をみたす$\alpha_i\in\Phi$がとれるが,
+  \cref{prop:conjbyortho}から
+  \begin{align*}
+    h(w)&=h(s_{\alpha_1}\cdots s_{\alpha_l})\\
+    &=\hat t(s_{\alpha_1}\cdots s_{\alpha_l} \hat t^{-1}\\
+    &=(\hat t(s_{\alpha_1} \hat t^{-1})\cdots (\hat t(s_{\alpha_l} \hat t^{-1})\\
+    &=\hat s_{t(\alpha_1)}\cdots \hat s_{t(\alpha_l)} 
+  \end{align*}
+  となるので, $h(w)\in W(\Psi)$である.
+  したがって, $h$は$W(\Phi)$から$W'$への写像であるが,
+  $W(\Psi)=\Braket{R(\Psi)}_\ZZ$であるので,
+  全射である.
+  また $h(w)=h(u)$とすると,
+  \begin{align*}
+    \hat t w \hat t^{-1}&=\hat t u \hat t^{-1}\\
+  \hat t^{-1}  \hat t w \hat t^{-1}\hat t&=\hat t^{-1}\hat t u \hat t^{-1}\hat t\\
+    w=u
+  \end{align*}
+  となるので, 単射である.
+  また$h(wu)=\hat t w u\hat t^{-1}=\hat t w \hat t^{-1}\hat t u \hat t^{-1}=h(w)h(u)$
+  であるので, $W(\Phi)$と$W'$は同型である.
+\end{proof}
 
 
 \chapter{転倒数}
