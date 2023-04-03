@@ -4730,7 +4730,7 @@ $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していく�
 \end{prop}
 
 
-\section{$I_2(m)$}
+\section{例}
 \subsection{$I_2(m)$}
 $\Phi=\Phi(I_2(m))$とし,
 \cref{ex:i2m:simple}で考えた単純系$\Delta$を考える.
@@ -4869,4 +4869,15 @@ $m$が奇数なら,
 \end{align*}
 である.
 
-
+\subsection{$A_{1}\times\cdots\times A_{1}$}
+\label{ex:a1n:inversion}
+\cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
+$W(\Phi)=\Set{\diag(a_1,\ldots,a_n)|a_i\in \ZZ^\times}$である.
+$\diag(a_1,\ldots,a_n)\diag(b_1,\ldots,b_n)=\diag(a_1b_1,\ldots,a_nb_n)=\diag(b_1,\ldots,b_n)\diag(a_1,\ldots,a_n)$
+であるので, $W(\Phi)$は可換群である.
+したがって, $w,u\in W(\Phi)$に対し, 次は同値である:
+\begin{enumerate}
+  \item $u\leftleq w$.
+  \item $u\rightleq w$.
+  \item $u\strongleq w$.
+\end{enumerate}
