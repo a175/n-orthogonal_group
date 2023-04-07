@@ -162,35 +162,167 @@ $\sum_{x\in X}f(x)$という表記を用いる.
 
 
 \section{群について}
-対称群, 互換, 隣接互換
-群の定義
-同型
-$\ZZ^{\times}$ $(\ZZ^{\times})^n$ 生成系
-生成系
-位数.
+ここでは, $[n]=\Set{1,2,\ldots,n}$とする.
+\begin{align*}
+  S_n=\Set{\sigma\colon [n] \to [n] | \text{$\sigma$は全単射}}    
+\end{align*}
+とおき, $n$次対称群と呼ぶ.
+$S_n$の元を$[n]$上の置換とか順列と呼ぶ.
+$\sigma,\tau\in S_n$に対し,
+合成写像$\sigma\circ \tau$を
+$\sigma\tau$と書くことにする.
+$\sigma\tau$も$S_n$の元である.
+また,
+$\sigma,\tau,\nu\in S_n$に対し,
+$(\sigma\tau)\nu=\sigma(\tau\nu)$が成り立つ.
+$[n]$上の恒等写像を$\varepsilon$とここでは書くことにする.
+$\varepsilon \in S_n$である.
+また, 任意の$\sigma\in S_n$に対し,
+$\sigma\varepsilon=\varepsilon\sigma=\sigma$
+が成り立つ.
+$\sigma\in S_n$に対し, $\sigma$の逆写像$\sigma^{-1}$も$S_n$の元である.
+$\sigma^{-1}\sigma=\sigma\sigma^{-1}=\varepsilon$
+が成り立つ.
+これらの構造を抽象化したものが群である.
+\begin{definition}
+  $G$を集合とする.
+  $\bullet\cdot\bullet$を$G$上の二項演算とする.
+  つまり, $g,h\in G$に対し, $g\cdot h \in G$が定まっているとする.
+  $e\in G$とする.
+  $\bullet^{-1}$を$G$上の単項演算とする.
+  つまり, $g\in G$に対し, $g^{-1}\in G$が定まっているとする.
+  次の条件を満たすとき,
+  $(G,\bullet\cdot\bullet,e,\bullet^{-1})$を群と呼ぶ:
+  \begin{enumerate}
+    \item $g,h,k\in G\implies g\cdot(h\cdot k)=(g\cdot h)\cdot k$.
+    \item $g \in G\implies g\cdot e=e\cdot g = g$.
+    \item $g \in G\implies g^{-1}\cdot g=g\cdot g^{-1} = e$.
+  \end{enumerate}
+  $e$を$G$の単位元と呼ぶ. $g\in G$に対し, $g^{-1}$を$g$の逆元と呼ぶ.
+  $(G,\bullet\cdot\bullet,e,\bullet^{-1})$が群であることを,
+  単に$G$が群であるということもある.
+\end{definition}
+\begin{definition}
+  群$(G,\bullet\cdot\bullet,e,\bullet^{-1})$が次の条件を満たすとき,
+  $(G,\bullet\cdot\bullet,e,\bullet^{-1})$は可換群であるという:
+  \begin{align*}
+    g,h\in G\implies g\cdot h=h\cdot g. 
+  \end{align*}
+\end{definition}
+\begin{definition}
+  $G$が有限集合であるとき,
+  群$(G,\bullet\cdot\bullet,e,\bullet^{-1})$は有限群であるという.
+  $G$が有限群であるとき,
+  $|G|$で$G$に含まれる元の総数を表す.
+  $G$が有限群でないとき,
+  $|G|=\infty$と書く.
+  $|G|$のことを$G$の位数と呼ぶ.
+\end{definition}
 
+$S_n$は群である.
+\begin{align*}
+  \ZZ^{\times}=\Set{1,-1}
+\end{align*}
+とおく. このとき, $\ZZ^{\times}$は通常の掛け算で群となる.
+$\ZZ^{\times}$の単位元は$1$である.
+$a\in \ZZ^{\times}$の逆元は$\frac{1}{a}=a$である.
+\begin{align*}
+  (\ZZ^{\times})^{n}=\Set{(a_1,\ldots, a_n)|a_n\in \ZZ^{\times}}
+\end{align*}
+とおく. $(a_1,\ldots, a_n)(b_1,\ldots, b_n)=(a_1b_1,\ldots, a_nb_n)$と定めると,
+$(\ZZ^{\times})^{n}$は群である.
+$(1,\ldots, 1)$が$(\ZZ^{\times})^{n}$の単位元.
+$a\in \ZZ^{\times}$の逆元は$a$自身である.
+
+
+\begin{definition}
+  $(G_1,\bullet\cdot\bullet,e_1,\bullet^{-1})$,
+  $(G_2,\bullet\circ\bullet,e_2,\bullet^{\underline{-1}})$
+  が群であるとする.
+  次の条件を満たすとき,
+  $f$は
+  $(G_1,\bullet\cdot\bullet,e_1,\bullet^{-1})$から
+  $(G_2,\bullet\circ\bullet,e_2,\bullet^{\underline{-1}})$
+  への群準同型写像であるという:
+  \begin{enumerate}
+  \item $f$は$G_1$から$G_2$への写像.
+  \item $g,h\in G_1\implies f(g\cdot h)=f(g)\circ f(h)$.
+  \end{enumerate}
+  $f$が全単射であるとき\footnote{}
+  $f$を群同型写像と呼び,
+  $(G_1,\bullet\cdot\bullet,e_1,\bullet^{-1})$と
+  $(G_2,\bullet\circ\bullet,e_2,\bullet^{\underline{-1}})$
+  は群として同型であるという.
+\end{definition}
+
+
+\begin{definition}
+  $(G,\bullet\cdot\bullet,e,\bullet^{-1})$を群とする.
+  $\emptyset \neq S\subset G$に対し,
+  \begin{align*}
+    \Braket{S}_{\ZZ}=\Set{g_1^{i_1}\cdots g_n^{i_n}|n=1,\ldots;i_j\in \ZZ;g_i\in G}
+  \end{align*}
+  とする.
+  ただし,
+  $g\in G$と$k>0$に対し, $g^{k}=\underbrace{g\cdots g}_{k}$,
+  $g^{-k}=(g^{-1})^{k}$, $g^0=e$とする.
+  $\Braket{\emptyset}_{\ZZ}=\Set{e}$と約束する.
+  $\Braket{S}_{\ZZ}$を$S$で生成される$G$の部分群と呼び,
+  $S$を$\Braket{S}_{\ZZ}$の生成系であると呼ぶ.
+\end{definition}
+群$(G,\bullet\cdot\bullet,e,\bullet^{-1})$,
+  $S\subset G$に対し,
+$(\Braket{S}_{\ZZ},\bullet\cdot\bullet,e,\bullet^{-1})$は群である.
+$S\subset S' \subset G$なら,
+$\Braket{S}_\ZZ\subset\Braket{S'}_\ZZ$
+である.
+さらに,
 $S\subset S' \subset \Braket{S}_\ZZ$なら
 $\Braket{S}_\ZZ=\Braket{S'}_\ZZ$
+である.
 
-
-$T_{i,i+k}$は
+$(\ZZ^\times)^n$の部分集合$S$を
 \begin{align*}
-  T_{i,i+2}
-  &=T_{i+1,i+2}T_{i,i+1}(T_{i+1,i+2})^{-1}\\
-  &=T_{i+1,i+2}T_{i,i+1}(T_{i+1,i+2})\\
-  T_{i,i+3}
-  &=T_{i+2,i+3}T_{i,i+2}(T_{i+2,i+3})^{-1}\\
-  &=T_{i+2,i+3}T_{i,i+2}(T_{i+2,i+3})\\
-  T_{i,i+4}
-  &=T_{i+3,i+4}T_{i,i+3}(T_{i+3,i+4})^{-1}\\
-  &=T_{i+3,i+4}T_{i,i+3}(T_{i+3,i+4})\\
-  &\vdots\\
-  T_{i,i+k}
-  &=T_{i+k-1,i+k}T_{i,i+k-1}(T_{i+k-1,i+k})^{-1}\\
-  &=T_{i+k-1,i+k}T_{i,i+k-1}(T_{i+k-1,i+k})\\
+  S=\Set{(-1,1\ldots,1),(1,-1,\ldots,1),(1,1,\ldots,-1)}
 \end{align*}
-とかけるので, 
-$T_{i,k}\in\Braket{S}_\ZZ$である.
+とおくと, $S$は
+$(\ZZ^\times)^n$の生成系である.
+
+
+$\tau_{i,j}\in S_n$
+を
+\begin{align*}
+  \tau_{i,j}(k)=
+  \begin{cases}
+    j&(i=k)\\
+    i&(j=k)\\
+    k&(k\in\Set{i,j})
+  \end{cases}
+\end{align*}
+で定義する.
+$\tau_{i,j}$は$i$と$j$を入れ替える互換と呼ばれる.
+$S=\Set{\tau_{i,j}|1\leq i<j\leq n}$とすると,
+$S$は$S_n$の生成系である.
+$i$と$i+1$を入れ替える互換は隣接互換と呼ばれる.
+\begin{align*}
+  \tau_{i,i+2}
+  &=\tau_{i+1,i+2}\tau_{i,i+1}(\tau_{i+1,i+2})^{-1}\\
+  &=\tau_{i+1,i+2}\tau_{i,i+1}(\tau_{i+1,i+2})\\
+  \tau_{i,i+3}
+  &=\tau_{i+2,i+3}\tau_{i,i+2}(\tau_{i+2,i+3})^{-1}\\
+  &=\tau_{i+2,i+3}\tau_{i,i+2}(\tau_{i+2,i+3})\\
+  \tau_{i,i+4}
+  &=\tau_{i+3,i+4}\tau_{i,i+3}(\tau_{i+3,i+4})^{-1}\\
+  &=\tau_{i+3,i+4}\tau_{i,i+3}(\tau_{i+3,i+4})\\
+  &\vdots\\
+  \tau_{i,i+k}
+  &=\tau_{i+k-1,i+k}\tau_{i,i+k-1}(\tau_{i+k-1,i+k})^{-1}\\
+  &=\tau_{i+k-1,i+k}\tau_{i,i+k-1}(\tau_{i+k-1,i+k})
+\end{align*}
+となるので,
+$\tau_{i,i+k}$は隣接互換の積でかける.
+したがって,
+隣接互換を集めた集合も$S_n$の生成系である.
 
 
 
