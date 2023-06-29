@@ -218,14 +218,20 @@ $\sigma^{-1}\sigma=\sigma\sigma^{-1}=\varepsilon$
   $|G|=\infty$と書く.
   $|G|$のことを$G$の位数と呼ぶ.
 \end{definition}
-
-$S_n$は群である.
+\begin{example}
+  $S_n$は群である.
+  位数$|S_n|$は$n!$であるから,
+  有限群である.
+\end{example}
+\begin{example}
 \begin{align*}
   \ZZ^{\times}=\Set{1,-1}
 \end{align*}
 とおく. このとき, $\ZZ^{\times}$は通常の掛け算で群となる.
 $\ZZ^{\times}$の単位元は$1$である.
 $a\in \ZZ^{\times}$の逆元は$\frac{1}{a}=a$である.
+\end{example}
+\begin{example}
 \begin{align*}
   (\ZZ^{\times})^{n}=\Set{(a_1,\ldots, a_n)|a_n\in \ZZ^{\times}}
 \end{align*}
@@ -233,16 +239,17 @@ $a\in \ZZ^{\times}$の逆元は$\frac{1}{a}=a$である.
 $(\ZZ^{\times})^{n}$は群である.
 $(1,\ldots, 1)$が$(\ZZ^{\times})^{n}$の単位元.
 $a\in \ZZ^{\times}$の逆元は$a$自身である.
+\end{example}
 
 
 \begin{definition}
-  $(G_1,\bullet\cdot\bullet,e_1,\bullet^{-1})$,
-  $(G_2,\bullet\circ\bullet,e_2,\bullet^{\underline{-1}})$
+  $(G_1,\bullet\cdot\bullet,e_1,(\bullet)^{-1})$,
+  $(G_2,\bullet\circ\bullet,e_2,[\bullet]^{-1})$
   が群であるとする.
   次の条件を満たすとき,
   $f$は
-  $(G_1,\bullet\cdot\bullet,e_1,\bullet^{-1})$から
-  $(G_2,\bullet\circ\bullet,e_2,\bullet^{\underline{-1}})$
+  $(G_1,\bullet\cdot\bullet,e_1,(\bullet)^{-1})$から
+  $(G_2,\bullet\circ\bullet,e_2,[\bullet]^{-1})$
   への群準同型写像であるという:
   \begin{enumerate}
   \item $f$は$G_1$から$G_2$への写像.
@@ -250,8 +257,8 @@ $a\in \ZZ^{\times}$の逆元は$a$自身である.
   \end{enumerate}
   $f$が全単射であるとき\footnote{}
   $f$を群同型写像と呼び,
-  $(G_1,\bullet\cdot\bullet,e_1,\bullet^{-1})$と
-  $(G_2,\bullet\circ\bullet,e_2,\bullet^{\underline{-1}})$
+  $(G_1,\bullet\cdot\bullet,e_1,(\bullet)^{-1})$と
+  $(G_2,\bullet\circ\bullet,e_2,[\bullet]^{-1})$
   は群として同型であるという.
 \end{definition}
 
@@ -281,14 +288,16 @@ $S\subset S' \subset \Braket{S}_\ZZ$なら
 $\Braket{S}_\ZZ=\Braket{S'}_\ZZ$
 である.
 
+\begin{example}
 $(\ZZ^\times)^n$の部分集合$S$を
 \begin{align*}
   S=\Set{(-1,1\ldots,1),(1,-1,\ldots,1),(1,1,\ldots,-1)}
 \end{align*}
 とおくと, $S$は
 $(\ZZ^\times)^n$の生成系である.
+\end{example}
 
-
+\begin{example}
 $\tau_{i,j}\in S_n$
 を
 \begin{align*}
@@ -323,6 +332,7 @@ $i$と$i+1$を入れ替える互換は隣接互換と呼ばれる.
 $\tau_{i,i+k}$は隣接互換の積でかける.
 したがって,
 隣接互換を集めた集合も$S_n$の生成系である.
+\end{example}
 
 
 
@@ -381,6 +391,8 @@ $\sum_{\delta\in\Delta}$
 $\sigma\in S_n$
 
 $\tau\in S_n$
+
+\sectionX{章末問題}
 
 \chapter{鏡映}
 
@@ -883,14 +895,15 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
 \begin{cor}
   $A$は$n$次正方行列とし, 鏡映であるとする.
   このとき,
-  \begin{align*}
-    A^2&=E_n,\\
-    \transposed{A}A&=E_n,\\
-    A&=A^{-1}=\transposed{A},\\
-    \exists P &\text{ such that } PAP^{-1}=\diag(1,\ldots,1,-1),\\
-    \det(tE_n-A)=(t+1)(t-1)^{n-1},\\
-    \det(A)&=-1.
-  \end{align*}
+  次が成り立つ:
+  \begin{enumerate}
+  \item $A^2=E_n$.
+  \item $\transposed{A}A=E_n$.
+  \item $A=A^{-1}=\transposed{A}$.
+  \item $\det(tE_n-A)=(t+1)(t-1)^{n-1}$.
+  \item $\det(A)=-1$.
+  \item $\exists P \text{ such that } PAP^{-1}=\diag(1,\ldots,1,-1)$.
+  \end{enumerate}
 \end{cor}
 
 
@@ -1000,6 +1013,7 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
   鏡映ではない.
 \end{example}
 
+\sectionX{章末問題}
 
 \chapter{有限鏡映群}
 
@@ -1574,6 +1588,7 @@ $W$は本質的である.
   $F_{k}F_{l}\alpha \neq \alpha$である.
 \end{proof}
 
+\sectionX{章末問題}
 
 \chapter{ルート系}
 \section{ルート系の定義と例}
@@ -2047,6 +2062,7 @@ $\alpha\in\Phi$に対し, $\RR\alpha\cap\Phi=\Set{\alpha,-\alpha}$であり,
 $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
 このルート系を$\Phi(G_2)$と書く.
 
+\sectionX{章末問題}
 
 \chapter{Simple system}
 \section{simple system}
@@ -2639,6 +2655,7 @@ $\Delta$は$\Phi$の単純系である.
 \end{align*}
 である.
 
+\sectionX{章末問題}
 
 \chapter{Simple systemの性質}
 \section{Simple systemの存在}
@@ -3056,6 +3073,7 @@ $\Braket{\alpha_0,\alpha_5}=\cos(\frac{5\pi}{6})=-\frac{\sqrt{3}}{2}$
 $\Set{t(\alpha)|\alpha\in\Phi}=\Set{\bar\alpha|\alpha\in \Phi'}$であることはわかる.
 したがって, $W(\Phi)$と$W(\Phi')$は同型である.
 
+\sectionX{章末問題}
 
 \chapter{転倒数}
 \section{転倒数}
@@ -3805,6 +3823,7 @@ s_{\gamma_{1}}(-\gamma_3)&=\gamma_{2}
 \end{align*}
 であり, どれも$\Phi_\Delta^+$の元である.
 
+\sectionX{章末問題}
 
 \chapter{高さ関数}
 \section{高さ関数}
@@ -4319,6 +4338,7 @@ $\Phi=\Phi(G_2)$とし,
 \end{align*}
 であることがわかる.
 
+\sectionX{章末問題}
 
 \chapter{長さ関数}
 
@@ -4749,7 +4769,7 @@ $\ee_\Delta(R_{M})=\ee_\Delta(R_{M})=m$がなりたつので,
 この元が最長である.
 
 \subsection{$A_{1}\times\cdots\times A_{1}$}
-\cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
+\Cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
 \Cref{ex:a1n:inversion}での議論から,
 $w=\diag(a_1,\ldots,a_n)\in W(\Phi)$に対し,
 $n_{\Phi_\Delta^+}(w)=\numof{\Set{i|a_i=-1}}$であった.
@@ -4857,6 +4877,7 @@ s's(-\gamma_3)&=s'(-\gamma_{3})=\gamma_2
 となるので,
 $(s's)^3$が最長元である.
 
+\sectionX{章末問題}
 
 \chapter{Bruhat order}
 \section{Bruhat order}
@@ -5096,7 +5117,7 @@ $m$が奇数なら,
 である.
 
 \subsection{$A_{1}\times\cdots\times A_{1}$}
-\label{ex:a1n:inversion}
+%\label{ex:a1n:inversion}
 \cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
 $W(\Phi)=\Set{\diag(a_1,\ldots,a_n)|a_i\in \ZZ^\times}$である.
 $\diag(a_1,\ldots,a_n)\diag(b_1,\ldots,b_n)=\diag(a_1b_1,\ldots,a_nb_n)=\diag(b_1,\ldots,b_n)\diag(a_1,\ldots,a_n)$
@@ -5107,3 +5128,5 @@ $\diag(a_1,\ldots,a_n)\diag(b_1,\ldots,b_n)=\diag(a_1b_1,\ldots,a_nb_n)=\diag(b_
   \item $u\rightleq w$.
   \item $u\strongleq w$.
 \end{enumerate}
+
+\sectionX{章末問題}
