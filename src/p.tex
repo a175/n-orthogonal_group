@@ -2204,6 +2204,8 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
       \item $c>0$かつ$c'>0$; または
       \item $c<0$かつ$c'<0$.
     \end{enumerate}
+  \item $\Set{c\alpha_0+c'\alpha_{m-1}\in \Phi|c>0,c'>0}$を求めよ.
+  \item $\Set{c\alpha_0+c'\alpha_{m-1}\in \Phi|c<0,c'<0}$を求めよ.
   \end{enumerate}
 \item
   \Cref{ex:an:root}と同じ記号を用い,
@@ -2222,6 +2224,8 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
       \item $c>0$かつ$c'>0$; または
       \item $c<0$かつ$c'<0$.
     \end{enumerate}
+  \item $\Set{c\alpha_{1,2}+c'\alpha_{2,3}\in \Phi|c>0,c'>0}$を求めよ.
+  \item $\Set{c\alpha_{1,2}+c'\alpha_{2,3}\in \Phi|c<0,c'<0}$を求めよ.
   \end{enumerate}
 \end{enumerate}
 
@@ -2820,16 +2824,17 @@ $\Delta$は$\Phi$の単純系である.
 \sectionX{章末問題}
 \begin{enumerate}
 \item
-  \Cref{ex:an:simple}と同じ記号を用い,
-  $\Phi=\Phi(A_{2})$について考える.
+  $\Phi=\Phi(I_2(3))$,
+  $\Phi'=\Phi(A_2)$とする.
   このとき,
-  $D_{2\cdot m}=\Braket{s_{\eta_1},s_{\eta_2}}_\ZZ$を示せ.
-\item
-  $m$を整数とし,
-  \Cref{ex:i2m:simple}と同じ記号を用いる.
-  このとき,
-  $\Set{A_\sigma|\sigma\in S_3}=\Braket{s_{\alpha_{1,2}},s_{\alpha_{2,3}}}_\ZZ$を示せ.
+  次の条件をみたす$t\colon \RR^2\to \RR^3$を与えよ:
+  \begin{enumerate}
+    \item 任意の$\alpha,\beta\in \RR^2$に対し, $\Braket{\alpha,\beta}=\Braket{t(\alpha),t(\beta)}$.
+    \item $\alpha\in\Phi$に対し, $ t(\sqrt{2}\alpha)\in \Phi'$.
+  \end{enumerate}
+\item $D_{2\cdot m}$と$\Set{A_\sigma|\sigma\in S_3}$が同型であることを示せ.
 \end{enumerate}
+
 \chapter{Simple systemの性質}
 \section{Simple systemの存在}
 $\Phi$をルート系とする.
@@ -3247,6 +3252,25 @@ $\Set{t(\alpha)|\alpha\in\Phi}=\Set{\bar\alpha|\alpha\in \Phi'}$であること�
 したがって, $W(\Phi)$と$W(\Phi')$は同型である.
 
 \sectionX{章末問題}
+\begin{enumerate}
+\item
+  $m$を整数とし,
+  \Cref{ex:i2m:simple}と同じ記号を用いる.
+  $\Phi^+=\Set{\alpha_i|i\in\Set{0,\ldots,m-1}}$とする.
+  整数$i$に対し次を求めよ:
+  \begin{enumerate}
+  \item $\Set{\alpha\in \Phi^+| P_i\alpha\not\in \Phi^+}$.
+  \item $\Set{\alpha\in \Phi^+| R_i\alpha\not\in \Phi^+}$.
+  \end{enumerate}
+\item
+  $\Phi^+=\Set{\ee_1-\ee_2,\ee_2-\ee_3,\ee_1-\ee_3}$
+  とする.
+  各
+  $\sigma\in S_3$
+  に対し,
+  $\Set{\alpha\in \Phi^+|A_\sigma \alpha \not\in \Phi^{+}}$を求めよ.
+\end{enumerate}
+
 
 \chapter{転倒数}
 \section{転倒数}
@@ -3582,7 +3606,7 @@ $\Phi=\Phi(I_2(m))$とし,
 \cref{ex:i2m:simple}で考えた単純系$\Delta$を考える.
 $\Delta=\Set{\alpha_0,\alpha_{m-1}}$,
 $\Phi_\Delta^+=\Set{\alpha_i|i\in\Set{0,\ldots,m-1}}$,
-$\Phi_\Delta^+=\Set{\alpha_{m+i}|i\in\Set{0,\ldots,m-1}}$であった.
+$\Phi_\Delta^-=\Set{\alpha_{m+i}|i\in\Set{0,\ldots,m-1}}$であった.
 また, $P_i=s_{\alpha_{i}}$であるが,
 \begin{align*}
 P_0\alpha_i&=\alpha_{m-i},\\
@@ -3997,6 +4021,18 @@ s_{\gamma_{1}}(-\gamma_3)&=\gamma_{2}
 であり, どれも$\Phi_\Delta^+$の元である.
 
 \sectionX{章末問題}
+\begin{enumerate}
+\item
+  \Cref{ex:an:simple}と同じ記号を用い,
+  $\Phi=\Phi(A_{2})$について考える.
+  このとき,
+  $D_{2\cdot m}=\Braket{s_{\eta_1},s_{\eta_2}}_\ZZ$を示せ.
+\item
+  $m$を整数とし,
+  \Cref{ex:i2m:simple}と同じ記号を用いる.
+  このとき,
+  $\Set{A_\sigma|\sigma\in S_3}=\Braket{s_{\alpha_{1,2}},s_{\alpha_{2,3}}}_\ZZ$を示せ.
+\end{enumerate}
 
 \chapter{高さ関数}
 \section{高さ関数}
@@ -4126,7 +4162,7 @@ $P_0P_{m-1}=R_{1-m}=R_1$である.
 また, $R_i=(R_1)^i$であり, $P_i=R_iP_0$であるから,
 $P_i$, $R_i$はいずれも, $S$の元の積として書ける.
 つまり
-$D_{2\cdots m}=\Braket{S}_\ZZ$
+$D_{2\cdot m}=\Braket{S}_\ZZ$
 である.
 
 \begin{align*}
@@ -4512,6 +4548,21 @@ $\Phi=\Phi(G_2)$とし,
 であることがわかる.
 
 \sectionX{章末問題}
+\begin{enumerate}
+\item
+  $D_{2\cdot m}$について考える.
+  \begin{enumerate}
+  \item
+    $\min\Set{l|P_i=S_1S_2\cdots S_l, S_i\in \Set{P_1,P_{m-1}}}$
+    を求めよ.
+  \item
+    $\min\Set{l|R_i=S_1S_2\cdots S_l, S_i\in \Set{P_1,P_{m-1}}}$
+    を求めよ.
+  \end{enumerate}
+\item 各$\sigma\in S_n$に対し,
+    $\min\Set{l|A_\sigma=S_1S_2\cdots S_l, S_i\in \Set{T_{1,2},T_{2,3}}}$
+    を求めよ.  
+\end{enumerate}
 
 \chapter{長さ関数}
 
@@ -5051,6 +5102,24 @@ s's(-\gamma_3)&=s'(-\gamma_{3})=\gamma_2
 $(s's)^3$が最長元である.
 
 \sectionX{章末問題}
+\begin{enumerate}
+\item 
+$\Phi=\Phi(A_{2})$とし,
+\cref{ex:an:simple}の単純系$\Delta$を用いる.
+$W=W(\Phi)$とする.
+  各$i$に対し, $\Set{A_\sigma\in W|\ell_\Delta(A_\sigma)=i}$を求めよ.
+\item 
+$\Phi=\Phi(A_{2})$とし,
+\cref{ex:an:simple}の単純系$\Delta$を用いる.
+\begin{enumerate}
+\item 各$\sigma\in S_3$に対し,
+  $\Set{\delta\in \Delta|\ell_\Delta(A_\sigma s_\delta)>\ell_\Delta(A_\sigma)}$を求めよ.
+\item 各$\sigma\in S_3$に対し,
+  $\Set{\delta\in \Delta|\ell_\Delta(s_\delta A_\sigma)>\ell_\Delta(A_\sigma)}$を求めよ.
+\end{enumerate}
+
+\end{enumerate}
+
 
 \chapter{Bruhat order}
 \section{Bruhat order}
@@ -5168,6 +5237,7 @@ $W_l=\Set{w\in W|\ell_\Delta(w)=l}$とすると,
 \end{align*}
 であるが, $\ell_\Delta(u)+1=\ell_\Delta(w)$かつ$u \rightleq w$となるところに
 線を引いたものを考える.
+これを, $\rightleq$のHasse図と呼ぶ.
 $m$が偶数のときは, 次のようになる:
 \begin{align*}
   \begin{array}{clccccclc}
@@ -5291,9 +5361,16 @@ $m$が奇数なら,
 
 \subsection{$A_{1}\times\cdots\times A_{1}$}
 %\label{ex:a1n:inversion}
-\cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
-$W(\Phi)=\Set{\diag(a_1,\ldots,a_n)|a_i\in \ZZ^\times}$である.
-$\diag(a_1,\ldots,a_n)\diag(b_1,\ldots,b_n)=\diag(a_1b_1,\ldots,a_nb_n)=\diag(b_1,\ldots,b_n)\diag(a_1,\ldots,a_n)$
+\Cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
+\begin{align*}
+  W(\Phi)=\Set{\diag(a_1,\ldots,a_n)|a_i\in \ZZ^\times}
+\end{align*}
+である.
+\begin{align*}
+  \diag(a_1,\ldots,a_n)\diag(b_1,\ldots,b_n)
+  &=\diag(a_1b_1,\ldots,a_nb_n)\\
+  &=\diag(b_1,\ldots,b_n)\diag(a_1,\ldots,a_n)
+\end{align*}
 であるので, $W(\Phi)$は可換群である.
 したがって, $w,u\in W(\Phi)$に対し, 次は同値である:
 \begin{enumerate}
@@ -5301,5 +5378,18 @@ $\diag(a_1,\ldots,a_n)\diag(b_1,\ldots,b_n)=\diag(a_1b_1,\ldots,a_nb_n)=\diag(b_
   \item $u\rightleq w$.
   \item $u\strongleq w$.
 \end{enumerate}
+$W(\Phi)$の元$\diag(a_1,\ldots,a_n)$に対し,
+$\Set{i |a_i=1}$を対応させる写像$f$を考えると,
+$f$は$W(\Phi)$から$2^{\Set{1,\ldots,n}}$への全単射である.
+また
+$u\strongleq w$であることと$f(u)\subset f(w)$が同値である.
+
+
 
 \sectionX{章末問題}
+\begin{enumerate}
+  \item $W(\Phi(A_1\times A_1\times A_1))$に関し, $\strongleq$のHasse図をかけ.
+  \item $W(\Phi(A_2))$に関し, $\strongleq$のHasse図をかけ.
+  \item $W(\Phi(A_2))$に関し, $\rightleq$のHasse図をかけ.
+  \item $W(\Phi(A_2))$に関し, $\leftleq$のHasse図をかけ.
+\end{enumerate}
