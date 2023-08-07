@@ -105,7 +105,7 @@ $v$のことを
 固有値$\lambda$に属する固有ベクトルを集めた集合と$\Set{\zzero}$の和集合は,
 ベクトル空間になる.
 これを固有値$\lambda$に属する固有空間と呼ぶ.
-相異なる固有値に属する固有ベクトルは直行する.
+相異なる固有値に属する固有ベクトルは一次独立である.
 $A$の固有値は$\det(A-tE_n)=0$の根である.
 $n$次正方行列$A$に対し,
 $n$個の一次独立な固有ベクトルが取れることと,
@@ -119,7 +119,8 @@ $\transposed{A}=A^{-1}$を満たすとき$A$を直交行列と呼ぶ.
 $A$が直交行列であることと,
 $A$の列ベクトルが$V$の正規直交基底であることが同値である.
 直交行列の固有値は$1$か$-1$である.
-
+また,
+相異なる固有値に属する固有ベクトルは直交する.
 
 
 $V$と$W$をそれぞれベクトル空間とする.
@@ -393,6 +394,71 @@ $\sigma\in S_n$
 $\tau\in S_n$
 
 \sectionX{章末問題}
+\begin{enumerate}
+  \item
+  $\theta$を実数とする.
+  $P$, $\alpha$, $\beta$を次で定義する.
+  \begin{align*}
+    P&=
+    \begin{pmatrix}
+      \cos(2\theta) & \sin(2\theta) \\
+      \sin(2\theta) & -\cos(2\theta) 
+    \end{pmatrix},&
+    \alpha
+    &=
+    \begin{pmatrix}
+      \sin(\theta) \\
+      \cos(\theta) 
+    \end{pmatrix},&
+    \beta
+    &=
+    \begin{pmatrix}
+      \cos(\theta)\\
+      -\sin(\theta) 
+    \end{pmatrix}.
+  \end{align*}
+  \begin{enumerate}
+  \item $P$が直交行列であることを示せ.
+  \item $\alpha$は$P$の固有ベクトルであることを示せ.
+  \item $\beta$は$P$の固有ベクトルであることを示せ.
+  \end{enumerate}
+\item
+  $S_1$, $S_2$を次で定義する.
+  \begin{align*}
+    S_1&=
+    \begin{pmatrix}
+      0&1&0\\
+      1&0&0\\
+      0&0&1
+    \end{pmatrix},&
+    S_2&=
+    \begin{pmatrix}
+      1&0&0\\
+      0&0&1\\
+      0&1&0
+    \end{pmatrix}.
+  \end{align*}
+  \begin{enumerate}
+  \item $S_1$, $S_2$が直交行列であることを示せ.
+  \item $\ee_1-\ee_2$は$S_1$の固有ベクトルであることを示せ.
+  \item $S_1$, $S_2$の固有値および固有空間を求めよ.
+  \end{enumerate}
+\item
+  $0<\theta<\pi$とする.
+  $R$を次で定義する.
+  \begin{align*}
+    R&=
+    \begin{pmatrix}
+      \cos(2\theta) & -\sin(2\theta) \\
+      \sin(2\theta) & \cos(2\theta) 
+    \end{pmatrix}.
+  \end{align*}
+  \begin{enumerate}
+  \item $R$が直交行列であることを示せ.
+  \item $R$は実数の固有値を持たないことを示せ.
+  \end{enumerate}
+\end{enumerate}
+
 
 \chapter{鏡映}
 
@@ -539,7 +605,7 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
 であるので,
 \begin{align*}
   P_{2\theta}\alpha(\theta) &= - \alpha(\theta),\\
-  P_{2\theta}(c\alpha(\theta+\frac{\pi}{2})) &= c\alpha_(\theta+\frac{\pi}{2})
+  P_{2\theta}(c\alpha(\theta+\frac{\pi}{2})) &= c\alpha(\theta+\frac{\pi}{2})
 \end{align*}
 を示せばよいが, これらは直接, 計算することで確かめることができる.
 \end{example}
@@ -990,13 +1056,13 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
   \begin{align*}
     A_\sigma A_\sigma\alpha
     &= A_\sigma A_\sigma (\ee_{i_1}-\ee_{i_2})\\
-    &= A_\sigma(\ee{\sigma(i_1)}-\ee{\sigma(i_2)})\\
-    &= \ee{\sigma\sigma(i_1)}-\ee{\sigma\sigma(i_2)}
+    &= A_\sigma(\ee_{\sigma(i_1)}-\ee_{\sigma(i_2)})\\
+    &= \ee_{\sigma\sigma(i_1)}-\ee_{\sigma\sigma(i_2)}
   \end{align*}
   である. 鏡映は二乗すると単位行列となるので,
-  $\ee{\sigma\sigma(i_1)}-\ee{\sigma\sigma(i_1)}\neq \alpha$ならば,
+  $\ee_{\sigma\sigma(i_1)}-\ee_{\sigma\sigma(i_1)}\neq \alpha$ならば,
   $A_\sigma$は鏡映ではない.
-  $\ee{\sigma\sigma(i_1)}-\ee{\sigma\sigma(i_2)}=\ee{i_1}-\ee{i_2}$と仮定する.
+  $\ee_{\sigma\sigma(i_1)}-\ee_{\sigma\sigma(i_2)}=\ee_{i_1}-\ee_{i_2}$と仮定する.
   このとき, $i_2=i_1$である.
   したがって,  $A_\sigma \alpha = -\alpha$である.
   ここで,
@@ -1014,10 +1080,41 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
 \end{example}
 
 \sectionX{章末問題}
-
+\begin{enumerate}
+\item
+  実数$\theta, \tau$に対し, 次を示せ:
+  \begin{enumerate}
+  \item
+    $R_\theta R_\tau=R_{\theta+\tau}$.
+  \item
+    $P_\theta P_\tau=R_{\theta-\tau}$.
+  \item
+    $P_\theta R_\tau=P_{\theta-\tau}$.
+  \item
+    $R_\theta P_\tau=P_{\theta-\tau}$.
+  \end{enumerate}
+\item
+  $S$を次の$3$次正方行列からなる集合とする:
+  \begin{align*}
+    E_3&=\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix},\\
+    T_{1,2}&=\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix},&
+    T_{2,3}&=\begin{pmatrix}1&0&0\\0&0&1\\0&1&0\end{pmatrix},&
+    T_{1,3}&=\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix},\\
+    A&=\begin{pmatrix}0&1&0\\0&0&1\\1&0&0\end{pmatrix},&
+    A'&=\begin{pmatrix}0&0&1\\1&0&0\\0&1&0\end{pmatrix}.
+  \end{align*}
+  各行各列にちょうど1つの1が現れそれ以外は0である$3$次正方行列を集めた集合である.
+  このとき次を示せ:
+  \begin{enumerate}
+    \item $A=T_{1,2}T_{2,3}$.
+    \item $A'=T_{2,3}T_{1,2}$.
+    \item $T_{1,3}=T_{1,2}T_{2,3}T_{1,2}$.
+    \item $X, Y\in S \implies XY\in S$.
+  \end{enumerate}
+\end{enumerate}
 \chapter{有限鏡映群}
 
-\section{有限鏡映の定義}
+\section{有限鏡映群の定義}
 \begin{definition}
   次の条件をみたすとき, 
   $W$を鏡映群と呼ぶ:
@@ -1589,6 +1686,39 @@ $W$は本質的である.
 \end{proof}
 
 \sectionX{章末問題}
+\begin{enumerate}
+\item 
+  $m$を正の整数とし,
+  \begin{align*}
+    S=\Set{
+      \alpha\left(\frac{i\pi}{m}\right)
+      | i\in\ZZ
+    }
+  \end{align*}
+  とする. $k\in\ZZ$に対し次を示せ:
+  \begin{enumerate}
+    \item $P_{\frac{2k\pi}{m}} \alpha\left(\frac{i\pi}{m}\right)\in S$.
+    \item $R_{\frac{2k\pi}{m}} \alpha\left(\frac{i\pi}{m}\right)\in S$.
+  \end{enumerate}
+\item
+  $S$を次の集合とする.
+  \begin{align*}
+    S=\Set{
+      \ee_1-\ee_2,
+      \ee_2-\ee_1,
+      \ee_1-\ee_3,
+      \ee_3-\ee_1,
+      \ee_2-\ee_3,
+      \ee_3-\ee_2
+    }.
+  \end{align*}
+  $i\neq j$に対し次を示せ:
+  \begin{enumerate}
+    \item $T_{1,2}(\ee_i-\ee_j) \in S$.
+    \item $T_{2,3}(\ee_i-\ee_j) \in S$.
+  \end{enumerate}
+\end{enumerate}
+
 
 \chapter{ルート系}
 \section{ルート系の定義と例}
@@ -2063,6 +2193,38 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
 このルート系を$\Phi(G_2)$と書く.
 
 \sectionX{章末問題}
+\begin{enumerate}
+\item
+  \Cref{ex:i2m:root}と同じ記号を用い,
+  $\Phi=\Phi(I_2(m))$について考える.
+  \begin{enumerate}
+  \item $\Set{\alpha_0,\alpha_{m-1}}$は, $\RR^2$の基底であることを示せ.
+  \item $c\alpha_0+c'\alpha_{m-1}\in \Phi$ならば, 次のいずれかが成り立つことを示せ:
+    \begin{enumerate}
+      \item $c>0$かつ$c'>0$; または
+      \item $c<0$かつ$c'<0$.
+    \end{enumerate}
+  \end{enumerate}
+\item
+  \Cref{ex:an:root}と同じ記号を用い,
+  $\Phi=\Phi(A_2)$について考える.
+  \begin{enumerate}
+  \item
+    $\Set{\alpha_{1,2},\alpha_{2,3}}$は,
+    $\Braket{\ee_1+\ee_2+\ee_3}_{\RR}^{\perp}$
+    の空間の基底であることを示せ.
+  \item
+    $\Braket{\ee_1+\ee_2+\ee_3}_{\RR}^{\perp}=\Braket{\Phi}_\RR$
+    であることを示せ.
+  \item
+    $c\alpha_{1,2}+c'\alpha_{2,3}\in \Phi$ならば, 次のいずれかが成り立つことを示せ:
+    \begin{enumerate}
+      \item $c>0$かつ$c'>0$; または
+      \item $c<0$かつ$c'<0$.
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
 
 \chapter{Simple system}
 \section{simple system}
