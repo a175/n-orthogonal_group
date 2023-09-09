@@ -337,62 +337,6 @@ $\tau_{i,i+k}$は隣接互換の積でかける.
 
 
 
-
-\subsection{記号表}
-\subsubsection{global}
-$S_n$
-
-$()^{\perp}$
-
-$H_\alpha$
-
-$\RR_\alpha$
-
-$\Braket{}_\RR$
-
-$\Braket{}_\ZZ$
-
-$\Braket{,}$
-
-$\|\|$
-
-$\ee_k$ 
-
-$\alpha(\theta)$
-
-$\alpha_i$ for fixed $m$
-
-$\alpha_{i,j}=\ee_i-\ee_j=-\alpha_{j,i}$
-
-$\beta_{i,j}=\ee_i+\ee_j=\beta_{j,i}$
-
-$\varepsilon_k = \ee_k$
-
-$\varepsilon'_k = 2\ee_k = \beta_{k,k}$
-
-$\gamma_k=\sum_j\alpha_{k,j}$
-
-$W(\Phi)$
-
-$R(\Phi)$
-
-\subsubsection{local}
-$\Delta$
-
-$\Phi$
-
-$M(\Phi)$
-
-\subsubsection{temporal}
-
-$\theta$ for $\cos(\theta)$
-
-$\sum_{\delta\in\Delta}$
-
-$\sigma\in S_n$
-
-$\tau\in S_n$
-
 \sectionX{章末問題}
 \begin{enumerate}
   \item
@@ -1110,6 +1054,7 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
     \item $A'=T_{2,3}T_{1,2}$.
     \item $T_{1,3}=T_{1,2}T_{2,3}T_{1,2}$.
     \item $X, Y\in S \implies XY\in S$.
+    \item $X\in S \implies X^{-1}\in S$.
   \end{enumerate}
 \end{enumerate}
 \chapter{有限鏡映群}
@@ -1697,8 +1642,8 @@ $W$は本質的である.
   \end{align*}
   とする. $k\in\ZZ$に対し次を示せ:
   \begin{enumerate}
-    \item $P_{\frac{2k\pi}{m}} \alpha\left(\frac{i\pi}{m}\right)\in S$.
-    \item $R_{\frac{2k\pi}{m}} \alpha\left(\frac{i\pi}{m}\right)\in S$.
+    \item $\alpha\in S\implies P_{\frac{2k\pi}{m}} \alpha\in S$.
+    \item $\alpha\in S\implies R_{\frac{2k\pi}{m}} \alpha\in S$.
   \end{enumerate}
 \item
   $S$を次の集合とする.
@@ -1712,10 +1657,10 @@ $W$は本質的である.
       \ee_3-\ee_2
     }.
   \end{align*}
-  $i\neq j$に対し次を示せ:
+  次を示せ:
   \begin{enumerate}
-    \item $T_{1,2}(\ee_i-\ee_j) \in S$.
-    \item $T_{2,3}(\ee_i-\ee_j) \in S$.
+    \item $\alpha\in S\implies T_{1,2}\alpha \in S$.
+    \item $\alpha\in S\implies T_{2,3}\alpha \in S$.
   \end{enumerate}
 \end{enumerate}
 
@@ -5393,3 +5338,4 @@ $u\strongleq w$であることと$f(u)\subset f(w)$が同値である.
   \item $W(\Phi(A_2))$に関し, $\rightleq$のHasse図をかけ.
   \item $W(\Phi(A_2))$に関し, $\leftleq$のHasse図をかけ.
 \end{enumerate}
+
