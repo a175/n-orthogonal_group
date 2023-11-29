@@ -241,7 +241,22 @@ $(\ZZ^{\times})^{n}$は群である.
 $(1,\ldots, 1)$が$(\ZZ^{\times})^{n}$の単位元.
 $a\in \ZZ^{\times}$の逆元は$a$自身である.
 \end{example}
-
+\begin{example}
+  $n$を正の整数とし,
+  $G$を$n$次正則行列を集めた集合とする.
+  このとき, $G$は行列の積で群となる.
+  $E_n$が$G$の単位元.
+  $A\in G$の逆元は逆行列$A^{-1}$である.
+  $G$は無限群である.
+\end{example}
+\begin{example}
+  $V$を$n$次元ベクトル空間とする.
+  $G$を$V$から$V$への線形写像で全単射であるものを集めた集合とする.
+  このとき, $G$は写像の合成で群となる.
+  $\id_V$が$G$の単位元.
+  $f\in G$の逆元は逆写像$f^{-1}$である.
+  $G$は無限群である.
+\end{example}
 
 \begin{definition}
   $(G_1,\bullet\cdot\bullet,e_1,(\bullet)^{-1})$,
@@ -268,7 +283,7 @@ $a\in \ZZ^{\times}$の逆元は$a$自身である.
   $(G,\bullet\cdot\bullet,e,\bullet^{-1})$を群とする.
   $\emptyset \neq S\subset G$に対し,
   \begin{align*}
-    \Braket{S}_{\ZZ}=\Set{g_1^{i_1}\cdots g_n^{i_n}|n=1,\ldots;i_j\in \ZZ;g_i\in G}
+    \Braket{S}_{\ZZ}=\Set{g_1^{i_1}\cdots g_n^{i_n}|n=1,\ldots;i_j\in \ZZ;g_i\in S}
   \end{align*}
   とする.
   ただし,
@@ -279,7 +294,7 @@ $a\in \ZZ^{\times}$の逆元は$a$自身である.
   $S$を$\Braket{S}_{\ZZ}$の生成系であると呼ぶ.
 \end{definition}
 群$(G,\bullet\cdot\bullet,e,\bullet^{-1})$,
-  $S\subset G$に対し,
+$S\subset G$に対し,
 $(\Braket{S}_{\ZZ},\bullet\cdot\bullet,e,\bullet^{-1})$は群である.
 $S\subset S' \subset G$なら,
 $\Braket{S}_\ZZ\subset\Braket{S'}_\ZZ$
