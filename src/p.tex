@@ -51,24 +51,25 @@ $\Phi\subset V$に対し,
 $\Braket{\Phi}_{\RR}$は$V$の部分空間になる.
 これを, 生成系$\Phi$で生成される$V$の部分空間とよぶ.
 
-$U,W$を$V$の部分空間とする.
+$V',V''$を$V$の部分空間とする.
 \begin{align*}
-U+W=\Set{u+w|u\in U, w\in W}
+  V'+V''=\Set{\alpha+\beta|
+    \alpha\in V', \beta\in V''}
 \end{align*}
 とする. これは$V$の部分空間となる.
-$U\cap W=\emptyset$かつ$V=U+W$
+$V'\cap V''=\Set{\zzero}$かつ$V=V'+V''$
 となるとき,
-$V$は$U$と$W$の(内部)直和に分解されるといい,
-$V=U\oplus V$とかく.
+$V$は$V'$と$V''$の(内部)直和に分解されるといい,
+$V=V'\oplus V''$とかく.
 
-$U\subset V$に対し,
+$V'\subset V$に対し,
 \begin{align*}
-  U^\perp=\Set{v\in V| \forall u\in U,\Braket{u,v}=0}
+  {V'}^\perp=\Set{\alpha\in V| \forall \beta\in V',\Braket{\alpha,\beta}=0}
 \end{align*}
 とする. これは$V$の部分空間になる.
-これを$U$の直交補空間とよぶ.
-$V$の部分空間$U$に対し,
-$V=U\oplus U^\perp$である.
+これを$V'$の直交補空間とよぶ.
+$V$の部分空間$V'$に対し,
+$V=V'\oplus {V'}^\perp$である.
 
 $O$ですべての成分が$0$である行列を表す.
 これは零行列と呼ばれる.
@@ -98,13 +99,13 @@ $E_n=\diag(1,\ldots,1)=\sum_{i=1}^{n}E_{i,i}$
 \end{align*}
 は$t$の多項式であるが,
 これを$A$の固有多項式とよぶ.
-$Av=\lambda v$をみたす$\lambda\in \RR$, $v\in V\setminus\Set{\zzero}$
+$A\alpha=c \alpha$をみたす$c\in \RR$, $\alpha\in V\setminus\Set{\zzero}$
 があったとき,
-$v$のことを
-固有値$\lambda$に属する固有ベクトルとよぶ.
-固有値$\lambda$に属する固有ベクトルを集めた集合と$\Set{\zzero}$の和集合は,
+$\alpha$のことを
+固有値$c$に属する固有ベクトルとよぶ.
+固有値$c$に属する固有ベクトルを集めた集合と$\Set{\zzero}$の和集合は,
 ベクトル空間になる.
-これを固有値$\lambda$に属する固有空間と呼ぶ.
+これを固有値$c$に属する固有空間と呼ぶ.
 相異なる固有値に属する固有ベクトルは一次独立である.
 $A$の固有値は$\det(A-tE_n)=0$の根である.
 $n$次正方行列$A$に対し,
@@ -123,28 +124,35 @@ $A$の列ベクトルが$V$の正規直交基底であることが同値であ�
 相異なる固有値に属する固有ベクトルは直交する.
 
 
-$V$と$W$をそれぞれベクトル空間とする.
-写像$f\colon V\to W$が次の条件を満たすとき,
+$V$と$V'$をそれぞれベクトル空間とする.
+写像$f\colon V\to V'$が次の条件を満たすとき,
 $f$は線形写像であるという:
 \begin{align*}
-  v,w\in V &\implies f(v+w)=f(v)+f(w)\\
-  v\in V,c\in \RR &\implies f(cv)=cf(v)  .
+  \alpha,\beta\in V &\implies f(\alpha+\beta)=f(\alpha)+f(\beta)\\
+  \alpha\in V,c\in \RR &\implies f(c\alpha)=cf(\alpha)  .
 \end{align*}
 線形写像$f$, $g$の合成$f\circ g$も線形写像である.
 $f\circ g$を$fg$と書くことにする.
 線形写像$f\colon V\to V$
 を$V$上の線形変換と呼ぶこともある.
+線形写像$f$が,
+$\Braket{\alpha,\beta}=\Braket{f(\alpha),f(\beta)}$
+を満たすとき,
+$f$は内積を保つという.
+内積を保つ線形変換$f$を直交変換と呼ぶこともある.
 
-$V$を$n$次元ベクトル空間, $W$を$m$次元ベクトル空間とする.
+
+$V$を$n$次元ベクトル空間, $V'$を$m$次元ベクトル空間とする.
 $(m,n)$-行列$A$が与えられたとする.
-このとき, $v\in V$に対し, $f_A(v)=Av$と定義すると$f_A(v)\in W$である.
+このとき, $\alpha\in V$に対し, $f_A(\alpha)=A\alpha$と定義すると
+$f_A(\alpha)\in W$である.
 $f_A$は$V$から$W$への線形写像になる.
 逆に,
 $V$から$W$への線形写像$f$が与えられたとする,
 このとき, $f(\ee_1),\ldots, f(\ee_n)$は$m$項数ベクトルである.
 これらを並べることで, $(m,n)$行列が得られるのでこれを$A_f$とかく.
 これは, $A$の(標準基底に関する)表現行列とよばれる.
-先程と同様$f_{A_f}(v)=A_fv$と定義すると,
+先程と同様$f_{A_f}(\alpha)=A_f\alpha$と定義すると,
 $f_{A_f}=f$となる.
 この意味で, 行列を与えることと線形写像を与えることは同じである.
 $E_n$は恒等写像, $O_{m,n}$はすべての元を$\zzero$に対応させる定値写像
@@ -452,7 +460,7 @@ $\alpha \in V\setminus\Set{\zzero}$に対し,
   $f$が$\alpha$に関する鏡映であるという:
   \begin{enumerate}
   \item $f(\alpha)=-\alpha$.
-  \item $\beta \in H_\alpha \implies f(\alpha)=\alpha$.    
+  \item $\beta \in H_\alpha \implies f(\beta)=\beta$.    
   \end{enumerate}
   $f$が$\alpha$に関する鏡映であるような$\alpha\in V\setminus\Set{\zzero}$が存在するとき,
   $f$は鏡映であるという.
@@ -469,13 +477,13 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
   $A$が$\alpha$に関する鏡映であるという:
   \begin{enumerate}
   \item $A\alpha=-\alpha$.
-  \item $\beta \in H_\alpha \implies A\alpha=\alpha$.    
+  \item $\beta \in H_\alpha \implies A\beta=\beta$.    
   \end{enumerate}
 \end{definition}
 
 \begin{example}
   \begin{align*}
-    P_0=
+    P=
     \begin{pmatrix}
       1 & 0 \\
       0 & -1 
@@ -483,10 +491,10 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
   \end{align*}
   とし,
   $\alpha=\ee_2$とおくと,
-  $P_0$は$\alpha$に関する鏡映である.
+  $P$は$\alpha$に関する鏡映である.
 実際, 
 \begin{align*}
-  P_0\alpha = 
+  P\alpha = 
       \begin{pmatrix}
       1 & 0 \\
       0 & -1 
@@ -540,11 +548,11 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
 
 \begin{example}
   \label{ex:i2m:ref}
-  $P_0$は鏡映であった.
+  $P$は鏡映であった.
   もっと一般に,
   実数$\theta$に対し,
 \begin{align*}
-  P_{2\theta}&=
+  P(2\theta)&=
   \begin{pmatrix}
     \cos(2\theta) & \sin(2\theta) \\
     \sin(2\theta) & -\cos(2\theta) 
@@ -552,19 +560,19 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
   \alpha(\theta)
   &=
   \begin{pmatrix}
-    \sin(\theta) \\
-    \cos(\theta) 
+    \sin(-\theta) \\
+    \cos(-\theta) 
   \end{pmatrix}
 \end{align*}
-とおけば, $P_{2\theta}$は$\alpha(\theta)$に関する鏡映である.
+とおけば, $P(2\theta)$は$\alpha(\theta)$に関する鏡映である.
 実際,
 \begin{align*}
   H_{\alpha(\theta)} = \Set{c \alpha(\theta+\frac{\pi}{2})|c\in \RR} 
 \end{align*}
 であるので,
 \begin{align*}
-  P_{2\theta}\alpha(\theta) &= - \alpha(\theta),\\
-  P_{2\theta}(c\alpha(\theta+\frac{\pi}{2})) &= c\alpha(\theta+\frac{\pi}{2})
+  P(2\theta)\alpha(\theta) &= - \alpha(\theta),\\
+  P(2\theta)(c\alpha(\theta+\frac{\pi}{2})) &= c\alpha(\theta+\frac{\pi}{2})
 \end{align*}
 を示せばよいが, これらは直接, 計算することで確かめることができる.
 \end{example}
@@ -572,7 +580,7 @@ $A\alpha\in V$を対応させる$V$から$V$への線型写像であると思う
 
 \begin{example}
   \label{ex:a1n:refl}
-  $P_0$は鏡映であった.
+  $P$は鏡映であった.
   もっと一般に,
   $F_k$を$(k,k)$成分は$-1$, 他の対角成分は$1$であるような$n$次対角行列とする.
  $E_{k,l}$で$(k,l)$行列単位, つまり, $(k,l)$成分のみ1で他は0であるような行列とすると,
@@ -725,11 +733,16 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
   $\alpha, \alpha' \in V\setminus\Set{\zzero}$とする.
   このとき, 次は同値:
   \begin{enumerate}
-  \item $s_\alpha=s_{\alpha'}$.
-  \item $\alpha=c\alpha'$となる$c\in \RR$が存在する.
+  \item
+    \label{prop:222:item:1}
+    $s_\alpha=s_{\alpha'}$.
+  \item
+    \label{prop:222:item:2}
+    $\alpha=c\alpha'$となる$c\in \RR$が存在する.
   \end{enumerate}
 \end{prop}
 \begin{proof}
+  \paragraph{ $\ref{prop:222:item:1}\implies\ref{prop:222:item:2}$:}
   $s_\alpha=s_{\alpha'}$とする.
   このとき,
   \begin{align*}
@@ -743,18 +756,19 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
   \end{align*}
   となる.
 
+  \paragraph{ $\ref{prop:222:item:2}\implies\ref{prop:222:item:1}$:}
   $\alpha=c\alpha'$とする.
-  このとき,
-  \begin{align*}
-    s_{\alpha}(\alpha')=s_{\alpha}(c\alpha)=cs_{\alpha}(\alpha)=-c\alpha=-\alpha'
-  \end{align*}
-  である.
-  また,
   $\alpha\neq \zzero$
   であるので, $c\neq 0$である.
+  したがって, $\alpha'=\frac{1}{c}\alpha$である.
+  このとき,
+  \begin{align*}
+    s_{\alpha}(\alpha')=s_{\alpha}(\frac{1}{c}\alpha)=\frac{1}{c}s_{\alpha}(\alpha)=-\frac{1}{c}\alpha=-\alpha'
+  \end{align*}
+  である.
   $\beta \in H_{\alpha'}$とすると,
   \begin{align*}
-    \Braket{\alpha,\beta}=\Braket{\frac{1}{c}\alpha',\beta}=\frac{1}{c}\Braket{\alpha',\beta}=0
+    \Braket{\alpha,\beta}=\Braket{c\alpha',\beta}=c\Braket{\alpha',\beta}=0
   \end{align*}
   であるので, $\beta \in H_\alpha$である.
   したがって,
@@ -894,17 +908,23 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
 \begin{prop}
   直交変換$s$に対し以下は同値:
   \begin{enumerate}
-  \item $s$は鏡映である.
-  \item 固有値$-1$に属する固有空間の次元は$1$次元である.
+  \item
+    \label{prop:229:item:1}
+    $s$は鏡映である.
+  \item
+    \label{prop:229:item:2}
+    固有値$-1$に属する固有空間の次元は$1$次元である.
   \end{enumerate}
 \end{prop}
 \begin{proof}
+  \paragraph{ $\ref{prop:229:item:1}\implies\ref{prop:229:item:2}$:}
   $s$が$\alpha$に関する鏡映であるとする.
   このとき, 定義から,
   固有値$-1$に属する固有空間は$\RR\alpha$であり,
   固有値$1$に属する固有空間は$H_\alpha$である.
   よって固有値$-1$に属する固有空間の次元は$1$次元である.
 
+  \paragraph{ $\ref{prop:229:item:2}\implies\ref{prop:229:item:1}$:}
   固有値$-1$に属する固有空間の次元は$1$次元であるとする.
   このとき, 固有値$-1$に属する固有空間は$\RR\alpha$とかける.
   直交変換の固有値は, $1$か$-1$であり, 固有空間は互いに直交するので,
@@ -998,6 +1018,9 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
   $\sigma=\sigma'$であることは同値である.
   直接計算することで,
   $A_\sigma \ee_k=\ee_{\sigma(k)}$であることがわかる.
+  また,
+  $\sigma,\tau\in S_n$に対し,
+  $A_\sigma A_\tau = A_{\sigma\tau}$.
   $\sigma\in S_n$に対し次は同値である:
   \begin{enumerate}
   \item $\sigma$が互換である.
@@ -1044,13 +1067,13 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
   実数$\theta, \tau$に対し, 次を示せ:
   \begin{enumerate}
   \item
-    $R_\theta R_\tau=R_{\theta+\tau}$.
+    $R(\theta) R(\tau)=R(\theta+\tau)$.
   \item
-    $P_\theta P_\tau=R_{\theta-\tau}$.
+    $P(\theta) P(\tau)=R(\theta-\tau)$.
   \item
-    $P_\theta R_\tau=P_{\theta-\tau}$.
+    $P(\theta) R(\tau)=P(\theta-\tau)$.
   \item
-    $R_\theta P_\tau=P_{\theta-\tau}$.
+    $R(\theta) P(\tau)=P(\theta-\tau)z$.
   \end{enumerate}
 \item
   $S$を次の$3$次正方行列からなる集合とする:
@@ -1077,11 +1100,11 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
 \section{有限鏡映群の定義}
 \begin{definition}
   次の条件をみたすとき, 
-  $W$を鏡映群と呼ぶ:
+  $W$を$V$上の鏡映群と呼ぶ:
   \begin{enumerate}
   \item
-    $W=\Braket{s_1,\ldots,s_t}$をみたす
-    鏡映変換
+    $W=\Braket{s_1,\ldots,s_t}_{\ZZ}$をみたす
+    $V$上の鏡映変換
     $s_1,\ldots,s_t$が存在する.
   \end{enumerate}
 \end{definition}
@@ -1092,7 +1115,7 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
   $W$を有限鏡映群と呼ぶ:
   \begin{enumerate}
   \item
-    $W=\Braket{A_1,\ldots,A_t}$をみたす
+    $W=\Braket{A_1,\ldots,A_t}_{\ZZ}$をみたす
     鏡映
     $A_1,\ldots,A_t$が存在する.
   \end{enumerate}
@@ -1132,8 +1155,10 @@ $m>1$とする.
 \Cref{ex:i2m:ref,ex:i2m:rot}で見た行列について考えるが,
 ここでは, 記号の簡略化のために
 \begin{align*}
-  P_i&=P_{\frac{2i\pi}{m}}\\
-  R_i&=R_{\frac{2i\pi}{m}}
+  P_i
+  &=P\left(\frac{2i\pi}{m}\right),&
+  R_i
+  &=R\left(\frac{2i\pi}{m}\right)
 \end{align*}
 とおく.
 まず, $P_i$, $R_i$の計算規則について調べておく.
@@ -1165,7 +1190,9 @@ $m>1$とする.
 \end{lemma}
 \begin{proof}
   \begin{align*}
-  R_iP_0&=R_{\frac{2i\pi}{m}}P_0\\
+    R_iP_0
+    &=R\left(\frac{2i\pi}{m}\right)
+    P_0\\
   &=
   \begin{pmatrix}
     \cos(\frac{2i\pi}{m}) & -\sin(\frac{2i\pi}{m})\\
@@ -1180,10 +1207,12 @@ $m>1$とする.
     \cos(\frac{2i\pi}{m}) & \sin(\frac{2i\pi}{m})\\
     \sin(\frac{2i\pi}{m}) & -\cos(\frac{2i\pi}{m})\\
   \end{pmatrix}\\
-  &=R_{\frac{2i\pi}{m}}=R_{i}.
+  &=R\left(\frac{2i\pi}{m}\right)=R_{i}.
   \end{align*}
   \begin{align*}
-  P_0R_i &=P_0R_{\frac{2i\pi}{m}}\\
+    P_0R_i
+    &=P_0
+    R\left(\frac{2i\pi}{m}\right)\\
   &=
   \begin{pmatrix}
     1 & 0\\
@@ -1204,7 +1233,8 @@ $m>1$とする.
     \sin(-\frac{2i\pi}{m}) & \cos(-\frac{2i\pi}{m})\\
   \end{pmatrix}\\
   &=
-  P_{-\frac{2i\pi}{m}}=P_{-i}
+  P\left(-\frac{2i\pi}{m}\right)
+  =P_{-i}
   \end{align*}
 \end{proof}
 
@@ -1657,8 +1687,8 @@ $W$は本質的である.
   \end{align*}
   とする. $k\in\ZZ$に対し次を示せ:
   \begin{enumerate}
-    \item $\alpha\in S\implies P_{\frac{2k\pi}{m}} \alpha\in S$.
-    \item $\alpha\in S\implies R_{\frac{2k\pi}{m}} \alpha\in S$.
+    \item $\alpha\in S\implies P\left(\frac{2k\pi}{m}\right) \alpha\in S$.
+    \item $\alpha\in S\implies R\left(\frac{2k\pi}{m}\right) \alpha\in S$.
   \end{enumerate}
 \item
   $S$を次の集合とする.
@@ -1793,24 +1823,26 @@ $D_{2\cdot m}$について考える.
 \Cref{ex:i2m:grp}で用いた記号をここでは用いる.
 \Cref{ex:i2m:ref,ex:i2m:rot}の記号を用いると,
 \begin{align*}
-  P_i&=P_{\frac{2i\pi}{m}}\\
-  R_i&=R_{\frac{2i\pi}{m}}
+  P_i
+  &=P\left(\frac{2i\pi}{m}\right)&,
+  R_i
+  &=R\left(\frac{2i\pi}{m}\right)
 \end{align*}
 である. さらに,
 \begin{align*}
   \alpha_i&=\alpha(\frac{i\pi}{m})\\
   &=
   \begin{pmatrix}
-    \sin(\frac{i\pi}{m})\\
-    \cos(\frac{i\pi}{m})
+    \sin(-\frac{i\pi}{m})\\
+    \cos(-\frac{i\pi}{m})
   \end{pmatrix}
   =
   \begin{pmatrix}
-    \cos(\frac{i\pi}{m}+\frac{\pi}{2})\\
-    \sin(\frac{i\pi}{m}+\frac{\pi}{2})
+    \cos(-\frac{i\pi}{m}+\frac{\pi}{2})\\
+    \sin(-\frac{i\pi}{m}+\frac{\pi}{2})
   \end{pmatrix} 
 \end{align*}
-おく. 
+とおく. 
 このとき,
 \Cref{ex:i2m:ref}より, $P_i$は$\alpha_i$に関する鏡映である.
 $\alpha_{i+m}=-\alpha_i$であるから,  $P_i$は$\alpha_{i+m}$に関する鏡映でもある.
@@ -1823,7 +1855,8 @@ $W(\Phi)=D_{2\cdot m}$である.
 そのものであることからわかるが,
 ここでは, 確認のため定義に従い調べる.
 \begin{align*}
-  R_i\alpha_k&=R_{\frac{2i\pi}{m}}\alpha(\frac{k\pi}{m})
+  R_i\alpha_k
+  &=R\left(\frac{2i\pi}{m}\right)\alpha(\frac{k\pi}{m})
   =\alpha(\frac{k\pi}{m}+\frac{2i\pi}{m})
   =\alpha(\frac{2i+k\pi}{m})
   =\alpha_{2i+k}\\
@@ -1834,18 +1867,29 @@ $W(\Phi)=D_{2\cdot m}$である.
     0 & -1
   \end{pmatrix}
   \begin{pmatrix}
-    \sin(\frac{k\pi}{m}) \\
-    \cos(\frac{k\pi}{m}) 
+    \sin(-\frac{k\pi}{m}) \\
+    \cos(-\frac{k\pi}{m}) 
   \end{pmatrix}
 =  \begin{pmatrix}
-    \sin(\pi-\frac{k\pi}{m}) \\
-    -\cos(\pi-\frac{k\pi}{m}) 
+    \sin(-\frac{k\pi}{m}) \\
+    -\cos(-\frac{k\pi}{m}) 
   \end{pmatrix}
-=  \begin{pmatrix}
-    \sin(\frac{(m-k)\pi}{m}) \\
-    \cos(\frac{(m-k)\pi}{m}) 
-\end{pmatrix}\\
-&=\alpha(\frac{(m-k)\pi}{m})=\alpha_{m-k},
+=
+ \begin{pmatrix}
+    -\sin(\frac{k\pi}{m}) \\
+    -\cos(\frac{k\pi}{m}) 
+ \end{pmatrix}\\
+&=
+ \begin{pmatrix}
+    \sin(-\pi+\frac{k\pi}{m}) \\
+    \cos(-\pi+\frac{k\pi}{m}) 
+ \end{pmatrix}
+=
+ \begin{pmatrix}
+    \sin(\frac{-(m-k)\pi}{m}) \\
+    \cos(\frac{-(m-k)\pi}{m}) 
+ \end{pmatrix}
+=\alpha(\frac{(m-k)\pi}{m})=\alpha_{m-k},
 \\
 P_i\alpha_k&=P_0R_{-i}\alpha_k
 =P_0\alpha_{-2i+k}
@@ -4128,41 +4172,41 @@ $D_{2\cdot m}=\Braket{S}_\ZZ$
 \begin{align*}
   \alpha_0&=\alpha(0)=\begin{pmatrix}0\\1\end{pmatrix}\\
   \alpha_{m-1}&=\alpha(\frac{(m-1)\pi}{m})=
-  \begin{pmatrix}\sin(\frac{(m-1)\pi}{m})\\\cos(\frac{(m-1)\pi}{m})\end{pmatrix}=
-\begin{pmatrix}\sin(\frac{\pi}{m})\\-\cos(\frac{\pi}{m})\end{pmatrix}
+  \begin{pmatrix}\sin(-\frac{(m-1)\pi}{m})\\\cos(-\frac{(m-1)\pi}{m})\end{pmatrix}=
+\begin{pmatrix}\sin(-\frac{\pi}{m})\\-\cos(-\frac{\pi}{m})\end{pmatrix}
   \\
   \alpha_{i}&=\alpha(\frac{i\pi}{m})=
-  \begin{pmatrix}\sin(\frac{i\pi}{m})\\\cos(\frac{i\pi}{m})\end{pmatrix}\\
+  \begin{pmatrix}\sin(-\frac{i\pi}{m})\\\cos(-\frac{i\pi}{m})\end{pmatrix}\\
   &=
-  \frac{\sin(\frac{i\pi}{m})}{\sin(\frac{\pi}{m})}\alpha_{m-1}
+  \frac{\sin(-\frac{i\pi}{m})}{\sin(-\frac{\pi}{m})}\alpha_{m-1}
   +
-  (\cos(\frac{i\pi}{m})+\frac{\sin(\frac{i\pi}{m})\cos(\frac{\pi}{m})}{\sin(\frac{\pi}{m})})\alpha_{0}\\
+  (\cos(-\frac{i\pi}{m})+\frac{\sin(-\frac{i\pi}{m})\cos(-\frac{\pi}{m})}{\sin(-\frac{\pi}{m})})\alpha_{0}\\
   &=
-  \frac{\sin(\frac{i\pi}{m})}{\sin(\frac{\pi}{m})}\alpha_{m-1}
+  \frac{\sin(-\frac{i\pi}{m})}{\sin(-\frac{\pi}{m})}\alpha_{m-1}
   +
-  (\frac{\sin(\frac{i\pi}{m})\cos(\frac{\pi}{m})+\cos(\frac{i\pi}{m})\sin(\frac{\pi}{m})}{\sin(\frac{\pi}{m})})\alpha_{0}\\
+  (\frac{\sin(-\frac{i\pi}{m})\cos(-\frac{\pi}{m})+\cos(-\frac{i\pi}{m})\sin(-\frac{\pi}{m})}{\sin(-\frac{\pi}{m})})\alpha_{0}\\
   &=
-  \frac{\sin(\frac{i\pi}{m})}{\sin(\frac{\pi}{m})}\alpha_{m-1}
+  \frac{\sin(-\frac{i\pi}{m})}{\sin(-\frac{\pi}{m})}\alpha_{m-1}
   +
-  \frac{\sin(\frac{(1+i)\pi}{m})}{\sin(\frac{\pi}{m})}\alpha_{0}
+  \frac{\sin(-\frac{(1+i)\pi}{m})}{\sin(-\frac{\pi}{m})}\alpha_{0}
 \end{align*}
 であるので,
 \begin{align*}
   \height_{\Delta}(\alpha_i)
   &=
-  \frac{\sin(\frac{i\pi}{m})}{\sin(\frac{\pi}{m})}
+  \frac{\sin(-\frac{i\pi}{m})}{-\sin(\frac{\pi}{m})}
   +
-  \frac{\sin(\frac{(1+i)\pi}{m})}{\sin(\frac{\pi}{m})}\\
+  \frac{\sin(-\frac{(1+i)\pi}{m})}{-\sin(\frac{\pi}{m})}\\
   &=
-  \frac{\sin(\frac{i\pi}{m})+\sin(\frac{(1+i)\pi}{m})}{\sin(\frac{\pi}{m})}\\
+  \frac{\sin(-\frac{i\pi}{m})+\sin(-\frac{(1+i)\pi}{m})}{\sin(-\frac{\pi}{m})}\\
   &=
-  \frac{\sin(\frac{1}{2}(\frac{(1+i)\pi}{m}+\frac{i\pi}{m}))\cos(\frac{1}{2}(\frac{(1+i)\pi}{m}-\frac{i\pi}{m}))}{\sin(\frac{\pi}{m})}\\
+  \frac{\sin(-\frac{1}{2}(\frac{(1+i)\pi}{m}+\frac{i\pi}{m}))\cos(-\frac{1}{2}(\frac{(1+i)\pi}{m}-\frac{i\pi}{m}))}{\sin(-\frac{\pi}{m})}\\
   &=
-  \frac{\sin(\frac{(1+2i)\pi}{2m})\cos(\frac{\pi}{2m})}{\sin(\frac{\pi}{m})}\\
+  \frac{\sin(-\frac{(1+2i)\pi}{2m})\cos(-\frac{\pi}{2m})}{\sin(-\frac{\pi}{m})}\\
   &=
-  \frac{\sin(\frac{(1+2i)\pi}{2m})\cos(\frac{\pi}{2m})}{2\sin(\frac{\pi}{2m})\cos(\frac{\pi}{2m})}\\
+  \frac{\sin(-\frac{(1+2i)\pi}{2m})\cos(-\frac{\pi}{2m})}{2\sin(-\frac{\pi}{2m})\cos(-\frac{\pi}{2m})}\\
   &=
-  \frac{\sin(\frac{(1+2i)\pi}{2m})}{2\sin(\frac{\pi}{2m})}.
+  \frac{\sin(-\frac{(1+2i)\pi}{2m})}{2\sin(-\frac{\pi}{2m})}.
 \end{align*}
 である.
 $i\in \Set{0,\ldots,m-1}$で, $\height_\Delta(\alpha_i)>0$となる.
