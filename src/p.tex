@@ -1712,6 +1712,32 @@ $W$は本質的である.
 
 \chapter{ルート系}
 \section{ルート系の定義と例}
+
+集合$\Phi\subset V\setminus \Set{\zzero}$に対し,
+$R(\Phi)=\Set{s_\alpha | \alpha \in \Phi}$
+とし,
+$W(\Phi)=\Braket{R(\Phi)}_{\ZZ}$とおく.
+定義から$W(\Phi)$は鏡映群であるが,
+$\Phi$が有限であっても$W(\Phi)$は有限群とは限らない.
+
+\begin{lemma}
+  \label{lem:nonesspart}
+  $f\in W(\Phi)$に対し,
+  $f\restrictedto{\Braket{\Phi}_{\RR}^{\perp}}=\id_{\Braket{\Phi}_{\RR}^{\perp}}$.
+\end{lemma}
+\begin{proof}
+  $f\in W(\Phi)$とすると,
+  $\alpha_i\in \Phi$を使って
+  $f=s_{\alpha_1}\cdots s_{\alpha_l}$とかける.
+  $\beta\in \Braket{\Phi}_\RR^{\perp}$とする.
+  $\alpha_i\in \Phi$に対して,
+  $\Braket{\alpha_i,\beta}=0$であるので,
+  $s_{\alpha_i}(\beta)=\beta$である.
+  したがって, 
+  $f(\beta)=\beta$である.
+\end{proof}
+
+
 \begin{definition}
   $\Phi \subset V \setminus \Set{\zzero}$とする.
   以下の条件を満たすとき, $\Phi$が$V$上の(広義)ルート系であると呼ぶ:
@@ -1725,26 +1751,6 @@ $W$は本質的である.
   \end{enumerate}
 \end{definition}
 
-$\Phi\subset V\setminus \Set{\zzero}$に対し,
-$R(\Phi)=\Set{s_\alpha | \alpha \in \Phi}$
-とし,
-$W(\Phi)=\Braket{R(\Phi)}_{\ZZ}$とおく.
-定義から$W(\Phi)$は鏡映群であるが, 有限群とは限らない.
-
-\begin{lemma}
-  \label{lem:nonesspart}
-  $f\in W(\Phi)$に対し,
-  $f_{(\RR\Phi)^{\perp}}=\id_{(\RR\Phi)^{\perp}}$.
-\end{lemma}
-\begin{proof}
-  $\beta\in (\RR\Phi)^{\perp}$とする.
-  $\alpha\in \Phi$に対し,
-  $\Braket{\alpha,\beta}=0$であるので,
-  $s_{\alpha}(\beta)=\beta$である.
-  $f\in W(\Phi)$とすると,
-  $f=s_{\alpha_1}\cdots s_{\alpha_l}$とかけるので,  
-  $f(\beta)=\beta$である.
-\end{proof}
 
 \begin{prop}
 ルート系$\Phi$に対し,
@@ -1753,17 +1759,17 @@ $W(\Phi)$は有限鏡映群である.
 \begin{proof}
   $W(\Phi)$が有限集合であることを示す.
   $S_\Phi$を$\Phi$上の全単射を集めた集合とする.
-  このとき, $\numof{S}=\numof{\Phi}!$であり,
+  このとき, $\numof{S_\Phi}=\numof{\Phi}!$であり,
   有限集合である.
-  $W'=\Set{f\restrictedto{\Phi}|f \in W}$
+  $W'=\Set{f\restrictedto{\Phi}|f \in W(\Phi)}$
   とおく.
-  $\alpha\in\Phi$に対し, $s\restrictedto{\Phi}=\Phi$であるので,
+  $\alpha\in\Phi$に対し, $s_\alpha(\Phi)=\Phi$であるので,
   \begin{align*}
     s_\alpha\restrictedto{\Phi}\colon
     \Phi &\to \Phi \\
     \beta&\mapsto s_\alpha(\beta)
   \end{align*}
-  は全単射である
+  は全単射である.
   $f\in W(\Phi)$とすると,
   $f=s_{\alpha_1}\cdots s_{\alpha_l}$とかけるので,
   $f|_\Phi$も
@@ -1777,10 +1783,11 @@ $W(\Phi)$は有限鏡映群である.
   \end{align*}
   とおく.
   $\varphi$は単射であることを示す.
-  $f,f'\in W$が$f\restrictedto{\Phi}=f'\restrictedto{\Phi}$を満たすとする.
-  $V=\RR\Phi \oplus (\RR\Phi)^\perp$と(内部)直和分解できるが,
+  $f,f'\in W(\Phi)$が
+  $f\restrictedto{\Phi}=f'\restrictedto{\Phi}$を満たすとする.
+  $V=\Braket{\Phi}_\RR \oplus \Braket{\Phi}_\RR^\perp$と(内部)直和分解できるが,
   \cref{lem:nonesspart}より,
-  $\beta\in (\RR\Phi)^\perp$に対し,
+  $\beta\in \Braket{\Phi}_\RR^\perp$に対し,
   $f(\beta)=f'(\beta)=\beta$である.
   また仮定より, $\beta\in \RR(\Phi)$に対しても,
   $f(\beta)=f'(\beta)$が成り立つので,
@@ -1800,8 +1807,8 @@ $W(\Phi)$は有限鏡映群である.
   \end{align*}
   とすればよい.
   $W$は鏡映群であるので,
-  $W=\Braket{R}_{\ZZ}=W(\Phi)$である.
-  $\numof{\Phi}< |W| <\infty$である.
+  $W=\Braket{R(\Phi)}_{\ZZ}=W(\Phi)$である.
+  $\numof{\Phi}=2\numof{R(\Phi)}\leq 2|W| <\infty$である.
   また, 定義から, $\alpha\in \Phi$に対し,
   $\RR\alpha \cap \Phi = \Set{\alpha,-\alpha}$が成り立つ.
   $\alpha\in \Phi$,
@@ -1809,7 +1816,8 @@ $W(\Phi)$は有限鏡映群である.
   $fs_\alpha f^{-1}=s_{f(\alpha)}$である.
   $fs_\alpha f^{-1}$は$W$の元であり, $s_{f(\alpha)}$は鏡映であるので,
   $s_{f(\alpha)}\in R$がわかる.
-  したがって
+  \Cref{prop:reflgrpisortho}
+  より, $\|f(\alpha)\|=\|\alpha\|=1$であるので,
   $f(\alpha)\in \Phi$である.
 \end{proof}
 
@@ -1824,13 +1832,13 @@ $D_{2\cdot m}$について考える.
 \Cref{ex:i2m:ref,ex:i2m:rot}の記号を用いると,
 \begin{align*}
   P_i
-  &=P\left(\frac{2i\pi}{m}\right)&,
+  &=P\left(\frac{2i\pi}{m}\right),&
   R_i
   &=R\left(\frac{2i\pi}{m}\right)
 \end{align*}
 である. さらに,
 \begin{align*}
-  \alpha_i&=\alpha(\frac{i\pi}{m})\\
+  \alpha_i&=\alpha\left(\frac{i\pi}{m}\right)\\
   &=
   \begin{pmatrix}
     \sin(-\frac{i\pi}{m})\\
@@ -1889,7 +1897,8 @@ $W(\Phi)=D_{2\cdot m}$である.
     \sin(\frac{-(m-k)\pi}{m}) \\
     \cos(\frac{-(m-k)\pi}{m}) 
  \end{pmatrix}
-=\alpha(\frac{(m-k)\pi}{m})=\alpha_{m-k},
+ =\alpha\left(\frac{(m-k)\pi}{m}\right)
+ =\alpha_{m-k},
 \\
 P_i\alpha_k&=P_0R_{-i}\alpha_k
 =P_0\alpha_{-2i+k}
@@ -1999,7 +2008,7 @@ $\tau\in S_n$を$i$と$j$を入れ替える互換とすると,
 であるから, $T_{i,j}(\Phi)=\Phi$である.
 $\RR\alpha_{i,j}\cap \Phi=\Set{\alpha_{i,j},\alpha_{j,i}}$
 であり,
-$\numof{\Phi}=\binom{n}{2}$であるので,
+$\numof{\Phi}=2\binom{n}{2}$であるので,
 $\Phi$はルート系である.
 このルート系を$\Phi(A_{n-1})$とおく.
 \Cref{ex:an:grp}で考えた鏡映群を$W$とすると,
@@ -2026,36 +2035,25 @@ $\varepsilon_{k}=\ee_k$.
   \Phi&=\hat\Phi\cup \check\Phi
 \end{align*}
 とおく.
-$T_{i,j}$は
-$\alpha_{i,j}$に関する鏡映である.
-$\tau\in S_n$を$i$と$j$を入れ替える互換とすると,
-\begin{align*}
-  T_{i,j}\alpha_{i,j}=\alpha_{\tau(i),\tau(j)}\\
-  T_{i,j}\beta_{i,j}=\beta_{\tau(i),\tau(j)}\\
-  T_{i,j}\varepsilon_{i}=\varepsilon_{\tau(i)}
-\end{align*}
-であるので,
-$T_{i,j}(\hat\Phi)=\hat\Phi$
-かつ$T_{i,j}(\check\Phi)=\check\Phi$である.
 
 $F_{k}$は
 $\varepsilon_{k}$に関する鏡映である.
 \begin{align*}
-  F_{k}\alpha_{i,j}=
+  F_{k}\alpha_{i,j}&=
   \begin{cases}
     \alpha_{i,j} & (k\not\in \Set{i,j})\\
     \beta_{i,k} & (k=j)\\
     -\beta_{j,k} & (i=k)\\
   \end{cases}
   \\
-  F_k \beta_{i,j}=
+  F_k \beta_{i,j}&=
   \begin{cases}
     \beta_{i,j} & (k\not\in \Set{i,j})\\
     \alpha_{i,k} & (k=j)\\
     \alpha_{j,k} & (i=k)
   \end{cases}
   \\
-  F_{k}\varepsilon_{i}=
+  F_{k}\varepsilon_{i}&=
   \begin{cases}
     -\varepsilon_{k}&(i=k)\\
     \varepsilon_{i} &(i\neq k)
@@ -2064,6 +2062,19 @@ $\varepsilon_{k}$に関する鏡映である.
 であるので, 
 $F_{k}(\hat\Phi)=\hat\Phi$
 かつ$F_{k}(\check\Phi)=\check\Phi$である.
+
+$T_{i,j}$は
+$\alpha_{i,j}$に関する鏡映である.
+$\tau\in S_n$を$i$と$j$を入れ替える互換とすると,
+\begin{align*}
+  T_{i,j}\alpha_{k,l}=\alpha_{\tau(k),\tau(l)}\\
+  T_{i,j}\beta_{k,l}=\beta_{\tau(k),\tau(l)}\\
+  T_{i,j}\varepsilon_{k}=\varepsilon_{\tau(l)}
+\end{align*}
+であるので,
+$T_{i,j}(\hat\Phi)=\hat\Phi$
+かつ$T_{i,j}(\check\Phi)=\check\Phi$である.
+
 
 $F_{k,l}=F_kF_lT_{k,l}$は, $\beta_{k,l}$に関する鏡映である.
 $T_{i,j}(\hat\Phi)=\hat\Phi$,
@@ -2077,7 +2088,7 @@ $F_{k,l}(\check\Phi)=\check\Phi$である.
 $s_{\alpha}(\Phi)=\Phi$である.
 また,
 $\RR\alpha\cap\Phi=\Set{\alpha,-\alpha}$である.
-$\numof{\Phi}=\binom{n}{2}+\binom{n}{2}+n=n^2$であるので,
+$\numof{\Phi}=2\binom{n}{2}+2\binom{n}{2}+2n=2n^2$であるので,
 $\Phi$はルート系である.
 このルート系を$\Phi(B_{n})$とおく.
 
@@ -2101,10 +2112,10 @@ $s_{\alpha}(\hat\Phi)\cap\check\Phi=\emptyset$である.
 再びルート系になる.
 例えば, $\varepsilon'_k=2\varepsilon_k$とし
 \begin{align*}
-  \Phi'&=\Set{\varepsilon'_k,-\varepsilon'_k|1\leq k\leq n}
+  \Phi'&=\Set{\varepsilon'_k,-\varepsilon'_k|1\leq k\leq n}\\
   \Phi_1&=\Set{\alpha_{i,j},-\alpha_{i,j}|1\leq i<j\leq n}\\
   \Phi_2&=\Set{\beta_{i,j},-\beta_{i,j}|1\leq i<j\leq n}\\
-  \Phi''&=\Phi_1\cup \Phi_2\\
+  \Phi''&=\Phi_1\cup \Phi_2
 \end{align*}
 とし,
 \begin{align*}
@@ -2132,7 +2143,7 @@ $\alpha\in \Phi$に対して,
 $s_\alpha(\Phi)=\Phi$となっていた.
 また,
 $\RR\alpha\cap\Phi=\Set{\alpha,-\alpha}$である.
-$\numof{\Phi}=n(n-1)$であるので,
+$\numof{\Phi}=2n(n-1)$であるので,
 $\Phi$はルート系である.
 このルート系を$\Phi(D_{n})$とおく.
 
@@ -2254,14 +2265,24 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
   $\Phi_{\Delta}^+$を$\Delta$に関するポジティブシステム,
   $\Phi_{\Delta}^-$を$\Delta$に関するネガティブシステムと呼ぶ.
   また,
+  $\Delta$の元を単純ルート,
   $\Phi_{\Delta}^+$の元を$\Delta$に関する正ルート,
   $\Phi_{\Delta}^-$の元を$\Delta$に関する負ルートと呼ぶ.
 \end{definition}
+\begin{remark}
+  単純ルートは正ルートである.
+\end{remark}
 \begin{remark}
   $\Phi = \Phi_\Delta^{+}\cup \Phi_\Delta^{-}$がなりたつなら, $\Phi$の元は$\Delta$の元の一次結合としてかけることがわかる.
   また, $\Delta\subset\Phi$であるから,
   $\Braket{\Phi}_\RR=\Braket{\Delta}_\RR$である.
   $\Delta$は一次独立なので, $\Delta$は$\Braket{\Phi}_{\RR}$の基底である.
+  とくに,
+  $\alpha\in\Phi\subset \Braket{\Phi}_{\RR}$に対し,
+  $\sum_{\delta\in\Delta}a_\delta \delta$
+  と線型結合で表す方法は一意的である.
+  したがって,
+  $\Phi_{\Delta}^+\cap\Phi_{\Delta}^-=\emptyset$である.
 \end{remark}
 \begin{prop}
   \label{prop:posinega}
@@ -2270,7 +2291,7 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
   $\alpha\in\Phi_\Delta^-$ならば, $-\alpha\in\Phi_\Delta^+$である.
 \end{prop}
 \begin{proof}
-  $\alpha\in\Phi_\Delta$とすると,
+  $\alpha\in\Phi$とすると,
   $-\alpha\in\Phi$である.
   $\alpha=\sum_{\delta}c_\delta\delta$とかけるとすると,
   $-\alpha=\sum_{\delta}(-c_\delta)\delta$である.
@@ -2286,8 +2307,6 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
     \Phi_{\Delta}^-&=\Set{\alpha\in\Phi | \Braket{\alpha,\varpi} < 0}
   \end{align*}
   をみたす$\varpi\in V$が存在する.
-  とくに, 
-  $\Phi_{\Delta}^+\cap\Phi_{\Delta}^-=\emptyset$である.
 \end{prop}
 \begin{proof}
   $\delta\in\Delta$とする.
@@ -2316,7 +2335,7 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
   \begin{align*}
     \Braket{\alpha,\varpi}
     =\Braket{\alpha,\sum_{\delta\in\Delta}\check\delta}
-    =\Braket{\check\alpha,\check\alpha}>0
+    =\Braket{\check\alpha,\check\alpha}>0.
   \end{align*}
   したがって, $\alpha=\sum_{\delta\in \Delta}c_\delta \delta$
   に対し,
@@ -2344,20 +2363,27 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
   $\Pi\subset \Phi$に対し,
   \begin{align*}
     X(\Pi)&= \Set{\sum_{\gamma\in\Pi}a_\gamma\gamma| a_\gamma\geq 0, \numof{\Set{\gamma|a_\gamma>0}}>1}\\
-    \Delta(\Pi)&= \Phi_{\Delta}^+ \setminus X(\Pi)
+    \Delta(\Pi)&= \Pi \setminus X(\Pi)
   \end{align*}
   とおく.
-  $\Delta\subset \Phi$を単純系ならば,
+  $\Delta\subset \Phi$が単純系ならば,
   \begin{align*}
     \Delta=\Delta(\Phi_\Delta^+).
   \end{align*}
 \end{lemma}
 \begin{proof}
+  まず$\Delta(\Phi_\Delta^{+})\subset \Delta$を示す.
+  そのために,
+  \begin{align*}
+    \alpha\in\Delta(\Phi_\Delta^{+})=\Phi_\Delta^+\setminus X(\Phi_\Delta^+)\implies \alpha \in\Delta
+  \end{align*}
+  の
+  対偶を示す.
   $\alpha \in \Phi_\Delta^+\setminus\Delta$とする.
   $\alpha\in \Phi_\Delta^+$
   であるので,
-  $a_\delta > 0$をつかって,
-  $\alpha=\sum{\delta\in\Delta}a_\delta \delta$と表せる.
+  $a_\delta \geq 0$を使って,
+  $\alpha=\sum_{\delta\in\Delta}a_\delta \delta$と表せる.
   もし, すべての$\delta\neq\delta_0$で$a_\delta=0$なら,
   $\alpha=a_{\delta_0} \delta_0$とかけるが,
   $\Phi$がルート系であるので, $a_{\delta_0}=1$であり,
@@ -2367,11 +2393,12 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
   である.
 
 
+  次に, $\Delta\subset \Delta(\Phi_\Delta^{+})=\Phi_\Delta^+\setminus X(\Phi_\Delta^+)$を示す.
   $\alpha\in\Delta$とする.
   $\alpha\in\Delta \subset \Phi_\Delta^+$であるので,
   $\alpha\not\in X(\Phi_\Delta^+)$を示す.
   $\gamma\in\Phi_\Delta^+$は,
-  $c_{\gamma,\delta}\geq 0$をつかって,
+  $c_{\gamma,\delta}\geq 0$を使って,
   $\gamma=\sum_{\delta}c_{\gamma,\delta}\delta$とかけるとする.
   この記号の下,
   $a_\gamma\geq 0$をつかって,
@@ -2398,14 +2425,14 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
   \begin{align*}
     \sum_{i=1}^la_i c_{i,\delta}=
     \begin{cases}
-      1 &  (\alpha\neq\delta)\\
+      1 &  (\alpha=\delta)\\
       0 & (\alpha\neq\delta)
     \end{cases}
   \end{align*}
   である.
   $a_\gamma>0$とすると,
   $\alpha\neq\delta$に対して, $c_{\gamma,\delta}=0$.
-  $\gamma=\sum_{\delta\in\Delta}c_{\gamma,\delta}\delta$とがけていたので,
+  $\gamma=\sum_{\delta\in\Delta}c_{\gamma,\delta}\delta$と書けていたので,
   \begin{align*}
     \gamma=\sum_{\delta\in\Delta}c_{\gamma,\delta}\delta=c_{\gamma,\alpha}\alpha
   \end{align*}
@@ -2446,12 +2473,13 @@ $\Phi=\Phi(I_2(m))$とし,
 $\Phi=\Set{\alpha_i|i\in\Set{0,\ldots,2m-1}}$であり, $\alpha_{i+m}=-\alpha_i$であった.
 $\Delta=\Set{\alpha_0,\alpha_{m-1}}$とする.
 このとき,
-$\alpha_{0}=\alpha(0)$, $\alpha_{m-1}=\alpha(\frac{(m-1)\pi}{m})$であったので,
+$\alpha_{0}=\alpha(0)$, $\alpha_{m-1}=\alpha\left(\frac{(m-1)\pi}{m}\right)$であったので,
 $\Delta$は一次独立であり, $V=\Braket{\Phi}_\RR$の基底である.
 
 \begin{align*}
-  \eta_1&=\alpha(\frac{\pi}{2}),\\
-  \eta_2&=\alpha(\frac{(m-1)\pi}{m}-\frac{\pi}{2})=\alpha(\frac{-\pi}{m}+\frac{\pi}{2}),
+  \eta_1&=\alpha\left(\frac{\pi}{2}\right),\\
+  \eta_2&=\alpha\left(\frac{(m-1)\pi}{m}-\frac{\pi}{2}\right)
+  =\alpha\left(\frac{-\pi}{m}+\frac{\pi}{2}\right)
 \end{align*}
 とおくことにする.
 $\Braket{\alpha_0, \eta_1} = 0$であるので, $\RR\alpha_0=H_{\eta_1}$である.
@@ -2473,12 +2501,12 @@ $\Braket{\alpha_{m-1}, \eta_2} = 0$であるので, $\RR\alpha_0=H_{\eta_2}$で�
 \end{align*}
 である.
 \begin{align*}
-  \Braket{\alpha_i,\eta_1}&=\Braket{\alpha(\frac{i\pi}{m}),\alpha(\frac{\pi}{2})}\\
-  &=\cos(\frac{i\pi}{m}-\frac{\pi}{2})=\sin(\frac{i\pi}{m})\\
-\Braket{\alpha_i,\eta_2}&=\Braket{\alpha(\frac{i\pi}{m}),\alpha(\frac{-\pi}{m}+\frac{\pi}{2})}\\
-&=\cos(\frac{i\pi}{m}-(\frac{-\pi}{m}+\frac{\pi}{2}))
-=\cos(\frac{(1+i)\pi}{m}-\frac{\pi}{2})
-=\sin(\frac{(1+i)\pi}{m})
+  \Braket{\alpha_i,\eta_1}&=\Braket{\alpha\left(\frac{i\pi}{m}\right),\alpha\left(\frac{\pi}{2}\right)}\\
+  &=\cos\left(\frac{i\pi}{m}-\frac{\pi}{2}\right)=\sin\left(\frac{i\pi}{m}\right)\\
+\Braket{\alpha_i,\eta_2}&=\Braket{\alpha\left(\frac{i\pi}{m}\right),\alpha\left(\frac{-\pi}{m}+\frac{\pi}{2}\right)}\\
+&=\cos\left(\frac{i\pi}{m}-\left(\frac{-\pi}{m}+\frac{\pi}{2}\right)\right)
+=\cos\left(\frac{(1+i)\pi}{m}-\frac{\pi}{2}\right)
+=\sin\left(\frac{(1+i)\pi}{m}\right)
 \end{align*}
 であるので,
 \begin{align*}
@@ -2987,24 +3015,24 @@ $\Phi_{\varpi}^+\in\SSS$
 $\Delta_{\varpi}$は一次独立である.
 \end{lemma}
 \begin{proof}
-  $\sum_{\lambda\in\Delta_{\varpi}}a_\lambda \lambda = \zzero$
+  $\sum_{\delta\in\Delta_{\varpi}}a_\delta \delta = \zzero$
   とする.
   \begin{align*}
-    \Pi^+&=\Set{\lambda\in\Pi|a_\lambda >0}\\
-    \Pi^-&=\Set{\lambda\in\Pi|a_\lambda <0}
+    \Pi^+&=\Set{\delta\in\Delta_{\varpi}|a_\delta >0}\\
+    \Pi^-&=\Set{\delta\in\Delta_{\varpi}|a_\delta <0}
   \end{align*}
   とし$b_\lambda=-a_\lambda$とする.
   \begin{align*}
     v_+&=
-\begin{cases}
-  \sum_{\lambda\in\Pi^+}a_\lambda\lambda&(\Pi^+\neq \emptyset)\\
-  \zzero&(\Pi^+= \emptyset)
-\end{cases}\\
-v_-&=
-\begin{cases}
-\sum_{\lambda\in\Pi^-}a_\lambda\lambda&(\Pi^-\neq \emptyset)\\
-  \zzero&(\Pi^-= \emptyset)
-\end{cases}
+    \begin{cases}
+      \sum_{\delta\in\Delta_{\varpi}}a_\delta\delta&(\Pi^+\neq \emptyset)\\
+      \zzero&(\Pi^+= \emptyset)
+    \end{cases}\\
+    v_-&=
+    \begin{cases}
+      \sum_{\delta\in\Delta_{\varpi}}a_\delta\delta&(\Pi^-\neq \emptyset)\\
+      \zzero&(\Pi^-= \emptyset)
+    \end{cases}
   \end{align*}
   とする. $v_+-v_-=\zzero$である.
   したがって$v_+=v_-$である.
@@ -3081,7 +3109,7 @@ v_-&=
   $\Delta$は
   $\Braket{\Phi}_\RR$の基底であったので,
   $\Delta$のとり方によらず,
-  $\numof{\Delta}=\rank(\Phi)$
+  $\numof{\Delta}=\rank(\Phi)$.
 \end{remark}
 
 \section{単純系の全単射}
@@ -3178,8 +3206,8 @@ $n=2$とし,
 \cref{ex:a1n:simple}で考えたルート系を
 $\Phi'$,
 単純系を$\Delta'$とする.
-$\alpha_0=\varepsilon_1$,
-$\alpha_1=\varepsilon_2$である.
+$\alpha_0=\varepsilon_2$,
+$\alpha_1=-\varepsilon_1$である.
 また,
 $\alpha_2=-\varepsilon_1$,
 $\alpha_3=-\varepsilon_2$であるので,
@@ -3239,16 +3267,16 @@ $\Phi=\Phi(I_2(3))$とし,
 \cref{ex:i2m:simple}で考えた単純系を$\Delta$とする.
 $\Phi'=\Phi(G_2)$とし,
 \cref{ex:g2:simple}で考えた単純系を$\Delta'$とする.
-$f(\alpha_0)=\alpha{1,2}$,
-$f(\alpha_5)=\gamma{1}$とする.
+$f(\alpha_0)=\alpha_{1,2}$,
+$f(\alpha_5)=\gamma_{1}$とする.
 このとき,
 $t(\alpha_0)=\frac{1}{\sqrt 2}\alpha_{1,2}$,
 $t(\alpha_5)=-\frac{1}{\sqrt 6}\alpha_{1,2}-\frac{1}{\sqrt 6}\alpha_{1,3}$
 とすると,
-$\Braket{t(\alpha_0),t(\alpha_5)}=\frac{1}{2\sqrt 3}\Braket{\alpha_{1,2},\gamma{1}}=-\frac{\sqrt 3}{2}$
+$\Braket{t(\alpha_0),t(\alpha_5)}=\frac{1}{2\sqrt 3}\Braket{\alpha_{1,2},\gamma_{1}}=-\frac{\sqrt 3}{2}$
 である.
 また,
-$\Braket{\alpha_0,\alpha_5}=\cos(\frac{5\pi}{6})=-\frac{\sqrt{3}}{2}$
+$\Braket{\alpha_0,\alpha_5}=\cos\left(\frac{5\pi}{6}\right)=-\frac{\sqrt{3}}{2}$
 である.
 また,
 直接計算することで,
@@ -4250,7 +4278,7 @@ $w\in \Braket{S}_\ZZ$がとれる.
 \cref{prop:conjbyortho,prop:reflgrpisortho}
 から,
 \begin{align*}
-T_{i,j}=s_{\alpha{i,j}}=s_{w(\alpha{j-1,j})}=ws_{\alpha_{j-1,j}}w^{-1}=wT_{j-1,j}w^{-1}
+T_{i,j}=s_{\alpha_{i,j}}=s_{w(\alpha_{j-1,j})}=ws_{\alpha_{j-1,j}}w^{-1}=wT_{j-1,j}w^{-1}
 \end{align*}
 とかけるので, $T_{i,j}\in \Braket{S}_\ZZ$である.
 $R(\Phi)=\Set{T_{i,j}|1\leq i<j\leq n}$であるので,
