@@ -49,7 +49,7 @@ $\Phi\subset V$に対し,
 \end{align*}
 とおく.
 $\Braket{\Phi}_{\RR}$は$V$の部分空間になる.
-これを, 生成系$\Phi$で生成される$V$の部分空間とよぶ.
+これを, 生成系$\Phi$で生成される$V$の部分空間と呼ぶ.
 
 $V',V''$を$V$の部分空間とする.
 \begin{align*}
@@ -67,7 +67,7 @@ $V'\subset V$に対し,
   {V'}^\perp=\Set{\alpha\in V| \forall \beta\in V',\Braket{\alpha,\beta}=0}
 \end{align*}
 とする. これは$V$の部分空間になる.
-これを$V'$の直交補空間とよぶ.
+これを$V'$の直交補空間と呼ぶ.
 $V$の部分空間$V'$に対し,
 $V=V'\oplus {V'}^\perp$である.
 
@@ -98,11 +98,11 @@ $E_n=\diag(1,\ldots,1)=\sum_{i=1}^{n}E_{i,i}$
   \det(A-tE_n)
 \end{align*}
 は$t$の多項式であるが,
-これを$A$の固有多項式とよぶ.
+これを$A$の固有多項式と呼ぶ.
 $A\alpha=c \alpha$をみたす$c\in \RR$, $\alpha\in V\setminus\Set{\zzero}$
 があったとき,
 $\alpha$のことを
-固有値$c$に属する固有ベクトルとよぶ.
+固有値$c$に属する固有ベクトルと呼ぶ.
 固有値$c$に属する固有ベクトルを集めた集合と$\Set{\zzero}$の和集合は,
 ベクトル空間になる.
 これを固有値$c$に属する固有空間と呼ぶ.
@@ -115,7 +115,7 @@ $P^{-1}AP=\diag(a_1,\ldots,a_n)$
 正則行列$P^{-1}AP$が取れることは同値である.
 
 $\transposed{A}$で$A$の転置を表す.
-%$\transposed{A}=A$を満たすとき$A$を対称行列とよぶ.
+%$\transposed{A}=A$を満たすとき$A$を対称行列と呼ぶ.
 $\transposed{A}=A^{-1}$を満たすとき$A$を直交行列と呼ぶ.
 $A$が直交行列であることと,
 $A$の列ベクトルが$V$の正規直交基底であることが同値である.
@@ -1737,6 +1737,25 @@ $\Phi$が有限であっても$W(\Phi)$は有限群とは限らない.
   $f(\beta)=\beta$である.
 \end{proof}
 
+\Cref{lem:nonesspart}から次がすぐわかる.
+\begin{lemma}
+  \label{lem:esspart:eq}
+  $f,f'\in W(\Phi)$とする.
+  $f\restrictedto{\Braket{\Phi}_\RR}=f'\restrictedto{\Braket{\Phi}_\RR}$
+  ならば,
+  $f=f'$.
+\end{lemma}
+\begin{proof}
+  $V=\Braket{\Phi}_\RR\oplus \Braket{\Phi}_\RR^\perp$
+  と(内部)直和分解できる.
+  \cref{lem:nonesspart}より,
+  $\beta\in \Braket{\Phi}_\RR^\perp$に対し,
+  $f(\beta)=f'(\beta)=\beta$である.
+  また仮定より, $\beta\in \Braket{\Phi}_\RR$に対しても,
+  $f(\beta)=f'(\beta)$が成り立つので,
+  $f=f'$である.  
+\end{proof}
+
 
 \begin{definition}
   $\Phi \subset V \setminus \Set{\zzero}$とする.
@@ -1750,7 +1769,6 @@ $\Phi$が有限であっても$W(\Phi)$は有限群とは限らない.
     \end{enumerate}
   \end{enumerate}
 \end{definition}
-
 
 \begin{prop}
 ルート系$\Phi$に対し,
@@ -1782,16 +1800,11 @@ $W(\Phi)$は有限鏡映群である.
      f&\mapsto f|_{\Phi}
   \end{align*}
   とおく.
-  $\varphi$は単射であることを示す.
-  $f,f'\in W(\Phi)$が
-  $f\restrictedto{\Phi}=f'\restrictedto{\Phi}$を満たすとする.
-  $V=\Braket{\Phi}_\RR \oplus \Braket{\Phi}_\RR^\perp$と(内部)直和分解できるが,
-  \cref{lem:nonesspart}より,
-  $\beta\in \Braket{\Phi}_\RR^\perp$に対し,
-  $f(\beta)=f'(\beta)=\beta$である.
-  また仮定より, $\beta\in \RR(\Phi)$に対しても,
-  $f(\beta)=f'(\beta)$が成り立つので,
-  $f=f'$である.
+  このとき,
+  \Cref{lem:esspart:eq}
+  より,
+  $\varphi$は単射である.
+  したがって, $W(\Phi)$も有限集合である.
 \end{proof}
 
 \begin{prop}
@@ -3113,89 +3126,147 @@ $\Delta_{\varpi}$は一次独立である.
 \end{remark}
 
 \section{単純系の全単射}
+
+\begin{lemma}
+  \label{lem:esspart}
+  $\Phi\subset V\setminus\Set{\zzero}$とする.
+  $\alpha\in\Phi$に対し,
+  $s_\alpha\restrictedto{\Braket{\Phi}_{\RR}}$は,
+  $\alpha$に関する$U$上の鏡映である.
+  また,
+  $f\in W(\Phi)$に対し,
+  $f\restrictedto{\Braket{\Phi}_{\RR}}$は,
+  $\Braket{\Phi}_{\RR}$上の全単射である.
+\end{lemma}
+\begin{proof}
+  $U=\Braket{\Phi}$とおくと,
+  $V=U\oplus U^\perp$と(内部)直和分解できる.
+
+  まずは, $\alpha\in\Phi$に対し,
+  $s_\alpha\restrictedto{U}$が$U$上の全単射になることを示す.
+  $\alpha\in \Phi$とすると,
+  $\alpha\in U$であるから,
+  $\RR\alpha\cap U^{\perp}$である.
+  したがって,
+  \begin{align*}
+    V&=\RR\alpha\oplus(H_\alpha\cap U)\oplus U^\perp\\
+    U&=\RR\alpha\oplus(H_\alpha\cap U)
+  \end{align*}
+  と(内部)直和分解できる.
+  $\beta\in\RR\alpha$ に対し
+  $s_\alpha(\beta)=-\beta\in \RR\alpha\subset U$であり,
+  $\beta\in H_\alpha\cap U$ に対し
+  $s_\alpha(\beta)=\beta\in H_\alpha\cap U\subset U$である.
+  よって,
+  \begin{align*}
+    s_\alpha\restrictedto{U}\colon U&\to U\\
+    \beta&\mapsto s_\alpha(\beta)
+  \end{align*}
+  は, $U$上の鏡映である.
+  したがって, $U$上の全単射である.
+
+  
+  $f\in W(\Phi)$とすると,
+  $\alpha_i\in \Phi$を使って
+  $f=s_{\alpha_1}\cdots s_{\alpha_l}$とかける.
+  $s_\alpha$を$U$に制限すると$U$上の全単射であるので,
+  $f$も$U$に制限すると$U$
+  上の全単射となる.
+\end{proof}
+\Cref{lem:esspart}より,
+$\Set{w\restrictedto{\Braket{\Phi}_\RR}|w\in W(\Phi)}$
+は鏡映群であることがわかる.
+%\begin{lemma}
+
+\begin{lemma}
+  $\Phi\subset V\setminus\Set{\zzero}$とし,
+  \begin{align*}
+    W=\Set{w\restrictedto{\Braket{\Phi}_\RR}|w\in W(\Phi)}
+  \end{align*}
+  とおく.
+  このとき
+  $W(\Phi)$と$W$は群として同型である.
+\end{lemma}
+\begin{proof}
+  %$W=\Set{w\restrictedto{\Braket{\Phi}_\RR}|w\in W(\Phi)}$とおく.
+  $w\in W(\Phi)$に対し,
+  $\varphi(w)=w\restrictedto{\Braket{\Phi}_\RR}$
+  とおくと,
+  $\varphi$は$W(\Phi)$から$W$への全射群準同型写像である.
+  また,
+  \Cref{lem:esspart:eq}
+  より,
+  $\varphi$は単射である.
+  したがって,
+  $W(\Phi)$と$W$は群として同型である.
+\end{proof}
+
 \begin{prop}
   $\alpha\neq\zzero$に対し, $\bar\alpha=\frac{1}{\|\alpha\|}\alpha$とおく.
   $V$を$n$次元ユークリッド空間,
   $\Phi$を$V$上のルート系,
-  $\Delta$を$\Phi$の単純系とする.
+  $\Delta$を$\Phi$の単純系とし,
   $\bar\Phi=\Set{\bar\alpha|\alpha\in\Phi}$,
   $\bar\Delta=\Set{\bar\alpha|\alpha\in\Delta}$とおく.
   $V'$を$n'$次元ユークリッド空間,
   $\Phi'$を$V'$上のルート系,
-  $\Delta'$を$\Phi'$の単純系とする.
+  $\Delta'$を$\Phi'$の単純系とし,
   $\bar\Phi'=\Set{\bar\alpha|\alpha\in\Phi'}$,
   $\bar\Delta'=\Set{\bar\alpha|\alpha\in\Delta'}$とおく.
   $f\colon \Delta \to \Delta'$は全単射であるとする.
   $\bar\alpha\in \bar\Phi$に対し,
   $t(\bar\alpha)=\overline{f(\alpha)}$とし,
-  $t\colon V\to V'$を$\bar t(\sum_{\delta\in\bar\Delta}c_\delta \delta)=\sum_{\delta\in\bar\Delta}c_\delta t(\delta)$
+  $\bar t\colon \Braket{\Phi}_\RR\to \Braket{\Phi'}_\RR$を$\bar t(\sum_{\delta\in\bar\Delta}c_\delta \delta)=\sum_{\delta\in\bar\Delta}c_\delta t(\delta)$
   で定義する.
-  任意の$\alpha,\beta\in \bar\Phi$に対し$\Braket{t(\alpha),t(\beta)}=\Braket{\alpha,\beta}$となることを仮定する.
+  任意の$\alpha,\beta\in \bar\Phi$に対し$\Braket{\bar t(\alpha),\bar t(\beta)}=\Braket{\alpha,\beta}$となることを仮定する.
   また, $\Set{\bar f(\alpha)|\alpha\in\bar\Phi}=\bar\Phi'$も仮定する.
   このとき, $W(\Phi)$と$W(\Phi')$は群として同型である.
 \end{prop}
 \begin{proof}
-  $\hat U=\Set{t(\alpha)|\alpha\in V}$とおき, $\check U=\hat U^\perp$とする.
-  このとき, $U=\hat U \oplus \check U$である.
-  $\Phi'\subset \hat U$である.
-  
-  \Cref{lem:subsp:refl}より,
-  $\beta\in\bar\Phi'$に対し,
-  $\hat s_\beta\colon \hat U \to \hat U$
-  を$\hat s_\beta(\gamma)= s_\beta(\gamma)$で定義すると,
-  $\beta$に関する$U$上の鏡映変換である.
-  したがって$U$上の全単射である.
-  また, $\gamma\in \check U$に対して, $s_\beta (\gamma)=\gamma$である.
-  $w\in W(\Psi)$は,
-  $\beta_i\in \Psi$を用いて,
-  $w=s_{\beta_1}\cdots s_{\beta_l}$とかけるので,
-  $\hat w\colon \check U\to \check U$
-  を$\hat w(\gamma)= w(\gamma)$で定義すると,
-  全単射である.
-  また, $\gamma\in\check U$に対して, $w(\gamma)$である.
-
-  $\hat W=\Set{\hat w|w\in W(\Psi)}$とおく.
-  このとき,
-  $g\colon W(\Phi) \to W'$を,
-  $g(w)=\hat w$で定義すると,
-  明らかに全射である.
-  $\hat w=\hat v$とすると,
-  $\gamma\in \hat U$に対し,
-  $w(\gamma)=v(\gamma)$である.
-  また$\gamma\in \check U$に対し,
-  $w(\gamma)=\gamma=v(\gamma)$である.
-  したがって, $w=v$であるので, $g$は単射でもある.
-  $g(wv)=g(w)g(v)$を満たすことは定義から明らかなので,
-  $\hat W$は$W$と同型である.
-
-  
-  また, $\hat t\colon V \to \hat U$を$\hat t(\alpha)=t(\alpha)$で定義すると,
-  $\hat t$は内積を保存し, 全単射である.
-  $w\in W(\Phi)$に対し,
-  $\hat t w \hat t^{-1}\colon \hat U \to \hat U$を,
-  $h(w)$とおく.
-  $w\in W(\Phi)$に対し,
-  $w=s_{\alpha_1}\cdots s_{\alpha_l}$をみたす$\alpha_i\in\Phi$がとれるが,
-  \cref{prop:conjbyortho}から
   \begin{align*}
-    h(w)&=h(s_{\alpha_1}\cdots s_{\alpha_l})\\
-    &=\hat t(s_{\alpha_1}\cdots s_{\alpha_l} \hat t^{-1}\\
-    &=(\hat t(s_{\alpha_1} \hat t^{-1})\cdots (\hat t(s_{\alpha_l} \hat t^{-1})\\
-    &=\hat s_{t(\alpha_1)}\cdots \hat s_{t(\alpha_l)} 
+  W&=\Set{w\restrictedto{\Braket{\Phi}_\RR}|w\in W(\Phi)},\\
+  W'&=\Set{w\restrictedto{\Braket{\Phi'}_\RR}|w\in W(\Phi')}
   \end{align*}
-  となるので, $h(w)\in W(\Psi)$である.
-  したがって, $h$は$W(\Phi)$から$W'$への写像であるが,
-  $W(\Psi)=\Braket{R(\Psi)}_\ZZ$であるので,
-  全射である.
-  また $h(w)=h(u)$とすると,
+  とおくと, $W$と$W(\Phi)$, $W'$と$W(\Phi')$はそれぞれ群として同型であるから,
+  $W$と$W'$が同型であることを示す.
+  $\Delta$は$\Braket{\Phi}_\RR$の基底であり,
+  $\Delta'$は$\Braket{\Phi'}_\RR$の基底である.
+  よって$f$が全単射であることから,
+  $\bar t$も全単射であり,
+  逆写像$\bar t^{-1}$が存在する.
+  $w\in W(\Phi)$とすると,
+  $\alpha_i\in \Phi$を用いて
+  $w=s_{\alpha_1}\cdots s_{\alpha_l}$
+  とかける.
+  したがって, $\beta\in \Braket{\Phi'}_\RR$の元に対し,
   \begin{align*}
-    \hat t w \hat t^{-1}&=\hat t u \hat t^{-1}\\
-  \hat t^{-1}  \hat t w \hat t^{-1}\hat t&=\hat t^{-1}\hat t u \hat t^{-1}\hat t\\
-    w=u
+    t(w(t^{-1}(\beta))
+    &=(t(s_{\alpha_1}\cdots s_{\alpha_l})t^{-1})(\beta)\\
+    &=(ts_{\alpha_1}t^{-1}\cdots t s_{\alpha_l}t^{-1})(\beta)\\
+    &=(s_{t(\alpha_1)}\cdots s_{t(\alpha_l)})(\beta)
   \end{align*}
-  となるので, 単射である.
-  また$h(wu)=\hat t w u\hat t^{-1}=\hat t w \hat t^{-1}\hat t u \hat t^{-1}=h(w)h(u)$
-  であるので, $W(\Phi)$と$W'$は同型である.
+  となる.
+  したがって,
+  $t\circ w\restrictedto{\Braket{\Phi}_\RR} \circ t^{-1}$は,
+  $W'$の元である.
+  \begin{align*}
+    \varphi\colon W &\to W'\\
+    f&\mapsto t\circ f \circ t^{-1} 
+  \end{align*}
+  とおく.
+  $f,f'\in W$に対し,
+  \begin{align*}
+  \varphi(fg)&=t\circ fg \circ t^{-1},\\
+  \varphi(f)\varphi(g)&=(t\circ f\circ t^{-1})( t\circ g \circ t^{-1})=t\circ fg \circ t^{-1}
+  \end{align*}
+  となるので$\varphi$は群順同型写像である.
+  また,
+  \begin{align*}
+    \psi\colon W' &\to W\\
+    f'&\mapsto t^{-1}\circ f' \circ t 
+  \end{align*}
+  は, $\varphi$の逆写像であるから,
+  全単射であり, $W$と$W'$は同型である.
 \end{proof}
 
 \section{例}
@@ -3403,14 +3474,14 @@ $\beta=s_\delta(s_\delta(\beta))=s_\delta(\gamma)$
 \begin{cor}
   \label{thm:simple:action:x}
   $\delta\in\Delta$とする.
-  $s_\delta(\alpha)\in\Phi_\Delta^+$かつ$\alpha\in\Phi_\Delta^+$ならば
+  $s_\delta(\alpha)\in\Phi_\Delta^+$かつ$\alpha\in\Phi_\Delta^-$ならば
   $\delta=\alpha$である.
 \end{cor}
 $\Phi_\Delta^{+}(\delta)=\Phi_\Delta^+\cap (s_\delta)^{-1}(\Phi_\Delta^-)$
 であるので次のようにも言い換えられる.
 \begin{cor}
   $\delta\in\Delta$に対し,
-  $\Phi_\Delta^{+}(\delta)=\Set{\delta}$.
+  $\Phi_\Delta^{+}(s_\delta)=\Set{\delta}$.
 \end{cor}
 
 $\delta\in\Delta$に対して
@@ -3508,7 +3579,7 @@ $\Phi_\Delta^+(w)$を調べる.
     &=s_\delta s_\delta(\delta)\\
     &=s_\delta (-\delta)\\
     &=s_\delta(- w^{-1}(\alpha))\\
-    &=s_\delta(w^{-1}(-\alpha)).
+    &=s_\delta(w^{-1}(-\alpha))
   \end{align*}
   となる. したがって,
   $\delta\in s_\delta(w^{-1}(\Phi_\Delta^-))$である.
@@ -3547,7 +3618,7 @@ $\Phi_\Delta^+(w)$を調べる.
     &=\numof{\Phi_\Delta^+(ws_\delta)}\\
     &=\numof{s_\delta(\Phi_\Delta^+(w))}+1\\
     &=\numof{\Phi_\Delta^+(w)}+1\\
-    &=n(w)+1\\
+    &=n(w)+1
   \end{align*}
   である.
   
@@ -3652,6 +3723,7 @@ $P_0(\alpha_i)\in\Phi_\Delta^+$である.
 $P_{m-1}(\alpha_i)\in\Phi_\Delta^+$である.
 
 $n(w)=n_{\Phi_\Delta^+}(w)$について考える.
+まず, $n(R_k)$について考える.
 \begin{align*}
   R_k\alpha_i=\alpha_{i+2k}
 \end{align*}
@@ -3660,7 +3732,7 @@ $n(w)=n_{\Phi_\Delta^+}(w)$について考える.
 \Set{R_k\alpha_i|0\leq i < m}=\Set{\alpha_{i+2k}|0\leq i < m}=\Set{\alpha_{j}|2k \leq j < m+2k}
 \end{align*}
 となる.
-$0\leq k <\frac{m}{2}$のとき, $0\leq 2k$, $m+2k<2m$であるので,
+$0\leq k <\frac{m}{2}$のとき, $0\leq 2k<m+2k<2m$であるので,
 \begin{align*}
   \Set{R_k\alpha_i|0\leq i < m}\cap \Phi_\Delta^-=\Set{\alpha_m,\alpha_{m+1},\ldots,\alpha_{m-1+2k}}
 \end{align*}
@@ -3670,7 +3742,7 @@ $0\leq k <\frac{m}{2}$のとき, $0\leq 2k$, $m+2k<2m$であるので,
 \end{align*}
 である.
 一方,
-$\frac{m}{2}\leq k <m$のとき, $m\leq 2k$, $m+2k<3m$であるので,
+$\frac{m}{2}\leq k <m$のとき, $m\leq 2k<m+2k<3m$であるので,
 \begin{align*}
   \Set{R_k\alpha_i|0\leq i < m}\cap \Phi_\Delta^-=\Set{\alpha_{2k},\alpha_{2k+1},\ldots,\alpha_{2m-1}}
 \end{align*}
@@ -3686,7 +3758,7 @@ $\frac{m}{2}\leq k <m$のとき, $m\leq 2k$, $m+2k<3m$であるので,
 である.
 
 
-また,
+また, $n(P_k)$については,
 \begin{align*}
   P_k\alpha_i=\alpha_{m+2k-i}
 \end{align*}
@@ -3695,7 +3767,7 @@ $\frac{m}{2}\leq k <m$のとき, $m\leq 2k$, $m+2k<3m$であるので,
 \Set{P_k\alpha_i|0\leq i < m}=\Set{\alpha_{m+2k-i}|0\leq i < m}=\Set{\alpha_{j}|2k <j\leq m+2k}
 \end{align*}
 となる.
-$0\leq k <\frac{m}{2}$のとき, $0\leq 2k$, $m+2k<2m$であるので,
+$0\leq k <\frac{m}{2}$のとき, $0\leq 2k<m+2k<2m$であるので,
 \begin{align*}
   \Set{P_k\alpha_i|0\leq i < m}\cap \Phi_\Delta^-=\Set{\alpha_{m},\alpha_{m+1},\ldots,\alpha_{m+2k}}
 \end{align*}
@@ -3705,7 +3777,7 @@ $0\leq k <\frac{m}{2}$のとき, $0\leq 2k$, $m+2k<2m$であるので,
 \end{align*}
 である.
 一方,
-$\frac{m}{2}\leq k <m$のとき, $m\leq 2k$, $m+2k<3m$であるので,
+$\frac{m}{2}\leq k <m$のとき, $m\leq 2k<m+2k<3m$であるので,
 \begin{align*}
   \Set{P_k\alpha_i|0\leq i < m}\cap \Phi_\Delta^-=\Set{\alpha_{2k+1},\alpha_{2k+2},\ldots,\alpha_{2m-1}}
 \end{align*}
@@ -4248,7 +4320,10 @@ $\height_\Delta(\alpha_i)$は$m$のとり方によっては, 整数ではない�
 \cref{ex:a1n:simple}で考えたルート系$\Phi$と単純系$\Delta$について考える.
 $\Phi_\Delta^+=\Delta$である.
 したがって, $\Phi_\Delta^-=\Set{-\delta|\delta\in\Delta}$である.
-$s_\alpha=s_{-\alpha}$であったから,
+よって,
+$\delta\in\Phi_\Delta^+$に対し$\height_\Delta(\delta)=1$,
+$-\delta\in\Phi_\Delta^-$に対し$\height_\Delta(\delta)=-1$である.
+また, $s_\alpha=s_{-\alpha}$であったから,
 \begin{align*}
   R(\Phi)
   &=\Set{s_\alpha|\alpha\in\Phi}\\
@@ -4492,14 +4567,14 @@ $s_{\alpha_{1,2}},\ldots,s_{\alpha_{n-1,n}}\in S$
 
 \begin{align*}
 \alpha_{i,j}&=\sum_{k=i}^{j-1}\alpha_{k,k+1}\\
-\beta_{j,n}&=\alpha_{k,n-1}+\beta_{n-1,n}\\
+\beta_{i,n}&=\alpha_{i,n-1}+\beta_{n-1,n}\\
 \beta_{i,j}&=\alpha_{i,n}+\beta{j,n}
 \end{align*}
 であるので, 
 \begin{align*}
   \height_\Delta(\alpha_{i,j})&=j-i\\
-  \height_\Delta(\beta_{k,n})&=\height_\Delta(\alpha_{k,n-1})+\height_\Delta(\beta_{n-1,n})=n-1-k+1=n-k=2n-i-n\\
-\height_\Delta(\beta_{i,j})&=\height_\Delta(\alpha_{i,n})+\height_\Delta(\beta{j,n})=n-i+n-j=2n-i-j
+  \height_\Delta(\beta_{i,n})&=\height_\Delta(\alpha_{i,n-1})+\height_\Delta(\beta_{n-1,n})=n-1-i+1=n-i=2n-i-n\\
+\height_\Delta(\beta_{i,j})&=\height_\Delta(\alpha_{i,n})+\height_\Delta(\beta_{j,n})=n-i+n-j=2n-i-j
 \end{align*}
 である. 
 したがって, $\height_\Delta(\alpha)$は整数である.
@@ -4585,6 +4660,9 @@ $\Phi=\Phi(G_2)$とし,
   $D_{2\cdot m}$について考える.
   \begin{enumerate}
   \item
+    $D_{2\cdot m}=\Braket{\Set{P_1,P_{m-1}}}$
+    を示せ.
+  \item
     $\min\Set{l|P_i=S_1S_2\cdots S_l, S_i\in \Set{P_1,P_{m-1}}}$
     を求めよ.
   \item
@@ -4600,7 +4678,9 @@ $\Phi=\Phi(G_2)$とし,
 
 
 \section{長さ関数}
-$\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$とする.
+$\Phi$をルート系, $\Delta$を単純系,
+$\Phi^+=\Phi_\Delta^+$,
+$\Phi^-=\Phi_\Delta^-$, $W=W(\Phi)$とする.
 
 \begin{definition}
   $w\in W$に対し,
@@ -4613,7 +4693,7 @@ $\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$
 \begin{definition}
   $w\in W$に対し,
   \begin{align*}
-    w=s_{\delta_1}\cdots s_{\delta_{\ell_\Delta(w)}}, (\delta_i\in \Delta)
+    w=s_{\delta_1}\cdots s_{\delta_{\ell_\Delta(w)}},\quad (\delta_i\in \Delta)
   \end{align*}
   となる積の形を簡約表示と呼ぶ.  
 \end{definition}
@@ -4631,6 +4711,9 @@ $\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$
     $\ell_\Delta(w)=\ell_\Delta(w^{-1})$.
   \item
     \label{item:len:det}
+    $w=s_{\delta_1}\cdots s_{\delta_l}$ ($\delta_i\in\Delta$)
+    であるとき, $\det(w)=(-1)^l$.
+    特に,
     $\det(w)=(-1)^{\ell_\Delta(w)}$.
   \end{enumerate}
 \end{prop}
@@ -4639,7 +4722,7 @@ $\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$
   は$\ell_\Delta(w)$の定義から明らか.
 
   \Cref{item:len:inversestable}について考える.
-  $w=s_1\cdots s_l$, $s_i\in S_\Delta$とすると,
+  $w=s_1\cdots s_l$, $s_i=s_{\delta_i}$, $\delta_i\in \Delta$とすると,
   $s_i^2=\id$であるので,
   \begin{align*}
     w^{-1}
@@ -4652,11 +4735,11 @@ $\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$
   同様に$\ell_\Delta(w) \leq \ell_\Delta(w^{-1})$.
 
   \Cref{item:len:det}について考える.
-  $\delta\in\Delta$に対し, $\det(s_\delta)=-1$である.
+  $w=s_1\cdots s_l$, $s_i=s_{\delta_i}$, $\delta_i\in \Delta$とすると,
   \begin{align*}
-    \det(w)&=\det(s_1\cdots s_{\ell_\Delta(w)})\\
-    &=\det(s_1)\cdots \det(s_{\ell_\Delta(w)})\\
-    &=(-1)^{\ell_\Delta(w)}.
+    \det(w)&=\det(s_1\cdots s_{l})\\
+    &=\det(s_1)\cdots \det(s_{l})\\
+    &=(-1)^{l}.
   \end{align*}
 \end{proof}
 
@@ -4671,9 +4754,6 @@ $\Phi$をルート系, $\Delta$を単純系, $\Phi^+=\Phi_\Delta^+$, $W=W(\Phi)$
 
 $w$の表示を簡約にするにはどうしたらよいかについて考える.
 
-$\Phi$をルート系,
-$\Delta$を単純系とし,
-$\Phi^+=\Phi_\Delta^+$とする.
 
 
 \begin{lemma}
@@ -4688,7 +4768,7 @@ $\Phi^+=\Phi_\Delta^+$とする.
 \cref{prop:conjbyortho,prop:reflgrpisortho}
 から,
 \begin{align*}
-  s_\beta=ws_\alpha w^-1
+  s_\beta=ws_\alpha w^{-1}
 \end{align*}
 であるので,
 \begin{align*}
@@ -4746,19 +4826,27 @@ $\Phi^+=\Phi_\Delta^+$とする.
 \begin{proof}
   $\delta_{j}\in\Delta$であるので, 
   $w_{j-1,j-1}\delta_{j}=\delta_{j}\in\Phi^+$である.
-  したがって $\Set{i\in\Set{1,\ldots,j}|w_{i,j-1}(\delta_{j})}\neq \emptyset$であるので,
-  $i=\min\Set{i\in\Set{1,\ldots,j}|w_{i,j-1}(\delta_{j})}-1$とおく.
+  したがって
+  \begin{align*}
+    \Set{i\in\Set{1,\ldots,j}|w_{i,j-1}(\delta_{j})\in\Phi^+}\neq \emptyset
+  \end{align*}
+  であるので,
+  \begin{align*}
+    i=\min\Set{i\in\Set{1,\ldots,j}|w_{i,j-1}(\delta_{j})\in\Phi^+}-1
+  \end{align*}
+  とおく.
   一方, $w_{1,j-1}(\delta_{j})\in\Phi^-$であるので,
   $1\leq i$である. このとき,
+  $\alpha=w_{i+1,j-1}(\delta_{j})$とおくと,
   \begin{align*}
-    w_{i+1,j-1}(\delta_{j})\in \Phi^+\\
-   s_{\delta_{i}} w_{i+1,j-1}(\delta_{j})\in \Phi^-
+    \alpha\in \Phi^+\\
+   s_{\delta_{i}} (\alpha)\in \Phi^-
   \end{align*}
   である.
   $s_{\delta_{i}}(\alpha)\in \Phi^-$かつ
-  $\alpha \Phi^+$となるのは,
+  $\alpha \in \Phi^+$となるのは,
   $\alpha=\delta_i$のときのみであるので,
-  $w_{i+1,j-1}(\delta_{j})=\delta_i$である.
+  $w_{i+1,j-1}(\delta_{j})=\alpha=\delta_i$である.
   したがって, \cref{lem:deletion:primitive}より,
   \begin{align*}
     w=w_{1,i-1}w_{i+1,j-1}w_{j+1,r}
@@ -4773,6 +4861,7 @@ $\Phi^+=\Phi_\Delta^+$とする.
   とする, ただし, $k>l$のときには$w_{k,l}=\id$と約束する.
   $w=s_{\delta_1}\cdots s_{\delta_r}$
   とおく.
+  $r>n_{\Phi^+}(w)$ならば,
   \begin{align*}
     w=w_{1,i-1}w_{i+1,j-1}w_{j+1,r}
   \end{align*}  
@@ -4783,12 +4872,12 @@ $\Phi^+=\Phi_\Delta^+$とする.
 \begin{proof}
   \Cref{lem:n:bruhat}から,
   \begin{align*}
-    w_{1,l-1}(\delta_{l})\in\Phi^+ \implies n(w_{1,l})=n(w_{1,l-1})+1\\
-    w_{1,l-1}(\delta_{l})\in\Phi^- \implies n(w_{1,l})=n(w_{1,l-1})-1
+    w_{1,l-1}(\delta_{l})\in\Phi^+ \implies n_{\Phi^+}(w_{1,l})=n_{\Phi^+}(w_{1,l-1})+1\\
+    w_{1,l-1}(\delta_{l})\in\Phi^- \implies n_{\Phi^+}(w_{1,l})=n_{\Phi^+}(w_{1,l-1})-1
   \end{align*}
-  である.  $n(w)<r$であることから,
+  である.  $n_{\Phi^+}(w)<r$であることから,
   \begin{align*}
-    1=n(w_{1,1})<n(w_{1,2})<n(w_{1,3})<\cdots<n(w_{1,j-2})<n(w_{1,j-1})>n(w_{1,j})
+    1=n_{\Phi^+}(w_{1,1})<n_{\Phi^+}(w_{1,2})<n_{\Phi^+}(w_{1,3})<\cdots<n_{\Phi^+}(w_{1,j-2})<n_{\Phi^+}(w_{1,j-1})>n_{\Phi^+}(w_{1,j})
   \end{align*}
   となる$j\leq r$が存在する.
   このとき, $w_{1,j-1}(\delta_{j})\in\Phi^-$である.
@@ -4807,13 +4896,13 @@ $\Phi^+=\Phi_\Delta^+$とする.
 \end{cor}
 \begin{proof}
   $\delta_i\in\Delta$とし,
-  $w=s_{\delta_1}\cdot s_{\delta_r}$
+  $w=s_{\delta_1}\cdots s_{\delta_r}$
   であるとする.
 
   $r>n(w)$なら,
   \cref{thm:deletionproperty}より,  
   $\delta'_i\in\Delta$をつかって,
-  $w=s_{\delta'_1}\cdot s_{\delta'_{r-2}}$とできる
+  $w=s_{\delta'_1}\cdots s_{\delta'_{r-2}}$とできる
   したがって, $\ell_\Delta(w) \leq n(w)$である.
 
   一方で,
@@ -4853,17 +4942,20 @@ $\Phi^+=\Phi_\Delta^+$とする.
 \end{remark}
 
 \begin{remark}
-  $\ell_\Delta(w)=n(w)=\numof{\Phi\Delta^+(w)}$であるので,
+  $\ell_\Delta(w)=n(w)=\numof{\Phi_\Delta^+(w)}$であるので,
   $\ell_\Delta(w)$, つまり簡約表示の長さ, は,
-  $\Phi\Delta^+(w)$を使って求められる.
-
-  $\Phi_\Delta^+(w)\subset \Phi_\Delta^+$であるから,
-  $\ell_\Delta(w)\leq \numof{\Phi_\Delta^+}=\frac{1}{2}\Phi$である.
+  $\Phi_{\Delta}^+(w)$を使って求められる.
+  $\Phi_{\Delta}^+(w)\subset \Phi_\Delta^+$であるから,
+  $\ell_\Delta(w)\leq \numof{\Phi_\Delta^+}=\frac{1}{2}\numof{\Phi}$である.
 \end{remark}
+\begin{definition}
+  $\ell_\Delta(w)=\frac{1}{2}\numof{\Phi}$
+  となる$w\in W$を$W$の最長元と呼ぶ.
+\end{definition}
 
 \begin{prop}
   $\delta_i\in\Delta$とし,
-  $w_{1,k}=s_{\delta_1}s_{\delta_{2}}\cdots s_{\delta_k}$
+  $w_{k}=s_{\delta_1}s_{\delta_{2}}\cdots s_{\delta_k}$
   とする, ただし, $w_{0}=\id$と約束する.
   $w=w_{r}^{-1}$とする.
   $\alpha_k$を,
@@ -4929,7 +5021,7 @@ $\Phi^+=\Phi_\Delta^+$とする.
 \begin{prop}
   $\delta_i\in \Delta$とし, $w=s_{\delta_1}\cdots s_{\delta_r}$とする.
   $r=\ell_\Delta(w)$とする.
-  $\alpha\in \Delta$が$\ell_\Delta(ws_\alpha)\leq \ell_\Delta(w)$をみたすとき,
+  $\alpha\in \Delta$が$\ell_\Delta(ws_\alpha)< \ell_\Delta(w)$をみたすとき,
   \begin{align*}
     ws_\alpha=s_{\delta_1}\cdots s_{\delta_{i-1}}s_{\delta_{i+1}}\cdots s_{\delta_{r}}
   \end{align*}
@@ -4956,7 +5048,7 @@ $w\in W$, $\delta\in\Delta$とする.
   このとき次は同値:
   \begin{enumerate}
   \item $\ell_\Delta(ws_\delta)<\ell_\Delta(w)$
-  \item $w=s_{\delta_1}\cdots s_{\delta_r}s_\delta$が簡約表示であるような,
+  \item $w=s_{\delta_1}\cdots s_{\delta_{i-1}}\cdot s_{\delta_{i+1}}\cdots s_{\delta_r}\cdot s_\delta$が簡約表示であるような,
     $\delta_i\in \Delta$がとれる.
   \end{enumerate}
 \end{cor}
@@ -5017,11 +5109,11 @@ $0 \leq k\leq \frac{m}{2}$に対し,
 $\numof{\Phi_\Delta^+}=\frac{1}{2}\numof{\Phi}=m$である.
 $m=2M$のとき,
 $R_{M}=R_{-M}$であるが,
-$\ee_\Delta(R_{M})=\ee_\Delta(R_{M})=m$がなりたつので,
+$\ell_\Delta(R_{M})=\ell_\Delta(R_{M})=m$がなりたつので,
 この元が最長である.
 $m=2M+1$のとき,
 $P_{M}=P_{-M}$であるが,
-$\ee_\Delta(R_{M})=\ee_\Delta(R_{M})=m$がなりたつので,
+$\ell_\Delta(R_{M})=\ell_\Delta(R_{M})=m$がなりたつので,
 この元が最長である.
 
 \subsection{$A_{1}\times\cdots\times A_{1}$}
@@ -5072,7 +5164,7 @@ $\Phi_\Delta^+(w)=\Phi_\Delta^+$である.
 \label{ex:bn:len}
 $\Phi=\Phi(B_n)$とし,
 \cref{ex:bn:simple}の単純系$\Delta$を用いる.
-$w_0=\diag(-1,\ldots,-1)$とすると,
+$w_0=\diag(-1,\ldots,-1)=-E_n$とすると,
 $\Phi_\Delta^+(w_0)=\Phi_\Delta^+$である.
 したがって, $\ell_\Delta(w_0)=\frac{1}{2}\numof{\Phi}=n^2$であり,
 最長である.
@@ -5094,17 +5186,17 @@ $\Phi=\Phi(D_n)$とし,
 \cref{ex:dn:simple}の単純系$\Delta$を用いる.
 $W=W(\Phi)$とする.
 $n$が偶数のとき,
-$w_0=\diag(-1,\ldots,-1,1)\in W$である.
-$\Phi_\Delta^+(w_0)=\Phi_\Delta^+$である.
-したがって, $\ell_\Delta(w_0)=\frac{1}{2}\numof{\Phi}=n^2$であり,
-最長である.
-$n$が奇数のとき,
 $w_0=\diag(-1,\ldots,-1)\in W$である.
 $w_0(\alpha_{i,n})=-\beta_{i,n}$,
 $w_0(\beta_{i,n})=-\alpha_{i,n}$
 である.
 したがって, $\Phi_\Delta^+(w_0)=\Phi_\Delta^+$であるので,
 $\ell_\Delta(w_0)=\frac{1}{2}\numof{\Phi}=n^2$であり,
+最長である.
+$n$が奇数のとき,
+$w_0=\diag(-1,\ldots,-1,1)\in W$である.
+$\Phi_\Delta^+(w_0)=\Phi_\Delta^+$である.
+したがって, $\ell_\Delta(w_0)=\frac{1}{2}\numof{\Phi}=n^2$であり,
 最長である.
 
 \subsection{$G_2$}
@@ -5180,7 +5272,7 @@ $W_l$を求めることを考える.
 \end{proof}
 \begin{cor}
   $0<l< \frac{1}{2}\numof{\Phi}$に対し,
-  $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$.
+  $W_{l+1}=\Set{ws_\delta|w\in W_l,\delta\in\Delta}\setminus W_{l-1}$.
 \end{cor}
 $W_{0}=\Set{\id}$, $W_{1}=\Set{s_\delta|\delta\in\Delta}$であるので,
 $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していくことで,
@@ -5194,7 +5286,7 @@ $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していく�
     \item $w=s_{\delta_1}\cdots s_{\delta_l}$.
     \item $u=s_{\delta_1}\cdots s_{\delta_k}$.
   \end{enumerate}
-  $\rightleq$を右弱順序とよぶ.
+  $\rightleq$を右弱順序と呼ぶ.
 \end{definition}
 \begin{prop}
   $W$は$\rightleq$で$\ell_\Delta$をランク関数とする半順序集合になる.
@@ -5215,10 +5307,10 @@ $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していく�
     \item $w=s_{\delta_1}\cdots s_{\delta_l}$.
     \item $u=s_{\delta_k}\cdots s_{\delta_l}$.
   \end{enumerate}
-  $\rightleq$を右弱順序とよぶ.
+  $\rightleq$を右弱順序と呼ぶ.
 \end{definition}
 \begin{prop}
-  $W$は$\rightleq$で$\ell_\Delta$をランク関数とする半順序集合になる.
+  $W$は$\leftleq$で$\ell_\Delta$をランク関数とする半順序集合になる.
 \end{prop}
 \begin{prop}
   $\ell_\Delta(u)+1=\ell_\Delta(w)$であるとき次は同値:
@@ -5227,16 +5319,25 @@ $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していく�
   \item $s_{\delta} u= w$となる$\delta\in\Delta$が存在する.
   \end{enumerate}
 \end{prop}
+\begin{remark}
+  $w\in W$に対し, $\varphi(w^{-1})\in W$とおくと,
+  $w$は$W$上の全単射であり,
+  $w,w'\in W$に対し以下は同値:
+  \begin{enumerate}
+    \item $w\leftleq v$
+    \item $\varphi(w) \rightleq \varphi(v)$
+  \end{enumerate}
+\end{remark}
 \begin{definition}
   $u,w\in W$が次を満たすとき, $u\strongleq w$とする:
   つぎを満たす$\delta_1,\ldots,\delta_l\in\Delta$, $i_1,\ldots,i_k$ が存在する:
   \begin{enumerate}
+    \item $i_1 <\cdots <i_k\leq l$.
     \item $l=\ell(w)$.
-    \item $i_1 <\cdots <i_k$.
     \item $w=s_{\delta_1}\cdots s_{\delta_l}$.
     \item $u=s_{\delta_{i_1}}\cdots s_{\delta_{i_k}}$.
   \end{enumerate}
-  $\rightleq$を強ブリュあ順序とよぶ.
+  $\strongleq$を強ブリュア順序と呼ぶ.
 \end{definition}
 \begin{prop}
   $W$は$\strongleq$で$\ell_\Delta$をランク関数とする半順序集合になる.
@@ -5245,7 +5346,7 @@ $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していく�
 \begin{prop}
   $\ell_\Delta(u)+1=\ell_\Delta(w)$であるとき次は同値:
   \begin{enumerate}
-  \item $u\leftleq w$
+  \item $u\strongleq w$
   \item $s_{\delta} u= w$または$s_{\delta} u= w$となる$\delta\in\Delta$が存在する.
   \end{enumerate}
 \end{prop}
