@@ -429,6 +429,11 @@ $\tau_{i,i+k}$は隣接互換の積でかける.
 
 \chapter{鏡映}
 
+ここでは,
+鏡映と呼ばれる線形変換の定義と例を与えることを目標とする.
+また,
+固有値などに関する基本的な性質についても紹介する.
+
 \section{鏡映の定義と例}
 
 
@@ -1095,9 +1100,12 @@ $(k,l)$成分と$(l,k)$成分は$1$, 他の成分は$0$
     \item $X\in S \implies X^{-1}\in S$.
   \end{enumerate}
 \end{enumerate}
-\chapter{有限鏡映群}
 
+\chapter{有限鏡映群}
+ここでは,
+有限鏡映群の定義と例を与えることを目標とする.
 \section{有限鏡映群の定義}
+まずは有限鏡映群の定義を与える.
 \begin{definition}
   次の条件をみたすとき, 
   $W$を$V$上の鏡映群と呼ぶ:
@@ -1149,6 +1157,7 @@ $W$を有限鏡映群と呼ぶ.
 \end{prop}
 
 \section{有限鏡映群の例}
+有限鏡映群の例を見ていく.
 \subsection{$I_2(m)$}
 \label{ex:i2m:grp}
 $m>1$とする.
@@ -1711,6 +1720,11 @@ $W$は本質的である.
 
 
 \chapter{ルート系}
+
+ここでは,
+有限鏡映群の重要な情報を持っている
+ルート系と呼ばれるものを定義し例を与えることを目標とする.
+
 \section{ルート系の定義と例}
 
 集合$\Phi\subset V\setminus \Set{\zzero}$に対し,
@@ -1759,19 +1773,41 @@ $\Phi$が有限であっても$W(\Phi)$は有限群とは限らない.
 
 \begin{definition}
   $\Phi \subset V \setminus \Set{\zzero}$とする.
-  以下の条件を満たすとき, $\Phi$が$V$上の(広義)ルート系であると呼ぶ:
+  以下の条件を満たすとき, $\Phi$が$V$上の広義ルート系であると呼ぶ:
   \begin{enumerate}
   \item $\numof{\Phi}<\infty$
-  \item 任意の$\alpha \in \Phi$に対し次が成り立つ:
-    \begin{enumerate}
-    \item $\RR\alpha \cap \Phi = \Set{\alpha,-\alpha}$.
-    \item $s_\alpha (\Phi) = \set{s_\alpha(\beta)|\beta\in \Phi}=\Phi$.
-    \end{enumerate}
+  \item 任意の$\alpha \in \Phi$に対し,
+    $s_\alpha (\Phi) = \set{s_\alpha(\beta)|\beta\in \Phi}=\Phi$.
   \end{enumerate}
 \end{definition}
 
+\begin{definition}
+  $\Phi \subset V \setminus \Set{\zzero}$を広義ルート系とする.
+  以下の条件を満たすとき, $\Phi$が$V$上の (被約) ルート系であると呼ぶ:
+  \begin{enumerate}
+  \item 任意の$\alpha \in \Phi$に対し,
+    $\RR\alpha \cap \Phi = \Set{\alpha,-\alpha}$.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  $\Phi \subset V \setminus \Set{\zzero}$を被約ルート系とする.
+  以下の条件を満たすとき, $\Phi$が$V$上の結晶的ルート系であると呼ぶ:
+  \begin{enumerate}
+    \item
+    $\alpha,\beta\in\Phi$ならば,
+      $2\frac{\Braket{\alpha,\beta}}{\Braket{\alpha,\alpha}}$は整数である.
+  \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  本稿では,
+  被約ルート系のことを単にルート系と呼ぶ.
+  結晶的ルート系のことを単にルート系と呼ぶ流儀もある.
+\end{remark}
+  
 \begin{prop}
-ルート系$\Phi$に対し,
+広義ルート系$\Phi$に対し,
 $W(\Phi)$は有限鏡映群である.
 \end{prop}
 \begin{proof}
@@ -1837,6 +1873,8 @@ $W(\Phi)$は有限鏡映群である.
 
 
 \section{ルート系の例}
+ここでは,
+ルート系の例を与える.
 \subsection{$I_2(m)$}
 \label{ex:i2m:root}
 $m$を正の整数とし,
@@ -1924,6 +1962,12 @@ $\RR\alpha_i \cap \Phi=\Set{\alpha_i,\alpha_{i+m}}$である.
 であるので, 有限集合であるから,
 $\Phi$はルート系である.
 このルート系を$\Phi(I_2(m))$とおく.
+$\alpha_i,\alpha_i\in\Phi$に対し,
+\begin{align*}
+  2\frac{\Braket{\alpha_i,\alpha_j}}{\Braket{\alpha_i,\alpha_i}}=2\Braket{\alpha_i,\alpha_j}
+\end{align*}
+は整数とは限らない.
+したがって, $\Phi(I_2(m))$は一般には結晶的ではない.
 
 \Cref{ex:i2m:root}での計算から
 \begin{align*}
@@ -1980,6 +2024,8 @@ $P_0=s_{\alpha_0}$である.
 $m$が奇数のときと同様に,
 \cref{lem:i2m:conjclass:even}の別証を与えることができる.
 
+
+
 \subsection{$A_{1}\times\cdots\times A_{1}$}
 \label{ex:a1n:root}
 $\varepsilon_i=\ee_i$とおく.
@@ -1997,6 +2043,11 @@ $F_i(\pm\varepsilon_k)=\pm\varepsilon_k$である.
 また, $\RR(\pm\varepsilon_i)\cap \Phi=\Set{\varepsilon_i,-\varepsilon_i}$
 である.
 $\numof{\Phi}=2^n$であるので, ルート系である.
+また, クロネッカーの$\delta$を使って,
+\begin{align*}
+  2\frac{\Braket{\varepsilon_i,\varepsilon_j}}{\Braket{\varepsilon_i,\varepsilon_i}}=2\Braket{\varepsilon_i,\varepsilon_j}=2\delta_{i,j}
+\end{align*}
+とかけるので, 結晶的である.
 
 \Cref{ex:a1n:grp}であつかった鏡映群を$W$とすると,
 \begin{align*}
@@ -2024,6 +2075,13 @@ $\RR\alpha_{i,j}\cap \Phi=\Set{\alpha_{i,j},\alpha_{j,i}}$
 $\numof{\Phi}=2\binom{n}{2}$であるので,
 $\Phi$はルート系である.
 このルート系を$\Phi(A_{n-1})$とおく.
+$\Braket{\alpha_{i,j},\alpha_{i,j}}=2$であるので,
+\begin{align*}
+  2\frac{\Braket{\alpha_{i,j},\alpha_{k,l}}}{\Braket{\alpha_{i,j},\alpha_{i,j}}}=\Braket{\alpha_{i,j},\alpha_{k,l}}
+\end{align*}
+と書け, 整数であることがわかる.
+したがって
+$\Phi(A_{n-1})$は結晶的である.
 \Cref{ex:an:grp}で考えた鏡映群を$W$とすると,
 \begin{align*}
   W(\Phi)=\Braket{R(\Phi)}=W
@@ -2104,6 +2162,16 @@ $\RR\alpha\cap\Phi=\Set{\alpha,-\alpha}$である.
 $\numof{\Phi}=2\binom{n}{2}+2\binom{n}{2}+2n=2n^2$であるので,
 $\Phi$はルート系である.
 このルート系を$\Phi(B_{n})$とおく.
+\begin{align*}
+  \Braket{\alpha_{i,j},\alpha_{i,j}}&=2\\
+  \Braket{\beta_{i,j},\beta_{i,j}}&=2\\
+  \Braket{\varepsilon_{i},\varepsilon_{i}}&=1
+\end{align*}
+である.
+$\alpha,\beta\in\Phi$に対して,
+$2\frac{\Braket{\alpha,\beta}}{\Braket{\alpha,\alpha}}$の分母は2または1であるので, 整数である.
+したがって,
+$\Phi(B_{n})$は結晶的である.
 
 $F_{k,l}=F_kF_lT_{k,l}$であるので,
 $\Braket{R(\Phi)}_\ZZ=\Braket{R(\Phi_1\cup \check{\Phi})}_\ZZ$
@@ -2135,6 +2203,19 @@ $s_{\alpha}(\hat\Phi)\cap\check\Phi=\emptyset$である.
   \Phi(C_n)&=\Phi'\cup\Phi''
 \end{align*}
 とおいても, $\Phi(C_n)$はルート系である.
+\begin{align*}
+  \Braket{\varepsilon'_{i},\varepsilon'_{i}}&=4
+\end{align*}
+であるが, $\alpha\in\Phi$に対し,
+\begin{align*}
+  2\frac{\Braket{\varepsilon'_{i},\alpha}}{\Braket{\varepsilon'_{i},\varepsilon'_{i}}}=2\frac{\Braket{2\varepsilon_{i},\alpha}}{\Braket{\varepsilon'_{i},\varepsilon'_{i}}}
+  =4\frac{\Braket{\varepsilon_{i},\alpha}}{\Braket{\varepsilon'_{i},\varepsilon'_{i}}}=\Braket{\varepsilon_{i},\alpha}
+\end{align*}
+である.  したがって,
+$\alpha,\beta\in\Phi$に対して,
+$2\frac{\Braket{\alpha,\beta}}{\Braket{\alpha,\alpha}}$は整数である.
+したがって,
+$\Phi(C_{n})$は結晶的である.
 また,
 $R(\Phi(C_n))=R(\Phi(B_n))$であるので,
 $W(\Phi(C_n))=W(\Phi(B_n))$でる.
@@ -2159,6 +2240,8 @@ $\RR\alpha\cap\Phi=\Set{\alpha,-\alpha}$である.
 $\numof{\Phi}=2n(n-1)$であるので,
 $\Phi$はルート系である.
 このルート系を$\Phi(D_{n})$とおく.
+$\Braket{\alpha_{i,j},\alpha_{i,j}}=2$であることから,
+$\Phi(D_{n})$は結晶的であることがわかる.
 
 $R(\Phi)=\Set{T_{i,j},F_{i,j}|1\leq i< j\leq n}$
 であるので,
@@ -2219,6 +2302,20 @@ $s_{\gamma_i}(\hat\Phi)=\hat\Phi$である.
 $\alpha\in\Phi$に対し, $\RR\alpha\cap\Phi=\Set{\alpha,-\alpha}$であり,
 $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
 このルート系を$\Phi(G_2)$と書く.
+$\Set{1,2,3}=\Set{i,j,k}$とすると,
+\begin{align*}
+  \Braket{\gamma_{i},\gamma_{i}}=\Braket{-2\ee_i+\ee_j+\ee_k,-2\ee_i+\ee_j+\ee_k}=4+1+1=6
+\end{align*}
+である.
+\begin{align*}
+  \Braket{\gamma_{i},\alpha_{i,j}}&=\Braket{-2\ee_i+\ee_j+\ee_k,\ee_i-\ee_j}=-2-1=-3\\
+  \Braket{\gamma_{i},\alpha_{j,k}}&=\Braket{-2\ee_i+\ee_j+\ee_k,\ee_j-\ee_k}=1-1=0
+\end{align*}
+となるので,
+$\alpha,\beta\in\Phi$に対して,
+$2\frac{\Braket{\alpha,\beta}}{\Braket{\alpha,\alpha}}$は整数である.
+したがって,
+$\Phi(G_{2})$は結晶的である.
 
 \sectionX{章末問題}
 \begin{enumerate}
@@ -2259,7 +2356,9 @@ $\numof{\Phi}=12$であるので, $\Phi$はルート系である.
 
 
 \chapter{Simple system}
-\section{simple system}
+ここでは単純系と呼ばれるルート系の良い部分集合を定義する.
+
+\section{Simple system}
 \begin{definition}
   $\Phi$をルート系とし, $\Delta\subset\Phi$とする.
   このとき,
@@ -2881,6 +2980,7 @@ $\Delta$は$\Phi$の単純系である.
 \end{enumerate}
 
 \chapter{Simple systemの性質}
+ここでは, どのルート系にも単純系が取れることを示すことを目標にする.
 \section{Simple systemの存在}
 $\Phi$をルート系とする.
 $M(\Phi)=V \setminus (\bigcup_{\alpha\in\Phi}H_\alpha)$
@@ -3376,6 +3476,16 @@ $\Set{t(\alpha)|\alpha\in\Phi}=\Set{\bar\alpha|\alpha\in \Phi'}$であること�
 
 
 \chapter{転倒数}
+対称群$S_n$の元$\sigma$に対し,
+$\numof{\Set{(i,j)|i<j, \sigma(i)>\sigma(j)}}$
+は$\sigma$の転倒数と呼ばれ,
+$\sigma$の符号を求める際などに使われていた.
+対称群$S_n$は$W(\Phi(A_{n-1}))$と群として同型であったので,
+$W(\Phi(A_{n-1}))$の元に転倒数が定義されていると思うこともできる.
+ここでは,
+転倒数を一般の有限鏡映群にも定義することを目標とする.
+
+
 \section{転倒数}
 ここでは特に断らない限り,
 $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
@@ -4139,6 +4249,15 @@ s_{\gamma_{1}}(-\gamma_3)&=\gamma_{2}
 \end{enumerate}
 
 \chapter{高さ関数}
+
+対称群$S_n$は隣接互換のなす集合でで生成されていた.
+\cref{ex:an:simple}での単純系$\Delta$を考えると,
+単純ルートに対する鏡映は隣接互換に相当していた.
+ここでは,
+高さと呼ばれるルートに対して決まる値を定義し,
+有限鏡映群が単純ルートに対する鏡映で生成されることを示す.
+
+
 \section{高さ関数}
 ここでは特に断らない限り,
 $\Phi$をルート系とし, $\Delta\subset\Phi$を単純系とする.
@@ -4676,6 +4795,9 @@ $\Phi=\Phi(G_2)$とし,
 
 \chapter{長さ関数}
 
+有限鏡映群は単純ルートに対応する鏡映で生成されている.
+有限鏡映群の元を単純ルートに対応する鏡映の積として書いたときの長さについて
+ここでは考える.
 
 \section{長さ関数}
 $\Phi$をルート系, $\Delta$を単純系,
@@ -5246,6 +5368,10 @@ $\Phi=\Phi(A_{2})$とし,
 
 
 \chapter{Bruhat order}
+
+有限鏡映群は単純ルートに対応する鏡映で生成されている.
+単純ルートに対応する鏡映の積によって誘導される半順序についてここでは定義する.
+
 \section{Bruhat order}
 $\Phi$をルート系とし, $\Delta$を単純系とし,
 $W=W(\Phi)$とする.
