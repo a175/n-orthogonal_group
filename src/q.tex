@@ -1,0 +1,369 @@
+% !TeX root =./x2.tex
+% !TeX program = pdfpLaTeX
+
+\chapter{線形代数の復習}
+
+\section{抽象実ベクトル空間と線形写像}
+和と実数によるスカラー倍が備わった空間を
+実ベクトル空間と呼ぶ.
+\begin{definition}
+  $V$を集合とし,
+  $+$, $\cdot$を二項演算
+  \begin{align*}
+    \bullet + \bullet \colon V\times V &\to V\\
+    (v,w)\mapsto v+w\\
+    \bullet \cdot \bullet \colon \RR\times V &\to V\\
+    (a,w)\mapsto a\cdot w
+  \end{align*}
+  とし,
+  $0_V$
+  とする.
+  以下の条件を満たすとき,
+  $(V,+,\cdot,0_V)$を実ベクトル空間と呼ぶ:
+  \begin{enumerate}
+  \item $v,w,u\in V$に対し以下が成り立つ:
+    \begin{enumerate}
+    \item $(v+w)+u=v+(w+u)$.
+    \item $v+w=w+v$.
+    \item $v+0_V=v$.
+    \item $v+(-1)\cdot v=0_V$.
+    \end{enumerate}
+  \item $v\in V$, $a,b\in\RR$に対し
+    以下が成り立つ:
+    \begin{enumerate}
+    \item $(ab)\cdot v=a\cdot (b\cdot v)$.
+    \item $1\cdot v=v$.
+    \end{enumerate}      
+  \item $v,w \in V$, $a,b\in\RR$に対し
+    以下が成り立つ:
+    \begin{enumerate}
+    \item $(a+b)\cdot v=(a\cdot v) + (b\cdot v)$.
+    \item $a\cdot (v+w)=(a\cdot v) + (a\cdot w)$.
+    \end{enumerate}      
+  \end{enumerate}
+\end{definition}
+\begin{remark}
+  $(V,+,\cdot,0_V)$が実ベクトル空間であるとき,
+  \begin{align*}
+    0\cdot v
+    &=(1-1)\cdot v\\
+    &=1\cdot v + (-1)\cdot v\\
+    &=v+ (-1)\cdot v= 0_V
+  \end{align*}
+  であるので,
+  任意の$v\in V$に対し, $0v=0_V$である.
+\end{remark}
+\begin{remark}
+  以下では, 文脈上誤解が生じないときには,
+  $(V,+,\cdot,0_V)$が実ベクトル空間であることを単に
+  $V$がベクトル空間であるといい,
+  $0_V$のことを単に$0$と書いたりする.
+  また, スカラー倍の際$\cdot$を省略し, $a\cdot v$を$av$の様に書くこともある.
+\end{remark}
+\begin{remark}
+  $(-1)v$を$-v$, $w+(-v)$を$w-v$のように略記する.
+\end{remark}
+
+
+和とスカラー倍とコンパチブルな写像を線形写像と呼ぶ.
+\begin{definition}
+  $(V,+,\cdot,0_V)$, $(W,\oplus,\odot,0_W)$を実ベクトル空間とし,
+  $f$を$V$から$W$への写像とする.
+  以下の条件を満たすとき,
+  $f$は$(V,+,\cdot,0_V)$から$(W,\oplus,\odot,0_W)$への($\RR$上の)線形写像であるという:
+  \begin{enumerate}
+  \item $v,v'\in V\implies f(v+v')=f(v)\oplus f(v')$.
+  \item $a\in \RR$, $v\in V \implies f(a\cdot v)=a\odot f(v)$.
+  \end{enumerate}
+\end{definition}
+\begin{remark}
+  以下では, 文脈上誤解が生じないときには,
+  $f$は$(V,+,\cdot,0_V)$から$(W,\oplus,\odot,0_W)$への($\RR$上の)線形写像であることを,
+  単に$V$から$W$への線形写像であるという.
+  また,
+  本来であれば,
+  線形写像$f\colon (V,+,\cdot,0_V)\to(W,\oplus,\odot,0_W)$
+  などと書き表すべきであるが,
+  線形写像$f\colon V\to W$などと書く.
+\end{remark}
+\begin{remark}
+  $V$を実ベクトル空間とする.
+  $V$上の恒等写像$\id_V$は線形写像である.
+\end{remark}
+\begin{definition}
+  実ベクトル空間$V$, $W$に対し,
+  \begin{align*}
+    \Hom_\RR(V,W)
+    =\Set{f\colon V\to W \text{: 線形}}
+  \end{align*}
+  とおく.
+\end{definition}
+\begin{remark}
+  線形写像の合成は線形である.
+  つまり,
+  \begin{align*}
+  f\in \Hom_\RR(V,W),\ 
+  g\in \Hom_\RR(W,U)
+  \implies
+  g\circ f \in \Hom_\RR(W,U).
+  \end{align*}
+\end{remark}
+\begin{definition}
+  $V$, $W$をベクトル空間とし,
+  $f\colon V\to W$を線形写像とする.
+  次の条件を満たすとき,
+  $f$は$V$から$W$への(線形)同型写像であるという:
+  \begin{itemize}
+  \item 次の条件を満たす線形写像$g\colon W\to V$が存在する:
+    \begin{align*}
+      g\circ f =\id_V,\\
+      f\circ g =\id_W.
+    \end{align*}
+  \end{itemize}
+  また, $V$から$W$への同型写像が存在するとき,
+  $V$と$W$は(線形)同型であるといい$V\simeq W$と書く.
+  つまり$V\simeq$と次は同値である:
+  \begin{itemize}
+  \item 次の条件を満たす線形写像$f\colon V\to W$と$g\colon W\to V$が存在する:
+    \begin{align*}
+      g\circ f =\id_V,\\
+      f\circ g =\id_W.
+    \end{align*}
+  \end{itemize}
+\end{definition}
+\begin{remark}
+  $V$と$W$が同型であるとき,
+  $V$で成り立つことは同型写像$f$を通して$W$に翻訳できるので,
+  $V$と$W$はベクトル空間として同じものであると思える.
+\end{remark}
+\begin{remark}
+  線形写像$f\colon V\to W$が全単射であるとき,
+  $f$の逆写像$f^{-1}$も線形である.
+  したがって,
+  $f\colon V\to W$が同型写像であることと,
+  $f\colon V\to W$が全単射な線形写像であることは同値である.
+\end{remark}
+\begin{example}
+  数ベクトルのなす集合
+  \begin{align*}
+    \RR^n=\Set{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}|x_i\in\RR}
+  \end{align*}
+  は実ベクトル空間である. 
+\end{example}
+\begin{example}
+  複素数のなす集合
+  \begin{align*}
+    \CC=\Set{x+y\sqrt{-1}|x,y\in\RR}
+  \end{align*}
+  は実ベクトル空間である.
+  これは, 複素(数)平面と呼ばれる.
+\end{example}
+\begin{example}
+  実数のなす集合$\RR=\RR^1$
+  は実ベクトル空間である.
+\end{example}
+
+\begin{definition}
+  $(V,+,\cdot,0_V)$,
+  $(W,+,\cdot,0_W)$をベクトル空間とする.
+  $f,g\in\Hom_\RR(V,W)$に対し,
+  写像$f+g$を次で定義する:
+  \begin{align*}
+    f+g\colon V&\to W\\
+    v&\mapsto f(v)+g(v).
+  \end{align*}
+  $a\in \RR$,
+  $f\in\Hom_\RR(V,W)$に対し,
+  写像$a\cdot f$を次で定義する:
+  \begin{align*}
+    a\cdot f\colon V&\to W\\
+    v&\mapsto a\cdot f(v).
+  \end{align*}
+  また, 写像$\underline{0_W}$を次で定義する:
+  \begin{align*}
+    \underline{0_W}\colon V&\to W\\
+    v&\mapsto 0_W.
+  \end{align*}
+\end{definition}
+\begin{prop}
+  ベクトル空間
+  $(V,+,\cdot,0_V)$,
+  $(W,+,\cdot,0_W)$に対し,
+  $\underline{0_W}\in \Hom_\RR(V,W)$である.
+  $f,g\in\Hom_\RR(V,W)$, $a\in \RR$に対し,
+  $f+g, a\cdot f\in \Hom_\RR(V,W)$である.
+  また, 
+  $(\Hom_\RR(V,W),+,\cdot,\underline{0_W})$
+  は実ベクトル空間である.
+\end{prop}
+\begin{remark}
+  \label{A:rem:linearmap:sum:sc}
+  $\Hom_\RR(V,W)$がベクトル空間であるので,
+  和とスカラー倍は分配則などを満たす.
+  さらに, 合成とは以下を満たす:
+  $f,f'\in\Hom_\RR(V,W)$,
+  $g,g'\in\Hom_\RR(W,U)$,
+  $a\in\RR$に対し,
+  \begin{enumerate}
+  \item $(g+g')\circ f=g\circ f+g'\circ f$,
+  \item $g\circ (f+f')=g\circ f+g\circ f'$,
+  \item $c(g\circ f)=(cg)\circ f=g\circ(cf)$.    
+  \end{enumerate}
+\end{remark}
+
+\begin{definition}
+  $V$をベクトル空間とする.
+  \begin{align*}
+    V^\ast &= \Hom_\RR(V,\RR)\\
+    &=\Set{\varphi\colon V\to \RR\text{: 線形写像}}
+  \end{align*}
+  とおき, ベクトル空間$V^\ast$を$V$の双対空間と呼ぶ.
+\end{definition}
+
+
+$V$, $W$をベクトル空間とし,
+$f$を$V$から$W$への線形写像とする.
+$\varphi\in W^\ast$とすると,
+$\varphi$は$W$から$\RR$への線形写像であるので,
+\begin{align*}
+  \varphi\circ f \colon V&\to \RR\\
+  v&\mapsto \varphi(f(v))
+\end{align*}
+は線形である.
+つまり, $\varphi\circ f \in \Hom_\RR(V,\RR)=V^\ast$である.
+よって,
+写像
+\begin{align*}
+  \Phi_f\colon W^\ast &\to V^\ast\\
+  \varphi &\mapsto \varphi\circ f
+\end{align*}
+が定義できる.
+\begin{lemma}
+$V$, $W$をベクトル空間とし,
+$f$を$V$から$W$への線形写像とし,
+\begin{align*}
+  \Phi_f\colon W^\ast &\to V^\ast\\
+  \varphi &\mapsto \varphi\circ f
+\end{align*}
+とすると, $\Phi_f\in \Hom_\RR(W^\ast,V^\ast)$.
+\end{lemma}
+\begin{proof}
+  $\varphi,\psi\in W^\ast$に対し,
+  \begin{align*}
+    \Phi_f(\varphi+\psi)&=(\varphi+\psi)\circ f \in W^\ast\\
+    \Phi_f(\varphi)+\Phi_f(\psi)&=\varphi\circ f+\psi\circ f \in W^\ast
+  \end{align*}
+  である.
+  $v\in V$に対し,
+  \begin{align*}
+    (\Phi_f(\varphi+\psi))(v)
+    &=((\varphi+\psi)\circ f )(v)\\
+    &=(\varphi+\psi)(f (v))\\
+    &=\varphi(f (v))+\psi(f (v))\\
+    (\Phi_f(\varphi)+\Phi_f(\psi))(v)
+    &=(\varphi\circ f+\psi\circ f )(v)\\
+    &=(\varphi\circ f)(v)+(\psi\circ f )(v)\\
+    &=\varphi(f(v))+\psi( f (v))
+  \end{align*}
+  となるので%
+  \footnote{\Cref{A:rem:linearmap:sum:sc}において証明せずに紹介した事実の証明をここで与えている.}%
+  ,
+  $\Phi_f(\varphi+\psi)=\Phi_f(\varphi)+\Phi_f(\psi)$.
+
+  $a\in \RR$,
+  $\varphi\in W^\ast$に対し,
+  \begin{align*}
+    \Phi_f(a\varphi)&=(a\varphi)\circ f \in W^\ast\\
+    a\Phi_f(\varphi)&=a(\varphi\circ f)\in W^\ast
+  \end{align*}
+  である.
+  $v\in V$に対し,
+  \begin{align*}
+    (\Phi_f(a\varphi))(v)
+    &=((a\varphi)\circ f)(v)\\ 
+    &=(a\varphi)(f(v))\\ 
+    &=a(\varphi(f(v))\\ 
+    (a\Phi_f(\varphi))(v)
+    &=(a(\varphi\circ f))(v)\\
+    &=a((\varphi\circ f)(v))\\
+    &=a(\varphi(f(v)))
+  \end{align*}
+  となるので%
+  \footnote{\Cref{A:rem:linearmap:sum:sc}において証明せずに紹介した事実の証明をここで与えている.}%
+  ,
+  $\Phi_f(a\varphi)=a\Phi_f(\varphi)$.
+\end{proof}
+\begin{definition}
+  $V,W$をベクトル空間とする.
+  $f\in \Hom(V,W)$に対し,
+  $\transposed{f}\in \Hom(W^\ast,V^\ast)$を,
+  \begin{align*}
+    \transposed{f}\colon W^\ast &\to V^\ast\\
+    \varphi &\mapsto \varphi\circ f
+  \end{align*}
+  で定義し, $f$の転置と呼ぶ.
+\end{definition}
+
+(余談)
+\begin{align*}
+  \Phi\colon \Hom_\RR(V,W)&\to \Hom(W^\ast,V^\ast)  \\
+  f&\mapsto \Phi_f=\transposed{f}
+\end{align*}
+は線形である.
+つまり,
+\begin{align*}
+  \Phi\in\Hom_\RR(\Hom_\RR(V,W),\Hom_\RR(W^\ast,V^ast)).
+\end{align*}
+\begin{proof}
+  $f,f'\in \Hom_\RR(V,W)$とする.
+  $\Phi_{f+f'},\Phi_{f}+\Phi_{f'}\in\Hom_\RR(W^\ast,V^\ast)$
+  である.
+  $\varphi\in W^\ast$に対し,
+  \begin{align*}
+    \Phi_{f+f'}(\varphi)
+    &=(\transposed{(f+f')})(\varphi)\\
+    &=\varphi\circ(f+f')\in V^\ast,\\
+    (\Phi_{f}+\Phi_{f'})(\varphi)
+    &=(\transposed{f}+\transposed{f'})(\varphi)\\
+    &=(\transposed{f})(\varphi)+(\transposed{f'})(\varphi)\\
+    &=\varphi\circ f+\varphi\circ f'\in V^\ast.
+  \end{align*}
+  $v\in V$に対し,
+  \begin{align*}
+    (\Phi_{f+f'}(\varphi))(v)
+    &=(\varphi\circ(f+f'))(v)\\
+    &=\varphi((f+f')(v))\\
+    &=\varphi(f(v)+f'(v))\\
+    &=\varphi(f(v))+\varphi(f'(v)),\\
+    ((\Phi_{f}+\Phi_{f'})(\varphi))(v)
+    &=(\varphi\circ f+\varphi\circ f')(v)\\
+    &=(\varphi\circ f)(v)+(\varphi\circ f')(v)\\
+    &=\varphi(f(v))+\varphi(f'(v)).
+  \end{align*}
+  よって, $\Phi_{f+f'}=\Phi_{f}+\Phi_{f'}$.
+ 
+  $a\in\RR$,
+  $f\in \Hom_\RR(V,W)$とする.
+  $\Phi_{af},\Phi_{f}+\Phi_{f'}\in\Hom_\RR(W^\ast,V^\ast)$
+  である.
+  $\varphi\in W^\ast$に対し,
+  \begin{align*}
+    \Phi_{af}(\varphi)&=(\transposed{(a f)})(\varphi)=\varphi\circ(af)\in V^\ast\\
+    (a\Phi_{f})(\varphi)&=a(\transposed{f}(\varphi))=a(\varphi\circ f)\in V^\ast.
+  \end{align*}
+  $v\in V$に対し,
+  \begin{align*}
+    (\Phi_{af}(\varphi))(v)
+    &=(\varphi\circ(af)) (v)\\
+    &=\varphi(af(v))\\
+    &=a\varphi(f(v))\\
+    ((a\Phi_{f})(\varphi))(v)
+    &=(a(\varphi\circ f))(v)\\
+    &=a(\varphi\circ f)(v))\\
+    &=a(\varphi(f(v))).
+  \end{align*}
+  よって, $\Phi_{af}=a\Phi_{f}$.
+\end{proof}
+
+
+\section{実内積と等長写像}
