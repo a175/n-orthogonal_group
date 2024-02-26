@@ -11,9 +11,9 @@
   $+$, $\cdot$を二項演算
   \begin{align*}
     \bullet + \bullet \colon V\times V &\to V\\
-    (v,w)\mapsto v+w\\
+    (v,w)&\mapsto v+w\\
     \bullet \cdot \bullet \colon \RR\times V &\to V\\
-    (a,w)\mapsto a\cdot w
+    (a,w)&\mapsto a\cdot w
   \end{align*}
   とし,
   $0_V$
@@ -116,8 +116,8 @@
   \begin{itemize}
   \item 次の条件を満たす線形写像$g\colon W\to V$が存在する:
     \begin{align*}
-      g\circ f =\id_V,\\
-      f\circ g =\id_W.
+      g\circ f &=\id_V,\\
+      f\circ g &=\id_W.
     \end{align*}
   \end{itemize}
   また, $V$から$W$への同型写像が存在するとき,
@@ -126,8 +126,8 @@
   \begin{itemize}
   \item 次の条件を満たす線形写像$f\colon V\to W$と$g\colon W\to V$が存在する:
     \begin{align*}
-      g\circ f =\id_V,\\
-      f\circ g =\id_W.
+      g\circ f &=\id_V,\\
+      f\circ g &=\id_W.
     \end{align*}
   \end{itemize}
 \end{definition}
@@ -295,8 +295,8 @@ $f$を$V$から$W$への線形写像とし,
 \end{proof}
 \begin{definition}
   $V,W$をベクトル空間とする.
-  $f\in \Hom(V,W)$に対し,
-  $\transposed{f}\in \Hom(W^\ast,V^\ast)$を,
+  $f\in \Hom_\RR(V,W)$に対し,
+  $\transposed{f}\in \Hom_\RR(W^\ast,V^\ast)$を,
   \begin{align*}
     \transposed{f}\colon W^\ast &\to V^\ast\\
     \varphi &\mapsto \varphi\circ f
@@ -306,7 +306,7 @@ $f$を$V$から$W$への線形写像とし,
 
 (余談)
 \begin{align*}
-  \Phi\colon \Hom_\RR(V,W)&\to \Hom(W^\ast,V^\ast)  \\
+  \Phi\colon \Hom_\RR(V,W)&\to \Hom_\RR(W^\ast,V^\ast)  \\
   f&\mapsto \Phi_f=\transposed{f}
 \end{align*}
 は線形である.
@@ -367,3 +367,491 @@ $f$を$V$から$W$への線形写像とし,
 
 
 \section{実内積と等長写像}
+\begin{definition}
+  $V$を実ベクトル空間とする.
+  \begin{align*}
+    \Braket{\bullet,\bullet}_V
+    \colon
+    V\times V \to \RR\\
+    (v,w) \mapsto\Braket{v,w}_V
+  \end{align*}
+  が以下の条件を満たすとき,
+  $(V,\Braket{\bullet,\bullet}_V)$は(実)内積空間であるという:
+  \begin{enumerate}
+  \item
+    \label{def:inner:item:line}
+    $a\in\RR$, $v,w,u\in V\implies$
+    \begin{align}
+      \Braket{v+w,u}_V&=\Braket{v,u}_V+\Braket{w,u}_V,
+      \label{def:inner:item:line:1:sum}
+      \\
+      \Braket{av,u}_V&=a\Braket{v,u}_V.
+      \label{def:inner:item:line:1:sca}
+    \end{align}
+  \item
+    \label{def:inner:item:sym}
+    $v,w\in V \implies \Braket{v,w}_V=\Braket{w,v}_V$.
+  \item 
+    \label{def:inner:item:nondege}
+    $v\in V$に対し次が成り立つ:
+    \begin{align}
+      v=0_V
+      \iff
+      \forall w\in V,\Braket{v,w}_V=0
+      \label{def:inner:item:nondege:1}
+    \end{align}
+  \item
+    \label{def:inner:item:semi}
+    $v\in V \implies \Braket{v,v}_V\geq 0$.
+  \item
+    \label{def:inner:item:posi}
+    $\Braket{v,v}_V=0\iff v=0_V$.
+  \end{enumerate}
+\end{definition}
+\begin{remark}
+  文脈上誤解がない場合には,
+  $(V,\Braket{\bullet,\bullet}_V)$が内積空間であることを,
+  単に$V$が内積空間であると言うこともある.
+  $\Braket{\bullet,\bullet}_V$を$V$の内積と呼ぶ.
+\end{remark}
+\begin{remark}
+  \Cref{def:inner:item:sym}を満たすことを
+  $\Braket{\bullet,\bullet}_V$が対称であるという.
+\end{remark}
+\begin{remark}
+  \Cref{def:inner:item:line}
+  を満たすことを
+  $\Braket{\bullet,\bullet}_V$が
+  第一成分に関して線形
+  であるという.
+  \Cref{def:inner:item:sym,def:inner:item:line}から
+  \begin{align}
+    \Braket{u,v+w}_V&=\Braket{u,v}_V+\Braket{u,w}_V,
+    \label{def:inner:item:line:2:sum}
+    \\
+    \Braket{u,av}_V&=a\Braket{u,v}_V    
+    \label{def:inner:item:line:2:sca}
+  \end{align}
+  がわかる.
+  \Cref{def:inner:item:line:2:sum,def:inner:item:line:2:sca}
+  を満たすことを,
+  $\Braket{\bullet,\bullet}_V$が
+  第二成分に関して線形
+  であるという.
+  \Cref{def:inner:item:line:2:sum,def:inner:item:line:2:sca,def:inner:item:line:1:sum,def:inner:item:line:1:sca}
+  を満たすことを,
+  $\Braket{\bullet,\bullet}_V$が
+  双線形
+  であるという.
+\end{remark}
+\begin{remark}
+  \Cref{def:inner:item:sym,def:inner:item:nondege:1}
+  から,
+  \begin{align}
+      v=0_V
+      \iff
+      \forall w\in V,\Braket{w,v}_V=0
+      \label{def:inner:item:nondege:2}
+  \end{align}
+  がわかる.
+  \Cref{def:inner:item:nondege:1,def:inner:item:nondege:2}
+  が成り立つことを,
+  $\Braket{\bullet,\bullet}_V$が
+  非退化
+  であるという.
+
+  \Cref{def:inner:item:nondege:1}は対偶をを取ると,
+  \begin{align*}
+    v\in V\setminus\Set{0_V}
+    \iff
+    \exists w\in V \text{ such that }
+    \Braket{v,w}_V\neq 0
+  \end{align*}
+  となるのでこれが条件として書かれることもある.
+  また,
+  \Cref{def:inner:item:line:1:sca}
+  から,
+  \begin{align*}
+    v=0_V
+    \implies
+    \forall w\in V,\Braket{v,w}_V=0
+  \end{align*}
+  が成り立つので,
+  \begin{align}
+    v\in V\setminus\Set{0_V}
+    \implies
+    \exists w\in V \text{ such that }
+    \Braket{v,w}_V\neq 0
+    \label{def:inner:item:nondege:1x}
+  \end{align}
+  のみが条件として書かれることもある.
+
+
+  
+  \Cref{def:inner:item:line}
+    から, $\Braket{v_0,v}_V= \Braket{v_1,v}_V$ならば,
+  \begin{align*}
+    0=\Braket{v_0,v}_V-\Braket{v_1,v}_V
+    =\Braket{v_0-v_1,v}_V
+  \end{align*}
+  となる.
+  したがって,
+  任意の$v\in V$に対して
+  $\Braket{v_0,v}_V= \Braket{v_1,v}_V$ならば,
+  \Cref{def:inner:item:nondege:1}から,
+  $v_0-v_1=0_V$となり, $v_0=v_1$であることがわかる.
+  逆は明らかであるから,
+  \Cref{def:inner:item:line,def:inner:item:nondege:1}
+  から
+  \begin{align*}
+    v_0=v_1\iff \forall v\in V, \Braket{v,v_0}_V= \Braket{v,v_1}_V
+  \end{align*}
+  がわかる.
+\end{remark}
+\begin{remark}
+\Cref{def:inner:item:semi}を満たすことを,
+  $\Braket{\bullet,\bullet}_V$は
+半正定値(positive semidefinite)
+  であるという.
+  \Cref{def:inner:item:posi,def:inner:item:semi}を満たすことを,
+  $\Braket{\bullet,\bullet}_V$は
+  正定値(positive definite)
+  であるという.
+
+  \Cref{def:inner:item:line:1:sca}から,
+  \begin{align*}
+    v=0_V\implies \Braket{v,v}_V=0 
+  \end{align*}
+  はわかるので,
+  \Cref{def:inner:item:posi}
+  の条件の代わりに
+  \begin{align*}
+    \Braket{v,v}_V=0\implies v=0_V.
+  \end{align*}
+  と書かれることもある.
+  この条件の対偶は,
+  \begin{align*}
+    v\in V\setminus\Set{0_V}
+    \implies
+    \Braket{v,v}_V\neq 0
+  \end{align*}
+  であるが,
+  \Cref{def:inner:item:semi}を満たすときには,  
+  \begin{align*}
+    v\in V\setminus\Set{0_V}
+    \implies
+    \Braket{v,v}_V> 0
+  \end{align*}
+  と書くことができる.
+  
+  \Cref{def:inner:item:posi}を認めると,
+  \Cref{def:inner:item:nondege:1x}の$w$として$v$自身がとれるので,
+  \Cref{def:inner:item:nondege}
+  が導かれる.
+  そのため
+  \Cref{def:inner:item:nondege}
+  が条件として省かれることも多い.
+\end{remark}
+
+\begin{remark}
+  内積とは,
+  非退化正定値対称双線型形式のこと
+  (形式というのは写像$V\times V\to \RR$を意味している).
+\end{remark}
+
+\begin{remark}
+  複素ベクトルのときには,
+  $\Braket{\bullet,\bullet}_V\colon V\times V\to \CC$
+  として,
+  \Cref{def:inner:item:sym}の条件を,
+  \begin{align*}
+    v,w\in V \implies \Braket{v,w}_V=\overline{\Braket{w,v}_V}
+  \end{align*}
+  に変更したものを考える.
+  ただし$\overline{\bullet}$は複素共軛を表す.
+  この条件を満たすことを,
+  $\Braket{\bullet,\bullet}_V$
+  はエルミート対称であるという.
+\end{remark}
+
+内積空間の構造とコンパチブルな写像を等長写像と呼ぶ.
+\begin{definition}
+  $(V,\Braket{}_V)$, $(W,\Braket{}_W)$を内積空間とし,
+  $f\colon V\to W$を線型写像とする.
+  以下の条件を満たすとき,
+  $f$は等長写像であるという.
+  \begin{align*}
+    v,v'\in V\implies
+    \Braket{v,v'}_V
+    =
+    \Braket{f(v),f(v')}_W
+  \end{align*}
+\end{definition}
+
+\begin{remark}
+  以下では, 文脈上誤解が生じないときには,
+  $f$は
+  $(V,\Braket{}_V)$から$(W,\Braket{}_W)$への
+  等長写像
+  であることを,
+  単に$V$から$W$への等長写像であるという.
+  また,
+  本来であれば,
+  等長写像$f\colon (V,\Braket{}_V) \to (W,\Braket{}_W)$
+  などと書き表すべきであるが,
+  等長写像$f\colon V\to W$などと書く.
+\end{remark}
+
+\begin{definition}
+  $V$, $W$を内積空間とする.
+  線型同型写像かつ等長写像である$f\colon V\to W$が存在するとき,
+  $V$と$W$は内積空間として同型であるという.
+\end{definition}
+\begin{remark}
+  $V$と$W$が内積空間として同型であるとき,
+  $V$と$W$は内積空間として同じものであると思える.
+\end{remark}
+\begin{remark}
+  等長写像の合成は等長写像である.
+\end{remark}
+\begin{remark}
+  $V$を内積空間とする.
+  $v\in V$に対し,
+  \begin{align*}
+    \|v\|_V = \sqrt{\Braket{v,v}_V}
+  \end{align*}
+  とおき, $\|\bullet\|_V$をノルムと呼ぶ.
+  $\|v\|_V$は$v$の`長さ'に相当する.
+  $f\colon V\to W$を等長写像とすると,
+  \begin{align*}
+    \|v\|_V &= \sqrt{\Braket{v,v}_V}\\
+    &= \sqrt{\Braket{f(v),f(v)}_W}\\
+    &= \|f(v)\|_W
+  \end{align*}
+  となり, ノルムが$f$によって変化しない.
+\end{remark}
+\begin{remark}
+  $V$, $W$を内積空間とし,
+  $f\colon V\to W$を等長写像とする.
+  $f(v)=0_W$とする.
+  このとき,
+  $\|v\|_V=\|f(v)\|_W=\|0_W\|=0$
+  であるので, $v=0_V$であることがわかる.
+  したがって,
+  $f$は単射である.
+\end{remark}
+\begin{definition}
+  $V$を内積空間とする.
+  $O(V)=\Set{f\in\Hom_\RR(V,V)\text{: 等長}}$
+  とおく.
+  $O(V)$を$V$上の直交群と呼ぶ.
+  また,
+  $f\in O(V)$を$V$上の直交変換と呼ぶ.
+\end{definition}
+
+
+  $V$を内積空間であるとする.
+  $v_0\in V$に対し,
+  \begin{align*}
+    \beta_{v_0}\colon
+    V&\to \RR\\
+    v&\mapsto \Braket{v,v_0}_V
+  \end{align*}
+  とおく.
+  このとき, (内積の定義\Cref{def:inner:item:line}より)
+  $\beta_{v_0}$は線型写像である.
+  つまり,
+  \begin{align*}
+    \beta_{v_0} \in \Hom_\RR(V,\RR) =V^\ast
+  \end{align*}
+  である.
+  \begin{align*}
+    \beta\colon
+    V&\to V^\ast\\
+    u&\mapsto \beta_{u}
+  \end{align*}
+  とおくと,
+  (\Cref{def:inner:item:line:2:sum,def:inner:item:line:2:sca}より)
+  $\beta$は線型写像である.
+  (余談: $\beta$のことを内積を第2成分に関して
+  カリー化した関数ということがある.)
+
+  $V$は有限次元であるとする.
+  $V$は有限次元であるとすると,
+  $\beta$は同型写像である.
+  つまり,
+  \begin{align*}
+    \forall \varphi \in V^\ast,
+    \exists ! v_0 \in V \text{ s.t. }
+    \beta_{v_0} = \varphi
+  \end{align*}
+  が成り立つ.
+  これは, 言い換えると,
+  \begin{align*}
+    \forall \varphi \in V^\ast,
+    \exists ! v_0 \in V \text{ s.t. }
+    \forall v\in V, \varphi(v)=\Braket{v,v_0}_V
+  \end{align*}
+  となる.
+
+\begin{remark}
+  $V$が有限次元のとき,
+  $\beta$は
+  $V$と$V^\ast$の同型を与えるが,
+  これは内積を取り替えると,
+  異なる同型写像となる.
+  内積を1つ決めるというのは,
+  $V$と$V^\ast$の間の同型写像を1つ固定するということを意味する.
+\end{remark}
+
+$W$を有限次元内積空間とし,
+$V$と同様に,
+$w_0\in W$に対して,
+\begin{align*}
+  \beta_{w_0}\colon
+  W&\to \RR\\
+  w&\mapsto \Braket{w,w_0}_W
+\end{align*}
+とする.
+$f\colon V\to W$を線型写像とする.
+つまり, $f\in \Hom_\RR(V,W)$とする.
+このとき
+\begin{align*}
+  \transposed{f}\colon
+  W^\ast &\to V^\ast\\
+  \varphi &\mapsto \varphi\circ f
+\end{align*}
+と定義され$\transposed{f}\in \Hom(W^\ast,V^\ast)$であった.
+
+$w\in W$とする.
+$\beta_w\in W^\ast$であるので,
+$\transposed{f}(\beta_w)\in V^\ast$
+である.
+$V$が有限次元であるので,
+$\beta\colon V\to V^\ast$は同型写像である.
+したがって,
+$\beta_{v_0}=\transposed{f}(\beta_w)$
+を満たす$v_0\in V$が定まる.
+この$v_0$を,
+\begin{align*}
+  f^\top(w) \in V
+\end{align*}
+とおく.
+\begin{align*}
+  f^\top\colon W&\to V\\
+  w&\mapsto f^\top(w)
+\end{align*}
+という写像が定まる.
+定義から,
+\begin{align*}
+  \transposed{f}(\beta_w)=\beta_{f^\top (w)}
+\end{align*}
+であるので,
+$v\in V$, $w\in W$に対し,
+\begin{align*}
+  \Braket{f(v),w}_W
+  &=\beta_w(f(v))\\
+  &=(\beta_w \circ f)(v)\\
+  &=(\transposed{f}(\beta_w))(v)\\
+  &=\beta_{f^\top (w)}(v)\\
+  &=\Braket{v,f^\top (w)}_V
+\end{align*}
+が成り立つ.
+つまり,
+\begin{align*}
+  f^\top \colon W &\to V\\
+  w&\mapsto f^\top (w)
+\end{align*}
+は
+\begin{align*}
+  v\in V, w\in W
+  \implies
+  \Braket{f(v),w}_W
+  =\Braket{v,\beta_{f^\top (w)}}_V
+\end{align*}
+を満たす.
+さらに,
+$f^\top\in \Hom(W,V)$
+であることもわかる.
+$f^\top$も$f$の転置と呼ぶ.
+\begin{remark}
+  $f^\top \colon W \to V$
+  は内積による$V$から$V^\ast$への同型$\beta$に依存している.
+\end{remark}
+
+
+\begin{remark}
+  線型写像$f\colon V\to W$に対し,
+  \begin{align*}
+    \text{$f\colon V\to W$が等長写像}
+    &\iff
+    \forall v,v'\in V, \Braket{f(v),f(v')}_W=\Braket{v,v'}_V\\
+    &\iff
+    \forall v,v'\in V, \Braket{v,f^\top (f(v'))}_V=\Braket{v,v'}_V\\
+    &\iff
+    \forall v,v'\in V, \Braket{v,(f^\top \circ f)(v')}_V=\Braket{v,v'}_V\\
+    &\iff
+    \forall v'\in V, (f^\top \circ f)(v')=v'\\
+    &\iff
+    f^\top \circ f=\id_V
+  \end{align*}
+  である. $f\colon V\to V$について考えると,
+  $f$が等長写像であることと$f^\top=f^{-1}$であることが
+  同値であることがわかる.
+\end{remark}
+
+
+\begin{remark}
+  $V$, $W$を有限次元ベクトル空間とすると,
+  線型写像$f\colon V\to W$に対し,
+  $f$の転置
+  $\transposed{f}\in\Hom_\RR(W^\ast,V^\ast)$
+  が定まる.
+  この転置$\transposed{f}$は内積などによらずに定まる.
+  しかし, $\transposed{f}$は$W$から$V$への写像ではない.
+  一方$V$, $W$に内積があれば,
+  $f\colon V\to W$の転置,
+  $f^\top\in\Hom_\RR(W,V)$
+  が定まる.
+  この転置$f^\top$は$W$から$V$への写像ではあるものの,
+  $f$に対して得られる転置$f^\top$は
+  内積が変われば違うものとなる.
+
+  すでに見たように,
+  $V$, $W$に内積があれば,
+  内積を通じて,
+  $V$と$V^\ast$の同型$\beta$や,
+  $W$と$W^\ast$の同型$\beta$が得られる.
+  $f\in \Hom_\RR(V,W)$を一つ固定する.
+  このとき$f^\top \in \Hom_\RR(W,V)$であるので,
+  $w\in W$に対し, $f^\top(w)\in V$である.
+  したがって, $\beta_{f^\top(w)}\in V^\ast$である.
+  一方, $w\in W$であるので, $\beta_w\in W^\ast$である.
+  $\transposed{f}\in \Hom_\RR(W^\ast,V^\ast)$であるので,
+  $\transposed{f}(\beta_w)\in V^\ast$である.
+  $V^\ast$の2つの元$\beta_{f^\top(w)}$と$\transposed{f}(\beta_w)$が得られたが,
+  $v\in V$に対し,
+  \begin{align*}
+    \beta_{f^\top(w)}(v)
+    &=\Braket{v,f^\top(w)}_V\\
+    &=\Braket{f(v),w}_W\\
+    (\transposed{f}(\beta_w))(v)
+    &=(\beta_w\circ f)(v)\\
+    &=\beta_w(f(v))\\
+    &=\Braket{f(v),w}_W
+  \end{align*}
+  となるので,
+  $\beta_{f^\top(w)}=\transposed{f}(\beta_w)$となる.
+  つまり図式
+  \begin{align*}
+    \begin{CD}
+      W @>f^\top>> V\\
+      @V\beta VV @VV\beta V\\
+      W^\ast @>>\transposed{f}> V^\ast
+    \end{CD}
+  \end{align*}
+  が可換となっている.
+\end{remark}
+
+
+\section{(実)数ベクトル空間と行列}
