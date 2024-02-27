@@ -2,8 +2,28 @@
 % !TeX program = pdfpLaTeX
 
 \chapter{線形代数の復習}
+ここでは, ベクトル空間と内積についての事実を復習する.
+証明は他の文献に譲る.
+また, 復習とは書いたものの,
+通常とは異なるまとめ方になっているので,
+わかりにくい.
+ここの内容を読まずとも本文は読めるし,
+ここの内容を理解したからと言って本文が読みやすくなるわけでもない.
+基本的には本文とは無関係である.
+また, ここでの記号の使い方は本文とは異なる.
+
 
 \section{抽象実ベクトル空間と線形写像}
+抽象実ベクトル空間や線型写像について
+まとめている.
+線型写像$f\colon V\to W$の転置について,
+$W^\ast\to V^\ast$としてcanonicalに得られるもの
+(ここでは$\transposed{f}$と書いている)
+と,
+内積を決めることにより
+$W\to V$として得られるもの
+(ここでは$f^\top$と書いている)
+についてまとめた.
 \subsection{双対空間と線型写像の転置}
 和と実数によるスカラー倍が備わった空間を
 実ベクトル空間と呼ぶ.
@@ -642,8 +662,8 @@ $f$を$V$から$W$への線形写像とし,
   $f$は単射である.
 \end{remark}
 \begin{definition}
-  $V$を内積空間とする.
-  $O(V)=\Set{f\in\Hom_\RR(V,V)\text{: 等長}}$
+  $(V,\Braket{}_V)$を内積空間とする.
+  $O(V,\Braket{}_V)=\Set{f\in\Hom_\RR(V,V)\text{: 等長}}$
   とおく.
   $O(V)$を$V$上の直交群と呼ぶ.
   また,
@@ -856,6 +876,13 @@ $f^\top$も$f$の転置と呼ぶ.
 
 
 \section{数ベクトル空間と行列}
+数ベクトル空間と行列についてまとめている.
+$m$行$n$列の行列は,
+通常なら数を表の様に並べたデータとして定義されるが,
+ここでは, 与えられた数により定まる
+$\RR^n$から$\RR^m$への線型写像として定義している.
+
+
 \subsection{数ベクトルと行列}
 \begin{align*}
   \RR^n=
@@ -996,7 +1023,11 @@ $a_{i,j}\in\RR$を固定する.
 \begin{align*}
   (a_{i,j})_{i,j}
 \end{align*}
-などと表し,
+など%
+\footnote{$(a_{i,j})_{i,j}$という標記は, $(\quad)_{i,j}$とカッコの外に$i,j$と書くことで, $i$が`行'に関わる添字, $j$が`列'に関わる添字であることを表している.
+$(\quad)_{j,i}$と書いたら$j$が行に関わる添字, $i$が列に関わる添字であることを表す.
+したがって, $(a_{i,j})_{i,j}=(a_{j,i})_{j,i}=(a_{k,l})_{k,l}$である.}%
+と表し,
 サイズが$(m,n)$の実行列と呼ぶ.
 写像を定める係数$a_{i,j}$を
 $(a_{i,j})_{i,j}$の$(i,j)$-成分と呼ぶ.
@@ -1138,4 +1169,225 @@ $(\ee_1^\top,\ldots,\ee_n^\top)$
 $\RR^n$と$(\RR^n)^\ast$を同一視できる.
 
 \subsection{内積と直交行列}
+\begin{align*}
+  \Braket{\bullet,\bullet}_{\RR^n}\colon \RR^n \times \RR^n &\to \RR\\
+  (\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix},\begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix})
+      &\mapsto x_1y_1+\cdots+x_ny_n
+\end{align*}
+とおき,
+$\RR^n$の標準内積とかユークリッド内積と呼ぶ.
+\begin{prop}
+  $(\RR^n,\Braket{,}_{\RR^n})$は内積空間である.
+  つまり$\Braket{,}$は$\RR^n$上の
+  非退化な正定値対称双線型形式である.
+\end{prop}
+\begin{definition}
+  $(m,n)$-行列$A=(a_{i,j})_{i,j}$の
+  転置$A^\top$を,
+  $A\in\Hom_\RR(\RR^n,\RR^m)$としての転置$A^\top\in\Hom_\RR(\RR^m,\RR^n)$
+  として定義する.
+\end{definition}
+\begin{prop}
+  $(m,n)$-行列$A=(a_{i,j})_{i,j}$に対し,
+  $A^\top\in \Hom_\RR(\RR^m,\RR^n)$であり,
+  $A^\top=(a_{j,i})_{i,j}$である.
+\end{prop}
+\begin{proof}
+  $A'=(a_{j,i})_{i,j}$とおく.
+  $A^\top$は$v\in\RR^n$, $w\in \RR^m$に対し,
+  \begin{align*}
+    \Braket{w,A(v)}_{\RR^m} =
+        \Braket{A^\top(w),v}_{\RR^n} 
+  \end{align*}
+  を満たすものであったので, $A'$がこの等式を満たすことを示せばよい.
+  \begin{align*}
+    w&=\begin{pmatrix}y_1\\\vdots\\y_m\end{pmatrix},&
+    v&=\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}
+  \end{align*}
+  とすると,
+  \begin{align*}
+    \Braket{w,A(v)}_{\RR^m}
+    &=\Braket{\begin{pmatrix}y_1\\\vdots\\y_m\end{pmatrix},A(\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix})}_{\RR^m}\\
+    &=\Braket{\begin{pmatrix}y_1\\\vdots\\y_m\end{pmatrix},\begin{pmatrix}\sum_{k=1}^na_{1,k}x_k\\\vdots\\\sum_{k=1}^na_{m,k}x_k\end{pmatrix}}_{\RR^m}\\
+    &=\sum_{l=1}^m \sum_{k=1}^n y_{l}a_{l,k} x_k,\\
+    \Braket{A'(w),v)}_{\RR^n}
+    &=\Braket{A(\begin{pmatrix}y_1\\\vdots\\y_m\end{pmatrix}),\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}}_{\RR^n}\\
+    &=\Braket{\begin{pmatrix}\sum_{l=1}^{m}a_{l,1}y_l\\\vdots\\\sum_{l=1}^{m}a_{l,n}y_l\end{pmatrix},\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}}_{\RR^n}\\
+    &=\sum_{k=1}^n\sum_{l=1}^{m}x_ka_{l,k}y_l\\
+    &=\sum_{l=1}^{m}\sum_{k=1}^ny_la_{l,k}x_k.
+  \end{align*}
+\end{proof}
 
+\begin{remark}
+  $\transposed{A}$から$A^\top$を定義する際,
+  内積を通じた$V$から$V^\ast$への同型$\beta$が使われるが,
+  この場合は,
+  \begin{align*}
+    \beta\colon \RR^n &\to (\RR^n)^\ast \\
+    \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}
+      &\mapsto
+      \begin{pmatrix}x_1&\cdots&x_n\end{pmatrix}
+  \end{align*}
+  である.
+\end{remark}
+
+\begin{definition}
+  $(V,\Braket{,}_V)$を内積空間とし,
+  $v_1,\ldots,v_n\in V$とする.
+  次の条件を満たすとき,
+  $(v_1,\ldots,v_n)$は正規直交系(orthonormal system)であるという:
+  \begin{enumerate}
+    \item $v_i,v_j\in V\implies \Braket{v_i,v_j}_V=\delta_{i,j}$.
+  \end{enumerate}
+\end{definition}
+\begin{remark}
+  $(v_1,\ldots,v_n)$は正規直交系であるなら,
+  $(v_1,\ldots,v_n)$は一次独立である.
+\end{remark}
+\begin{definition}
+  $(V,\Braket{,}_V)$を内積空間とし,
+  $v_1,\ldots,v_n\in V$とする.
+  次の条件を満たすとき,
+  $(v_1,\ldots,v_n)$は$V$の完備正規直交系%
+  \footnote{完全正規直交系と呼ばれることが多いように思うが, 完全という語はperfectなどの訳語としても用いられることもあり, completeの訳語であることを意識して完備という語を, ここでは用いる.}%
+  (complete orthonormal system)であるという:
+  \begin{enumerate}
+    \item $(v_1,\ldots,v_n)$は正規直交系
+    \item $v\in V$に対し次は同値:
+      \begin{enumerate}
+      \item $\forall i,\  \Braket{v,v_j}_V=0$.
+      \item $v=0_V$.
+      \end{enumerate}
+  \end{enumerate}
+\end{definition}
+\begin{remark}
+  \begin{align*}
+    v=0_V\implies \forall i,\  \Braket{v,v_j}_V=0
+  \end{align*}
+  は一般に成り立つので,
+  完備正規直交系であることの定義としては,
+  逆のみが書かれることもある.
+\end{remark}
+\begin{example}
+  $\RR^n$について考える.
+  \begin{align*}
+    \Braket{\ee_i,\ee_j}_{\RR^n}=\delta_{i,j}
+  \end{align*}
+  である.
+  また,
+  \begin{align*}
+    \braket{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix},\ee_i}_{\RR^n}
+    =x_i
+  \end{align*}
+  であるので, $\ee_i$との標準内積が0であることは,
+  第$i$成分が0であることを意味する.
+  したがって,
+  すべての$i$に対し$\Braket{v,\ee_i}_{\RR^n}$を満たす$v\in\RR^n$は,
+  $\zzero$のみであることがわかる.
+  したがって,
+  $(\ee_1,\ldots,\ee_n)$は
+  $(\RR^n,\Braket{}_{\RR^n})$
+  完備正規直交系である.
+\end{example}
+\begin{lemma}
+  $(V,\Braket{,}_V)$を内積空間とし,
+  $(v_1,\ldots,v_n)$は$V$の完備正規直交系であるとする.
+  このとき,
+  \begin{align*}
+    \pi_{v_1,\ldots,v_n}\colon \RR^n\to V
+  \end{align*}
+  は等長な線型同型写像である.
+  つまり,
+  $(\RR^n,\Braket{}_{\RR^n})$と
+  $(V,\Braket{,}_V)$は内積空間として同じものだと思える.
+\end{lemma}
+
+
+\begin{theorem}[Gram--Schmidtの直交化法]
+  $(V,\Braket{,}_V)$を内積空間とし,
+  $v_1,\ldots,v_n\in V$とする.
+  $(v_1,\ldots,v_n)$が一次独立であることを仮定する.
+  このとき, 以下の様に$\bar v_1,\ldots, \bar v_n$を定義する:
+  \begin{align*}
+    v'_1&=v_1&
+    \bar v_1&=\frac{1}{\Braket{v'_1,v'_1}_V}v_1\\
+    v'_2&=v_2-\Braket{v_2,\bar v_1}_V \bar v_1&
+    \bar v_2&=\frac{1}{\Braket{v'_2,v'_2}_V}v_2\\
+    v'_3&=v_3-\sum_{i=1}^{2}\Braket{v_3,\bar v_i}_V \bar v_i&
+    \bar v_2&=\frac{1}{\Braket{v'_3,v'_3}_V}v_3\\
+    &\vdots&&\vdots\\
+    v'_k&=v_k-\sum_{i=1}^{k-1}\Braket{v_k,\bar v_i}_V \bar v_i&
+    \bar v_k&=\frac{1}{\Braket{v'_k,v'_k}_V}v_k\\
+    &\vdots&&\vdots.
+  \end{align*}
+  このとき,
+  $(\bar v_1,\ldots, \bar v_n)$は正規直交系である.
+\end{theorem}
+\begin{remark}
+  $(V,\Braket{,}_V)$を有限次元内積空間とし,
+  $(v_1,\ldots,v_n)$を$V$の基底とする.
+  $(\bar v_1,\ldots, \bar v_n)$を,
+  Gram--Schmidtの直交化法で得られた正規直交系であるとする.
+  このとき,
+  $(\bar v_1,\ldots, \bar v_n)$は$V$の完全正規直交系である.
+  よって,
+  \begin{align*}
+    \pi_{\bar v_1,\ldots,\bar v_n}\colon \RR^n\to V
+  \end{align*}
+  により,
+  $(\RR^n,\Braket{}_{\RR^n})$と
+  $(V,\Braket{,}_V)$は内積空間として同じものだと思える.  
+\end{remark}
+\begin{definition}
+  \begin{align*}
+    O(n)=O(\RR^n,\Braket{}_{\RR^n})
+  \end{align*}
+  とおき, $n$次直交群と呼ぶ.
+  $O(n)$の元を直交行列と呼ぶ.
+\end{definition}
+
+\begin{remark}
+    \begin{align*}
+    O(n)=\Set{A|
+      \begin{array}{c}
+        \text{$A$は$(n,n)$-行列}\\
+        A^\top A =E_n
+      \end{array}
+    }
+  \end{align*}
+    である.
+
+    $A=(a_{i,j})_{i,j}\in O(n)$とする.
+  \begin{align*}
+    \aaa^{(j)}=
+    \begin{pmatrix}
+      a_{1,j}\\\vdots\\a_{n,j}
+    \end{pmatrix}
+  \end{align*}
+  とおく.
+  $A^\top A=E_n$であるが,
+  右辺の$(i,j)$成分は,
+  \begin{align*}
+    \sum_{k=1}^n
+    a_{k,i}a_{k,j}
+    =\Braket{\aaa^{(i)},\aaa^{(j)}}_{\RR^n}
+  \end{align*}
+  である. $E_n$の$(i,j)$成分は$\delta_{i,j}$であるので,
+  \begin{align*}
+    \Braket{\aaa^{(i)},\aaa^{(j)}}_{\RR^n}=\delta_{i,j}
+  \end{align*}
+  である.
+  つまり,
+  $(\aaa^{(1)},\ldots,\aaa^{(n)})$は正規直交系である.
+
+  逆に, $\RR^n$の正規直交系
+  $(\aaa^{(1)},\ldots,\aaa^{(n)})$が与えられたとき,
+  \begin{align*}
+    \begin{pmatrix}
+      a_{1,j}\\\vdots\\a_{n,j}
+    \end{pmatrix}
+    =\aaa^{(j)}
+  \end{align*}
+  とおけば,
+  $A=(a_{i,j})_{i,j}$は直交行列である.
+\end{remark}
