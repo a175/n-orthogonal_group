@@ -4,6 +4,7 @@
 \chapter{線形代数の復習}
 
 \section{抽象実ベクトル空間と線形写像}
+\subsection{双対空間と線型写像の転置}
 和と実数によるスカラー倍が備わった空間を
 実ベクトル空間と呼ぶ.
 \begin{definition}
@@ -366,7 +367,7 @@ $f$を$V$から$W$への線形写像とし,
 \end{proof}
 
 
-\section{実内積と等長写像}
+\subsection{内積空間と線型写像の転置}
 \begin{definition}
   $V$を実ベクトル空間とする.
   \begin{align*}
@@ -854,4 +855,287 @@ $f^\top$も$f$の転置と呼ぶ.
 \end{remark}
 
 
-\section{(実)数ベクトル空間と行列}
+\section{数ベクトル空間と行列}
+\subsection{数ベクトルと行列}
+\begin{align*}
+  \RR^n=
+  \Set{\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}|x_i\in \RR}
+\end{align*}
+は実ベクトル空間であった.
+これを$n$次元(実)数ベクトル空間と呼ぶ.
+$\RR^n$の元
+\begin{align*}
+  \xx=\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}
+\end{align*}
+を$n$項(実)数ベクトルと呼ぶ.
+\begin{remark}
+  次元は空間に対して, 項は元に対して用いている.
+\end{remark}
+
+すべての成分が0である$n$項数ベクトルを$\zzero$で表す.
+\begin{definition}
+  $i$行目のみ1で他は0である$n$項数ベクトル
+  \begin{align*}
+    \ee_i=\begin{pmatrix}0\\\vdots\\0\\1\\0\\\vdots\\0\end{pmatrix}
+  \end{align*}
+  を$\RR^n$の第$i$基本ベクトルといい,
+  $(\ee_1,\ldots,\ee_n)$を$\RR^n$の標準基底と呼ぶ.
+\end{definition}
+
+$V$を実ベクトル空間とし,
+$v_1,\ldots,v_n\in V$とする.
+このとき,
+\begin{align*}
+  \pi_{v_1,\ldots,v_n} \colon \RR^n &\to V\\
+  \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}&\mapsto
+    x_1v_1+\cdots+x_nv_n
+\end{align*}
+とおく.
+$\pi_{v_1,\ldots,v_n}\in \Hom_\RR(\RR^n,V)$である.
+定義から,
+$\pi_{v_1,\ldots,v_n}(\ee_i)=v_i$である.
+
+\begin{definition}
+  $V$を実ベクトル空間とし,
+  $v_1,\ldots,v_n\in V$とする.
+  $\pi_{v_1,\ldots,v_n}$が単射であるとき,
+  $(v_1,\ldots,v_n)$は一次独立であるという.
+\end{definition}
+\begin{remark}
+  $V$を実ベクトル空間とし,
+  $v_1,\ldots,v_n\in V$とする.
+  このとき, 以下は同値:
+  \begin{enumerate}
+  \item $\pi_{v_1,\ldots,v_n}$が単射.
+  \item $\Ker(\pi_{v_1,\ldots,v_n})=\Set{\zzero}$.
+  \item $x_1v_1+\cdots+x_nv_n=0_V \implies x_1=\cdots=x_n=0$.
+  \end{enumerate}
+\end{remark}
+
+\begin{definition}
+  $V$を実ベクトル空間とし,
+  $v_1,\ldots,v_n\in V$とする.
+  $\pi_{v_1,\ldots,v_n}$が全射であるとき,
+  $(v_1,\ldots,v_n)$は$V$の生成系であるという.
+\end{definition}
+\begin{remark}
+  $V$を実ベクトル空間とし,
+  $v_1,\ldots,v_n\in V$とする.
+  このとき, 以下は同値:
+  \begin{enumerate}
+  \item $\pi_{v_1,\ldots,v_n}$が全射.
+  \item $\Img(\pi_{v_1,\ldots,v_n})=V$.
+  \item $V=\Set{x_1v_1+\cdots+x_nv_n|x_i\in \RR}$.
+  \end{enumerate}
+\end{remark}
+
+\begin{definition}
+  $V$を実ベクトル空間とし,
+  $v_1,\ldots,v_n\in V$とする.
+  $(v_1,\ldots,v_n)$が一次独立であり$V$の生成系であるとき,
+  $(v_1,\ldots,v_n)$を$V$の基底と呼ぶ.
+\end{definition}
+\begin{remark}
+  $V$を実ベクトル空間とし,
+  $v_1,\ldots,v_n\in V$とする.
+  このとき, 以下は同値:
+  \begin{enumerate}
+  \item $(v_1,\ldots,v_n)$が$V$の一次独立な生成系.
+  \item $\pi_{v_1,\ldots,v_n}$が全単射.
+  \item $\pi_{v_1,\ldots,v_n}$が同型写像.
+  \end{enumerate}
+\end{remark}
+
+\begin{remark}
+  $(v_1,\ldots,v_n)$が$V$の基底であるとき,
+  $\pi_{v_1,\ldots,v_n}$は$\RR^n$から$V$への同型写像である.
+  $\RR^n$と同型なベクトル空間を$n$次元実ベクトル空間と呼ぶ.
+\end{remark}
+
+\begin{remark}
+  $n$次元実ベクトル空間は,
+  $\RR^n$と同型である.
+  したがって,
+  有限次元ベクトル空間としては$\RR^n$を考えれば十分である.
+\end{remark}
+\begin{remark}
+  $\varphi \in \Hom_\RR(\RR^n,V)$に対し,
+  次は同値である:
+  \begin{enumerate}
+  \item $\varphi=\pi_{v_1,\ldots,v_n}$
+  \item $\varphi(\ee_1)=v_1,\ldots,\varphi(\ee_n)=v_n$
+  \end{enumerate}
+  言い換えると,
+  \begin{align*}
+    \pi\colon V\times\cdots \times V &\to \Hom_\RR(\RR^n,V)\\
+    (v_1,\ldots,v_n)&\mapsto
+    \pi_{v_1,\ldots,v_n}
+  \end{align*}
+  が全単射である.
+\end{remark}
+
+\begin{definition}
+$(i,j)\in\Set{1,\ldots,m}\times \Set{1,\ldots,n}$に対し,
+$a_{i,j}\in\RR$を固定する.
+このとき,
+\begin{align*}
+  \RR^n&\to \RR^m\\
+  \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}&\mapsto
+    \begin{pmatrix}\sum_{k=1}^n a_{1,k}x_k\\\vdots\\\sum_{k=1}^n a_{m,k}x_k\end{pmatrix}
+\end{align*}
+という写像は線形写像である.
+この写像を,
+\begin{align*}
+  \begin{pmatrix}
+    a_{1,1}&\cdots &a_{1,n}\\
+    \vdots& &\vdots\\
+    a_{m,1}&\cdots &a_{m,n}
+  \end{pmatrix}
+\end{align*}
+とか,
+\begin{align*}
+  (a_{i,j})_{i,j}
+\end{align*}
+などと表し,
+サイズが$(m,n)$の実行列と呼ぶ.
+写像を定める係数$a_{i,j}$を
+$(a_{i,j})_{i,j}$の$(i,j)$-成分と呼ぶ.
+行列の和, スカラー倍, 積を,
+線型写像の和, スカラー倍, 合成として定義する.
+線型写像$(a_{i,j})_{i,j}$が同型写像であるとき,
+$(a_{i,j})_{i,j}$は正則であるという.
+\end{definition}
+\begin{remark}
+  サイズが$(m,n)$の実行列のことを,
+以下では$(m,n)$-行列と呼ぶ.
+\end{remark}
+\begin{remark}
+\begin{align*}
+\id_{\RR^n} \colon \RR^n&\to \RR^n\\
+ \xx &\mapsto \xx
+\end{align*}
+  に対応する行列は,
+\begin{align*}
+  (\delta_{i,j})_{i,j}
+\end{align*}
+である.
+ただし
+\begin{align*}
+  \delta_{i,j}=
+  \begin{cases}
+    1&i=j\\
+    0&i\neq j.
+  \end{cases}
+\end{align*}
+これは単位行列と呼ばれる.
+ここでは$E_n$で表す.
+\end{remark}
+
+
+\begin{remark}
+\begin{align*}
+  \underline{\zzero} \colon \RR^n&\to \RR^m\\
+  \xx &\mapsto \zzero
+\end{align*}
+  に対応する行列は,
+\begin{align*}
+  (0)_{i,j}
+\end{align*}
+である.
+これは零行列と呼ばれる.
+ここでは$O_{m,n}$で表す.
+\end{remark}
+\begin{remark}
+  行列$A$が``実''行列かどうかは,
+  $A$を$\RR^n$から$\RR^m$への写像として考えているか否かで
+  (本来は) 判断するべきもの.
+  各成分が実数であっても,
+  $\CC^n\to \CC^m$と思うのであれば
+  複素行列である.
+\end{remark}
+
+
+
+\begin{prop}
+  $A=(a_{i,j})_{i,j}$を$(m,n)$-行列,
+  $B=(b_{i,j})_{i,j}$を$(m',n')$-行列とする.
+  \begin{enumerate}
+  \item $A$と$B$の和は, $(m,n)=(m',n')$であるときに定義でき,
+    \begin{align*}
+      A+B=(a_{i,j}+b_{i,j})_{i,j}.
+    \end{align*}
+  \item $c\in \RR$に対し,
+    \begin{align*}
+      cA=(ca_{i,j})_{i,j}.
+    \end{align*}
+  \item $A$と$B$の積は, $n=m'$であるときに定義でき,
+    \begin{align*}
+      AB=(\sum_{k=1}^n a_{i,k}b_{k,j})_{i,j}.
+    \end{align*}
+  \end{enumerate}
+\end{prop}
+\begin{remark}
+  $A=(a_{i,j})_{i,j}$をサイズが$(m,n)$である行列とする.
+  \begin{align*}
+    \aaa^{(j)}=
+    \begin{pmatrix}
+      a_{1,j}\\\vdots\\a_{m,j}
+    \end{pmatrix}
+  \end{align*}
+  という
+  $m$項数ベクトルを考える.
+\begin{align*}
+  A\colon \RR^n&\to \RR^m\\
+  \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}&\mapsto
+    \begin{pmatrix}\sum_{k=1}^n a_{1,k}x_k\\\vdots\\\sum_{k=1}^n a_{m,k}x_k\end{pmatrix}
+      =
+      x_1\begin{pmatrix}a_{1,1}\\\vdots\\a_{m,1}\end{pmatrix}
+      +\cdots+
+      x_1\begin{pmatrix}a_{1,n}\\\vdots\\a_{m,n}\end{pmatrix}
+\end{align*}
+であるので,
+\begin{align*}
+  A=\pi_{\aaa^{(1)},\ldots,\aaa^{(n)}}
+\end{align*}
+である.
+したがって
+\begin{align*}
+  \Hom_\RR(\RR^n,\RR^m)
+  &=\Set{\pi_{\aaa^{(1)},\ldots,\aaa^{(n)}}|\aaa^{(j)}\in\RR^m}\\
+  &=\Set{A|\text{$A$は$(m,n)$-行列}}
+\end{align*}
+であるので,
+$\RR^n$から$\RR^m$への線型写像は
+(サイズが$(m,n)$の)行列だけ考えれば十分であることがわかる.
+\end{remark}
+
+\begin{align*}
+  (\RR^n)^\ast
+  &=\Hom_\RR(\RR^n,\RR)\\
+  &=\Set{A|\text{$(1,n)$-行列}}\\
+  &=\Set{\begin{pmatrix}a_1&\cdots&a_n\end{pmatrix}|a_i\in\RR}
+\end{align*}
+である.
+\begin{align*}
+  \ee_1^\top &= \begin{pmatrix}1&0&0&\cdots&0&0\end{pmatrix}\\
+  \ee_2^\top &= \begin{pmatrix}0&1&0&\cdots&0&0\end{pmatrix}\\
+      &\vdots\\
+  \ee_n^\top &= \begin{pmatrix}0&0&0&\cdots&0&1\end{pmatrix}
+\end{align*}
+とおくと,
+$(\ee_1^\top,\ldots,\ee_n^\top)$
+は$(\RR^n)^\ast$の基底である.
+この基底を$(\ee_1,\ldots,\ee_n)$の双対基底と呼ぶ.
+\begin{align*}
+  \pi_{\ee_1^\top,\ldots,\ee_n^\top}\colon
+  \RR^n&\to (\RR^n)^\ast\\
+  \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}&\mapsto
+    x_1\ee_1^\top+\cdots+x_n\ee_n^\top=
+    \begin{pmatrix}x_1&\cdots&x_n\end{pmatrix}
+\end{align*}
+は同型写像である.
+この同型写像を使って,
+$\RR^n$と$(\RR^n)^\ast$を同一視できる.
+
+\subsection{内積と直交行列}
+
