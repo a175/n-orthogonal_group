@@ -1819,9 +1819,9 @@ $W(\Phi)$は有限鏡映群である.
   とおく.
   $\alpha\in\Phi$に対し, $s_\alpha(\Phi)=\Phi$であるので,
   \begin{align*}
-    s_\alpha\restrictedto{\Phi}\colon
-    \Phi &\to \Phi \\
-    \beta&\mapsto s_\alpha(\beta)
+    \shazo{s_\alpha\restrictedto{\Phi}}
+          {\Phi}{\Phi}
+          {\beta}{s_\alpha(\beta)}
   \end{align*}
   は全単射である.
   $f\in W(\Phi)$とすると,
@@ -1831,9 +1831,9 @@ $W(\Phi)$は有限鏡映群である.
   つまり, $W'\subset S_\Phi$であり, $W'$は有限集合である.
   ここで
   \begin{align*}
-     \varphi\colon
-     W(\Phi) &\to W' \\
-     f&\mapsto f|_{\Phi}
+    \shazo{\varphi}
+          {W(\Phi)}{W'}
+          {f}{f|_{\Phi}}
   \end{align*}
   とおく.
   このとき,
@@ -3259,8 +3259,9 @@ $\Delta_{\varpi}$は一次独立である.
   $s_\alpha(\beta)=\beta\in H_\alpha\cap U\subset U$である.
   よって,
   \begin{align*}
-    s_\alpha\restrictedto{U}\colon U&\to U\\
-    \beta&\mapsto s_\alpha(\beta)
+    \shazo{s_\alpha\restrictedto{U}}
+          {U}{U}
+          {\beta}{s_\alpha(\beta)}
   \end{align*}
   は, $U$上の鏡映である.
   したがって, $U$上の全単射である.
@@ -3350,8 +3351,9 @@ $\Set{w\restrictedto{\Braket{\Phi}_\RR}|w\in W(\Phi)}$
   $t\circ w\restrictedto{\Braket{\Phi}_\RR} \circ t^{-1}$は,
   $W'$の元である.
   \begin{align*}
-    \varphi\colon W &\to W'\\
-    f&\mapsto t\circ f \circ t^{-1} 
+    \shazo{\varphi}
+          {W}{W'}
+          {f}{t\circ f \circ t^{-1}}
   \end{align*}
   とおく.
   $f,f'\in W$に対し,
@@ -3362,8 +3364,9 @@ $\Set{w\restrictedto{\Braket{\Phi}_\RR}|w\in W(\Phi)}$
   となるので$\varphi$は群順同型写像である.
   また,
   \begin{align*}
-    \psi\colon W' &\to W\\
-    f'&\mapsto t^{-1}\circ f' \circ t 
+    \shazo{\psi}
+          {W'}{W}
+          {f'}{t^{-1}\circ f' \circ t}
   \end{align*}
   は, $\varphi$の逆写像であるから,
   全単射であり, $W$と$W'$は同型である.
