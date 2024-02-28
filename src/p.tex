@@ -1725,7 +1725,7 @@ $W$は本質的である.
 有限鏡映群の重要な情報を持っている
 ルート系と呼ばれるものを定義し例を与えることを目標とする.
 
-\section{ルート系の定義と例}
+\section{ルート系の定義}
 
 集合$\Phi\subset V\setminus \Set{\zzero}$に対し,
 $R(\Phi)=\Set{s_\alpha | \alpha \in \Phi}$
@@ -1805,7 +1805,7 @@ $\Phi$が有限であっても$W(\Phi)$は有限群とは限らない.
   被約ルート系のことを単にルート系と呼ぶ.
   結晶的ルート系のことを単にルート系と呼ぶ流儀もある.
 \end{remark}
-  
+
 \begin{prop}
 広義ルート系$\Phi$に対し,
 $W(\Phi)$は有限鏡映群である.
@@ -2355,10 +2355,10 @@ $\Phi(G_{2})$は結晶的である.
 \end{enumerate}
 
 
-\chapter{Simple system}
+\chapter{単純系}
 ここでは単純系と呼ばれるルート系の良い部分集合を定義する.
 
-\section{Simple system}
+\section{単純系の定義}
 \begin{definition}
   $\Phi$をルート系とし, $\Delta\subset\Phi$とする.
   このとき,
@@ -2575,6 +2575,250 @@ $\Phi(G_{2})$は結晶的である.
   $\Delta=\Delta(\Phi_\Delta^+)=\Delta(\Phi_{\Delta'}^+)=\Delta'$である.
 
 \end{proof}
+
+\section{単純系の存在}
+$\Phi$をルート系とする.
+$M(\Phi)=V \setminus (\bigcup_{\alpha\in\Phi}H_\alpha)$
+とおくと,
+$\Phi$は有限集合であるので$M(\Phi)\neq \emptyset$である.
+$\varpi\in M(\Phi)$に対し,
+\begin{align*}
+  \Phi_{\varpi}^+&=\Set{\alpha\in\Phi|\Braket{\varpi,\alpha}>0}\\
+  \Phi_{\varpi}^-&=\Set{\alpha\in\Phi|\Braket{\varpi,\alpha}<0}
+\end{align*}
+とおく.
+$\varpi\in M(\Phi)$であるので$\Phi=\Phi_{\varpi}^+\cup \Phi_{\varpi}^-$
+である.
+$\Pi\subset \Phi_{\varpi}^+$に対し,
+\begin{align*}
+  \RR_{\geq 0}\Pi =
+  \Set{\sum_{\delta\in\Pi}a_\delta \delta|a_\delta \geq 0}
+\end{align*}
+とおく.
+\begin{align*}
+  \SSS =
+  \Set{\Pi\subset \Phi_{\varpi}^+|\Phi_{\varpi}^+\subset \RR_{\geq 0}\Pi}
+\end{align*}
+とおく.
+$\Phi_{\varpi}^+\subset \RR_{\geq 0}\Phi_{\varpi}^+$であるで,
+$\Phi_{\varpi}^+\in\SSS$
+であり, $\SSS\neq\emptyset$である.
+そこで, $r=\min\Set{\numof{\Pi}|\Pi\in\SSS}$
+とし, $\Delta_{\varpi}\in\SSS$が$\numof{\Delta_{\varpi}}=r$をみたしているとする.
+\begin{lemma}
+  \label{lem:simple:posiindp}
+  $\alpha\in \Delta_{\varpi}$とすると,
+  $\alpha\not\in\RR_{\geq 0}(\Delta_{\varpi}\setminus\Set{\alpha})$.
+\end{lemma}
+\begin{proof}
+  $\alpha\in \Delta_{\varpi}$かつ$\alpha\in\RR_{\geq 0}(\Delta_{\varpi}\setminus\Set{\alpha})$
+  とすると, $\Delta_{\varpi}\setminus\Set{\alpha}\in\SSS$である.
+\end{proof}
+
+\begin{lemma}
+  \label{lem:pidelta:innerprod}
+  $\lambda,\mu\in\Delta_{\varpi}$かつ$\lambda\neq \mu$なら, $\Braket{\lambda,\mu}\leq 0$.
+\end{lemma}
+\begin{proof}
+  $\lambda,\mu\in\Delta_{\varpi}$かつ
+  $\Braket{\lambda,\mu}>0$とする.
+  このとき,
+  \begin{align*}
+    c=2\frac{\Braket{\lambda,\mu}}{\Braket{\lambda,\lambda}}
+  \end{align*}
+  とすると,
+  $c>0$である.
+  また,
+  $s_\lambda(\mu)=\mu-c\lambda$である.
+  $s_\alpha(\Phi)=\Phi=\Phi_{\varpi}^+\cup\Phi_{\varpi}^-$である.
+
+  まず, $s_\lambda(\mu)\in\Phi_{\varpi}^+$のときについて考える.
+  $s_\lambda(\mu)=\sum_{\gamma\in\Delta_{\varpi}}c_\gamma\gamma$,
+  $c_\gamma\geq 0$とする.
+  \begin{align*}
+    s_\lambda(\mu)=\mu-c\lambda
+    =c_\mu\mu+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma
+  \end{align*}
+  である.
+  したがって,
+  \begin{align}
+    \label{lem:simple:innerprod:eq:1}
+    \mu-c\lambda
+    =c_\mu\mu+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma
+  \end{align}
+  である.
+
+  $c_\mu<1$のとき,
+  \cref{lem:simple:innerprod:eq:1}を
+  \begin{align*}
+    \mu-c_\mu\mu
+    &=c\lambda+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma\\
+    (1-c_\mu)\mu
+    &=c\lambda+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma\\
+    \mu
+    &=\frac{c}{(1-c_\mu)}\lambda+
+    \sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}\frac{c_\gamma}{(1-c_\mu)}\gamma\\
+  \end{align*}
+  と変形する.
+   $1-c_\mu>0$であるので, $\mu\in \RR_{\geq 0}(\Delta_{\varpi}\setminus\Set{\mu})$となる.
+  これは\Cref{lem:simple:posiindp}に矛盾する.
+
+  $c>1$のとき,
+  \cref{lem:simple:innerprod:eq:1}を
+  \begin{align*}
+    \zzero
+    &=c\lambda+(c_\mu -1)\mu+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma
+  \end{align*}
+  と変形する.
+  $\Delta_{\varpi}\subset\Phi_\varpi^+$であるので,
+  \begin{align*}
+    \Braket{c\lambda+(c_\mu -1)\mu+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma,\varpi} \geq
+    \Braket{c\lambda,\varpi}=c\Braket{\lambda,\varpi}>0=\Braket{\zzero,\varpi}
+  \end{align*}
+  となり矛盾する.
+  
+
+  次に, $s_\lambda(\mu)\in\Phi_{\varpi}^-$のときについて考える.
+  $-s_\lambda(\mu)\in\Phi_{\varpi}^+$
+  である.
+  $-s_\lambda(\mu)=\sum_{\gamma\in\Delta_{\varpi}}c_\gamma\gamma$,
+  $c_\gamma\geq 0$とする.
+  $s_\lambda(\mu)\in\Phi_{\varpi}^+$のときと同様の計算で,
+  \begin{align}
+    \label{lem:simple:innerprod:eq:2}
+    c\lambda-\mu
+    =c_\lambda\lambda+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\lambda}}c_\gamma\gamma
+  \end{align}
+  がわかる.
+
+  $c>c_\lambda$のとき,
+  \cref{lem:simple:innerprod:eq:2}を
+  \begin{align*}
+    \lambda=
+    &=\frac{1}{(c-c_\lambda)}\mu+
+    \sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\lambda}}\frac{c_\gamma}{(c-c_\lambda)}\gamma\\
+  \end{align*}
+  と変形する.
+  $\lambda\in \RR_{\geq 0}(\Delta_{\varpi}\setminus\Set{\lambda})$となり,
+  \Cref{lem:simple:posiindp}に矛盾する.
+
+  $c\leq c_\lambda$のとき,
+  \cref{lem:simple:innerprod:eq:2}を
+  \begin{align*}
+    \zzero
+    &=\mu+(c_\lambda-c)\lambda++\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma
+  \end{align*}
+  と変形する.
+  \begin{align*}
+    \Braket{\mu+(c_\lambda-c)\lambda++\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma,\varpi}
+    \geq \Braket{\mu,\varpi}>0=
+    \Braket{\zzero,\varpi}
+  \end{align*}
+  となり矛盾する.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lem:simple:linidep}
+$\Delta_{\varpi}$は一次独立である.
+\end{lemma}
+\begin{proof}
+  $\sum_{\delta\in\Delta_{\varpi}}a_\delta \delta = \zzero$
+  とする.
+  \begin{align*}
+    \Pi^+&=\Set{\delta\in\Delta_{\varpi}|a_\delta >0}\\
+    \Pi^-&=\Set{\delta\in\Delta_{\varpi}|a_\delta <0}
+  \end{align*}
+  とし$b_\lambda=-a_\lambda$とする.
+  \begin{align*}
+    v_+&=
+    \begin{cases}
+      \sum_{\delta\in\Delta_{\varpi}}a_\delta\delta&(\Pi^+\neq \emptyset)\\
+      \zzero&(\Pi^+= \emptyset)
+    \end{cases}\\
+    v_-&=
+    \begin{cases}
+      \sum_{\delta\in\Delta_{\varpi}}a_\delta\delta&(\Pi^-\neq \emptyset)\\
+      \zzero&(\Pi^-= \emptyset)
+    \end{cases}
+  \end{align*}
+  とする. $v_+-v_-=\zzero$である.
+  したがって$v_+=v_-$である.
+\Cref{lem:pidelta:innerprod}より,
+  \begin{align*}
+    \Braket{v_+,v_-}&
+    =\sum_{\mu\in\Pi^+}\sum_{\lambda\in\Pi^-}a_\mu b_\lambda \Braket{\mu,\lambda}
+    \leq 0 
+  \end{align*}
+  となるが, $0\leq \Braket{v_+,v_+}=\Braket{v_+,v_-}\leq 0$であるので,
+  $\Braket{v_+,v_+}=0$となる.  したがって$v_+=\zzero$.
+  $v_-=v+=\zzero$であるので,
+  すべての$\lambda$に対し,
+  $a_\lambda=0$である.
+\end{proof}
+
+
+
+\begin{prop}
+  $\Delta_{\varpi}$は$\Phi$の単純系であり,
+  $\Phi^+_{\Delta_{\varpi}}=\Phi_{\varpi}^+$である.
+\end{prop}
+\begin{proof}
+  定義から
+  $\Phi_{\varpi}^+\subset \RR_{\geq 0}\Delta_{\varpi}$であり,
+  $\Delta_{\varpi}\subset\Phi$である.
+  したがって, $\Braket{\Delta_{\varpi}}_\RR=\Braket{\Phi^+}_\RR=\Braket{\Phi}_\RR$.
+  \Cref{lem:simple:linidep}から, $\Delta_{\varpi}$は一次独立であるので,
+  $\Delta_{\varpi}$は$\Braket{\Phi}_\RR$の基底である.
+
+  また, $\Delta_{\varpi}\subset \Phi_{\varpi}^+$であるので,
+  $\RR_{\geq 0}\Delta_{\varpi}\cap \Phi_{\varpi}^-=\emptyset$である.
+  $\Phi=\Phi_{\varpi}^+\cup \Phi_{\varpi}^-$であるので,
+  \begin{align*}
+    \Phi_{\Delta_{\varpi}}^+=\Phi_{\varpi}^+\\
+    \Phi_{\Delta_{\varpi}}^-=\Phi_{\varpi}^-
+  \end{align*}
+  である.
+\end{proof}
+
+
+\begin{cor}
+  ルート系$\Phi$に対し, 単純系$\Delta$は存在する.
+\end{cor}
+\begin{proof}
+  $\varpi\in M(\Phi)$とし, $\Delta_\varpi$とすればよい.
+\end{proof}
+\begin{remark}
+  $\varpi\in M(\Phi)$のとり方に, $\Delta_\varpi$は依存する.
+\end{remark}
+
+\begin{theorem}
+  $\Phi$をルート系とし,
+  $\Delta$を単純系とする.
+  $\lambda,\mu\in\Delta$かつ$\lambda\neq \mu$なら, $\Braket{\lambda,\mu}\leq 0$.
+  
+\end{theorem}
+\begin{proof}
+  \Cref{lemma:cone:sparable}より,
+  $\Phi_\Delta^+=\Delta_\varpi^+$となる, $\varpi$がとれる.
+  このとき, $\Delta=\Delta_\varpi$であるので,
+  \Cref{lem:pidelta:innerprod}よりわかる.
+\end{proof}
+
+
+
+\begin{definition}
+  $\Phi$をルート系とする.
+  $\rank(\Phi)=\dim(\Braket{\Phi}_\RR)$
+  と定義し, $\Phi$の階数と呼ぶ.
+\end{definition}
+
+\begin{remark}
+  $\Delta$は
+  $\Braket{\Phi}_\RR$の基底であったので,
+  $\Delta$のとり方によらず,
+  $\numof{\Delta}=\rank(\Phi)$.
+\end{remark}
 
 \section{例}
 
@@ -2976,256 +3220,30 @@ $\Delta$は$\Phi$の単純系である.
     \item 任意の$\alpha,\beta\in \RR^2$に対し, $\Braket{\alpha,\beta}=\Braket{t(\alpha),t(\beta)}$.
     \item $\alpha\in\Phi$に対し, $ t(\sqrt{2}\alpha)\in \Phi'$.
   \end{enumerate}
-\item $D_{2\cdot m}$と$\Set{A_\sigma|\sigma\in S_3}$が同型であることを示せ.
+\item $D_{2\cdot 3}$と$\Set{A_\sigma|\sigma\in S_3}$が同型であることを示せ.
 \end{enumerate}
 
-\chapter{Simple systemの性質}
-ここでは, どのルート系にも単純系が取れることを示すことを目標にする.
-\section{Simple systemの存在}
-$\Phi$をルート系とする.
-$M(\Phi)=V \setminus (\bigcup_{\alpha\in\Phi}H_\alpha)$
-とおくと,
-$\Phi$は有限集合であるので$M(\Phi)\neq \emptyset$である.
-$\varpi\in M(\Phi)$に対し,
-\begin{align*}
-  \Phi_{\varpi}^+&=\Set{\alpha\in\Phi|\Braket{\varpi,\alpha}>0}\\
-  \Phi_{\varpi}^-&=\Set{\alpha\in\Phi|\Braket{\varpi,\alpha}<0}
-\end{align*}
-とおく.
-$\varpi\in M(\Phi)$であるので$\Phi=\Phi_{\varpi}^+\cup \Phi_{\varpi}^-$
-である.
-$\Pi\subset \Phi_{\varpi}^+$に対し,
-\begin{align*}
-  \RR_{\geq 0}\Pi =
-  \Set{\sum_{\delta\in\Pi}a_\delta \delta|a_\delta \geq 0}
-\end{align*}
-とおく.
-\begin{align*}
-  \SSS =
-  \Set{\Pi\subset \Phi_{\varpi}^+|\Phi_{\varpi}^+\subset \RR_{\geq 0}\Pi}
-\end{align*}
-とおく.
-$\Phi_{\varpi}^+\subset \RR_{\geq 0}\Phi_{\varpi}^+$であるで,
-$\Phi_{\varpi}^+\in\SSS$
-であり, $\SSS\neq\emptyset$である.
-そこで, $r=\min\Set{\numof{\Pi}|\Pi\in\SSS}$
-とし, $\Delta_{\varpi}\in\SSS$が$\numof{\Delta_{\varpi}}=r$をみたしているとする.
-\begin{lemma}
-  \label{lem:simple:posiindp}
-  $\alpha\in \Delta_{\varpi}$とすると,
-  $\alpha\not\in\RR_{\geq 0}(\Delta_{\varpi}\setminus\Set{\alpha})$.
-\end{lemma}
-\begin{proof}
-  $\alpha\in \Delta_{\varpi}$かつ$\alpha\in\RR_{\geq 0}(\Delta_{\varpi}\setminus\Set{\alpha})$
-  とすると, $\Delta_{\varpi}\setminus\Set{\alpha}\in\SSS$である.
-\end{proof}
-
-\begin{lemma}
-  \label{lem:pidelta:innerprod}
-  $\lambda,\mu\in\Delta_{\varpi}$かつ$\lambda\neq \mu$なら, $\Braket{\lambda,\mu}\leq 0$.
-\end{lemma}
-\begin{proof}
-  $\lambda,\mu\in\Delta_{\varpi}$かつ
-  $\Braket{\lambda,\mu}>0$とする.
-  このとき,
-  \begin{align*}
-    c=2\frac{\Braket{\lambda,\mu}}{\Braket{\lambda,\lambda}}
-  \end{align*}
-  とすると,
-  $c>0$である.
-  また,
-  $s_\lambda(\mu)=\mu-c\lambda$である.
-  $s_\alpha(\Phi)=\Phi=\Phi_{\varpi}^+\cup\Phi_{\varpi}^-$である.
-
-  まず, $s_\lambda(\mu)\in\Phi_{\varpi}^+$のときについて考える.
-  $s_\lambda(\mu)=\sum_{\gamma\in\Delta_{\varpi}}c_\gamma\gamma$,
-  $c_\gamma\geq 0$とする.
-  \begin{align*}
-    s_\lambda(\mu)=\mu-c\lambda
-    =c_\mu\mu+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma
-  \end{align*}
-  である.
-  したがって,
-  \begin{align}
-    \label{lem:simple:innerprod:eq:1}
-    \mu-c\lambda
-    =c_\mu\mu+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma
-  \end{align}
-  である.
-
-  $c_\mu<1$のとき,
-  \cref{lem:simple:innerprod:eq:1}を
-  \begin{align*}
-    \mu-c_\mu\mu
-    &=c\lambda+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma\\
-    (1-c_\mu)\mu
-    &=c\lambda+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma\\
-    \mu
-    &=\frac{c}{(1-c_\mu)}\lambda+
-    \sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}\frac{c_\gamma}{(1-c_\mu)}\gamma\\
-  \end{align*}
-  と変形する.
-   $1-c_\mu>0$であるので, $\mu\in \RR_{\geq 0}(\Delta_{\varpi}\setminus\Set{\mu})$となる.
-  これは\Cref{lem:simple:posiindp}に矛盾する.
-
-  $c>1$のとき,
-  \cref{lem:simple:innerprod:eq:1}を
-  \begin{align*}
-    \zzero
-    &=c\lambda+(c_\mu -1)\mu+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma
-  \end{align*}
-  と変形する.
-  $\Delta_{\varpi}\subset\Phi_\varpi^+$であるので,
-  \begin{align*}
-    \Braket{c\lambda+(c_\mu -1)\mu+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma,\varpi} \geq
-    \Braket{c\lambda,\varpi}=c\Braket{\lambda,\varpi}>0=\Braket{\zzero,\varpi}
-  \end{align*}
-  となり矛盾する.
-  
-
-  次に, $s_\lambda(\mu)\in\Phi_{\varpi}^-$のときについて考える.
-  $-s_\lambda(\mu)\in\Phi_{\varpi}^+$
-  である.
-  $-s_\lambda(\mu)=\sum_{\gamma\in\Delta_{\varpi}}c_\gamma\gamma$,
-  $c_\gamma\geq 0$とする.
-  $s_\lambda(\mu)\in\Phi_{\varpi}^+$のときと同様の計算で,
-  \begin{align}
-    \label{lem:simple:innerprod:eq:2}
-    c\lambda-\mu
-    =c_\lambda\lambda+\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\lambda}}c_\gamma\gamma
-  \end{align}
-  がわかる.
-
-  $c>c_\lambda$のとき,
-  \cref{lem:simple:innerprod:eq:2}を
-  \begin{align*}
-    \lambda=
-    &=\frac{1}{(c-c_\lambda)}\mu+
-    \sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\lambda}}\frac{c_\gamma}{(c-c_\lambda)}\gamma\\
-  \end{align*}
-  と変形する.
-  $\lambda\in \RR_{\geq 0}(\Delta_{\varpi}\setminus\Set{\lambda})$となり,
-  \Cref{lem:simple:posiindp}に矛盾する.
-
-  $c\leq c_\lambda$のとき,
-  \cref{lem:simple:innerprod:eq:2}を
-  \begin{align*}
-    \zzero
-    &=\mu+(c_\lambda-c)\lambda++\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma
-  \end{align*}
-  と変形する.
-  \begin{align*}
-    \Braket{\mu+(c_\lambda-c)\lambda++\sum_{\gamma\in\Delta_{\varpi}\setminus\Set{\mu}}c_\gamma\gamma,\varpi}
-    \geq \Braket{\mu,\varpi}>0=
-    \Braket{\zzero,\varpi}
-  \end{align*}
-  となり矛盾する.
-\end{proof}
-
-
-\begin{lemma}
-  \label{lem:simple:linidep}
-$\Delta_{\varpi}$は一次独立である.
-\end{lemma}
-\begin{proof}
-  $\sum_{\delta\in\Delta_{\varpi}}a_\delta \delta = \zzero$
-  とする.
-  \begin{align*}
-    \Pi^+&=\Set{\delta\in\Delta_{\varpi}|a_\delta >0}\\
-    \Pi^-&=\Set{\delta\in\Delta_{\varpi}|a_\delta <0}
-  \end{align*}
-  とし$b_\lambda=-a_\lambda$とする.
-  \begin{align*}
-    v_+&=
-    \begin{cases}
-      \sum_{\delta\in\Delta_{\varpi}}a_\delta\delta&(\Pi^+\neq \emptyset)\\
-      \zzero&(\Pi^+= \emptyset)
-    \end{cases}\\
-    v_-&=
-    \begin{cases}
-      \sum_{\delta\in\Delta_{\varpi}}a_\delta\delta&(\Pi^-\neq \emptyset)\\
-      \zzero&(\Pi^-= \emptyset)
-    \end{cases}
-  \end{align*}
-  とする. $v_+-v_-=\zzero$である.
-  したがって$v_+=v_-$である.
-\Cref{lem:pidelta:innerprod}より,
-  \begin{align*}
-    \Braket{v_+,v_-}&
-    =\sum_{\mu\in\Pi^+}\sum_{\lambda\in\Pi^-}a_\mu b_\lambda \Braket{\mu,\lambda}
-    \leq 0 
-  \end{align*}
-  となるが, $0\leq \Braket{v_+,v_+}=\Braket{v_+,v_-}\leq 0$であるので,
-  $\Braket{v_+,v_+}=0$となる.  したがって$v_+=\zzero$.
-  $v_-=v+=\zzero$であるので,
-  すべての$\lambda$に対し,
-  $a_\lambda=0$である.
-\end{proof}
-
-
-
-\begin{prop}
-  $\Delta_{\varpi}$は$\Phi$の単純系であり,
-  $\Phi^+_{\Delta_{\varpi}}=\Phi_{\varpi}^+$である.
-\end{prop}
-\begin{proof}
-  定義から
-  $\Phi_{\varpi}^+\subset \RR_{\geq 0}\Delta_{\varpi}$であり,
-  $\Delta_{\varpi}\subset\Phi$である.
-  したがって, $\Braket{\Delta_{\varpi}}_\RR=\Braket{\Phi^+}_\RR=\Braket{\Phi}_\RR$.
-  \Cref{lem:simple:linidep}から, $\Delta_{\varpi}$は一次独立であるので,
-  $\Delta_{\varpi}$は$\Braket{\Phi}_\RR$の基底である.
-
-  また, $\Delta_{\varpi}\subset \Phi_{\varpi}^+$であるので,
-  $\RR_{\geq 0}\Delta_{\varpi}\cap \Phi_{\varpi}^-=\emptyset$である.
-  $\Phi=\Phi_{\varpi}^+\cup \Phi_{\varpi}^-$であるので,
-  \begin{align*}
-    \Phi_{\Delta_{\varpi}}^+=\Phi_{\varpi}^+\\
-    \Phi_{\Delta_{\varpi}}^-=\Phi_{\varpi}^-
-  \end{align*}
-  である.
-\end{proof}
-
-
-\begin{cor}
-  ルート系$\Phi$に対し, 単純系$\Delta$は存在する.
-\end{cor}
-\begin{proof}
-  $\varpi\in M(\Phi)$とし, $\Delta_\varpi$とすればよい.
-\end{proof}
-\begin{remark}
-  $\varpi\in M(\Phi)$のとり方に, $\Delta_\varpi$は依存する.
-\end{remark}
-
-\begin{theorem}
-  $\Phi$をルート系とし,
-  $\Delta$を単純系とする.
-  $\lambda,\mu\in\Delta$かつ$\lambda\neq \mu$なら, $\Braket{\lambda,\mu}\leq 0$.
-  
-\end{theorem}
-\begin{proof}
-  \Cref{lemma:cone:sparable}より,
-  $\Phi_\Delta^+=\Delta_\varpi^+$となる, $\varpi$がとれる.
-  このとき, $\Delta=\Delta_\varpi$であるので,
-  \Cref{lem:pidelta:innerprod}よりわかる.
-\end{proof}
-
-
+\chapter{同型なルート系}
+ルート系が同型であることを定義し,
+同型なルート系の例を挙げる.
+\section{ルート系の同型}
 
 \begin{definition}
-  $\Phi$をルート系とする.
-  $\rank(\Phi)=\dim(\Braket{\Phi}_\RR)$
-  と定義し, $\Phi$の階数と呼ぶ.
+  $\Phi$と$\Phi'$をルート系とする.
+  このとき,
+  以下を満たす$f$が存在するとき,
+  $\Phi$と$\Phi'$は同型であるという:
+  \begin{enumerate}
+  \item $f$は$\Braket{\Phi}_\RR$から$\Braket{\Phi'}_\RR$への線型同型写像.
+  \item $f(\Phi) = \Phi'$.
+  \item すべての$\alpha, \beta\in \Phi$に対し,
+    $2\frac{\Braket{\alpha,\beta}}{\Braket{\alpha,\alpha}}=2\frac{\Braket{f(\alpha),f(\beta)}}{\Braket{f(\alpha),f(\alpha)}}$.
+  \end{enumerate}
 \end{definition}
 
-\begin{remark}
-  $\Delta$は
-  $\Braket{\Phi}_\RR$の基底であったので,
-  $\Delta$のとり方によらず,
-  $\numof{\Delta}=\rank(\Phi)$.
-\end{remark}
-
-\section{単純系の全単射}
+以下で,
+同型なルート系から決まる鏡映群は同型であることを示す.
+(未完成)
 
 \begin{lemma}
   \label{lem:esspart}
