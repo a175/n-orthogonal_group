@@ -3241,10 +3241,42 @@ $\Delta$は$\Phi$の単純系である.
   \end{enumerate}
 \end{definition}
 
+\begin{prop}
+  $\Phi$と$\Psi$をルート系とし,
+  $f$で同型が与えられているとする.
+  $\Delta$を$\Phi$の単純系とすると,
+  $f(\Delta)$は$\Psi$の単純系であり,
+  $\Psi^{+}_{f(\Delta)}=f(\Phi^+_{\Delta})$,
+  $\Psi^{-}_{f(\Delta)}=f(\Phi^-_{\Delta})$
+  である.
+\end{prop}
+\begin{proof}
+  $f$は$\Braket{\Phi}_\RR$から$\Braket{\Psi}_\RR$への線型同型写像であるので,
+  $\Delta$が一次独立であることから,
+  $f(\Delta)$は一次独立であることがわかる.
+  また,
+  $\alpha=\sum_{\delta\in\Delta}a_\delta \delta\in \Phi$とすると,
+  $f(\alpha)=\sum_{\delta\in\Delta}a_\delta f(\delta)$である.
+  したがって,
+  \begin{align*}
+    f(\Phi^+_{\Delta})
+    &=\Set{\sum_{\delta\in\Delta}a_\delta f(\delta)|a_\delta\geq 0}\\
+    &=\Set{\sum_{\delta\in f(\Delta)}a_{\delta} \delta|a_{\delta}\geq 0}\\
+    f(\Phi^-_{\Delta})
+    &=\Set{\sum_{\delta\in\Delta}a_\delta f(\delta)|a_\delta\leq 0}\\
+    &=\Set{\sum_{\delta\in f(\Delta)}a_{\delta} \delta|a_{\delta}\leq 0}\\
+    \Psi&=f(\Phi)=f(\Phi^+_{\Delta})\cup f(\Phi^-_{\Delta})
+  \end{align*}
+  となる.
+  $f(\Delta)$は, $\Psi$の単純系であり,
+  $\Psi^{+}_{f(\Delta)}=f(\Phi^+_{\Delta})$,
+  $\Psi^{-}_{f(\Delta)}=f(\Phi^-_{\Delta})$
+  である.
+\end{proof}
+
+
 以下で,
 同型なルート系から決まる鏡映群は同型であることを示す.
-(未完成)
-
 \begin{lemma}
   \label{lem:esspart}
   $\Phi\subset V\setminus\Set{\zzero}$とする.
@@ -3257,7 +3289,7 @@ $\Delta$は$\Phi$の単純系である.
   $\Braket{\Phi}_{\RR}$上の全単射である.
 \end{lemma}
 \begin{proof}
-  $U=\Braket{\Phi}$とおくと,
+  $U=\Braket{\Phi}_\RR$とおくと,
   $V=U\oplus U^\perp$と(内部)直和分解できる.
 
   まずは, $\alpha\in\Phi$に対し,
@@ -3320,26 +3352,11 @@ $\Set{w\restrictedto{\Braket{\Phi}_\RR}|w\in W(\Phi)}$
   $W(\Phi)$と$W$は群として同型である.
 \end{proof}
 
+
 \begin{prop}
-  $\alpha\neq\zzero$に対し, $\bar\alpha=\frac{1}{\|\alpha\|}\alpha$とおく.
-  $V$を$n$次元ユークリッド空間,
-  $\Phi$を$V$上のルート系,
-  $\Delta$を$\Phi$の単純系とし,
-  $\bar\Phi=\Set{\bar\alpha|\alpha\in\Phi}$,
-  $\bar\Delta=\Set{\bar\alpha|\alpha\in\Delta}$とおく.
-  $V'$を$n'$次元ユークリッド空間,
-  $\Phi'$を$V'$上のルート系,
-  $\Delta'$を$\Phi'$の単純系とし,
-  $\bar\Phi'=\Set{\bar\alpha|\alpha\in\Phi'}$,
-  $\bar\Delta'=\Set{\bar\alpha|\alpha\in\Delta'}$とおく.
-  $f\colon \Delta \to \Delta'$は全単射であるとする.
-  $\bar\alpha\in \bar\Phi$に対し,
-  $t(\bar\alpha)=\overline{f(\alpha)}$とし,
-  $\bar t\colon \Braket{\Phi}_\RR\to \Braket{\Phi'}_\RR$を$\bar t(\sum_{\delta\in\bar\Delta}c_\delta \delta)=\sum_{\delta\in\bar\Delta}c_\delta t(\delta)$
-  で定義する.
-  任意の$\alpha,\beta\in \bar\Phi$に対し$\Braket{\bar t(\alpha),\bar t(\beta)}=\Braket{\alpha,\beta}$となることを仮定する.
-  また, $\Set{\bar f(\alpha)|\alpha\in\bar\Phi}=\bar\Phi'$も仮定する.
-  このとき, $W(\Phi)$と$W(\Phi')$は群として同型である.
+  $\Phi$と$\Phi'$をルート系とする.
+  このとき, $\Phi$と$\Phi'$が同型なら,
+  $W(\Phi)$と$W(\Phi')$は群として同型である.
 \end{prop}
 \begin{proof}
   \begin{align*}
@@ -3348,132 +3365,191 @@ $\Set{w\restrictedto{\Braket{\Phi}_\RR}|w\in W(\Phi)}$
   \end{align*}
   とおくと, $W$と$W(\Phi)$, $W'$と$W(\Phi')$はそれぞれ群として同型であるから,
   $W$と$W'$が同型であることを示す.
-  $\Delta$は$\Braket{\Phi}_\RR$の基底であり,
-  $\Delta'$は$\Braket{\Phi'}_\RR$の基底である.
-  よって$f$が全単射であることから,
-  $\bar t$も全単射であり,
-  逆写像$\bar t^{-1}$が存在する.
-  $w\in W(\Phi)$とすると,
-  $\alpha_i\in \Phi$を用いて
-  $w=s_{\alpha_1}\cdots s_{\alpha_l}$
-  とかける.
-  したがって, $\beta\in \Braket{\Phi'}_\RR$の元に対し,
+
+  $f\colon \Braket{\Phi}_\RR \to \Braket{\Phi'}_\RR$で
+  $\Phi$と$\Phi'$の同型が与えられているとする.
+  このとき,
+  $f$は全単射であるので$f^{-1}$が存在する.
+  $w\in W$に対し$\varphi(w)=f\circ w \circ f^{-1}$とおくと,
+  $\Braket{\Phi'}_\RR$から
+  $\Braket{\Phi'}_\RR$への線型写像である.
+  また,
+  $w,w'\in W$に対し,
   \begin{align*}
-    t(w(t^{-1}(\beta))
-    &=(t(s_{\alpha_1}\cdots s_{\alpha_l})t^{-1})(\beta)\\
-    &=(ts_{\alpha_1}t^{-1}\cdots t s_{\alpha_l}t^{-1})(\beta)\\
-    &=(s_{t(\alpha_1)}\cdots s_{t(\alpha_l)})(\beta)
+    \varphi(ww')&=f\circ ww' \circ f^{-1}\\
+    \varphi(w)\varphi(w')&=(f\circ w\circ f^{-1})(f\circ w' \circ f^{-1})
+    =f\circ ww' \circ f^{-1}
   \end{align*}
   となる.
+  $\alpha\in \Phi$に対し, $s_\alpha$を考える.
+  このとき, $\beta\in\Phi$に対し,
+  \begin{align*}
+    \varphi(s_{\alpha})(f(\beta))
+    &=(f\circ s_\alpha \circ f^{-1})(f(\beta))\\
+    &=f(s_\alpha  (f^{-1}(f(\beta)))\\
+    &=f(s_\alpha(\beta))\\
+    &=f(\beta - 2\frac{\Braket{\alpha,\beta}}{\alpha,\alpha}\alpha)\\
+    &=f(\beta) - 2\frac{\Braket{\alpha,\beta}}{\alpha,\alpha}f(\alpha)\\
+    s_{f(\alpha)}(f(\beta))
+    &=f(\beta) - 2\frac{\Braket{f(\alpha),f(\beta)}}{f(\alpha),f(\alpha)}f(\alpha)\\
+    &=f(\beta) - 2\frac{\Braket{\alpha,\beta}}{\alpha,\alpha}f(\alpha)
+  \end{align*}
+  である.
+  $\Braket{f(\Phi)}_\RR=\Braket{\Phi'}_\RR$であることから,
+  \begin{align*}
+    \varphi(s_\alpha\restrictedto{\Braket{\Phi}_\RR})=s_{f(\alpha)}\restrictedto{\Braket{\Phi'}_\RR}\in W'
+  \end{align*}
+  であることがわかる.
   したがって,
-  $t\circ w\restrictedto{\Braket{\Phi}_\RR} \circ t^{-1}$は,
-  $W'$の元である.
   \begin{align*}
     \shazo{\varphi}
           {W}{W'}
-          {f}{t\circ f \circ t^{-1}}
+          {w}{\varphi(w)}
   \end{align*}
-  とおく.
-  $f,f'\in W$に対し,
-  \begin{align*}
-  \varphi(fg)&=t\circ fg \circ t^{-1},\\
-  \varphi(f)\varphi(g)&=(t\circ f\circ t^{-1})( t\circ g \circ t^{-1})=t\circ fg \circ t^{-1}
-  \end{align*}
-  となるので$\varphi$は群順同型写像である.
-  また,
+  は準同型写像であることがわかる.
+  また, 同様に
   \begin{align*}
     \shazo{\psi}
           {W'}{W}
-          {f'}{t^{-1}\circ f' \circ t}
+          {w}{f^{-1}\circ w \circ f}
   \end{align*}
-  は, $\varphi$の逆写像であるから,
-  全単射であり, $W$と$W'$は同型である.
+  という準同型写像が定義できるが,
+  $\varphi$と$\psi$は互いに逆写像であるから,
+  $W$と$W'$は群として同型である.
 \end{proof}
+
+\begin{remark}
+  $\Phi$と$\Psi$が同型なルート系であるとき,
+  $W(\Phi)$と$W(\Psi)$は群として同型である.
+  しかし,
+  $W(\Phi)$と$W(\Psi)$は群として同型であったとしても,
+  $\Phi$と$\Psi$が同型なルート系であるとは限らない.
+  例えば, $\bar\alpha=\frac{1}{\|\alpha\|}\alpha$とするとき,
+  $\Set{\bar\alpha| \alpha\in \Phi}=\Set{\bar\alpha| \alpha\in \Psi}$
+  であれば,
+  $\Phi$と$\Psi$が同型でなくとも,
+  $W(\Phi)$と$W(\Psi)$は群として同型となる.
+\end{remark}
 
 \section{例}
 \subsection{$I_2(2)$, $A_1\times A_1$}
-$\Phi=\Phi(I_2(2))$とし,
-\cref{ex:i2m:simple}で考えた単純系を$\Delta$とする.
+$\Phi=\Phi(I_2(2))$とする.
+また,
 $n=2$とし, 
 \cref{ex:a1n:simple}で考えたルート系を
-$\Phi'$,
-単純系を$\Delta'$とする.
+$\Phi'$とする.
 $\alpha_0=\varepsilon_2$,
 $\alpha_1=-\varepsilon_1$である.
 また,
 $\alpha_2=-\varepsilon_1$,
 $\alpha_3=-\varepsilon_2$であるので,
-$\Phi=\Phi'$であるから, $W(\Phi)=W(\Phi')$である.
+$\Phi=\Psi$であるから, $W(\Phi)=W(\Phi')$である.
 
-\subsection{$B_n$, $C_n$}
-$\Phi=\Phi(B_n)$とし,
-$\Phi'=\Phi(C_n)$とする.
-$\Set{\bar\alpha|\alpha\in \Phi}=\Set{\bar\alpha|\alpha\in \Phi'}$
-である.
+\subsection{$B_2$, $C_2$, $I_2(4)$}
+$\Phi=\Phi(B_2)$とし,
+$\Phi'=\Phi(C_2)$とする.
+このとき,
+$f(\alpha_{1,2})=\varepsilon'_2$,
+$f(\varepsilon_2)=-\alpha_{1,2}$
+で定義される$\Braket{\Phi}_\RR$から$\Braket{\Phi'}_\RR$への線型写像は
+$\Phi$と$\Phi'$の同型を与える.
 したがって
 $W(\Phi)=W(\Phi')$である.
 
+$\Psi=\Phi(I_2(4))$とする.
+$\alpha\in \Psi$は
+$\|\alpha\|=1$を満たすので,
+\begin{align*}
+  2\frac{\Braket{\alpha_i,\alpha_j}}{\Braket{\alpha_i,\alpha_i}}
+= 2\frac{\Braket{\alpha_j,\alpha_i}}{\Braket{\alpha_j,\alpha_j}}
+\end{align*}
+である.
+一方
+$\alpha_{1,2},\varepsilon_2 \in \Phi$について考えると,
+\begin{align*}
+  2\frac{\Braket{\alpha_{1,2},\varepsilon_2}}{\Braket{\alpha_{1,2},\alpha_{1,2}}}
+  &=-1\\
+  2\frac{\Braket{\varepsilon_2,\alpha_{1,2}}}{\Braket{\varepsilon_2,\varepsilon_2}}
+  &=-2
+\end{align*}
+であるので,
+$\Phi$と$\Psi$は同型ではない.
+しかし,
+$\bar\alpha=\frac{1}{\|\alpha\|}\alpha$とすると,
+$\Psi=\Set{\bar\alpha| \alpha\in \Phi}$
+である.
+したがって, $W(\Phi)$と$W(\Psi)$は同型である.
+
 \subsection{$I_2(3)$, $A_2$}
 $\Phi=\Phi(I_2(3))$とし,
-\cref{ex:i2m:simple}で考えた単純系を$\Delta$とする.
-$\Phi'=\Phi(A_2)$とし,
-\cref{ex:an:simple}で考えた単純系を$\Delta'$とする.
+$\Phi'=\Phi(A_2)$と$\Delta'$とする.
 $f(\alpha_0)=\alpha_{1,2}$,
-$f(\alpha_2)=\alpha_{2,3}$とする.
-$t(\alpha_0)=\frac{1}{\sqrt{2}}\alpha_{1,2}$,
-$t(\alpha_1)=\frac{1}{\sqrt{2}}\alpha_{2,3}$
-とすると,
-$\Braket{t(\alpha_0),t(\alpha_2)}=\frac{1}{2}\Braket{\alpha_{1,2},\alpha_{2,3}}=-\frac{1}{2}$
-である.
-$\Braket{\alpha_0,\alpha_2}=\cos(\frac{2\pi}{3})=-\frac{1}{2}$
-であるので, $t$は内積を保存する.
-また, $t(\alpha_{2})=t(\alpha_0+\alpha_2)=t(\alpha_0)+t(\alpha_2)=\frac{1}{\sqrt{2}}\alpha_{1,2}+\frac{1}{\sqrt{2}}\alpha_{2,3}=\alpha_{1,3}$
-となるので,
-$\Set{t(\alpha)|\alpha\in\Phi}=\Set{\bar\alpha|\alpha\in \Phi'}$である.
-したがって, $W(\Phi)$と$W(\Phi')$は同型である.
+$f(\alpha_2)=\alpha_{2,3}$
+で定義される$\Braket{\Phi}_\RR$から$\Braket{\Phi'}_\RR$への線型写像は
+$\Phi$と$\Phi'$の同型を与える.
+したがって
+$W(\Phi)=W(\Phi')$である.
 
-\subsection{$I_2(4)$, $B_2$, $C_2$}
-$\Phi=\Phi(I_2(4))$とし,
-\cref{ex:i2m:simple}で考えた単純系を$\Delta$とする.
-$\Phi'=\Phi(B_2$とし,
-\cref{ex:g2:simple}で考えた単純系を$\Delta'$とする.
-$f(\alpha_0)=\alpha_{1,2}$,
-$f(\alpha_3)=\varepsilon_{2}$
-とする.
-このとき,
-$t(\alpha_0)=\frac{1}{\sqrt 2}\alpha_{1,2}$,
-$t(\alpha_3)=\varepsilon_2$とすると,
-$\Braket{t(\alpha_0),t(\alpha_3)}=\frac{1}{\sqrt 2}\Braket{\alpha_{1,2},\varepsilon_2}=-\frac{1}{\sqrt 2}$
-である. また,
-$\Braket{\alpha_0,\alpha_5}=\cos(\frac{3\pi}{2})=-\frac{1}{\sqrt{2}}$
-であるので, $t$は内積を保存する.
-また,
-直接計算することで,
-$\Set{t(\alpha)|\alpha\in\Phi}=\Set{\bar\alpha|\alpha\in \Phi'}$であることはわかる.
-したがって, $W(\Phi)$と$W(\Phi')$は同型である.
-さらに$\Phi''=\Phi(C_2)$とすると, $W(\Phi'')$はこれらと同型である.
+
+\subsection{$B_n$, $C_n$}
+$\Phi=\Phi(B_n)$とし,
+$\Psi=\Phi(C_n)$とする.
+$n\geq 3$ならばこれらは同型ではない.
+しかし,
+$\bar\alpha=\frac{1}{\|\alpha\|}\alpha$とすると,
+$\Set{\bar\alpha| \alpha\in \Phi}=\Set{\bar\alpha| \alpha\in \Psi}$
+である.
+したがって, $W(\Phi)$と$W(\Psi)$は同型である.
 
 
 \subsection{$I_2(6)$, $G_2$}
-$\Phi=\Phi(I_2(3))$とし,
-\cref{ex:i2m:simple}で考えた単純系を$\Delta$とする.
-$\Phi'=\Phi(G_2)$とし,
-\cref{ex:g2:simple}で考えた単純系を$\Delta'$とする.
-$f(\alpha_0)=\alpha_{1,2}$,
-$f(\alpha_5)=\gamma_{1}$とする.
-このとき,
-$t(\alpha_0)=\frac{1}{\sqrt 2}\alpha_{1,2}$,
-$t(\alpha_5)=-\frac{1}{\sqrt 6}\alpha_{1,2}-\frac{1}{\sqrt 6}\alpha_{1,3}$
-とすると,
-$\Braket{t(\alpha_0),t(\alpha_5)}=\frac{1}{2\sqrt 3}\Braket{\alpha_{1,2},\gamma_{1}}=-\frac{\sqrt 3}{2}$
-である.
-また,
-$\Braket{\alpha_0,\alpha_5}=\cos\left(\frac{5\pi}{6}\right)=-\frac{\sqrt{3}}{2}$
-である.
-また,
+$\nu_1=\ee_1$, $\nu_2=-\frac{3}{2}\ee_1+\frac{\sqrt{3}}{2}\ee_2$とし,
+\begin{align*}
+  \Phi^+
+  &=
+  \Set{\nu_1,\nu_2,\nu_2+\nu_1,\nu_2+2\nu_1,,\nu_2+3\nu_1,2\nu_2+3\nu_1}\\
+  \Phi^-&=\Set{-\alpha|\alpha\in\Phi^+}\\
+  \Phi&=\Phi^+\cup\Phi^-
+\end{align*}
+とする.
+$\Phi'=\Phi(G_2)$とする.
+$\Phi'$の元は, $\ee_1+\ee_2+\ee_3$と直交しており,
+$\Braket{\Phi'}_\RR=H_{\ee_1+\ee_2+\ee_3}$である.
+$f(\alpha_{1,2})=\nu_1$,
+$f(\gamma_{1})=\nu_2$で定義される,
+$\Braket{\Phi'}_\RR$から
+$\Braket{\Phi}_\RR$への線型写像を考える.
 直接計算することで,
-$\Set{t(\alpha)|\alpha\in\Phi}=\Set{\bar\alpha|\alpha\in \Phi'}$であることはわかる.
+$f$が$\Phi'$と$\Phi$の同型を与えることが確かめられる.
 したがって, $W(\Phi)$と$W(\Phi')$は同型である.
+また, $\Delta=\Set{\nu_1,\nu_2}$とおくと,
+これは$\Phi$の単純系である.
+
+また
+$\Psi=\Phi(I_2(3))$とする.
+$\alpha\in \Psi$は
+$\|\alpha\|=1$を満たすので,
+\begin{align*}
+  2\frac{\Braket{\alpha_i,\alpha_j}}{\Braket{\alpha_i,\alpha_i}}
+= 2\frac{\Braket{\alpha_j,\alpha_i}}{\Braket{\alpha_j,\alpha_j}}
+\end{align*}
+である.
+一方,
+$\nu_{1},\nu_{2} \in \Phi$について考えると,
+\begin{align*}
+  2\frac{\Braket{\nu_{1},\nu_2}}{\Braket{\nu_{1},\nu_{1}}}
+  &=-3\\
+  2\frac{\Braket{\nu_{2},\nu_1}}{\Braket{\nu_{2},\nu_{2}}}
+  &=-1
+\end{align*}
+であるので,
+$\Phi$と$\Psi$は同型ではない.
+しかし,
+$\bar\alpha=\frac{1}{\|\alpha\|}\alpha$とすると,
+$\Psi=\Set{\bar\alpha| \alpha\in \Phi}$
+である.
+したがって, $W(\Phi)$と$W(\Psi)$は同型である.
+
 
 \sectionX{章末問題}
 \begin{enumerate}
