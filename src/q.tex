@@ -31,11 +31,11 @@ $W\to V$として得られるもの
   $V$を集合とし,
   $+$, $\cdot$を二項演算
   \begin{align*}
-    &\shazo{\bullet + \bullet}
-          {V\times V}{V}
+    \bullet + \bullet&\colon
+    \Shazo{V\times V}{V}
           {(v,w)}{v+w}\\
-    &\shazo{\bullet \cdot \bullet}
-          {\RR\times V}{V}
+    \bullet \cdot \bullet&\colon
+    \Shazo{\RR\times V}{V}
           {(a,w)}{a\cdot w}
   \end{align*}
   とし,
@@ -192,22 +192,22 @@ $W\to V$として得られるもの
   $f,g\in\Hom_\RR(V,W)$に対し,
   写像$f+g$を次で定義する:
   \begin{align*}
-    \shazo{f+g}
-          {V}{W}
+    f+g\colon
+    \Shazo{V}{W}
           {v}{f(v)+g(v)}.
   \end{align*}
   $a\in \RR$,
   $f\in\Hom_\RR(V,W)$に対し,
   写像$a\cdot f$を次で定義する:
   \begin{align*}
-    \shazo{a\cdot f}
-          {V}{W}
+    a\cdot f\colon
+    \Shazo{V}{W}
           {v}{a\cdot f(v)}.
   \end{align*}
   また, 写像$\underline{0_W}$を次で定義する:
   \begin{align*}
-    \shazo{\underline{0_W}}
-          {V}{W}
+    \underline{0_W}\colon
+    \Shazo{V}{W}
           {v}{0_W}.
   \end{align*}
 \end{definition}
@@ -252,8 +252,8 @@ $f$を$V$から$W$への線形写像とする.
 $\varphi\in W^\ast$とすると,
 $\varphi$は$W$から$\RR$への線形写像であるので,
 \begin{align*}
-  \shazo{\varphi\circ f}
-        {V}{\RR}
+  \varphi\circ f\colon
+  \Shazo{V}{\RR}
         {v}{\varphi(f(v))}
 \end{align*}
 は線形である.
@@ -261,8 +261,8 @@ $\varphi$は$W$から$\RR$への線形写像であるので,
 よって,
 写像
 \begin{align*}
-  \shazo{\Phi_f}
-        {W^\ast}{V^\ast}
+  \Phi_f\colon
+  \Shazo{W^\ast}{V^\ast}
         {\varphi}{\varphi\circ f}
 \end{align*}
 が定義できる.
@@ -270,8 +270,8 @@ $\varphi$は$W$から$\RR$への線形写像であるので,
 $V$, $W$をベクトル空間とし,
 $f$を$V$から$W$への線形写像とし,
   \begin{align*}
-    \shazo{\Phi_f}
-          {W^\ast}{V^\ast}
+    \Phi_f\colon
+    \Shazo{W^\ast}{V^\ast}
           {\varphi}{\varphi\circ f}
 \end{align*}
 とすると, $\Phi_f\in \Hom_\RR(W^\ast,V^\ast)$.
@@ -327,8 +327,8 @@ $f$を$V$から$W$への線形写像とし,
   $f\in \Hom_\RR(V,W)$に対し,
   $\transposed{f}\in \Hom_\RR(W^\ast,V^\ast)$を,
   \begin{align*}
-    \shazo{\transposed{f}}
-          {W^\ast}{V^\ast}
+    \transposed{f}\colon
+    \Shazo{W^\ast}{V^\ast}
           {\varphi}{\varphi\circ f}
   \end{align*}
   で定義し, $f$の転置と呼ぶ.
@@ -336,8 +336,8 @@ $f$を$V$から$W$への線形写像とし,
 
 (余談)
 \begin{align*}
-  \shazo{\Phi}
-        {\Hom_\RR(V,W)}{\Hom_\RR(W^\ast,V^\ast)}
+  \Phi\colon
+  \Shazo{\Hom_\RR(V,W)}{\Hom_\RR(W^\ast,V^\ast)}
         {f}{\Phi_f=\transposed{f}}
 \end{align*}
 は線形である.
@@ -401,8 +401,8 @@ $f$を$V$から$W$への線形写像とし,
 \begin{definition}
   $V$を実ベクトル空間とする.
   \begin{align*}
-    \shazo{\Braket{\bullet,\bullet}_V}
-          {V\times V}{\RR}
+    \Braket{\bullet,\bullet}_V\colon
+    \Shazo{V\times V}{\RR}
           {(v,w)}{\Braket{v,w}_V}
   \end{align*}
   が以下の条件を満たすとき,
@@ -683,8 +683,8 @@ $f$を$V$から$W$への線形写像とし,
   $V$を内積空間であるとする.
   $v_0\in V$に対し,
 \begin{align*}
-  \shazo{\beta_{v_0}}
-        {V}{\RR}
+  \beta_{v_0}\colon
+  \Shazo{V}{\RR}
         {v}{\Braket{v,v_0}_V}
   \end{align*}
   とおく.
@@ -696,8 +696,8 @@ $f$を$V$から$W$への線形写像とし,
   \end{align*}
   である.
   \begin{align*}
-    \shazo{\beta}
-          {V}{V^\ast}
+    \beta\colon
+    \Shazo{V}{V^\ast}
           {u}{\beta_u}
   \end{align*}
   とおくと,
@@ -738,8 +738,8 @@ $W$を有限次元内積空間とし,
 $V$と同様に,
 $w_0\in W$に対して,
 \begin{align*}
-  \shazo{\beta_{w_0}}
-        {W}{\RR}
+  \beta_{w_0}\colon
+  \Shazo{W}{\RR}
         {w}{\Braket{w,w_0}_W}
 \end{align*}
 とする.
@@ -747,8 +747,8 @@ $f\colon V\to W$を線型写像とする.
 つまり, $f\in \Hom_\RR(V,W)$とする.
 このとき
 \begin{align*}
-  \shazo{\transposed{f}}
-        {W^\ast}{V^\ast}
+  \transposed{f}\colon
+  \Shazo{W^\ast}{V^\ast}
         {\varphi}{\varphi\circ f}
 \end{align*}
 と定義され$\transposed{f}\in \Hom(W^\ast,V^\ast)$であった.
@@ -768,8 +768,8 @@ $\beta_{v_0}=\transposed{f}(\beta_w)$
 \end{align*}
 とおく.
 \begin{align*}
-  \shazo{f^\top}
-        {W}{V}
+  f^\top\colon
+  \Shazo{W}{V}
         {w}{f^\top(w)}
 \end{align*}
 という写像が定まる.
@@ -790,8 +790,8 @@ $v\in V$, $w\in W$に対し,
 が成り立つ.
 つまり,
 \begin{align*}
-  \shazo{f^\top}
-        {W}{V}
+  f^\top\colon
+  \Shazo{W}{V}
         {w}{f^\top (w)}
 \end{align*}
 は
@@ -924,8 +924,8 @@ $V$を実ベクトル空間とし,
 $v_1,\ldots,v_n\in V$とする.
 このとき,
 \begin{align*}
-  \shazo{\pi_{v_1,\ldots,v_n}}
-        {\RR^n}{V}
+  \pi_{v_1,\ldots,v_n}\colon
+  \Shazo{\RR^n}{V}
         {\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}}{x_1v_1+\cdots+x_nv_n}
 \end{align*}
 とおく.
@@ -1005,8 +1005,8 @@ $\pi_{v_1,\ldots,v_n}(\ee_i)=v_i$である.
   \end{enumerate}
   言い換えると,
   \begin{align*}
-    \shazo{\pi}
-          {V\times\cdots \times V}{\Hom_\RR(\RR^n,V)}
+    \pi\colon
+    \Shazo{V\times\cdots \times V}{\Hom_\RR(\RR^n,V)}
           {(v_1,\ldots,v_n)}{\pi_{v_1,\ldots,v_n}}
   \end{align*}
   が全単射である.
@@ -1052,8 +1052,8 @@ $(a_{i,j})_{i,j}$は正則であるという.
 \end{remark}
 \begin{remark}
   \begin{align*}
-    \shazo{\id_{\RR^n}}
-          {\RR^n}{\RR^n}
+    \id_{\RR^n}\colon
+    \Shazo{\RR^n}{\RR^n}
           {\xx}{\xx}
   \end{align*}
   に対応する行列は,
@@ -1076,8 +1076,8 @@ $(a_{i,j})_{i,j}$は正則であるという.
 
 \begin{remark}
   \begin{align*}
-    \shazo{\underline{\zzero}}
-          {\RR^n}{\RR^m}
+    \underline{\zzero}\colon
+    \Shazo{\RR^n}{\RR^m}
           {\xx}{\zzero}
 \end{align*}
   に対応する行列は,
@@ -1128,8 +1128,8 @@ $(a_{i,j})_{i,j}$は正則であるという.
   という
   $m$項数ベクトルを考える.
   \begin{align*}
-    \shazo{A}
-          {\RR^n}{\RR^m}
+    A\colon
+    \Shazo{\RR^n}{\RR^m}
           {\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}}
           {\begin{pmatrix}\sum_{k=1}^n a_{1,k}x_k\\\vdots\\\sum_{k=1}^n a_{m,k}x_k\end{pmatrix}
               =
@@ -1171,8 +1171,8 @@ $(\ee_1^\top,\ldots,\ee_n^\top)$
 は$(\RR^n)^\ast$の基底である.
 この基底を$(\ee_1,\ldots,\ee_n)$の双対基底と呼ぶ.
 \begin{align*}
-  \shazo{\pi_{\ee_1^\top,\ldots,\ee_n^\top}}
-        {\RR^n}{(\RR^n)^\ast}
+  \pi_{\ee_1^\top,\ldots,\ee_n^\top}\colon
+  \Shazo{\RR^n}{(\RR^n)^\ast}
         {\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}}
         {x_1\ee_1^\top+\cdots+x_n\ee_n^\top=
     \begin{pmatrix}x_1&\cdots&x_n\end{pmatrix}}
@@ -1183,8 +1183,8 @@ $\RR^n$と$(\RR^n)^\ast$を同一視できる.
 
 \subsection{内積と直交行列}
 \begin{align*}
-  \shazo{\Braket{\bullet,\bullet}_{\RR^n}}
-        {\RR^n \times \RR^n}{\RR}
+  \Braket{\bullet,\bullet}_{\RR^n}\colon
+  \Shazo{\RR^n \times \RR^n}{\RR}
         {(\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix},\begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix})}
         {x_1y_1+\cdots+x_ny_n}
 \end{align*}
@@ -1237,8 +1237,8 @@ $\RR^n$の標準内積とかユークリッド内積と呼ぶ.
   内積を通じた$V$から$V^\ast$への同型$\beta$が使われるが,
   この場合は,
   \begin{align*}
-    \shazo{\beta}
-          {\RR^n}{(\RR^n)^\ast}
+    \beta\colon
+    \Shazo{\RR^n}{(\RR^n)^\ast}
           {\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}}
           {\begin{pmatrix}x_1&\cdots&x_n\end{pmatrix}}
   \end{align*}
