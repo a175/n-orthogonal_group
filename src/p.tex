@@ -1856,8 +1856,8 @@ $W(\Phi)$は有限鏡映群である.
   \end{align*}
   とすればよい.
   $W$は鏡映群であるので,
-  $W=\Braket{R(\Phi)}_{\ZZ}=W(\Phi)$である.
-  $\numof{\Phi}=2\numof{R(\Phi)}\leq 2|W| <\infty$である.
+  $W=\Braket{R}_{\ZZ}=\Braket{R(\Phi)}_{\ZZ}=W(\Phi)$である.
+  $\numof{\Phi}=2\numof{R}\leq 2|W| <\infty$である.
   また, 定義から, $\alpha\in \Phi$に対し,
   $\RR\alpha \cap \Phi = \Set{\alpha,-\alpha}$が成り立つ.
   $\alpha\in \Phi$,
@@ -2090,7 +2090,7 @@ $\Phi(A_{n-1})$は結晶的である.
 
 \subsection{$B_{n}$}
 \label{ex:bn:root}
-$1\leq i<j\leq n$
+$1\leq i<j\leq n$,
 $\alpha_{i,j}=\ee_i-\ee_j$,
 $\beta_{i,j}=\ee_i+\ee_j$,
 $\varepsilon_{k}=\ee_k$.
@@ -2138,9 +2138,9 @@ $T_{i,j}$は
 $\alpha_{i,j}$に関する鏡映である.
 $\tau\in S_n$を$i$と$j$を入れ替える互換とすると,
 \begin{align*}
-  T_{i,j}\alpha_{k,l}=\alpha_{\tau(k),\tau(l)}\\
-  T_{i,j}\beta_{k,l}=\beta_{\tau(k),\tau(l)}\\
-  T_{i,j}\varepsilon_{k}=\varepsilon_{\tau(l)}
+  T_{i,j}\alpha_{k,l}&=\alpha_{\tau(k),\tau(l)}\\
+  T_{i,j}\beta_{k,l}&=\beta_{\tau(k),\tau(l)}\\
+  T_{i,j}\varepsilon_{k}&=\varepsilon_{\tau(l)}
 \end{align*}
 であるので,
 $T_{i,j}(\hat\Phi)=\hat\Phi$
@@ -2485,24 +2485,34 @@ $\Phi(G_{2})$は結晶的である.
 \end{lemma}
 \begin{proof}
   まず$\Delta(\Phi_\Delta^{+})\subset \Delta$を示す.
-  そのために,
-  \begin{align*}
-    \alpha\in\Delta(\Phi_\Delta^{+})=\Phi_\Delta^+\setminus X(\Phi_\Delta^+)\implies \alpha \in\Delta
-  \end{align*}
-  の
-  対偶を示す.
-  $\alpha \in \Phi_\Delta^+\setminus\Delta$とする.
-  $\alpha\in \Phi_\Delta^+$
-  であるので,
+  $\alpha\in \Delta(\Phi_\Delta^{+})=\Phi_\Delta^{+}\setminus X(\Phi_\Delta^{+})$とする.
+  $\alpha\in \Phi_\Delta^{+}$であるので,
   $a_\delta \geq 0$を使って,
   $\alpha=\sum_{\delta\in\Delta}a_\delta \delta$と表せる.
-  もし, すべての$\delta\neq\delta_0$で$a_\delta=0$なら,
-  $\alpha=a_{\delta_0} \delta_0$とかけるが,
-  $\Phi$がルート系であるので, $a_{\delta_0}=1$であり,
-  $\alpha=\delta_0\in\Delta$である.
-  よって, $\numof{\Set{\delta|a_\delta>0}}>1$である.
-  したがって, $\alpha\not\in \Delta(\Phi_\Delta^+)$
-  である.
+  $\alpha\not\in X(\Phi_\Delta^{+})$であるので,
+  $a_\delta\neq 0$となる$\delta$は唯一つに定まる.
+  $\alpha = a_\delta \delta$である.
+  $\Phi$はルート系であることから,
+  $ a_\delta\delta \in \RR \delta = \Set{\delta,-\delta}$
+  であり, $\alpha=\delta\in \Delta$.
+%%   そのために,
+%%   \begin{align*}
+%%     \alpha\in\Delta(\Phi_\Delta^{+})=\Phi_\Delta^+\setminus X(\Phi_\Delta^+)\implies \alpha \in\Delta
+%%   \end{align*}
+%%   の
+%%   対偶を示す.
+%%   $\alpha \in \Phi_\Delta^+\setminus\Delta$とする.
+%%   $\alpha\in \Phi_\Delta^+$
+%%   であるので,
+%%   $a_\delta \geq 0$を使って,
+%%   $\alpha=\sum_{\delta\in\Delta}a_\delta \delta$と表せる.
+%%   もし, すべての$\delta\neq\delta_0$で$a_\delta=0$なら,
+%%   $\alpha=a_{\delta_0} \delta_0$とかけるが,
+%%   $\Phi$がルート系であるので, $a_{\delta_0}=1$であり,
+%%   $\alpha=\delta_0\in\Delta$である.
+%%   よって, $\numof{\Set{\delta|a_\delta>0}}>1$である.
+%%   したがって, $\alpha\not\in \Delta(\Phi_\Delta^+)$
+%%   である.
 
 
   次に, $\Delta\subset \Delta(\Phi_\Delta^{+})=\Phi_\Delta^+\setminus X(\Phi_\Delta^+)$を示す.
@@ -3047,7 +3057,7 @@ $\varepsilon'_k=2\varepsilon_k$である.
 \begin{align*}
 \alpha_{i,j}&=\sum_{k=i}^{j-1}\alpha_{k,k+1}\\
 \beta_{k,n}&=\alpha_{k,n}+\varepsilon'_{n}\\
-\beta_{i,j}&=\alpha_{i,n}+\beta{j,n}\\
+\beta_{i,j}&=\alpha_{i,n}+\beta_{j,n}\\
 \varepsilon'_{k}&=\alpha_{i,n}+\beta_{i,n}
 \end{align*}
 とかけるので,
@@ -3133,7 +3143,7 @@ $\Delta$は$\Phi$の単純系である.
 \begin{align*}
   \varpi&=\eta_{1,1}+\cdots+\eta_{1,n-2}+\eta'+\eta''\\
   &=\eta_{1,1}+\cdots+\eta_{n}-\ee_n\\
-  &=n\ee_1+(n-1)\ee_1+\cdots+2\ee_{n-1}
+  &=n\ee_1+(n-1)\ee_2+\cdots+2\ee_{n-1}
 \end{align*}
   とすると,
 \begin{align*}
