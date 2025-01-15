@@ -4169,7 +4169,14 @@ $w=A_\sigma \diag(z_1,\ldots,z_n) \in W$に対し,
   &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)<\sigma(j),z_i=-1,z_j=1}}\\
   &\quad +\numof{\Set{(i,j)|i<j,z_i=-1,z_j=1}}\\
   &\quad +\numof{\Set{(i,j)|i<j,z_i=z_j=-1}}\\
-  &\quad +\numof{\Set{i|z_i=-1}}.
+  &\quad +\numof{\Set{i|z_i=-1}}\\
+  &=\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j),z_i=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)<\sigma(j),z_i=-1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,z_i=-1}}\\
+  &\quad +\numof{\Set{i|z_i=-1}}\\
+  &=\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j),z_i=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)<\sigma(j),z_i=-1}}\\
+  &\quad +\numof{\Set{(i,j)|i \leq j,z_i=-1}}.
 \end{align*}
 また,
 $A_\sigma \diag(z_1,\ldots,z_n)=\diag(z_{\sigma^{-1}(1)},\ldots,z_{\sigma^{-1}(n)})A_\sigma $であったから, $a_i=z_{\sigma^{-1}(i)}$, つまり,
@@ -4206,7 +4213,7 @@ $A_\sigma \diag(z_1,\ldots,z_n)=\diag(z_{\sigma^{-1}(1)},\ldots,z_{\sigma^{-1}(n
   &\quad \cup\Set{\beta_{i,j}|i<j,\sigma(i)<\sigma(j),a_{\sigma(i)}=-1,a_{\sigma(j)}=1}\\
   &\quad \cup\Set{\beta_{i,j}|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=1,a_{\sigma(j)}=-1}\\
   &\quad \cup\Set{\beta_{i,j}|i<j,a_{\sigma(i)}=a_{\sigma(j)}=-1}\\
-  &\quad \cup\Set{\varepsilon_{i}|a_{\sigma(i)}=-1}\\
+  &\quad \cup\Set{\varepsilon_{i}|a_{\sigma(i)}=-1},\\
   n(w)
   &=\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=a_{\sigma(j)}=1}}\\
   &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=1,a_{\sigma(j)}=-1}}\\
@@ -4214,7 +4221,10 @@ $A_\sigma \diag(z_1,\ldots,z_n)=\diag(z_{\sigma^{-1}(1)},\ldots,z_{\sigma^{-1}(n
   &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)<\sigma(j),a_{\sigma(i)}=-1,a_{\sigma(j)}=1}}\\
   &\quad +\numof{\Set{(i,j)|i<j,a_{\sigma(i)}=-1,a_{\sigma(j)}=1}}\\
   &\quad +\numof{\Set{(i,j)|i<j,a_{\sigma(i)}=a_{\sigma(j)}=-1}}\\
-  &\quad +\numof{\Set{i|a_{\sigma(i)}=-1}}.
+  &\quad +\numof{\Set{i|a_{\sigma(i)}=-1}}\\
+  &=\numof{\Set{(i,j)|i<j,\sigma(i)>\sigma(j),a_{\sigma(i)}=1}}\\
+  &\quad +\numof{\Set{(i,j)|i<j,\sigma(i)<\sigma(j),a_{\sigma(i)}=-1}}\\
+  &\quad +\numof{\Set{(i,j)|i\leq j,a_{\sigma(i)}=-1}}.
 \end{align*}
 
 \subsection{$C_{n}$}
@@ -4238,8 +4248,7 @@ $n_{\Phi_\Delta^+}(w)=n_{\Phi_{\Delta}^-}(w)$である.
 \subsection{$D_{n}$}
 $\Phi=\Phi(D_n)$とし
 \cref{ex:dn:simple}で考えた単純系$\Delta$を考える.
-$S=\Set{s_\delta|\delta\in \Delta}$とする.
-$s_\delta\in S$に対し,
+$\delta\in \Delta$に対し,
 $\alpha\in\Phi_\Delta^+\setminus\Set{\delta}$が
 $s_{\delta}(\alpha)\in\Phi_\Delta^+$
 みたすことを確認する.
@@ -4256,7 +4265,7 @@ $s_{\beta_{n-1,n}}=F_{n-1}F_{n}T_{n-1,n}$
     \alpha_{i,j}&(i<j<n-1)\\
     \beta_{i,n}&(i<n-1,j=n-1)\\
     \beta_{i,n-1}&(i<n-1,j=n)\\
-    \alpha_{n,n-1}=\alpha_{n-1,n}&(i=n-1,j=n)\\
+    \alpha_{n,n-1}=-\alpha_{n-1,n}&(i=n-1,j=n)\\
   \end{cases}\\
   s_{\beta_{n-1,n}}(\beta_{i,j})
   &=
