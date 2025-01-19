@@ -3104,7 +3104,7 @@ $\Phi=\Phi(D_n)$とし
 \begin{align*}
 \alpha_{i,j}&=\sum_{k=i}^{j-1}\alpha_{k,k+1}\\
 \beta_{j,n}&=\alpha_{k,n-1}+\beta_{n-1,n}\\
-\beta_{i,j}&=\alpha_{i,n}+\beta{j,n}\\
+\beta_{i,j}&=\alpha_{i,n}+\beta_{j,n}\\
 \end{align*}
 であるので, 
 \begin{align*}
@@ -3957,7 +3957,8 @@ $0\leq k <\frac{m}{2}$のとき, $0\leq 2k<m+2k<2m$であるので,
 \end{align*}
 であるから,
 \begin{align*}
-  \Phi_\Delta^+(R_k)=\Set{\alpha_{m-2k},\alpha_{m-2k+1},\ldots,\alpha_{m-1}}
+  \Phi_\Delta^+(R_k)&=\Set{\alpha_{m-2k},\alpha_{m-2k+1},\ldots,\alpha_{m-1}}\\
+  n_{\Phi_\Delta^+}(R_k)&=m-1-(m-2k)+1=2k
 \end{align*}
 である.
 一方,
@@ -3967,12 +3968,8 @@ $\frac{m}{2}\leq k <m$のとき, $m\leq 2k<m+2k<3m$であるので,
 \end{align*}
 であるから,
 \begin{align*}
-  \Phi_\Delta^+(R_k)=\Set{\alpha_{0},\alpha_{1},\ldots,\alpha_{2m-1-2k}}
-\end{align*}
-である.
-したがって, $0\leq k <\frac{m}{2}$に対し,
-\begin{align*}
-  n(R_{k})=n(R_{m-k})=2k 
+  \Phi_\Delta^+(R_k)&=\Set{\alpha_{0},\alpha_{1},\ldots,\alpha_{2m-1-2k}}\\
+  n_{\Phi_\Delta^+}(R_k)&=2m-1-2k-0+1=2(m-k)\\
 \end{align*}
 である.
 
@@ -3992,7 +3989,8 @@ $0\leq k <\frac{m}{2}$のとき, $0\leq 2k<m+2k<2m$であるので,
 \end{align*}
 であるから,
 \begin{align*}
-  \Phi_\Delta^+(P_k)=\Set{\alpha_{0},\alpha_{1},\ldots,\alpha_{2k}}
+  \Phi_\Delta^+(P_k)&=\Set{\alpha_{0},\alpha_{1},\ldots,\alpha_{2k}}\\
+  n_{\Phi_\Delta^+}(P_k)&=2k+1
 \end{align*}
 である.
 一方,
@@ -4002,14 +4000,10 @@ $\frac{m}{2}\leq k <m$のとき, $m\leq 2k<m+2k<3m$であるので,
 \end{align*}
 であるから,
 \begin{align*}
-  \Phi_\Delta^+(P_k)=\Set{\alpha_{2k-m+1},\alpha_{2k-m+2},\ldots,\alpha_{m-1}}
+  \Phi_\Delta^+(P_k)&=\Set{\alpha_{2k-m+1},\alpha_{2k-m+2},\ldots,\alpha_{m-1}}\\
+  n(\Phi_\Delta^+(P_k))&=(m-1)-(2k-m+1)+1=2(m-k)-1
 \end{align*}
 である. 
-したがって, $0\leq k <\frac{m}{2}$に対し,
-\begin{align*}
- n(P_{k})=n(P_{m-1-k})=2k+1
-\end{align*}
-である.
 
 
 
@@ -4265,7 +4259,7 @@ $s_{\beta_{n-1,n}}=F_{n-1}F_{n}T_{n-1,n}$
     \alpha_{i,j}&(i<j<n-1)\\
     \beta_{i,n}&(i<n-1,j=n-1)\\
     \beta_{i,n-1}&(i<n-1,j=n)\\
-    \alpha_{n,n-1}=-\alpha_{n-1,n}&(i=n-1,j=n)\\
+    -\alpha_{n,n-1}=\alpha_{n-1,n}&(i=n-1,j=n)\\
   \end{cases}\\
   s_{\beta_{n-1,n}}(\beta_{i,j})
   &=
@@ -4278,7 +4272,7 @@ $s_{\beta_{n-1,n}}=F_{n-1}F_{n}T_{n-1,n}$
 \end{align*}
 である.
 したがって,
-$\alpha\in\Phi_\Delta^+\setminus\Set{\beta_{n-1,n}}$が
+$\alpha\in\Phi_\Delta^+\setminus\Set{\beta_{n-1,n}}$ならば
 $s_{\beta_{n-1,n}}(\alpha)\in\Phi_\Delta^+$
 をみたしている.
 
@@ -4805,7 +4799,7 @@ $s_{\alpha_{1,2}},\ldots,s_{\alpha_{n-1,n}}\in S$
 \begin{align*}
 \alpha_{i,j}&=\sum_{k=i}^{j-1}\alpha_{k,k+1}\\
 \beta_{i,n}&=\alpha_{i,n-1}+\beta_{n-1,n}\\
-\beta_{i,j}&=\alpha_{i,n}+\beta{j,n}
+\beta_{i,j}&=\alpha_{i,n}+\beta_{j,n}
 \end{align*}
 であるので, 
 \begin{align*}
@@ -4945,7 +4939,7 @@ $\Phi^-=\Phi_\Delta^-$, $W=W(\Phi)$とする.
     $\ell_\Delta(w)=0 \iff w=\id$.
   \item
     \label{item:len:1issimple}
-    $\ell_\Delta(w)-1 \iff \exists \delta\in\Delta$ such that $w=s_\delta$.
+    $\ell_\Delta(w)=1 \iff \exists \delta\in\Delta$ such that $w=s_\delta$.
   \item
     \label{item:len:inversestable}
     $\ell_\Delta(w)=\ell_\Delta(w^{-1})$.
@@ -4966,7 +4960,7 @@ $\Phi^-=\Phi_\Delta^-$, $W=W(\Phi)$とする.
   $s_i^2=\id$であるので,
   \begin{align*}
     w^{-1}
-    &=s_l^{-1}\cdots s_1^{-1}
+    &=s_l^{-1}\cdots s_1^{-1}\\
     &=s_l\cdots s_1
   \end{align*}
   である. したがって, $\ell_\Delta(w) \geq \ell_\Delta(w^{-1})$.
@@ -5024,6 +5018,8 @@ $w$の表示を簡約にするにはどうしたらよいかについて考え�
 \begin{lemma}
   \label{lem:deletion:primitive}
   $\delta_1,\ldots,\delta_r \in\Delta$とし,
+  $w=s_{\delta_1}\cdots s_{\delta_r}$とする.
+  また,
   $w_{k,l}=s_{\delta_k}s_{\delta_{k+1}}\cdots s_{\delta_l}$
   とする, ただし, $k>l$のときには$w_{k,l}=\id$と約束する.
   $\delta_i=w_{i+1,j-1}(\delta_j)$
@@ -5053,6 +5049,8 @@ $w$の表示を簡約にするにはどうしたらよいかについて考え�
 \begin{lemma}
   \label{lem:deletion:primitive:fixed4i}
   $\delta_1,\ldots,\delta_r \in\Delta$とし,
+  $w=s_{\delta_1}\cdots s_{\delta_r}$とする.
+  また,
   $w_{k,l}=s_{\delta_k}s_{\delta_{k+1}}\cdots s_{\delta_l}$
   とする, ただし, $k>l$のときには$w_{k,l}=\id$と約束する.
   $w_{1,j-1}(\delta_{j})\in\Phi^-$ならば,
