@@ -313,7 +313,8 @@ $\Braket{S}_\ZZ=\Braket{S'}_\ZZ$
 である.
 
 \begin{example}
-$(\ZZ^\times)^n$の部分集合$S$を
+\label{ex:gen:a1n}
+  $(\ZZ^\times)^n$の部分集合$S$を
 \begin{align*}
   S=\Set{(-1,1\ldots,1),(1,-1,\ldots,1),(1,1,\ldots,-1)}
 \end{align*}
@@ -322,7 +323,34 @@ $(\ZZ^\times)^n$の生成系である.
 \end{example}
 
 \begin{example}
-$\tau_{i,j}\in S_n$
+  \Cref{ex:gen:a1n}の例を$n=3$の場合について考える.
+\begin{align*}
+  S=\Set{s=(-1,1,1),s'=(1,-1,1),s''=(1,1,-1)}
+\end{align*}
+とおくと, $S$は
+$(\ZZ^\times)^3$の生成系である.
+  $(\ZZ^\times)^3$の元は$S$の元の積として表すことができるので,
+単位元である$(1,1,1)$を始点として,
+$S$の元を順次賭けていくことで,
+  $(\ZZ^\times)^3$の元を全て作ることができる.
+$S$の元を掛ける操作で現れるものを線で結ぶと以下のようになる:
+\begin{align*}
+  \begin{array}{crcccccrc}
+    &&&&(-1,-1,-1)&&&\\
+    &&&&\nearrow\phantom{(1,1)}\uparrow\phantom{(1,1)}\nwarrow&\\
+    &&&&(1,-1,-1)\phantom{\nwarrow}(-1,1,-1)\phantom{\nwarrow} (-1,-1,1)&&&&\\
+    &&&&\uparrow\phantom{\bullet x}\xarrow\phantom{\bullet x\uparrow\bullet x}\xarrow\phantom{\bullet x}\uparrow&\\
+    &&&&(1,1,-1)\phantom{\nwarrow}(1,-1,1)\phantom{\nwarrow} (-1,1,1)&&&&\\
+    &&&&\nwarrow\phantom{(1,1)}\uparrow\phantom{(1,1)}\nearrow&\\
+    & &&&(1,1,1) &&& 
+  \end{array}
+\end{align*}
+\end{example}
+
+
+\begin{example}
+\label{ex:sn:gens}
+  $\tau_{i,j}\in S_n$
 を
 \begin{align*}
   \tau_{i,j}(k)=
@@ -357,8 +385,66 @@ $\tau_{i,i+k}$は隣接互換の積でかける.
 したがって,
 隣接互換を集めた集合$S$も$S_n$の生成系である.
 \end{example}
+\begin{example}
+  $S_3$について考える.
+  $s=\tau_{1,2}$を$1,2$を入れ替える互換,
+  $s'=\tau_{2,3}$を$2,3$を入れ替える互換とし,
+  $S=\Set{s,s'}$とおくと,
+  \Cref{ex:sn:gens}でみたように,
+  $S_3=\Braket{S}_\ZZ$である.
+  $\sigma\in S_3$の元を順列$[\sigma(1),\sigma(2),\sigma(3)]$
+  であらわすと,
+  \begin{align*}
+    S_3=\Set{[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]}
+  \end{align*}
+  である.
+  $\varepsilon=[1,2,3]$が単位元である.
+  $S_3$の元は$S$の元の積として表すことができるので,
+  $\varepsilon$を始点として, $S$の元を順次賭けていくことで,
+  $S_3$の元を全て作ることができる.
+  $S_3$は非可換なので, 右から掛けるということと左から掛けるということは
+  異なるので, 気をつける必要がある.
+  右から$S$の元を掛ける操作で現れるものを線で結ぶと以下のようになる:
+\begin{align*}
+  \begin{array}{crcccccrc}
+    &&&&[3,2,1]&&&\\
+    &&&&\nearrow\phantom{\bullet}\nwarrow&\\
+    &&&&[3,1,2]\phantom{\nearrow\bullet\nwarrow}[2,3,1]&&&\\
+    &&&&\uparrow\phantom{\bullet}\phantom{x[1,2,3]x}\uparrow&\\
+    &&&&[1,3,2]\phantom{\nearrow\bullet\nwarrow}[2,1,3]&&&&\\
+    &&&&\nwarrow\phantom{\bullet}\nearrow&\\
+    & &&&[1,2,3] &&& 
+  \end{array}
+\end{align*}
+一方, 左から$S$の元を掛けて得られるものを線で結ぶと, 以下のようになる.
+\begin{align*}
+  \begin{array}{crcccccrc}
+    &&&&[3,2,1]&&&\\
+    &&&&\nearrow\phantom{\bullet}\nwarrow&\\
+    &&&&[2,3,1]\phantom{\nearrow\bullet\nwarrow}[3,1,2]&&&\\
+    &&&&\uparrow\phantom{x[1,2,3]x}\uparrow&\\
+    &&&&[1,3,2]\phantom{\nearrow\bullet\nwarrow}[2,1,3]&&&&\\
+    &&&&\nwarrow\phantom{\bullet}\nearrow&\\
+    & &&&[1,2,3] &&& 
+  \end{array}
+\end{align*}
+右からでも左からでも良いので, $S$の元を掛けて得られるものを線で結ぶと
+以下のようになる:
+\begin{align*}
+  \begin{array}{crcccccrc}
+    &&&&[3,2,1]&&&\\
+    &&&&\nearrow\phantom{\bullet}\nwarrow&\\
+    &&&&[2,3,1]\phantom{\nearrow\bullet\nwarrow}[3,1,2]&&&\\
+    &&&&\uparrow\phantom{\bullet x}\xarrow\phantom{\bullet x}\uparrow&\\
+    &&&&[1,3,2]\phantom{\nearrow\bullet\nwarrow}[2,1,3]&&&&\\
+    &&&&\nwarrow\phantom{\bullet}\nearrow&\\
+    & &&&[1,2,3] &&& 
+  \end{array}
+\end{align*}
 
 
+  
+\end{example}
 
 \sectionX{章末問題}
 \begin{enumerate}
@@ -4395,7 +4481,7 @@ $W_0=\Braket{R_0}_\ZZ$
   \label{lem:minimumhtissimple}
   $\beta\in\Phi^+$,
   $h=\min\Set{\height_\Delta(w(\beta))|w\in W_0, w(\beta)\in \Phi^+}$とおく.
-  $w\in W_0(\beta)$とする.
+  $w\in W_0$とする.
   $w(\beta)\in\Phi^+$が$\height_\Delta(w(\beta))=h$をみたすなら,
   $w(\beta)\in\Delta$.
 \end{lemma}
@@ -4613,6 +4699,13 @@ $\height_\Delta(\alpha_{i,j})=j-i$
   =n-h
 \end{align*}
 である.
+
+$\alpha_{i,j}\in\Phi_\Delta^+$は, 次のように2通りに書くことができる:
+\begin{align*}
+  \alpha_{i,j} &= \alpha_{i,j}+\alpha_{i,i+1}\\
+  &= \alpha_{i,j-1}+\alpha_{j-1,j}.
+\end{align*}
+そこで,
 $\Phi_\Delta^+$の元を以下のように並べる:
 \begin{align*}
   \begin{array}{cccccc}
@@ -4629,8 +4722,9 @@ $\height_\Delta(\alpha)=1$である.
 $\alpha$が$\beta$の一つ左にある場合,
 もしくは
 $\alpha$が$\beta$の一つ上にある場合,
+$\Delta$の元を$\beta$に足すことで$\alpha$が得られる.
+したがって,
 $\height_\Delta(\alpha)=\height_\Delta(\beta)+1$である.
-
 
 \subsection{$B_{n}$}
 \label{ex:bn:simpleges}
@@ -4701,6 +4795,19 @@ $\height_\Delta(\alpha_{i,j})=1$となるのは$j=i+1$のときのみであり,
 $\height_\Delta(\varepsilon_{k})=1$となるのは$k=n$のときのみであることもわかる.
 また
 $\height_\Delta(\beta_{i,j})>1$である.
+
+$\Phi_\Delta^+$の元は次を満たしている:
+\begin{align*}
+  \alpha_{i,j} &= \alpha_{i,j}+\alpha_{i,i+1}\\
+  &= \alpha_{i,j-1}+\alpha_{j-1,j}.\\
+  \varepsilon_i &= \alpha_{i,n}+\varepsilon_{n}\\\
+  &=\varepsilon_{i+1}+\alpha_{i,i+1}.\\
+  \beta_{i,n} &= \varepsilon_i+\varepsilon_n\\
+  &=\beta_{i+1,n}+\alpha_{i,i+1}.\\
+  \beta_{i,j} &= \beta_{i,j+1}+\alpha_{j,j+1}\\
+   &= \beta_{i+1,j}+\alpha_{i,i+1}.
+\end{align*}
+そこで,
 $\Phi_\Delta^+$の元を以下のように並べる:
 \begin{align*}
   \begin{array}{ccccccccc}
@@ -4721,6 +4828,8 @@ $\height_\Delta(\alpha)=1$である.
 $\alpha$が$\beta$の一つ左にある場合,
 もしくは
 $\alpha$が$\beta$の一つ上にある場合,
+$\Delta$の元を足すことで$\beta$から$\alpha$を得ることができる.
+よって
 $\height_\Delta(\alpha)=\height_\Delta(\beta)+1$である.
 
 
@@ -4764,6 +4873,20 @@ $\height_\Delta(\varepsilon_{k})=1$となるのは$k=n$のときのみである�
 また
 $\height_\Delta(\beta_{i,j})>1$である.
 
+$\Phi_\Delta^+$の元は次を満たしている:
+\begin{align*}
+  \alpha_{i,j} &= \alpha_{i,j}+\alpha_{i,i+1}\\
+  &= \alpha_{i,j-1}+\alpha_{j-1,j}.\\
+  \beta_{n-1,n}&=\alpha_{n-1,n}+\varepsilon'_n.\\
+  \beta_{i,n} &=\alpha_{i,n}+\varepsilon'_n\\
+  &=\beta_{i+1,n}+\alpha_{i,i+1}\\
+  \varepsilon'_i &= \beta_{i,i+1}+\alpha_{i,i+1}\\
+  \beta_{i,i+1} &= \varepsilon'_{i+1}+\alpha_{i,i+1}\\
+  &=\beta_{i+1,n}+\alpha_{i,i+1}.\\
+  \beta_{i,j} &= \beta_{i,j+1}+\alpha_{j,j+1}\\
+  &= \beta_{i+1,j}+\alpha_{i,i+1}.
+\end{align*}
+そこで,
 $\Phi_\Delta^+$の元を以下のように並べる:
 \begin{align*}
   \begin{array}{ccccccccc}
@@ -4782,6 +4905,8 @@ $\height_\Delta(\alpha)=1$である.
 $\alpha$が$\beta$の一つ左にある場合,
 もしくは
 $\alpha$が$\beta$の一つ上にある場合,
+$\Delta$の元を$\beta$に加えることで, $\alpha$が得られる.
+よって,
 $\height_\Delta(\alpha)=\height_\Delta(\beta)+1$である.
 
 \subsection{$D_{n}$}
@@ -4992,11 +5117,12 @@ $w$の表示を簡約にするにはどうしたらよいかについて考え�
 
 \begin{lemma}
   \label{lem:formula:conjdeletion}
-  $\alpha_i\in\Phi$とし,
-  $w=s_{\alpha_1}\cdots s_{\alpha_r}$とする.
+  %$\alpha_i\in\Phi$とし,
+  %$w=s_{\alpha_1}\cdots s_{\alpha_r}$とする.
+  $w\in W$,
   $\alpha\in\Phi$とし,
   $\beta=w(\alpha)$とする.
-  このと, $s_\beta w s_\alpha=w$
+  このとき, $s_\beta w s_\alpha=w$
 \end{lemma}
 \begin{proof}
 \cref{prop:conjbyortho,prop:reflgrpisortho}
@@ -5019,9 +5145,9 @@ $w$の表示を簡約にするにはどうしたらよいかについて考え�
   \label{lem:deletion:primitive}
   $\delta_1,\ldots,\delta_r \in\Delta$とし,
   $w=s_{\delta_1}\cdots s_{\delta_r}$とする.
-  また,
+  $1\leq k\leq l \leq r$に対し,
   $w_{k,l}=s_{\delta_k}s_{\delta_{k+1}}\cdots s_{\delta_l}$
-  とする, ただし, $k>l$のときには$w_{k,l}=\id$と約束する.
+  とし,  $k>l$のときには$w_{k,l}=\id$と約束する.
   $\delta_i=w_{i+1,j-1}(\delta_j)$
   を満たす $1\leq i < j \leq r$
   に対し,
@@ -5036,7 +5162,7 @@ $w$の表示を簡約にするにはどうしたらよいかについて考え�
   を用いれば,
   \begin{align*}
     w_{i,j}=
-    s_{\delta_i}w_{i+1,j-1}s_{\delta_j}
+    s_{\delta_i}w_{i,j}s_{\delta_j}
     =w_{i+1,j-1}
   \end{align*}
   が言えるので,
@@ -5694,7 +5820,6 @@ $m$が奇数のときは, 次のようになる:
 \end{align*}
 
 
-\newcommand{\xarrow}{\makebox[0pt][l]{$\nwarrow$}\nearrow}
 また, $\strongleq$については, $\ell_\Delta(u)<\ell_\Delta(w)$ならば, $u\strongleq w$となるので,
 $m$が偶数なら,
 \begin{align*}
