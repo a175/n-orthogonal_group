@@ -5646,6 +5646,46 @@ $W_{0}=\Set{\id}$, $W_{1}=\Set{s_\delta|\delta\in\Delta}$であるので,
 $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していくことで,
 すべての$l$に対し, $W_{l}$が求められる.
 
+半順序という関係について説明する.
+\begin{definition}
+  $P$を集合とする.
+  以下を満たすとき,
+  $\leq$は, $P$上の半順序であるという:
+  \begin{enumerate}
+  \item $x\in P \implies x\leq x$.
+  \item $x,y,z\in P, x\leq y, y\leq z \implies x\leq z$.
+  \item $x,y\in P,x\leq y, y\leq x \implies x=y$.
+  \end{enumerate}
+\end{definition}
+\begin{remark}
+  $\leq$が$P$上の半順序であるとき,
+  $P$は$\leq$で半順序集合(Poset)であるという.
+  $x\leq y$かつ$x\neq y$であるとき, $x<y$と書く.
+\end{remark}
+\begin{definition}
+  $P$が$\leq$で半順序集合であるとする.
+  以下を満たすとき$x\in P$は$y\in P$でカバーされるという:
+  \begin{enumerate}
+  \item $x< y$.
+  \item $x<c<y$を満たす$c\in P$は存在しない.
+  \end{enumerate}
+\end{definition}
+\begin{definition}
+  $P$は$\leq$で半順序集合であるとし,
+  $\rho\colon P \to \ZZ$を写像とする.
+  以下を満たすとき,
+  $P$は$\rho$をランク関数とするgraded posetであるという:
+  \begin{enumerate}
+  \item $x<y\implies \rho(x)<\rho(y)$.
+  \item $x$が$y$によってカバーされるなら, $\rho(x)+1=\rho(y)$.
+  \end{enumerate}
+\end{definition}
+\begin{example}
+  $X$を有限集合とし, $X$の部分集合を全て集めた集合を$2^X$と書く.
+  $2^{X}$は包含関係$\subset$で半順序集合である.
+  また, $A\in 2^X$に対し, $A$に含まれる元の個数を$\rho(A)$とすると,
+  $2^{X}$は$\rho$をランク関数とするgraded posetである.
+\end{example}
 \begin{definition}
   $u,w\in W$が次を満たすとき, $u\rightleq w$とする:
   つぎを満たす$\delta_1,\ldots,\delta_l\in\Delta$, $k$が存在する:
@@ -5667,6 +5707,8 @@ $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していく�
   \end{enumerate}
 \end{prop}
 
+
+以下では$W$に定まる半順序を紹介する.
 \begin{definition}
   $u,w\in W$が次を満たすとき, $u\leftleq w$とする:
   つぎを満たす$\delta_1,\ldots,\delta_l\in\Delta$, $k$が存在する:
@@ -5675,7 +5717,7 @@ $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していく�
     \item $w=s_{\delta_1}\cdots s_{\delta_l}$.
     \item $u=s_{\delta_k}\cdots s_{\delta_l}$.
   \end{enumerate}
-  $\rightleq$を右弱順序と呼ぶ.
+  $\leftleq$を左弱順序と呼ぶ.
 \end{definition}
 \begin{prop}
   $W$は$\leftleq$で$\ell_\Delta$をランク関数とする半順序集合になる.
@@ -5700,7 +5742,7 @@ $W_{l+1}=\Set{ws_\delta|\delta\in\Delta}\setminus W_{l-1}$を計算していく�
   $u,w\in W$が次を満たすとき, $u\strongleq w$とする:
   つぎを満たす$\delta_1,\ldots,\delta_l\in\Delta$, $i_1,\ldots,i_k$ が存在する:
   \begin{enumerate}
-    \item $i_1 <\cdots <i_k\leq l$.
+    \item $1\leq i_1 <\cdots <i_k\leq l$.
     \item $l=\ell(w)$.
     \item $w=s_{\delta_1}\cdots s_{\delta_l}$.
     \item $u=s_{\delta_{i_1}}\cdots s_{\delta_{i_k}}$.
